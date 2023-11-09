@@ -1,0 +1,145 @@
+/* footer css start here */
+#footer {
+   /* background-color: #f1f1f1; */
+   padding: 40px 0;
+   position: relative;
+}
+
+#footer::after {
+   content: "";
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   background-image: url(/footerBg.svg);
+   background-size: cover;
+   background-position: bottom;
+   background-repeat: no-repeat;
+   /* background-attachment: fixed; */
+   z-index: -1;
+   opacity: 0.15 !important;
+}
+
+#footer .footer_api_logo {
+   max-width: 120px;
+}
+
+#footer .footer_social_icons {
+   padding: 0;
+   list-style: none;
+   height: 38px;
+}
+#footer .footer_social_icons li {
+   display: inline-block;
+   margin-left: 10px;
+   height: inherit;
+   position: relative;
+   font-size: 1.2em;
+}
+#footer .footer_social_icons svg {
+   font-size: 20px !important;
+   color: #fff;
+   position: absolute;
+   top: 8px;
+   left: 8px;
+   transition: all 0.3s ease-out;
+}
+#footer .footer_social_icons a {
+   display: inline-block;
+}
+#footer .footer_social_icons a:before {
+   transform: scale(1);
+   -ms-transform: scale(1);
+   -webkit-transform: scale(1);
+   content: " ";
+   width: 36px;
+   height: 36px;
+   border-radius: 100%;
+   display: block;
+   background: #444;
+   transition: all 0.3s ease-out;
+}
+#footer .footer_social_icons li:nth-child(1) {
+   margin-left: 0px;
+}
+
+#footer .footer_social_icons a:hover:before {
+   transform: scale(0);
+}
+#footer .footer_social_icons a:hover svg {
+   transform: scale(1.4);
+   -ms-transform: scale(1.4);
+   -webkit-transform: scale(1.4);
+   color: var(--main-color);
+}
+
+@media (max-width: 991px) {
+   #footer::after {
+      opacity: 0.20 !important;
+   }
+   #footer .myOrder1 {
+      order: 3;
+   }
+   #footer .myOrder2 {
+      order: 2;
+   }
+   #footer .myOrder3 {
+      order: 1;
+   }
+   .footerLogo {
+      text-align: center;
+      padding-top: 10px;
+   }
+   .social {
+      justify-content: center !important;
+      margin-bottom: 30px;
+   }
+}
+@media (max-width: 767px) {
+   #footer .socialLink {
+      margin-top: 20px;
+      margin-bottom: 10px;
+   }
+   #footer .social_icon {
+      margin-left: 5px;
+      margin-right: 5px;
+   }
+}
+/* Footer css end here */
+
+/* Back To top button start */
+#backToTop {
+   display: inline-block;
+   position: absolute;
+   top: -30px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 60px;
+   height: 60px;
+   line-height: 60px;
+   border-radius: 100%;
+   text-align: center;
+   font-size: 20px;
+   font-weight: 600;
+   color: #fff;
+   background-image: linear-gradient(-90deg, #008bd6, #035481);
+   box-shadow: 0 20px 25px 0 rgba(54, 118, 255, 0.45);
+   transition: all 0.3s ease-in-out;
+}
+#backToTop:hover {
+   color: #fff;
+   background-image: linear-gradient(-90deg, #0290dd, #046092);
+   box-shadow: 0 20px 25px 0 rgba(54, 118, 255, 0.65);
+}
+
+@media (max-width: 767px) {
+   #backToTop {
+      top: -22px;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      font-size: 18px;
+   }
+}
+/* Back To top button end */

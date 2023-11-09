@@ -1,0 +1,263 @@
+#clientsReview {
+   background-color: #e3e6ea;
+   z-index: -10;
+   background-image: url(/clientReview/ClientsReviewBg.svg);
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: right;
+   height: 100%;
+   width: 100%;
+   padding-bottom: 120px;
+}
+
+@media (max-width:1400px ) {
+   #clientsReview {
+      background-size: cover;
+   }
+}
+@media (max-width: 991px ) {
+   #clientsReview {
+      background-image: none !important;
+   }
+}
+
+#clientsReview .clients_review .client_img_bg {
+   height: 300px;
+   width: 300px;
+   background-color: #fff;
+}
+.client_img {
+   height: 200px !important;
+   width: 200px !important;
+   object-fit: contain;
+}
+#clientsReview .sec_height {
+   height: 400px !important;
+   /* background-color: #fff; */
+   max-width: 800px;
+}
+#clientsReview .img_sec_height {
+   height: 400px !important;
+}
+
+#clientsReview .carousel-indicators {
+   bottom: initial;
+   top: 100% !important;
+   z-index: 99999 !important;
+
+   /* background-color: #ddd !important; */
+}
+
+#clientsReview .carousel-indicators button {
+   /* background-color: red !important; */
+   width: 45px !important;
+   height: 45px !important;
+   border-radius: 100%;
+   margin: 0 10px;
+   opacity: 0.3;
+   overflow: hidden;
+   position: relative;
+   border: 1px solid transparent;
+}
+
+#clientsReview .carousel-indicators button.active {
+   opacity: 1;
+   border: 1px solid var(--main-color);
+}
+
+#clientsReview .carousel-indicators button:nth-child(1)::after {
+   content: "";
+   width: 90%;
+   height: 90%;
+   background: url(/Clients_logo/Picture9.png);
+   background-size: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+#clientsReview .carousel-indicators button:nth-child(2)::after {
+   content: "";
+   width: 100%;
+   height: 100%;
+   background: url(/Clients_logo/haefa.png);
+   background-size: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+#clientsReview .carousel-indicators button:nth-child(3)::after {
+   content: "";
+   width: 100%;
+   height: 100%;
+   background: url(/Clients_logo/Picture01.png);
+   background-size: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+#clientsReview .Commentimg {
+   max-width: 100px;
+   margin-top: 30px;
+   margin-bottom: 40px;
+}
+
+#clientsReview .commentText {
+   font-size: 18px;
+}
+
+#clientsReview .client_name {
+   color: var(--main-color);
+}
+
+#clientsReview .border-secondary {
+   border-color: var(--main-color) !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+   background-image: none;
+   background-image: url(/client-arrow.png);
+   width: 20px;
+   height: 20px;
+   background-size: contain;
+   opacity: 1;
+}
+.carousel-control-next-icon {
+   transform: rotate(180deg);
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+   left: 100px;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 60px;
+   height: 60px;
+   border-radius: 100%;
+   border: 1px dashed var(--main-color);
+   transition: all 0.4s;
+   /* opacity: 0; */
+   opacity: 1;
+}
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+   width: 70px;
+   height: 70px;
+}
+.carousel-control-next {
+   left: initial;
+   right: 100px;
+}
+
+@media (max-width: 1600px) {
+   .carousel-control-prev {
+      left: 30px;
+   }
+   .carousel-control-next{
+      right: 30px;
+   }
+}
+
+/* responsive part start */
+@media (max-width: 992px) {
+   #clientsReview .clients_review .client_img_bg {
+      height: 250px;
+      width: 250px;
+   }
+   #clientsReview .Commentimg {
+      max-width: 75px;
+   }
+   #clientsReview .commentText {
+      font-size: 16px;
+   }
+   .carousel-control-prev {
+      display: none;
+   }
+   .carousel-control-next {
+      display: none;
+   }
+}
+@media (max-width: 767px) {
+   #clientsReview .Commentimg {
+      max-width: 60px;
+   }
+   #clientsReview .img_sec_height {
+      height: 250px !important;
+   }
+   #clientsReview .sec_height {
+      height: 195px !important;
+   }
+   #clientsReview .Commentimg {
+      margin-bottom: 20px;
+   }
+   #clientsReview .commentText {
+      margin-bottom: -13px;
+      text-align: center;
+      padding-right: 0px !important;
+   }
+   #clientsReview .clients_review .client_img_bg {
+      height: 170px;
+      width: 170px;
+   }
+   .client_img {
+      height: 150px !important;
+      width: 150px !important;
+   }
+   .clients_review .Commentimg {
+      margin-left: 50%;
+      transform: translate(-50%);
+   }
+   #clientsReview .review_person {
+      text-align: center;
+   }
+   #clientsReview .sec_height {
+      height: auto !important;
+   }
+   .carousel-control-prev {
+      width: 50px;
+      height: 50px;
+   }
+   .carousel-control-next {
+      width: 50px;
+      height: 50px;
+   }
+   #clientsReview .carousel-indicators {
+      bottom: initial;
+      top: calc(100% + 30px) !important;
+      z-index: 155 !important;
+      /* background-color: #ddd !important; */
+   }
+   #clientsReview .client_name {
+      font-weight: 600;
+   }
+}
+@media (max-width: 575px) {
+   #clientsReview .img_sec_height {
+      height: 150px !important;
+   }
+   .review_person {
+      text-align: center;
+      border: none !important;
+   }
+   .client_img {
+      height: 130px !important;
+      width: 130px !important;
+   }
+   #clientsReview .clients_review .client_img_bg {
+      height: 150px;
+      width: 150px;
+   }
+   #clientsReview .commentText {
+      padding-bottom: 10px !important;
+   }
+}
+
+.carousel-item {
+   transition: transform 0.5s ease-in-out;
+}
+
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+   transition: opacity 0s 0s;
+}

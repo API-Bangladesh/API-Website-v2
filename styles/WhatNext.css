@@ -1,0 +1,115 @@
+#whatNext .container {
+  max-width: 1200px !important;
+}
+
+/* CSS start here  */
+.nextItemsBox {
+  gap: 50px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.nextItems {
+  text-align: center;
+}
+
+.nextSerial {
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  background-color: #b7cedc;
+  color: var(--main-color);
+  border-radius: 100%;
+  line-height: 55px;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.nextItemsBox::after {
+  content: "";
+  display: block;
+  width: calc(100% - 12%);
+  height: 1px;
+  background-color: #b7cedc;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 29px;
+  z-index: -1;
+}
+
+.nextItems:nth-child(1) .nextSerial {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.nextItems:nth-child(1) .nextSerial::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 1px solid var(--main-color);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  animation: animationActive1 3s infinite;
+}
+.nextItems:nth-child(1) .nextSerial::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 1px solid var(--main-color);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  animation: animationActive2 3s infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animationActive1 {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes animationActive2 {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+.responsive_number_items {
+  display: none;
+}
+/* responsive part */
+@media (max-width: 992px) {
+  .number_list_details {
+    font-size: 14px;
+  }
+}
+@media (max-width: 767px) {
+  .nextItemsBox {
+    display: none !important;
+  }
+  .responsive_number_items {
+   display: block;
+ }
+}
+@media (max-width: 575px) {
+}

@@ -1,0 +1,197 @@
+#managementMember {
+   background-image: url(/managementBg.svg);
+   background-repeat: no-repeat;
+   background-position: center bottom;
+   background-size: 100%;
+}
+.managementBox {
+   background: #c2cad6;
+   z-index: 1;
+   overflow: hidden;
+   transition: all 0.3s;
+   position: relative;
+}
+
+.managementContain {
+   position: absolute;
+   width: 100%;
+   left: 0;
+   bottom: 0;
+   padding: 20px;
+   background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(252, 0, 0, 0) 100%
+   );
+   transform: translateY(125px);
+   opacity: 0;
+   z-index: 5;
+   transition: all 0.5s ease-in-out;
+}
+.managementBox:hover .managementContain {
+   transform: translateY(0px);
+   opacity: 1;
+}
+
+.managementContain::after {
+   content: "";
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: -1;
+}
+
+.managementBox:hover .memberName,
+.managementBox:hover .memberDesignation {
+   color: #000;
+}
+
+.managementBox:hover .managementContain::after {
+   background: none;
+}
+
+.memberName {
+   font-weight: bold;
+}
+.memberDesignation {
+   font-weight: bold;
+   font-size: 14px;
+}
+.memberDetails {
+   font-size: 14px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5;
+   line-clamp: 5;
+   -webkit-box-orient: vertical;
+}
+
+.memberDesignation {
+   padding-left: 45px;
+   position: relative;
+}
+.memberDesignation::after {
+   content: "";
+   width: 26px;
+   height: 2px;
+   position: absolute;
+   top: 11px;
+   left: 0;
+   z-index: 3;
+   background-color: var(--main-highlight);
+}
+
+.memberDesignation::before {
+   content: "";
+   width: 20px;
+   height: 1px;
+   position: absolute;
+   top: 11px;
+   left: 14px;
+   z-index: 3;
+}
+
+.memberImgBox {
+   height: 420px;
+   position: relative;
+}
+
+.memberImg {
+   width: 400px !important;
+   max-height: 400px !important;
+   object-fit: contain !important;
+   position: absolute;
+   right: -45px;
+   bottom: 0;
+}
+
+.managementBox::after {
+   content: "";
+   background: url("/managementBg1.png");
+   width: 200px;
+   height: 200px;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+   position: absolute;
+   top: 20%;
+   left: -50px;
+   opacity: 1;
+   z-index: -1;
+   transition: all 0.7s;
+}
+.managementBox::before {
+   content: "";
+   background: url("/managementBg2.png");
+   width: 100%;
+   height: 100%;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: -1;
+   opacity: 0;
+   transition: all 0.7s;
+}
+.managementBox:hover::before {
+   opacity: 1;
+}
+.managementBox:hover::after {
+   opacity: 0;
+}
+
+.memberImgBox {
+   text-align: right;
+}
+
+.managementBox:hover {
+   background-color: #fff;
+}
+
+@media (max-width: 1399px) {
+   .memberImgBox {
+      height: 320px;
+   }
+   .memberImg {
+      width: 320px !important;
+      max-height: 300px !important;
+   }
+}
+
+@media (max-width: 991px) {
+   #managementMember {
+      background-image: none !important;
+   }
+   .memberImgBox {
+      height: 400px;
+   }
+   .memberImg {
+      width: 370px !important;
+      max-height: 380px !important;
+   }
+}
+
+@media (max-width: 767px) {
+   .memberImg{
+      right: -20px;
+   }
+   .managementBox {
+      max-width: 330px;
+      margin: auto;
+   }
+   #managementMember.mb-5 {
+      margin-bottom: 0 !important;
+   }
+   #managementMember > .pb-5 {
+      padding-bottom: 0 !important;
+   }
+   .customGatter{
+      padding-top: 20px;
+      padding-bottom: 30px;
+   }
+}

@@ -1,0 +1,334 @@
+@font-face {
+   font-family: "kanit";
+   src: url(/fonts/Kanit-Light.ttf);
+   font-weight: 300;
+}
+@font-face {
+   font-family: "kanit";
+   src: url(/fonts/Kanit-Regular.ttf);
+   font-weight: 400;
+}
+@font-face {
+   font-family: "kanit";
+   src: url(/fonts/Kanit-Medium.ttf);
+   font-weight: 500;
+}
+@font-face {
+   font-family: "kanit";
+   src: url(/fonts/Kanit-SemiBold.ttf);
+   font-weight: 600;
+}
+@font-face {
+   font-family: "kanit";
+   src: url(/fonts/Kanit-Bold.ttf);
+   font-weight: 700;
+}
+
+:root {
+   --r: 2;
+   --g: 84;
+   --b: 130;
+   --a: 1;
+   --main-color: rgba(var(--r), var(--g), var(--b), var(--a));
+   --main-text-color: #333333;
+   --main-dark: #212121;
+   --main-highlight: #dd0213;
+   --color-blue: #2caef7;
+   --color-purple: #b93afb;
+   --body-color: #f0f2f5;
+   /* --main-hover-color: #1fbc2c; */
+}
+
+/* background-color: rgba(var(--r), var(--g), var(--b), 0.3); */
+/* Base color code: #025482 */
+
+.bg-base {
+   background-color: var(--main-color) !important;
+}
+.text-base {
+   color: var(--main-color) !important;
+}
+
+body {
+   font-size: 18px !important;
+   font-family: "kanit", sans-serif !important;
+   font-weight: 300;
+   background-color: var(--body-color) !important;
+   color: var(--main-dark) !important;
+   position: relative;
+   overflow-x: hidden;
+}
+
+@media (min-width: 1400px) {
+   .container {
+      max-width: 1536px !important;
+   }
+}
+
+html {
+   scroll-behavior: smooth !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+textarea {
+   font-family: "kanit" !important;
+   color: var(--main-dark);
+}
+p{
+   color: var(--main-dark);
+   font-weight: 300;
+}
+
+h1 {
+   font-size: 2.125rem !important;
+}
+h2 {
+   font-size: 1.875rem !important;
+}
+h3 {
+   font-size: 1.5rem !important;
+}
+h4 {
+   font-size: 1.25rem !important;
+}
+h5 {
+   font-size: 1.125rem !important;
+}
+h6 {
+   font-size: 1rem !important;
+}
+
+.section_padding_top {
+   padding-top: 60px;
+}
+.section_padding_bottom {
+   padding-bottom: 60px;
+}
+
+.section_padding {
+   padding-top: 60px;
+   padding-bottom: 60px;
+}
+
+/* Custome Button css Start  */
+.learn-more {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+   outline: none;
+   border: 0;
+   vertical-align: middle;
+   text-decoration: none;
+   background: transparent;
+   padding: 0;
+   font-size: inherit;
+   font-family: inherit;
+   width: 12rem;
+   height: auto;
+}
+.learn-more .circle {
+   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+   position: relative;
+   display: block;
+   margin: 0;
+   width: 3rem;
+   height: 3rem;
+   background: var(--main-color);
+   border-radius: 1.625rem;
+}
+.learn-more .circle .icon {
+   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   margin: auto;
+   background: #fff;
+}
+.learn-more .circle .icon.arrow {
+   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+   left: 0.625rem;
+   width: 1.125rem;
+   height: 0.125rem;
+   background: none;
+}
+.learn-more .circle .icon.arrow::before {
+   position: absolute;
+   content: "";
+   top: -0.25rem;
+   right: 0.0625rem;
+   width: 0.625rem;
+   height: 0.625rem;
+   border-top: 0.125rem solid #fff;
+   border-right: 0.125rem solid #fff;
+   transform: rotate(45deg);
+}
+.learn-more .button-text {
+   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   padding: 0.75rem 0;
+   margin: 0 0 0 1.85rem;
+   color: var(--main-color);
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 1.6;
+   text-align: center;
+   text-transform: uppercase;
+}
+.learn-more:hover .circle {
+   width: 100%;
+}
+.learn-more:hover .circle .icon.arrow {
+   background: #fff;
+   transform: translate(1rem, 0);
+}
+.learn-more:hover .button-text {
+   color: #fff;
+}
+/* Custome Button css End  */
+
+/* Custome Button 2 css Start  */
+.CustomeBtn {
+   font-size: 16px;
+   font-weight: 600;
+   color: #fff !important;
+   padding: 12px 17px 12px 25px;
+   display: inline-block;
+   border: 0;
+   background-image: radial-gradient(
+      100% 100% at 100% 0,
+      #98e9ff 0,
+      #0078be 100%
+   ) !important;
+   box-shadow: 0 2px 4px rgba(45, 35, 66, 0.1),
+      0 7px 13px -3px rgba(45, 35, 66, 0.2),
+      inset 0 -3px 0 rgba(58, 65, 111, 0.1);
+   background-position: 0 0;
+   transition: all 0.5s !important;
+}
+.CustomeBtn:hover {
+   /* padding: 12px 23px 12px 28px; */
+   /* background-image: radial-gradient(100% 100% at 100% 0,#a6ebfe 0,#0086d4 100%); */
+   box-shadow: initial;
+   box-shadow: 0 11px 25px 0 rgba(54, 118, 255, 0.45);
+}
+.CustomeBtnIcon {
+   display: inline-block;
+   font-size: 25px;
+   margin-right: 0;
+   padding-right: 0;
+   margin-left: 3px;
+   transform: translateY(-1px);
+}
+/* Custome Button 2 css End  */
+
+/* gradient button css start here */
+.requestBtn {
+   color: #fff;
+   display: inline-block;
+   text-decoration: none;
+   background-size: 150% 150%;
+   border-radius: 100px;
+   padding: 13px 33px;
+   background: linear-gradient(90deg, rgba(0,84,129,1) 17%, rgba(106,191,235,1) 100%);
+   transition: all 0.3s ease-in-out;
+}
+
+.requestBtn:hover {
+   color: #fff;
+   -webkit-box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
+-moz-box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
+box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
+}
+
+
+.bannerText .requestBtn {
+   min-width: 210px;
+   text-align: center;
+}
+/* gradient button css end here */
+
+/* pageBanner css Start here */
+#pageBanner {
+   background-image: url(/pageBg.jpg);
+   width: 100%;
+   height: 100vh;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: end;
+}
+
+.bannerText {
+   margin-top: 50px;
+   max-width: 1000px;
+   width: 100%;
+}
+
+.bannerTitle {
+   font-family: "kanit" !important;
+   font-size: 60px !important;
+   font-weight: 600;
+   color: var(--main-color);
+}
+.bannerDescription {
+   font-weight: 300;
+   color: var(--main-dark);
+}
+
+
+@media (max-width: 991px) {
+   #pageBanner {
+      height: initial;
+      min-height: 600px;
+   }
+   .bannerTitle {
+      font-size: 40px !important;
+   }
+}
+@media (max-width: 767px) {
+   #pageBanner {
+      height: initial;
+      /* min-height: 600px; */
+   }
+   #pageBanner .bannerTitle{
+      margin-bottom: 0 !important;
+      padding-bottom: 10px !important;
+   }
+   #pageBanner .bannerText{
+      margin-top: 80px;
+      padding-right: 15px !important;
+      padding-left: 15px !important;
+   }
+}
+/* pageBanner css end here */
+
+
+
+/* CSS for Beta version */
+#betaImg {
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   z-index: 10000;
+}
+
+@media (max-width: 767px) {
+   #betaImg {
+      width: 40px;
+      object-fit: contain;
+      top: -15px;
+   }
+}
+

@@ -1,0 +1,128 @@
+.swiper {
+    margin-right: 0px!important;
+}
+#industry .industry_bg_img{
+  margin-left: -2px !important;
+  margin-right: -2px !important;
+}
+.industry_header {
+  color: var(--main-color);
+}
+.industry_text {
+  max-width: 700px;
+}
+.industry-bg {
+  background: url(../public/industrise2.jpg) no-repeat center;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+.industry-bg .slick-prev:before,
+.industry-bg .slick-next:before {
+  content: "" !important;
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-image: url(../public/arrow.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.industry-bg .slick-prev {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  padding-left: 39px;
+  transform: translate(0, -50%);
+  /* rotate: 90deg; */
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+  z-index: 99999;
+}
+.industry-bg .slick-next {  
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  display: block;
+  padding: 0;
+  transform: translate(0, -50%);
+  transform: rotate(180deg);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+  z-index: 9999;
+}
+.garments_title{
+  font-size: 25px;
+  margin-top: auto;
+}
+.main_card {
+  height: 550px !important;
+}
+.card_one {
+  height: 550px !important;
+  margin-left: 2px;
+  margin-right: 2px;
+  background-color: rgba(41, 41, 41, 0.35);
+  display: flex;
+  flex-direction: column;
+  transition: all linear 0.3s;
+}
+.card_one:hover{
+  background-color: rgba(41, 41, 41, 0.59);
+}
+.learn_more {
+  transition: all linear 0.3s;
+  color: white;
+  font-size: 16px;
+}
+.learn_more:hover {
+  background-color: transparent !important;
+  padding-left: 5px !important;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+
+.card_body {
+  transform: translateY(470px);
+  transition: all 0.3s;
+}
+.main_card:hover .card_body  {
+  transform: translateY(350px);
+}
+
+
+.slick-slide.slick-active.slick-current .card_body {
+  transform: translateY(345px);
+}
+
+
+.slick-slide.slick-active.slick-current .card_one{
+  background-color: rgba(41, 41, 41, 0.59);
+}
+.line_show{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  /* background-color: #000; */
+  height: 75px;
+}
+
+@media (max-width: 991px) {
+  .card_body {
+    transform: translateY(490px);
+  }
+}

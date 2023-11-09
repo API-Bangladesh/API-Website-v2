@@ -1,0 +1,85 @@
+#cooperation {
+   background-image: url(/cooperationBg.svg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: bottom;
+   background-color: rgba(var(--r), var(--g), var(--b), 0.02);
+}
+#cooperation .cooperationText {
+   text-align: center;
+   color: var(--main-color);
+}
+.cooperationimg {
+   width: 100% !important;
+}
+
+
+
+@media (max-width: 991px) {
+   .cooperationText.w-50 {
+      width: 100% !important;
+      margin: initial !important;
+      margin-bottom: 15px !important;
+   }
+   .cooperationItem1 {
+      order: 2;
+   }
+   .cooperationItem2 {
+      order: 1;
+   }
+   .cooperationItem3 {
+      order: 3;
+   }
+
+   .cooperationText b{
+      font-size: 20px;
+      font-weight: 500;
+   }
+   .cooperationText span{
+      text-align: center;
+   }
+   .cooperationItem1 .cooperationText,
+   .cooperationItem2 .cooperationText,
+   .cooperationItem3 .cooperationText {
+      text-align: left !important;
+   }
+   .cooperationItem2 .p-3 {
+      padding: 0 !important;
+   }
+   .cooperationimg {
+      display: block !important;
+      width: 300px !important;
+      margin: auto !important;
+   }
+   .cooperation_iconBox{
+      padding-left: 80px;
+      position: relative;
+   }
+   .cooperationNumber{
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      top: 5px;
+      left: 0;
+      font-size: 35px;
+      font-weight: 400;
+      background-color: var(--main-color);
+      color: #fff;
+      line-height: 40px;
+      padding: 10px;
+      border-radius: 10px;
+   }
+}
+
+
+@media (min-width: 992px) {
+   .cooperationNumber{
+      display: none;
+   }
+   .cooperation_iconBox{
+      max-width: 460px;
+      width: 100%;
+   }
+}
+
+

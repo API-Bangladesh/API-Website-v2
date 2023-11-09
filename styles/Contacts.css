@@ -1,0 +1,207 @@
+/* Contact part start here */
+#contact {
+  background-color: #fafafa;
+}
+#contact button{
+  border: 0;
+}
+#contact .contactForm {
+  /* background-color: #fff; */
+  padding: 50px;
+  padding-bottom: 80px;
+}
+#contact .form-control {
+  background-color: transparent;
+}
+#contact .form-control:focus {
+  box-shadow: none !important;
+  border-bottom: 1px solid #666 !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+#contact input::-webkit-outer-spin-button,
+#contact input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+#contact input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#contact .featureItem {
+  position: relative;
+  padding-left: 50px;
+  padding-bottom: 30px;
+  margin-bottom: 0;
+}
+#contact .featureList {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  color: #333;
+  background-color: #ddd;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#contact .featureItem::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  border-left: 1px dashed #ddd;
+  height: 100%;
+  position: absolute;
+  top: 2px;
+  left: 14px;
+  z-index: 1;
+}
+
+#contact .featureItem:last-child::after {
+  display: none;
+}
+.contact-header {
+  font-size: 36px !important;
+  font-weight: 600 !important;
+  line-height: 50px;
+} 
+.focus {
+  color: #006e94;
+}
+
+.download_btn {
+  border: none;
+  background: none;
+  transition: all linear 0.3s;
+}
+.download_btn:hover {
+  color: #006e94;
+}
+
+input#company {
+  font-size: 18px;
+}
+input#name {
+  font-size: 18px;
+}
+input#email {
+  font-size: 18px;
+}
+input#phone {
+  font-size: 18px;
+}
+textarea#comments{
+  font-size: 18px;
+}
+
+.contactFormTitle {
+  font-size: 25px !important;
+  font-weight: 600;
+  line-height: 30px;
+}
+.schedule_title {
+  font-weight: 500;
+  padding-left: 10px !important;
+}
+/* Contact part end here */
+@media (max-width: 1399px) {
+  .btn_align_res {
+    flex-direction: column-reverse;
+    align-items: start !important;
+    margin-top: -26px;
+  }
+  .checkbox_btn_start.form-check {
+    padding-left: 0 !important;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 991px) {
+  #contact .contactForm{
+    padding-top: 10px;
+  }
+  .form-check.checkbox_btn_start {
+    display: flex;
+    align-items: center;
+    padding-bottom: 25px;
+    padding-left: 0px !important;
+  }
+  .form-check-label {
+    font-size: 14px;
+  }
+}
+@media (max-width: 767px) {
+  #contact .contactForm {
+    /* background-color: #fff; */
+    padding-bottom: 0px;
+    padding-left: 20px !important;
+    padding-right: 20px;
+
+  }
+  .btn_align_res {
+    flex-direction: column-reverse;
+    align-items: start !important;
+    margin-top: -26px;
+  }
+  .checkbox_btn_start {
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-bottom: 25px;
+  }
+  .contactFeature {
+    margin-top: 30px;
+    padding-left: 45px !important;
+    padding-right: 45px !important;
+  }
+  .open_timing {
+    text-align: center;
+    padding-top: 0px!important;
+    padding-left: 0px;
+  }
+  .schedule_title {
+    text-align: center;
+    padding-left: 0px !important;
+  }
+  .customBtn {
+    text-align: center;
+    padding-left: 0px !important;
+  }
+
+
+  .btn_align_res {
+    flex-direction: column-reverse;
+    align-items: start !important;
+    margin-top: -26px;
+  }
+
+  .checkbox_btn_start {
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-bottom: 25px;
+  }
+
+  .form-check.checkbox_btn_start {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .contactFormTitle {
+    margin-bottom: -20px !important;
+  }
+  .CustomeBtn.rounded-pill {
+    padding: 10px 19px;
+  }
+
+}
+
+@media (min-width: 991px) {
+  #contact .contactForm {
+    padding-top: 0;
+  }
+}
+

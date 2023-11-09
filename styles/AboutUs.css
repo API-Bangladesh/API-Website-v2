@@ -1,0 +1,123 @@
+#aboutUs {
+   background-color: #f0f2f5;
+}
+
+#aboutUs .aboutDetails{
+   font-weight: 300;
+}
+#aboutUs .container .container {
+   padding-left: 0 !important;
+   padding-right: 0 !important;
+}
+
+.about-header {
+   font-size: 26px !important;
+   font-weight: 500;
+   color: var(--main-dark);
+}
+.about-header::after {
+   position: absolute;
+   content: "";
+   left: 0;
+   bottom: -20px;
+   height: 3px;
+   width: 60px;
+   background-color: var(--main-color);
+}
+
+.toolbar {
+   background-color: none !important;
+   display: none !important;
+}
+/* Css for animation start here */
+
+
+
+
+/* Css for itemIconBox animation loop start here */
+.itemBox{
+   width: 100%;
+   height: 100%;
+}
+
+.itemIconBox {
+   position: absolute;
+   left: 0;
+   top: 0;
+   opacity: 0;
+   transition: all 0.5s;
+   width: 100%;
+   text-align: center;
+}
+.svgBox{
+   height: 400px;
+}
+
+.itemIconBox svg{
+   max-width: 500px !important;
+   width: 100%;
+}
+
+@media (max-width: 1250px) {
+   #Layer_1{
+      width: 450px !important;
+      height: 450px !important;
+   }
+   #aboutUs .aboutDetailsBox{
+      max-width: 600px;
+   }
+}
+@media (max-width: 1400px) {
+   #aboutUs .aboutDetailsBox{
+      max-width: 600px;
+   }
+}
+@media (max-width: 767px) {
+   #Layer_1{
+      width: 300px !important;
+      height: auto !important;
+      margin-top: 20px;
+   }
+   .svgBox{
+      height: 300px;
+   }
+}
+
+
+.itemIconBox.active {
+   opacity: 1;
+}
+
+.myicon {
+   font-size: 100px;
+}
+
+
+/* Css for itemIconBox animation loop end here */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "Sifonn-pro" !important;
+  src: url(../public/fonts/Sifonn-Pro.ttf);
+}
+.font-sifonn {
+  font-family: "Sifonn-pro" !important;
+}
+.side_nav_list {
+  color: rgb(50, 50, 50);
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid #666;
+  z-index: 99999999999;
+  font-family: "Sifonn-pro" !important;
+}
+.side_nav_list_bold{
+  font-size: 20px;
+  color: blue;
+  font-weight: 600!important;
+}
+.list_size{
+  font-size: 18px;
+}
+.list_size:hover{
+  font-size: 19px;
+  font-weight: 600;
+}
+.main_side_nav {
+  /* display: block; */
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.685);
+  content: "";
+  right: -1%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+}
+
+button.scroll-to-top {
+  background: transparent;
+  box-shadow: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: -21x;
+  z-index: 99999;
+}
+.list_tooltip{
+  margin-left: -70px;
+  border-radius: 2px;
+  background-color: white;
+  padding: 3px 10px;
+}
+
+.tool-kit{
+  z-index: 99999;
+}
+
+/* responsive part  */
+@media (max-width: 992px){
+  .main_side_nav{
+    display: none;
+  }
+}

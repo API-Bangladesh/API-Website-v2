@@ -1,0 +1,144 @@
+.font-oswald {
+   font-family: "oswald";
+}
+
+.wItem {
+   padding-left: 110px;
+   position: relative;
+   z-index: 150;
+}
+
+.wItem .welcpmeImg {
+   margin-top: 50px;
+   width: 390px;
+   height: 420px;
+   object-fit: contain;
+   border-radius: 10px;
+}
+
+.yearBg {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 250px;
+   height: 255px;
+   border-radius: 10px;
+   overflow: hidden;
+   background-image: url(/NumbersFigures/experiencebg.png);
+   background-repeat: no-repeat;
+   background-size: cover;
+   /* padding: 50px; */
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: #fff;
+}
+
+#numberFigures {
+   position: relative;
+   background-color: #e3e6ea;
+}
+#numberFigures::after {
+   position: absolute;
+   content: "";
+   top: 10%;
+   right: 0;
+   height: 700px;
+   width: 700px;
+   background: url("/NumbersFigures/NumbersFigures.png") no-repeat right center;
+   background-repeat: no-repeat;
+   background-size: contain;
+   opacity: 0.3;
+   z-index: 0;
+}
+@media (max-width: 1300px) {
+   #numberFigures::after {
+      width: 500px;
+      height: 500px;
+      background-size: contain;
+   }
+}
+.yearBg h1 {
+   font-size: 120px !important;
+   font-weight: 700;
+   line-height: 95%;
+   color: #fff;
+}
+.yearBg p {
+   font-size: 18px;
+   font-weight: 400;
+   line-height: 20px;
+   margin-bottom: 0;
+   color: #fff;
+}
+.yearBg img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.numberBox {
+   margin-left: auto;
+   max-width: 230px;
+   max-height: 230px;
+   height: 100%;
+   padding: 10px 10px;
+   background-color: #fdfbfb;
+   z-index: 100;
+}
+.countNum {
+   color: var(--main-color);
+}
+.plus {
+   font-size: 28px;
+   position: absolute;
+   top: 20px;
+   right: -18px;
+   color: var(--main-color);
+}
+.percent {
+   font-size: 25px;
+   position: absolute;
+   bottom: 25px;
+   right: -20px;
+   color: var(--main-color);
+}
+
+@media (min-width: 1400px) {
+   .numberBox {
+      padding: 30px 15px;
+   }
+}
+@media (min-width: 992px) and (max-width: 1399px) {
+   .numberBox {
+      padding-bottom: 20px;
+   }
+}
+@media (max-width: 991px) {
+   .yearBg {
+      width: 200px;
+      height: 200px;
+      top: 45px;
+   }
+   .customGatter.gx-5 {
+      --bs-gutter-x: 1rem;
+   }
+   .customGatter.gy-4 {
+      --bs-gutter-y: 1rem;
+   }
+}
+@media (max-width: 767px) {
+  .wItem{
+    padding: 0px 40px;
+  }
+  .yearBg {
+    width: 180px;
+    height: 180px;
+  }
+  .numberBox{
+    max-width: 270px;
+    margin: auto;
+    padding: 20px 10px;
+  }
+}

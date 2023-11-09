@@ -1,0 +1,34 @@
+#map .container {
+   max-width: 1200px !important;
+}
+#map iframe {
+   height: 370px;
+   max-width: 600px;
+   width: 100%;
+   border-radius: 10px;
+   overflow: hidden;
+   position: relative;
+}
+
+.contactTitle,
+.contactText p {
+   color: var(--main-color);
+}
+
+.contactText a {
+   color: var(--main-color);
+}
+.contactText a:hover {
+   color: var(--main-color);
+}
+
+@media (max-width: 767px) {
+   .contactInfo{
+      text-align: center;
+      padding-top: 30px;
+      padding-bottom: 50px;
+   }
+   .contactText p{
+      text-align: center;
+   }
+}

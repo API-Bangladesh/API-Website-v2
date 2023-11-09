@@ -1,0 +1,34 @@
+.sliderVideo {
+   width: 100% !important;
+   height: 100vh !important;
+   object-fit: cover;
+}
+.sliderImg {
+   width: 100%;
+   height: 100vh !important;
+   object-fit: cover;
+}
+
+/* @media (max-width: 767px){
+    .sliderVideo,
+    .sliderImg{
+        height: 300px !important;
+    }
+} */
+
+
+@media (max-width: 991px) {
+   .sliderVideo,
+   .sliderImg {
+      height: 470px !important;
+      object-fit: cover !important;
+   }
+}
+
+@media (max-width: 767px) {
+    .sliderVideo,
+    .sliderImg {
+       height: 350px !important;
+       object-fit: cover !important;
+    }
+ }
