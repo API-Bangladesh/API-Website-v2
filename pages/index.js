@@ -5,7 +5,7 @@ const Index = () => {
    return (
       <>
          <Head>
-            <title>API Solutions</title>
+            <title>API Solutions Ltd.</title>
          </Head>
          <Home />
 

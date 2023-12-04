@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -23,7 +23,9 @@ const Header = () => {
    };
 
    const handleMouseLeave = () => {
-      setShowItems(false);
+
+      setTimeout(() => {setShowItems(false);}, 3000)
+      
    };
    const handleMouseLeave2 = () => {
       setShowItems2(false);
@@ -37,7 +39,6 @@ const Header = () => {
       setShowItems2(false);
       router.push('/expertise');
    };
-   
 
    return (
       <>
@@ -89,7 +90,7 @@ const Header = () => {
                                           </Nav.Link>
                                        </p>
                                        <p>
-                                          <Nav.Link href="#">
+                                          <Nav.Link href="/ui-ux-design">
                                              <IoIosArrowForward />
                                              UI/UX Design
                                           </Nav.Link>
@@ -165,7 +166,7 @@ const Header = () => {
                                           </Nav.Link>
                                        </p>
                                        <p>
-                                          <Nav.Link href="#">
+                                          <Nav.Link href="/digital-transformation">
                                              <IoIosArrowForward />
                                              Digital Transformation
                                           </Nav.Link>
