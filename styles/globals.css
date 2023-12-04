@@ -80,7 +80,7 @@ textarea {
    font-family: "kanit" !important;
    color: var(--main-dark);
 }
-p{
+p {
    color: var(--main-dark);
    font-weight: 300;
 }
@@ -239,17 +239,20 @@ h6 {
    background-size: 150% 150%;
    border-radius: 100px;
    padding: 13px 33px;
-   background: linear-gradient(90deg, rgba(0,84,129,1) 17%, rgba(106,191,235,1) 100%);
+   background: linear-gradient(
+      90deg,
+      rgba(0, 84, 129, 1) 17%,
+      rgba(106, 191, 235, 1) 100%
+   );
    transition: all 0.3s ease-in-out;
 }
 
 .requestBtn:hover {
    color: #fff;
-   -webkit-box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
--moz-box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
-box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
+   -webkit-box-shadow: 0px 5px 15px -2px rgba(0, 84, 130, 0.5);
+   -moz-box-shadow: 0px 5px 15px -2px rgba(0, 84, 130, 0.5);
+   box-shadow: 0px 5px 15px -2px rgba(0, 84, 130, 0.5);
 }
-
 
 .bannerText .requestBtn {
    min-width: 210px;
@@ -272,7 +275,7 @@ box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
 
 .bannerText {
    margin-top: 50px;
-   max-width: 1000px;
+   max-width: 50%;
    width: 100%;
 }
 
@@ -287,7 +290,181 @@ box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
    color: var(--main-dark);
 }
 
+/* All Inner Page CSS start here */
+/* UI/UX start here  */
+.roleTitle {
+   color: var(--main-color);
+   margin-bottom: 20px;
+}
 
+.roleBox {
+   margin-top: 110px;
+}
+
+.curve {
+   width: 470px;
+   height: 470px;
+   object-fit: cover;
+   float: right;
+   margin-left: 2rem;
+   padding: 10px;
+   border-radius: 100%;
+   -webkit-shape-outside: circle();
+   shape-outside: circle();
+}
+
+.textImgBox p{
+   text-align: justify;
+}
+.textImgBox::after{
+   content: '';
+   display: inline-block;
+   width: 250px;
+   height: 250px;
+   border-radius: 100%;
+   background-color: #c2cad6;
+   position: absolute;
+   top: 0;
+   right: -100px;
+   z-index: -1;
+}
+.textImgBox::before{
+   content: '';
+   display: inline-block;
+   width: 100px;
+   height: 100px;
+   border-radius: 100%;
+   background-color: #e3e6ea;
+   position: absolute;
+   top: 370px;
+   right: -50px;
+   z-index: -1;
+}
+
+.roleProfile{
+   margin-top: 100px;
+}
+
+.techBox{
+   display: flex;
+   flex-wrap: wrap;
+   max-width: 340px;
+}
+
+.tech {
+   width: 80px;
+   margin-right: 50px;
+   margin-bottom: 30px;
+}
+
+.techBox .tech:nth-child(3n) {
+   margin-right: 0px !important;
+}
+
+.proIconImg {
+   width: 100%;
+   height: 60px;
+   object-fit: contain;
+}
+
+.proDesignation{
+   position: absolute;
+   right: 200px;
+   bottom: 0;
+   padding: 20px;
+   padding-left: 35px;
+   border-radius: 10px;
+   background: rgb(255,255,255);
+   background: linear-gradient(90deg, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 100%);
+}
+.proDesignation h3,
+.proDesignation p{
+   color: var(--main-color);
+}
+.proImgBox::after{
+   content: '';
+   display: inline-block;
+   width: 90px;
+   height: 90px;
+   position: absolute;
+   right: 340px;
+   bottom: 120px;
+   background-image: url(/ourServiceShap.png);
+   background-size: contain;
+   background-repeat: no-repeat;
+}
+
+.contactBtn{
+   position: absolute;
+   left: 0;
+   bottom: 0;
+}
+
+.servicesTitle{
+   color: var(--main-color);
+}
+
+.servicesBox{
+   padding-left: 120px;
+   padding-right: 30px;
+}
+
+.servicesImg{
+   width: 90px;
+   height: 90px;
+   object-fit: contain;
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+
+
+
+
+/* UI/UX end here  */
+
+
+
+
+/* application-development start here  */
+.digitalTransformation .servicesBox{
+   padding-left: 90px;
+}
+.digitalTransformation .servicesBox h3{
+   color: var(--main-color);
+}
+
+.serIconBox{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 60px;
+   height: 60px;
+   border-radius: 10px;
+   text-align: center;
+   background: linear-gradient( 90deg, rgba(0, 84, 129, 1) 17%, rgba(106, 191, 235, 1) 100% );
+   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.serIconBox svg{
+   height: 100%;
+   font-size: 28px;
+   color: #fff;
+}
+
+
+/* application-development end here  */
+
+/* All Inner Page CSS end here */
+
+
+
+@media (max-width: 1399px) {
+   .bannerTitle {
+      font-size: 45px !important;
+   }
+}
 @media (max-width: 991px) {
    #pageBanner {
       height: initial;
@@ -302,19 +479,18 @@ box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
       height: initial;
       /* min-height: 600px; */
    }
-   #pageBanner .bannerTitle{
+   #pageBanner .bannerTitle {
       margin-bottom: 0 !important;
       padding-bottom: 10px !important;
    }
-   #pageBanner .bannerText{
+   #pageBanner .bannerText {
       margin-top: 80px;
       padding-right: 15px !important;
       padding-left: 15px !important;
    }
 }
+
 /* pageBanner css end here */
-
-
 
 /* CSS for Beta version */
 #betaImg {
@@ -331,4 +507,3 @@ box-shadow: 0px 5px 15px -2px rgba(0,84,130,0.5);
       top: -15px;
    }
 }
-

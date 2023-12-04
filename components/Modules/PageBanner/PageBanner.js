@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import Link from "next/link";
 
-const PageBanner = ({ title, description, description2, showButtons }) => {
+const PageBanner = ({title, description, description2, showButtons, pageBg}) => {
    return (
       <>
-         <section id="pageBanner">
+         <section id="pageBanner" style={{backgroundImage: `url(${pageBg})`}}>
             <div className="bannerText px-5 py-4">
                <h1 className="bannerTitle fw-bold pb-4">{title}</h1>
                <p className="bannerDescription">{description}</p>
