@@ -16,11 +16,11 @@ const OurProduct = () => {
                <Row>
                   <Col lg={6} md={6}>
                      <div className="device_div_height">
-                        <div className="p-4 position-relative image_shadow_bg">
+                        <div className="p-4 position-relative boxRadius">
                            <img
                               src="../products/access.png"
                               alt=""
-                              className="device_img img-fluid"
+                              className="device_img"
                            />
                         </div>
                      </div>
@@ -162,7 +162,7 @@ const OurProduct = () => {
               </Col> */}
                      <Col lg={6} md={6} className="div_mn ">
                         <div className="device_div_height">
-                           <div className="p-4 position-relative image_shadow_bg">
+                           <div className="p-4 position-relative boxRadius">
                               <img
                                  src="../products/evote.png"
                                  alt=""
@@ -175,11 +175,11 @@ const OurProduct = () => {
 
                   <Col lg={6} md={6}>
                      <div className="device_div_height">
-                        <div className="p-4 position-relative image_shadow_bg">
+                        <div className="p-4 position-relative boxRadius">
                            <img
                               src="../products/hotelERP.png"
                               alt=""
-                              className="device_img img-fluid"
+                              className="device_img"
                            />
                         </div>
                      </div>

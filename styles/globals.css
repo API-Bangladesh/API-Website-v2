@@ -452,14 +452,11 @@ h6 {
    font-size: 28px;
    color: #fff;
 }
-
-
 /* application-development end here  */
 
+
+
 /* All Inner Page CSS end here */
-
-
-
 @media (max-width: 1399px) {
    .bannerTitle {
       font-size: 45px !important;
@@ -473,7 +470,11 @@ h6 {
    .bannerTitle {
       font-size: 40px !important;
    }
+   #pageBanner .bannerText {
+      max-width: 100%;
+   }
 }
+
 @media (max-width: 767px) {
    #pageBanner {
       height: initial;
@@ -485,12 +486,14 @@ h6 {
    }
    #pageBanner .bannerText {
       margin-top: 80px;
-      padding-right: 15px !important;
-      padding-left: 15px !important;
+      padding-right: 30px !important;
+      padding-left: 30px !important;
    }
 }
-
 /* pageBanner css end here */
+
+
+
 
 /* CSS for Beta version */
 #betaImg {
@@ -507,3 +510,9 @@ h6 {
       top: -15px;
    }
 }
+
+
+
+
+
+

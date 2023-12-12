@@ -1,13 +1,12 @@
 
 #mission{
      position: relative;
-     background-color: #fff;
      min-height: 650px;
-     background-image: url(/missionBg.svg);
+     /* background-image: url(/missionBg.svg);
      background-repeat: no-repeat;
      background-size: contain;
-     background-position: right center;
-     background-color: #f0f2f5;
+     background-position: right center; */
+     background-color: #ebeff3;
 }
 @media (max-width: 1400px) {
      #mission{

@@ -27,8 +27,8 @@ const Home = () => {
          <OurExpertise />
          <CoreValuesTwo />
          <Services />
-         <Industry />
-         <Technology />
+         {/* <Industry /> */}
+         {/* <Technology /> */}
          <WorkProcess />
          <Clients />
          <ClientReview />

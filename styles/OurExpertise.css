@@ -1,8 +1,8 @@
-#ourExpertise{
+/* #ourExpertise{
    background-image: url(/OurExpertise/ourExpertise.svg);
    background-repeat: no-repeat;
    background-position: right;
-}
+} */
 #ourExpertise .container:nth-child(2) {
    max-width: 1150px !important;
 }
@@ -536,6 +536,7 @@ rect {
 #industriesTwo{
    position: relative;
 }
+
 #industriesTwo::after{
    position: absolute;
   content: "";
@@ -547,9 +548,9 @@ rect {
   top: 0;
   height: 100%;
   width: 100%;
-  /* opacity: 1;/ */
   z-index: -1;
 }
+
 .industriesText{
    font-size: 18px;
    font-weight: light;

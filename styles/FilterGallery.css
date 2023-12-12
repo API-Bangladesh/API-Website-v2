@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
 }
-#portfolio::after {
+/* #portfolio::after {
   content: "";
   background-image: url(/portfolioBg.png);
   background-repeat: no-repeat;
@@ -15,7 +15,7 @@
   width: 1300px;
   opacity: 0.5;
   z-index: -1;
-}
+} */
 .product_overlay {
   position: relative;
   transition: all linear 0.3s;
