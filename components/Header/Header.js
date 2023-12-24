@@ -23,8 +23,8 @@ const Header = () => {
    };
 
    const handleMouseLeave = () => {
-      // setShowItems(false);
-      setTimeout(() => {setShowItems(false);}, 3000)
+      setShowItems(false);
+      // setTimeout(() => {setShowItems(false);}, 3000)
    };
 
    const handleMouseLeave2 = () => {

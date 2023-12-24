@@ -5,7 +5,7 @@ const Map = () => {
    return (
       <>
          <section id="map" className="section_padding">
-            <SectionTitle titleUpDown="Contacts Us" />
+            <SectionTitle titleUpDown="Our Location" />
             <div className="container">
                <div className="row">
                   <div className="col-lg-8 col-md-6">

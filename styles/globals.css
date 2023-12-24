@@ -42,6 +42,28 @@
 /* background-color: rgba(var(--r), var(--g), var(--b), 0.3); */
 /* Base color code: #025482 */
 
+
+
+/* ===== Scrollbar CSS Start ===== */
+  /* Firefox */
+  * {
+   scrollbar-width: auto;
+   scrollbar-color: #ff0000 #ffffff;
+ }
+ /* Chrome, Edge, and Safari */
+ *::-webkit-scrollbar {
+   width: 10px;
+ }
+ *::-webkit-scrollbar-track {
+   background: #ffffff;
+ }
+ *::-webkit-scrollbar-thumb {
+   background: linear-gradient( 40deg, rgba(0, 84, 129, 1) 17%, rgba(106, 191, 235, 1) 100% );
+   border-radius: 100px;
+   border: 2px solid #ffffff;
+ }
+/* ===== Scrollbar CSS End===== */
+
 .bg-base {
    background-color: var(--main-color) !important;
 }
@@ -503,7 +525,7 @@ h6 {
    z-index: 10000;
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
    #betaImg {
       width: 40px;
       object-fit: contain;
@@ -514,5 +536,45 @@ h6 {
 
 
 
+/* Swiper CSS Start here */
 
+#portfolio .container {
+   position: relative;
+ }
+#portfolio .swiper {
+   width: 100%;
+   height: 430px;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 100% !important;
+ }
+ 
+.swiper-slide {
+   text-align: center;
+   height: calc((100% - 30px) / 2) !important;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
 
+ /* Swiper CSS End here  */
+ #prevBtn, #nextBtn{
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   left: -50px;
+   width: 40px;
+   height: 40px;
+   display: inline-block;
+   z-index: 2000;
+   background-color: #aaa;
+}
+
+#nextBtn {
+   left: initial;
+   right: -50px !important;
+}
+
+#prevBtn img, #nextBtn img{
+   width: 10px;
+}

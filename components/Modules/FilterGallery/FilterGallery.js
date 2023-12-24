@@ -1,10 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FilterDta from "./Data";
 import { FiArrowDownRight } from 'react-icons/fi';
 import Link from "next/link";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/grid';
+import "swiper/css/navigation";
+
+// import required modules
+import {Navigation, Grid } from 'swiper/modules';
+
+
 
 const FilterGallery = () => {
   const [filterImage, setFilterImage] = useState([]);
@@ -32,11 +44,13 @@ const FilterGallery = () => {
     setFilterImage(updatedcard);
   };
 
+
+  
   return (
     <>
       <Container>
         <Row>
-          <ul className="mt-5 d-flex justify-content-center list-unstyled filter_manuitem">
+          <ul className="mt-5 mb-4 d-flex justify-content-center list-unstyled filter_manuitem">
             <li>
               <button
                 className={`text-capitalize me-2 btn btn-success rounded-1 mb-2 border-0 ${tab === "all" ? "active" : ""}`}
@@ -86,34 +100,59 @@ const FilterGallery = () => {
             
             </li>
           </ul>
-          {filterImage.map((curElm, index) => {
-            return (
-              <Col lg={4} md={4} sm={6} key={index} className="px-0">
-                <div className="my-4 mx-4 rounded-0 product_overlay">
-                  <img
-                    src={curElm.thumbnail}
-                    className="card-img rounded-3 position-relative"
-                  />
-                  <Link href={curElm.link} target="_blank">
-                    <div className="card_title rounded-3"> 
-                      <img
-                        variant="top"
-                        src={curElm.logo}
-                        className="overlay_logo rounded-3 img-fluid"
-                      />
-                      <div className="link_icons">
-                        <FiArrowDownRight size={"25px"}/>
-                      </div>
-                      {/* <div className="d-flex align-items-center">
-                        <img src="/managementBg1.png" alt="" className="card_img_design"/> 
-                      </div> */}
-                    </div>
-                  </Link>
-                </div>
-              </Col>
-            
-            );
-          })}
+          
+          
+
+         
+        <div className="portfolioBox position-relative">
+          <button id="prevBtn" className="btn d-flex justify-content-center align-items-center">
+                <img src="/arrow.png" alt="img"/>
+          </button>
+          <button id="nextBtn" className="btn d-flex justify-content-center align-items-center">
+               <img src="/arrow-next.png" alt="img"/>
+          </button>
+            <Swiper
+                slidesPerView={3}
+                grid={{
+                  rows: 2,
+                }}
+                spaceBetween={30}
+                modules={[Grid, Navigation]}
+                className="mySwiper"
+                navigation={{
+                  prevEl: "#prevBtn",
+                  nextEl: "#nextBtn",
+                  disabledClass: 'disabled',
+                }}
+              >
+                {filterImage.map((curElm, index) => 
+                    <SwiperSlide key={index}>
+                        <div className="product_overlay">
+                          <img
+                            src={curElm.thumbnail}
+                            className="card-img rounded-3 position-relative"
+                          />
+                          <Link href={curElm.link} target="_blank">
+                            <div className="card_title rounded-3"> 
+                              <img
+                                variant="top"
+                                src={curElm.logo}
+                                className="overlay_logo rounded-3 img-fluid"
+                              />
+                              <div className="link_icons">
+                                <FiArrowDownRight size={"25px"}/>
+                              </div>
+                            </div>
+                          </Link>
+                        </div>
+                
+                    </SwiperSlide>
+                  )}
+              </Swiper>
+        </div>
+
+       
+         
         </Row>
       </Container>
     </>

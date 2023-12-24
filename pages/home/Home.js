@@ -34,7 +34,7 @@ const Home = () => {
          <ClientReview />
          <WorkTogether />
          {/* <SideNav /> */}
-         <Contacts />
+         {/* <Contacts /> */}
          <ChatWidget />
       </>
    );

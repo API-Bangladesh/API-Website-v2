@@ -43,7 +43,7 @@ const ProjectEstimate = () => {
 
   return (
     <>
-      <section id="projectEstimate" className="section_padding_top requirement">
+      <section id="projectEstimate" className="section_padding requirement">
         <SectionTitle titleUpDown="Contact Form" />
         <Container>
           <div className="d-flex justify-content-center">

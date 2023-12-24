@@ -50,7 +50,7 @@ const Contacts = () => {
   return (
     <>
       <section id="contact" className="section_padding_top">
-        <SectionTitle titleUpDown="Contact Us" />
+        <SectionTitle titleUpDown="Say Hello !" />
         <div className="container demo overflow-hidden">
           <div className="row">
             <div className="col-lg-7 col-md-7">
