@@ -111,19 +111,31 @@
    }
 
    /* Button center  */
-   .clients .slick-prev {
+   /* .clients .slick-prev {
       left: calc(50% - 60px);
    }
    .clients .slick-next {
       left: calc(50% + 10px);
+   } */
+
+   .clients .slick-prev {
+      top: initial;
+      left: calc(100% - 130px) !important;
+      bottom: 0;
    }
+   .clients .slick-next {
+      top: initial;
+      bottom: 0;
+      right: 20px;
+   }
+
    .clients .slick-next,
    .clients .slick-prev {
       background: #ccdce6;
-      border-radius: 0px;
+      border-radius: 4px;
       z-index: 7777;
-      border-right: 2px solid var(--main-color);
-      background-color: transparent;
+      /* border-right: 2px solid var(--main-color);
+      background-color: transparent; */
    }
 
 }

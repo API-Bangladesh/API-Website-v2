@@ -48,7 +48,7 @@
   /* Firefox */
   * {
    scrollbar-width: auto;
-   scrollbar-color: #ff0000 #ffffff;
+   scrollbar-color: #005481 #ffffff;
  }
  /* Chrome, Edge, and Safari */
  *::-webkit-scrollbar {
@@ -537,7 +537,6 @@ h6 {
 
 
 /* Swiper CSS Start here */
-
 #portfolio .container {
    position: relative;
  }
@@ -553,11 +552,12 @@ h6 {
    text-align: center;
    height: calc((100% - 30px) / 2) !important;
    display: flex;
-   justify-content: center;
-   align-items: center;
+   /* justify-content: center; */
+   /* align-items: space-between; */
+   margin-bottom: 30px !important;
+   margin-top: 0 !important;
  }
 
- /* Swiper CSS End here  */
  #prevBtn, #nextBtn{
    position: absolute;
    top: 50%;
@@ -567,7 +567,7 @@ h6 {
    height: 40px;
    display: inline-block;
    z-index: 2000;
-   background-color: #aaa;
+   background-color: #c2cad6;
 }
 
 #nextBtn {
@@ -577,4 +577,18 @@ h6 {
 
 #prevBtn img, #nextBtn img{
    width: 10px;
+  filter: invert(1);
+  opacity: 0.4;
 }
+
+.swiper-grid-column>.swiper-wrapper {
+   flex-direction: row !important;
+}
+
+/* Swiper CSS End here  */
+
+
+
+
+
+
