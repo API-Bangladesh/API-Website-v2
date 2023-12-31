@@ -29,25 +29,25 @@ const NumberFigures = () => {
             <div className="col-md-6 col-lg-6 col-xl-6 col-xxl-5 numbers_bg">
                 <div className="row customGatter gy-4 gx-5 gx-xxl-0 justify-content-end">
                   <div className="col-md-6 col-sm-6">
-                    <div className="numberBox rounded text-center position-relative">
+                    <div className="numberBox text-center position-relative">
                       <Counter1 />
                       <p className="mb-0">Team Members</p>
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-6">
-                    <div className="numberBox rounded text-center position-relative">
+                    <div className="numberBox text-center position-relative">
                       <Counter2 />
                       <p className="mb-0">Satisfied Customers</p>
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-6">
-                    <div className="numberBox rounded text-center position-relative">
+                    <div className="numberBox text-center position-relative">
                       <Counter3 />
                       <p className="mb-0">Software Engineers</p>
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-6">
-                    <div className="numberBox rounded text-center position-relative">
+                    <div className="numberBox text-center position-relative">
                       <Counter4 />
                       <p className="mb-0">Customer Retention Rate</p>
                     </div>

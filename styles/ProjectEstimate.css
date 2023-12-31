@@ -1,7 +1,7 @@
 #projectEstimate {
   position: relative;
 }
-#projectEstimate::after {
+/* #projectEstimate::after {
   content: "";
   display: inline-block;
   background-image: url(/contactBg.png);
@@ -16,7 +16,7 @@
   max-height: 900px;
   height: 100%;
   z-index: -1;
-}
+} */
 
 #projectEstimate .form-select {
   padding: 14px;

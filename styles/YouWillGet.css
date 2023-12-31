@@ -1,9 +1,10 @@
-#youWillGet{
+/* #youWillGet{
    background-image: url(/YouWillGet_bg.svg);
    background-repeat: no-repeat;
    background-size: 1000px;
    background-position: right;
-}
+} */
+
 .youWillGetBox {
    display: flex;
    justify-content: space-between;

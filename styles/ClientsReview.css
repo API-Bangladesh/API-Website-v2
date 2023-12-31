@@ -1,12 +1,12 @@
 #clientsReview {
    background-color: #e3e6ea;
    z-index: -10;
-   background-image: url(/clientReview/ClientsReviewBg.svg);
+   /* background-image: url(/clientReview/ClientsReviewBg.svg);
    background-size: contain;
    background-repeat: no-repeat;
    background-position: right;
    height: 100%;
-   width: 100%;
+   width: 100%; */
    padding-bottom: 120px;
 }
 

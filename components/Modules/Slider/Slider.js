@@ -13,7 +13,7 @@ const Slider = () => {
                             loop
                             className="d-block w-100 sliderVideo"
                         >
-                            <source src="/videos/video-1.mp4" type="video/mp4" />
+                            <source src="/videos/video-1.webm" type="video/webm"/>
                         </video>
 
                         {/* <Carousel.Caption>

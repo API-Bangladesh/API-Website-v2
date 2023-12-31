@@ -5,11 +5,11 @@
    background-size: 100%;
 }
 .managementBox {
-   background: #c2cad6;
    z-index: 1;
    overflow: hidden;
    transition: all 0.3s;
    position: relative;
+   background: #c2cad6;
 }
 
 .managementContain {
@@ -184,9 +184,6 @@
       max-width: 330px;
       margin: auto;
    }
-   #managementMember.mb-5 {
-      margin-bottom: 0 !important;
-   }
    #managementMember > .pb-5 {
       padding-bottom: 0 !important;
    }
@@ -195,3 +192,30 @@
       padding-bottom: 30px;
    }
 }
+
+
+
+
+/* Slick Slider  */
+#managementMember .slick-slide > div{
+   margin-right: 15px;
+   margin-left: 5px;
+}
+
+@media screen and (max-width: 767px) {
+   #managementMember .slick-slide > div{
+      display: flex;
+      justify-content: center;
+   }
+   #managementMember .slick-slide div{
+      margin-right: 2px; 
+      margin-left: 0px;
+   }
+}
+
+
+
+
+
+
+

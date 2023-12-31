@@ -17,7 +17,7 @@ const AboutUsPage = () => {
             description="API Solutions is a software development company, specializing in cost-effective rapid prototyping, full-cycle software development, testing/QA, sustaining existing software, supporting infrastructure and AI-based IoT product development. We offer tailored solutions to individual customer needs, whether at the Primary, Medium, Built, or post-Built stage, with a focus on care, dedication, and sincerity."
          />
          <Mission />
-         <NumberFigures />
+         {/* <NumberFigures /> */}
          <ManagementMember />
          <Cooperation />
          <YouWillGet />
