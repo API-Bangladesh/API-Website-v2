@@ -1,6 +1,6 @@
 import React from "react";
 import PageBanner from "../components/Modules/PageBanner/PageBanner";
-import DigitalTransformation from "../components/Modules/DigitalTransformation/DigitalTransformation";
+import DigitalTransformation from "../components/Modules/Expertise-inner-pages-all/DigitalTransformation";
 import OurProduct from "../components/Modules/OurProduct/OurProduct";
 
 const InnerPage = () => {

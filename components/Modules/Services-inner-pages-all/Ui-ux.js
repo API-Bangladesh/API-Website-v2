@@ -9,66 +9,86 @@ const InnerPage = () => {
          <section id="innerPage" className="section_padding">
             <Container>
                <div className="roleBox">
-                  <h1 className="roleTitle text-capitalize fw-bold fs-1">
-                     Creative Design
+                  <h1 className="roleTitle text-capitalize">
+                     UI/UX Design
                   </h1>
 
                   <div className="textImgBox position-relative">
                      <img
                         className="curve"
-                        src={"/innerPaageImg/17.jpg"}
+                        src={"/innerPaageImg/4.jpg"}
                         alt="img"
                      />
 
                      <p>
-                        We know first impressions matter, and our Creative
-                        Design service is about nailing that first impression.
-                        We'll ensure your digital presence is visually stunning
-                        and highly functional, meeting industry standards and
-                        your unique brand identity. We, as a team, excel to
-                        combine functionality with aesthetics. We help you
-                        closely understand the brand and audience.
+                        Unlock the potential of your digital presence with our
+                        UI/UX Design Services, where design is an expression of
+                        art and creativity. We set ourselves apart by making
+                        your apps and websites not only function seamlessly but
+                        also look stunning. Our philosophy centers on kindness,
+                        understanding, and putting people first, ensuring an
+                        enjoyable digital journey for every user.
                      </p>
 
                      <h4 className="d-block my-2">
-                        What Creative Design Services We Provide?
+                        Discover what sets us apart in UI design
                      </h4>
 
                      <p>
-                        <b>Graphic Design: </b>
-                        We can fulfill a variety of design requirements. We
-                        design eye-catching logos for eye-catching promotional
-                        materials like brochures, posters, flyers, and business
-                        cards. Our mission? To craft visuals that not only grab
-                        your attention but also get your message across
-                        effectively.
+                        <b>Accessibility and Inclusivity: </b>
+                        Ensuring a fluent experience for everyone, we create
+                        interfaces accessible to all, making technology
+                        inclusive.
                      </p>
 
                      <p>
-                        <b>Packaging Structure: </b> We design packaging that's
-                        not just attractive but practical, making your product
-                        stand out on the store shelf while showcasing.
+                        <b>User Feedback Integration: </b>
+                        Embracing feedback, we encourage users to share
+                        experiences, refining and improving the design
+                        continually.
                      </p>
 
                      <p>
-                        <b>Illustration: </b>Our illustrators bring ideas to
-                        life through custom illustrations, whether it's for
-                        children's books, marketing materials, or digital media.
+                        <b>Rapid Prototyping: </b>
+                        Prioritizing quick iterations, we use rapid prototyping
+                        for fast idea testing, ensuring swift progress and
+                        adaptability.
                      </p>
 
                      <p>
-                        <b>Print Design: </b>From magazines and newspapers to
-                        promotional materials, our print design services ensure
-                        your print materials are professionally designed,
-                        well-organized, and visually appealing.
+                        <b>Cross-Platform Consistency: </b>
+                        Maintain brand and design consistency across platforms,
+                        from websites to apps, ensuring a seamless user
+                        experience.
                      </p>
 
                      <p>
-                        <b>Advertising Campaigns: </b>We help clients create
-                        comprehensive advertising campaigns that span print,
-                        digital, and social media. Our team can create appealing
-                        images and convincing sentences to reach your desired
-                        audience.
+                        <b>Data-Driven Design: </b>
+                        Utilize data for informed decisions, aligning design
+                        choices with user preferences through analytics and
+                        behavior analysis.
+                     </p>
+                     <p>
+                        <b>Responsive Design Best Practices: </b>
+                        Follow the latest trends, ensuring your product not only
+                        adapts to different screens but offers an excellent user
+                        experience.
+                     </p>
+                     <p>
+                        <b>Content Strategy: </b>
+                        Beyond visuals, we organize and present content in a
+                        user-friendly way, ensuring effective communication.
+                     </p>
+                     <p>
+                        <b>Wireframing and Information Architecture: </b>
+                        Plan information flow with wireframes, creating a
+                        blueprint before detailed design, like constructing a
+                        building.
+                     </p>
+                     <p>
+                        <b>Ongoing Support: </b>
+                        It doesn't end with design; we provide continuous
+                        support and guidance as your digital product evolves.
                      </p>
                   </div>
 
@@ -76,12 +96,15 @@ const InnerPage = () => {
                      <Row>
                         <Col lg={6} md={6}>
                            <div className="leftContent position-relative h-100">
-                           <h3 className="fw-light lh-sm">
-                              You're in the right spot if you want to see your
-                              digital creations fulfilled. We're here to help
-                              you make your ideas a reality in a way that will
-                              surprise others. Let's get started!
-                           </h3>
+                              <h3 className="fw-light lh-sm">
+                                 Ready to transform your digital presence?
+                                 Choose us for exceptional UI/UX Design. Our
+                                 expert designers ensure smooth functionality on
+                                 all devices. Skilled in tools like Sketch,
+                                 Adobe XD, and Figma, they craft polished,
+                                 professional, and awesome-looking digital
+                                 experiences.
+                              </h3>
                               <div className="techBox mt-5">
                                  <div className="tech">
                                     <img
@@ -139,13 +162,13 @@ const InnerPage = () => {
                            <div className="proImgBox position-relative text-end">
                               <img
                                  className="proImg d-inline-block"
-                                 src={"/innerPaageImg/ananta.png"}
+                                 src={"/our-services-avatar/4.svg"}
                                  alt="img"
                               />
 
                               <div className="proDesignation text-start">
-                                 <h3 className="mb-1">Ananta Kumar Hridoy</h3>
-                                 <p className="mb-0">UX / UI Designer</p>
+                                 <h3 className="mb-1">UI/UX Designer</h3>
+                                 {/* <p className="mb-0">UX / UI Designer</p> */}
                               </div>
                            </div>
                         </Col>
@@ -154,17 +177,18 @@ const InnerPage = () => {
 
                   <div className="someServices mt-5 mb-5">
                      <h1 className="servicesTitle text-center pt-5 mb-5">
-                        How are Our Services Beneficial?
+                        Elevate Your Digital Experience with Our Tailored UX/UI
+                        Design Solutions
                      </h1>
                      <Row className="g-5">
                         <Col lg={6} md={6}>
                            <div className="servicesBox position-relative">
-                              <h3>Branding and Identity</h3>
+                              <h3>Intuitive User Journeys</h3>
                               <p>
-                                 We assist in giving your brand its own special
-                                 identity. Developing an attractive logo and
-                                 using shades that complement it are two
-                                 essential steps in this process.
+                                 Craft seamless experiences with user-centric
+                                 design, ensuring intuitive navigation and
+                                 interactions that align with your audience's
+                                 expectations.
                               </p>
                               <img
                                  className="servicesImg"
@@ -175,11 +199,12 @@ const InnerPage = () => {
                         </Col>
                         <Col lg={6} md={6}>
                            <div className="servicesBox position-relative ">
-                              <h3>Graphic Design</h3>
+                              <h3>Responsive and Consistent Design</h3>
                               <p>
-                                 We guarantee that your graphics, images, and
-                                 visual elements are of the highest quality,
-                                 making your content stand out.
+                                 Our designs adapt flawlessly across devices,
+                                 offering a consistent and visually appealing
+                                 interface, enhancing brand coherence and user
+                                 engagement.
                               </p>
                               <img
                                  className="servicesImg"
@@ -192,12 +217,12 @@ const InnerPage = () => {
                         </Col>
                         <Col lg={6} md={6}>
                            <div className="servicesBox position-relative ">
-                              <h3>Prototyping</h3>
+                              <h3>Visual Appeal and Professionalism</h3>
                               <p>
-                                 Before diving into the deep end, we create
-                                 prototypes to give you a feel for what the
-                                 final product will be like. It's like a sneak
-                                 peek to make sure we're on the right track.
+                                 Elevate your brand aesthetics with visually
+                                 polished designs. Our team pays meticulous
+                                 attention to detail, ensuring a professional
+                                 and visually striking digital presence.
                               </p>
                               <img
                                  className="servicesImg"
@@ -210,12 +235,12 @@ const InnerPage = () => {
                         </Col>
                         <Col lg={6} md={6}>
                            <div className="servicesBox position-relative ">
-                              <h3>Responsive Design</h3>
+                              <h3>Efficiency through Tools and Expertise</h3>
                               <p>
-                                 In today's digital age, your design needs to
-                                 look fantastic on all devices, from desktop
-                                 computers to mobile phones. We ensure that your
-                                 design adapts to different screen sizes
+                                 Leverage our designers' expertise in tools like
+                                 Sketch, Adobe XD, and Figma. We create cool
+                                 graphics, optimize images, and use CSS to make
+                                 your product not only look awesome but work
                                  flawlessly.
                               </p>
                               <img

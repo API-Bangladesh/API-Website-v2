@@ -241,7 +241,7 @@ const Services = () => {
                           </Link> */}
                         </div>
                         <div className="serviceImg">
-                          <img src="our-services-avatar/2.svg" alt="img" />
+                          <img src="our-services-avatar/4.svg" alt="img" />
                         </div>
                       </div>
                     </Tab.Pane>
@@ -274,7 +274,7 @@ const Services = () => {
                           </Link> */}
                         </div>
                         <div className="serviceImg">
-                          <img src="our-services-avatar/4.svg" alt="img" />
+                          <img src="our-services-avatar/5.svg" alt="img" />
                         </div>
                       </div>
                     </Tab.Pane>
@@ -310,7 +310,7 @@ const Services = () => {
                           </Link> */}
                         </div>
                         <div className="serviceImg">
-                          <img src="our-services-avatar/5.svg" alt="img" />
+                          <img src="our-services-avatar/6.svg" alt="img" />
                         </div>
                       </div>
                     </Tab.Pane>
@@ -343,7 +343,7 @@ const Services = () => {
                           </Link> */}
                         </div>
                         <div className="serviceImg">
-                          <img src="our-services-avatar/6.svg" alt="img" />
+                          <img src="our-services-avatar/7.svg" alt="img" />
                         </div>
                       </div>
                     </Tab.Pane>
@@ -379,7 +379,7 @@ const Services = () => {
                           </Link> */}
                         </div>
                         <div className="serviceImg">
-                          <img src="our-services-avatar/3.svg" alt="img" />
+                          <img src="our-services-avatar/8.svg" alt="img" />
                         </div>
                       </div>
                     </Tab.Pane>
@@ -416,7 +416,7 @@ const Services = () => {
                         </div>
                         <div className="serviceImg">
                           <img
-                            src="our-services-avatar/7.svg"
+                            src="our-services-avatar/9.svg"
                             alt="img"
                           />
                         </div>
@@ -451,7 +451,7 @@ const Services = () => {
                           </Link> */}
                         </div>
                         <div className="serviceImg">
-                          <img src="our-services-avatar/4.svg" alt="img" />
+                          <img src="our-services-avatar/10.svg" alt="img" />
                         </div>
                       </div>
                     </Tab.Pane>

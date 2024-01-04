@@ -40,7 +40,6 @@
    /* background-color: #e3e6ea; */
 }
 
-
 /* #numberFigures::after {
    position: absolute;
    content: "";
@@ -93,18 +92,21 @@
 }
 .countNum {
    color: var(--main-color);
+   /* background: #aaa; */
+   min-width: calc(1.575rem + 3.9vw);
+   display: inline-block;
 }
 .plus {
    font-size: 28px;
    position: absolute;
-   top: 20px;
+   top: 10px;
    right: -18px;
    color: var(--main-color);
 }
 .percent {
    font-size: 25px;
    position: absolute;
-   bottom: 25px;
+   bottom: 15px;
    right: -20px;
    color: var(--main-color);
 }
@@ -133,16 +135,22 @@
    }
 }
 @media (max-width: 767px) {
-  .wItem{
-    padding: 0px 40px;
-  }
-  .yearBg {
-    width: 180px;
-    height: 180px;
-  }
-  .numberBox{
-    max-width: 270px;
-    margin: auto;
-    padding: 20px 10px;
-  }
+   .wItem {
+      padding: 0px 40px;
+   }
+   .yearBg {
+      width: 180px;
+      height: 180px;
+   }
+   .numberBox {
+      max-width: 270px;
+      margin: auto;
+      padding: 20px 10px;
+   }
+   .plus {
+      top: 0px;
+   }
+   .percent {
+      bottom: 5px;
+   }
 }

@@ -6,7 +6,7 @@ import { Row } from "react-bootstrap";
 const WhatNext = () => {
   return (
     <>
-      <section id="whatNext" className="section_padding">
+      <section id="whatNext" className="section_padding mb-5">
         <SectionTitle titleUpDown="What Happens Next" />
 
         <div className="container">

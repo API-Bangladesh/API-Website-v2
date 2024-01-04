@@ -479,8 +479,8 @@ const ProjectEstimate = () => {
                               <option>Software QA and Testing</option>
                               <option>Machine learning & AI</option>
                               <option>Cloud Solutions</option>
-                              <option>It Support & Maintenance</option>
-                              <option>It Consulting</option>
+                              <option>IT Support & Maintenance</option>
+                              <option>IT Consulting</option>
                               <option>Digital Transformation</option>
                             </Form.Select>
                           </Form.Group>
@@ -677,7 +677,7 @@ const ProjectEstimate = () => {
                         </div>
                         {/* <CustomReCAPTCHA onVerify={setIsVerified}/> */}
 
-                        <button type="submit" className="requestBtn border-0">
+                        <button type="submit" className="requestBtn mt-3 mb-5 border-0">
                           Send request
                         </button>
                         {/* </Form> */}

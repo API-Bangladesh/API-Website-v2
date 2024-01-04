@@ -10,7 +10,7 @@ const LoopItems = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
+      setActiveIndex((prevIndex) => (prevIndex + 1) % 2);
     }, 4000);
 
     return () => clearInterval(intervalId);
@@ -24,9 +24,9 @@ const LoopItems = () => {
       <div className={`itemIconBox ${activeIndex === 1 ? 'active' : ''}`}>
         <Svg2/>
       </div>
-      <div className={`itemIconBox ${activeIndex === 2 ? 'active' : ''}`}>
+      {/* <div className={`itemIconBox ${activeIndex === 2 ? 'active' : ''}`}>
         <Svg3/>
-      </div>
+      </div> */}
     </div>
   );
 };
