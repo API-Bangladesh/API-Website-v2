@@ -64,7 +64,7 @@ const InnerPage = () => {
 
                   <div className="roleProfile">
                      <Row>
-                        <Col lg={6} md={6}>
+                        <Col lg={8} md={8}>
                            <div className="leftContent position-relative h-100">
                               <h3 className="fw-light lh-sm">
                                  Unlock tailored AI and ML solutions with API
@@ -126,7 +126,7 @@ const InnerPage = () => {
                               </Link>
                            </div>
                         </Col>
-                        <Col lg={6} md={6}>
+                        <Col lg={4} md={4}>
                            <div className="proImgBox position-relative text-end">
                               <img
                                  className="proImg d-inline-block"

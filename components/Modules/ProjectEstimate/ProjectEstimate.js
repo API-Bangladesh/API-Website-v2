@@ -670,8 +670,8 @@ const ProjectEstimate = () => {
                         </Row>
 
                         <div className="checkBox d-flex align-items-center mb-2">
-                          <Checkbox {...label} />
-                          <label htmlFor="CheckDefault" className="checkBox_text">
+                          <Checkbox id="CheckedText" {...label} />
+                          <label htmlFor="CheckedText" className="checkBox_text">
                             I want to receive a monthly tech newaletter
                           </label>
                         </div>

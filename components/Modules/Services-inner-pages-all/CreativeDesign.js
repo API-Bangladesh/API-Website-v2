@@ -74,7 +74,7 @@ const InnerPage = () => {
 
                   <div className="roleProfile">
                      <Row>
-                        <Col lg={6} md={6}>
+                        <Col lg={8} md={8}>
                            <div className="leftContent position-relative h-100">
                            <h3 className="fw-light lh-sm">
                               You're in the right spot if you want to see your
@@ -135,20 +135,21 @@ const InnerPage = () => {
                               </Link>
                            </div>
                         </Col>
-                        <Col lg={6} md={6}>
+                        <Col lg={4} md={4}>
                            <div className="proImgBox position-relative text-end">
                               <img
                                  className="proImg d-inline-block"
-                                 src={"/innerPaageImg/ananta.png"}
+                                 src={"/our-services-avatar/3.svg"}
                                  alt="img"
                               />
 
                               <div className="proDesignation text-start">
-                                 <h3 className="mb-1">Ananta Kumar Hridoy</h3>
-                                 <p className="mb-0">UX / UI Designer</p>
+                                 <h3 className="mb-1">Visualizer</h3>
+                                 {/* <p className="mb-0">UX / UI Designer</p> */}
                               </div>
                            </div>
                         </Col>
+                        
                      </Row>
                   </div>
 
