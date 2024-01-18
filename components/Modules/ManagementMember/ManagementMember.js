@@ -36,6 +36,8 @@ const ManagementMember = () => {
           ]
       };
 
+
+      
    return (
       <>
          <section id="managementMember" className="section_padding mb-5">

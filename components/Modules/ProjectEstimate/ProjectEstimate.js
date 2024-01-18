@@ -479,8 +479,8 @@ const ProjectEstimate = () => {
                               <option>Software QA and Testing</option>
                               <option>Machine learning & AI</option>
                               <option>Cloud Solutions</option>
-                              <option>It Support & Maintenance</option>
-                              <option>It Consulting</option>
+                              <option>IT Support & Maintenance</option>
+                              <option>IT Consulting</option>
                               <option>Digital Transformation</option>
                             </Form.Select>
                           </Form.Group>
@@ -670,14 +670,14 @@ const ProjectEstimate = () => {
                         </Row>
 
                         <div className="checkBox d-flex align-items-center mb-2">
-                          <Checkbox {...label} />
-                          <label htmlFor="CheckDefault" className="checkBox_text">
+                          <Checkbox id="CheckedText" {...label} />
+                          <label htmlFor="CheckedText" className="checkBox_text">
                             I want to receive a monthly tech newaletter
                           </label>
                         </div>
                         {/* <CustomReCAPTCHA onVerify={setIsVerified}/> */}
 
-                        <button type="submit" className="requestBtn border-0">
+                        <button type="submit" className="requestBtn mt-3 mb-5 border-0">
                           Send request
                         </button>
                         {/* </Form> */}

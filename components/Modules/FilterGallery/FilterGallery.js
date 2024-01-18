@@ -124,6 +124,17 @@ const FilterGallery = () => {
                   nextEl: "#nextBtn",
                   disabledClass: 'disabled',
                 }}
+                breakpoints={{
+                  1100: {
+                    slidesPerView: 3
+                  },
+                  768: {
+                    slidesPerView: 2
+                  },
+                  1: {
+                    slidesPerView: 1,
+                  },
+                }}
               >
                 {filterImage.map((curElm, index) => 
                     <SwiperSlide key={index}>

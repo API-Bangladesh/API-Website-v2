@@ -30,9 +30,10 @@ const Map = () => {
                            scrolling="no"
                            allowFullScreen
                         /> */}
+                        
 
                         <iframe
-                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4387.686761431301!2d90.39893637594344!3d23.788008787330327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7b0794860ef%3A0xb1aaf9bf10d9ed2a!2sBanani%2C%20Dhaka%2C%20Bangladesh!5e1!3m2!1sen!2sbd!4v1692769816327!5m2!1sen!2sbd"
+                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.6279004406138!2d90.39996767479337!3d23.79625198701545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7102559e17d%3A0x63849c8fb856db3!2sAPI%20Solutions%20Limited!5e0!3m2!1sen!2sbd!4v1705221394294!5m2!1sen!2sbd"
                            allowfullscreen=""
                            loading="lazy"
                            referrerpolicy="no-referrer-when-downgrade"

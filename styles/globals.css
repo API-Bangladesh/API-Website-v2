@@ -42,27 +42,33 @@
 /* background-color: rgba(var(--r), var(--g), var(--b), 0.3); */
 /* Base color code: #025482 */
 
-
-
 /* ===== Scrollbar CSS Start ===== */
-  /* Firefox */
-  * {
+/* Firefox */
+body {
    scrollbar-width: auto;
    scrollbar-color: #005481 #ffffff;
- }
- /* Chrome, Edge, and Safari */
- *::-webkit-scrollbar {
+}
+/* Chrome, Edge, and Safari */
+body::-webkit-scrollbar {
    width: 10px;
- }
- *::-webkit-scrollbar-track {
+}
+body::-webkit-scrollbar-track {
    background: #ffffff;
- }
- *::-webkit-scrollbar-thumb {
-   background: linear-gradient( 40deg, rgba(0, 84, 129, 1) 17%, rgba(106, 191, 235, 1) 100% );
+}
+body::-webkit-scrollbar-thumb {
+   background: linear-gradient(
+      40deg,
+      rgba(0, 84, 129, 1) 17%,
+      rgba(106, 191, 235, 1) 100%
+   );
    border-radius: 100px;
    border: 2px solid #ffffff;
- }
+}
 /* ===== Scrollbar CSS End===== */
+html,
+body {
+   overflow-x: hidden;
+}
 
 .bg-base {
    background-color: var(--main-color) !important;
@@ -125,6 +131,66 @@ h5 {
 h6 {
    font-size: 1rem !important;
 }
+
+/* preloader */
+body {
+   overflow: hidden;
+}
+body.loaded {
+   overflow: auto;
+}
+.preloader {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left:0;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 999999999999;
+   background-color: #fff;
+   color: #aaa;
+}
+
+/* Loader CSS  */
+.loader, .loader:before, .loader:after {
+   border-radius: 100%;
+   width: 2.5em;
+   height: 2.5em;
+   animation-fill-mode: both;
+   animation: bblFadInOut 1.8s infinite ease-in-out;
+ }
+ .loader {
+   color: #005481;
+   font-size: 7px;
+   position: relative;
+   text-indent: -9999em;
+   transform: translatey(-15px);
+   animation-delay: -0.16s;
+ }
+ .loader:before,
+ .loader:after {
+   content: '';
+   position: absolute;
+   top: 0;
+ }
+ .loader:before {
+   left: -3.5em;
+   animation-delay: -0.32s;
+ }
+ .loader:after {
+   left: 3.5em;
+ }
+ 
+ @keyframes bblFadInOut {
+   0%, 80%, 100% { box-shadow: 0 2.5em 0 -1.3em }
+   40% { box-shadow: 0 2.5em 0 0 }
+ }
+/* Loader CSS  */
+/* preloader */
+
+
 
 .section_padding_top {
    padding-top: 60px;
@@ -335,11 +401,11 @@ h6 {
    shape-outside: circle();
 }
 
-.textImgBox p{
+.textImgBox p {
    text-align: justify;
 }
-.textImgBox::after{
-   content: '';
+.textImgBox::after {
+   content: "";
    display: inline-block;
    width: 250px;
    height: 250px;
@@ -350,8 +416,9 @@ h6 {
    right: -100px;
    z-index: -1;
 }
-.textImgBox::before{
-   content: '';
+
+.textImgBox::before {
+   content: "";
    display: inline-block;
    width: 100px;
    height: 100px;
@@ -362,12 +429,16 @@ h6 {
    right: -50px;
    z-index: -1;
 }
-
-.roleProfile{
-   margin-top: 100px;
+.roleTitle {
+   font-size: 36px !important;
+   font-weight: 600;
 }
 
-.techBox{
+.roleProfile {
+   margin-top: 130px;
+}
+
+.techBox {
    display: flex;
    flex-wrap: wrap;
    max-width: 340px;
@@ -389,49 +460,60 @@ h6 {
    object-fit: contain;
 }
 
-.proDesignation{
+.proDesignation {
    position: absolute;
-   right: 200px;
+   left: 0;
    bottom: 0;
    padding: 20px;
    padding-left: 35px;
    border-radius: 10px;
-   background: rgb(255,255,255);
-   background: linear-gradient(90deg, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 100%);
+   background: rgb(255, 255, 255);
+   background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 40%,
+      rgba(255, 255, 255, 0) 100%
+   );
+}
+.leftContent{
+   max-width: 800px;
 }
 .proDesignation h3,
-.proDesignation p{
+.proDesignation p {
    color: var(--main-color);
 }
-.proImgBox::after{
-   content: '';
+.proImg {
+   width: auto;
+   height: 450px;
+}
+.proDesignation::after {
+   content: "";
    display: inline-block;
-   width: 90px;
-   height: 90px;
+   width: 60px;
+   height: 60px;
    position: absolute;
-   right: 340px;
+   left: 0;
    bottom: 120px;
    background-image: url(/ourServiceShap.png);
    background-size: contain;
    background-repeat: no-repeat;
 }
 
-.contactBtn{
+/* .contactBtn {
    position: absolute;
    left: 0;
    bottom: 0;
-}
+} */
 
-.servicesTitle{
+.servicesTitle {
    color: var(--main-color);
 }
 
-.servicesBox{
+.servicesBox {
    padding-left: 120px;
    padding-right: 30px;
 }
 
-.servicesImg{
+.servicesImg {
    width: 90px;
    height: 90px;
    object-fit: contain;
@@ -439,25 +521,92 @@ h6 {
    top: 0;
    left: 0;
 }
+@media (max-width: 1399px) {
+   .curve {
+      width: 370px;
+      height: 370px;
+   }
+   .textImgBox::after {
+      width: 200px;
+      height: 200px;
+      right: -60px;
+   }
+   .textImgBox::before {
+      width: 70px;
+      height: 70px;
+      top: 280px;
+   }
+}
+@media (max-width: 1199px) {
+   .contactBtn {
+      position: initial !important;
+      min-width: 360px !important;
+   }
+}
+@media (max-width: 991px) {
+   .roleProfile {
+      margin-top: 30px;
+   }
+   .proImg {
+      width: auto;
+      max-height: 350px;
+   }
+   .proDesignation::after {
+      display: none;
+   }
+   .techBox.mt-5 {
+      margin-top: 2rem !important;
+   }
+   .someServices.mt-5 {
+      margin-top: 0rem !important;
+   }
+   .servicesTitle.text-center {
+      text-align: left !important;
+   }
+}
 
-
-
-
-
+@media (max-width: 767px) {
+   .curve {
+      width: 100%;
+      height: 100%;
+      -webkit-shape-outside: initial !important;
+      shape-outside: initial;
+      text-align: center !important;
+      margin-left: 0rem !important;
+   }
+   .textImgBox p {
+      text-align: left !important;
+   }
+   .proImgBox {
+      margin-top: 2rem !important;
+   }
+   .proImg {
+      max-height: 270px;
+   }
+   .servicesBox {
+      padding-left: 0px;
+      padding-right: 0px;
+      text-align: center;
+   }
+   .servicesImg {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      position: initial !important;
+      margin-bottom: 1rem;
+   }
+}
 /* UI/UX end here  */
 
-
-
-
 /* application-development start here  */
-.digitalTransformation .servicesBox{
+.digitalTransformation .servicesBox {
    padding-left: 90px;
 }
-.digitalTransformation .servicesBox h3{
+.digitalTransformation .servicesBox h3 {
    color: var(--main-color);
 }
 
-.serIconBox{
+.serIconBox {
    position: absolute;
    top: 0;
    left: 0;
@@ -465,18 +614,35 @@ h6 {
    height: 60px;
    border-radius: 10px;
    text-align: center;
-   background: linear-gradient( 90deg, rgba(0, 84, 129, 1) 17%, rgba(106, 191, 235, 1) 100% );
-   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+   background: linear-gradient(
+      90deg,
+      rgba(0, 84, 129, 1) 17%,
+      rgba(106, 191, 235, 1) 100%
+   );
+   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px,
+      rgba(0, 0, 0, 0.1) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.1) 0px -3px 0px inset;
 }
 
-.serIconBox svg{
+.serIconBox svg {
    height: 100%;
    font-size: 28px;
    color: #fff;
 }
+@media (max-width: 767px){
+   .serIconBox {
+      position: initial;
+      margin: auto;
+      margin-bottom: 20px;
+   }
+   .digitalTransformation .servicesBox {
+      padding-left: 0px !important;
+   }
+   .digitalTransformation.mt-5{
+      margin-top: 0px !important;
+   }
+}
 /* application-development end here  */
-
-
 
 /* All Inner Page CSS end here */
 @media (max-width: 1399px) {
@@ -514,9 +680,6 @@ h6 {
 }
 /* pageBanner css end here */
 
-
-
-
 /* CSS for Beta version */
 #betaImg {
    position: absolute;
@@ -533,34 +696,33 @@ h6 {
    }
 }
 
-
-
-
 /* Swiper CSS Start here */
 #portfolio .container {
    position: relative;
- }
+}
 #portfolio .swiper {
    width: 100%;
    height: 430px;
    margin-left: auto;
    margin-right: auto;
    max-width: 100% !important;
- }
- 
-.swiper-slide {
+   margin-bottom: 60px;
+}
+.product_overlay {
+   width: 100%;
+}
+#portfolio .swiper-slide {
    text-align: center;
    height: calc((100% - 30px) / 2) !important;
    display: flex;
-   /* justify-content: center; */
-   /* align-items: space-between; */
    margin-bottom: 30px !important;
    margin-top: 0 !important;
- }
+}
 
- #prevBtn, #nextBtn{
+#prevBtn,
+#nextBtn {
    position: absolute;
-   top: 50%;
+   top: calc(50% - 30px);
    transform: translateY(-50%);
    left: -50px;
    width: 40px;
@@ -575,20 +737,28 @@ h6 {
    right: -50px !important;
 }
 
-#prevBtn img, #nextBtn img{
+#prevBtn img,
+#nextBtn img {
    width: 10px;
-  filter: invert(1);
-  opacity: 0.4;
+   filter: invert(1);
+   opacity: 0.4;
 }
 
-.swiper-grid-column>.swiper-wrapper {
+.swiper-grid-column > .swiper-wrapper {
    flex-direction: row !important;
 }
 
+@media (max-width: 767px){
+   #prevBtn {
+   left: -0px;
+}
+
+#nextBtn {
+   left: initial;
+   right: -0px !important;
+}
+}
 /* Swiper CSS End here  */
-
-
-
 
 
 

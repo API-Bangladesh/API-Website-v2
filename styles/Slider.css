@@ -9,14 +9,6 @@
    object-fit: cover;
 }
 
-/* @media (max-width: 767px){
-    .sliderVideo,
-    .sliderImg{
-        height: 300px !important;
-    }
-} */
-
-
 @media (max-width: 991px) {
    .sliderVideo,
    .sliderImg {
@@ -28,7 +20,7 @@
 @media (max-width: 767px) {
     .sliderVideo,
     .sliderImg {
-       height: 350px !important;
+       height: 280px !important;
        object-fit: cover !important;
     }
  }

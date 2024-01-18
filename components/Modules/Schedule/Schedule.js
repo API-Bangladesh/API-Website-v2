@@ -128,7 +128,7 @@ const Schedule = () => {
                         onChange={handleRadioChange}
                      />
                      <label className="form-check-label" htmlFor="4">
-                        It Consulting
+                        IT Consulting
                      </label>
                   </div>
                </div>

@@ -136,10 +136,10 @@ const Contacts = () => {
 
                         {/* Go button start  */}
                         <div className="form-check checkbox_btn_start">
-                          <Checkbox {...label} />
+                          <Checkbox id="CheckedText" {...label}/>
                           <label
                             className="form-check-label"
-                            htmlFor="CheckDefault"
+                            htmlFor="CheckedText"
                           >
                             I want to protect my data by signing an NDA
                           </label>

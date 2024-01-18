@@ -3,7 +3,8 @@ import React from "react";
 // import TopButton from "./../Modules/SideNav/TopButton";
 import BackToTop from "../Modules/BackToTop/BackToTop";
 import { BiLogoFacebook, BiLogoLinkedin } from "react-icons/bi";
-import { AiOutlineTwitter, AiOutlineYoutube } from "react-icons/ai";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { RiTwitterXFill } from "react-icons/ri";
 import { IoLogoInstagram } from "react-icons/io";
 
 export default function Footer() {
@@ -26,7 +27,7 @@ export default function Footer() {
                   <div className="col-md-12 col-lg-4 myOrder2">
                      <div className="copyRight d-flex align-items-center justify-content-center h-100">
                         <p className="fs-6 mb-0">
-                           &copy; 2023 API. All Rights Reserved.
+                           &copy; {new Date().getFullYear()} API. All Rights Reserved.
                         </p>
                      </div>
                   </div>
@@ -62,7 +63,7 @@ export default function Footer() {
                                  target="_blank"
                                  href="https://twitter.com/apisolutionsltd"
                               >
-                                 <AiOutlineTwitter />
+                                 <RiTwitterXFill />
                               </Link>
                            </li>
                            <li>
