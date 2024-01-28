@@ -18,8 +18,8 @@ const OurProduct = () => {
                      <div className="device_div_height">
                         <div className="p-4 position-relative boxRadius">
                            <img
-                              src="../products/access.png"
-                              alt=""
+                              src="../products/access.webp"
+                              alt="img"
                               className="device_img"
                            />
                         </div>
@@ -96,76 +96,15 @@ const OurProduct = () => {
                                  <p className="language_name mb-0">MySQL</p>
                               </li>
                            </ul>
-
-                           {/* <Link
-                  href="/products-details"
-                  className="CustomeBtn rounded-pill mt-4"
-                >
-                  View Details
-                  <BiChevronRight className="CustomeBtnIcon" />
-                </Link> */}
                         </div>
                      </Col>
-                     {/* <Col lg={6} md={6} className="div_flex">
-                <div className="device_div_three px-5 px-md-0 pe-md-0 des_mob_height">
-                  <h1 className="text-capitalize fw-bold pb-4 product_title">
-                    Smart voting Solution
-                  </h1>
-                  <p className="text-justify pe-4 mb-md-0 pb-4">
-                    Smart Voting Solution is developed to help you organize and
-                    manage any election event smoothly with proper security for
-                    both offline and online.
-                  </p>
-                  <ul className="d-flex justify-content-start mb-4">
-                    <li className="me-3 text-capitalize pe-1 py-1">
-                      <div className="d-flex justify-content-center">
-                        <img
-                          src="/React-icon.png"
-                          alt=""
-                          className="language_icons"
-                        />
-                      </div>
-                      <p className="language_name">React.js</p>
-                    </li>
-                    <li className="mx-3 lang_icon_mar text-capitalize px-1 py-1">
-                      <div className="d-flex justify-content-center">
-                        <img
-                          src="/Node.png"
-                          alt=""
-                          className="language_icons"
-                        />
-                      </div>
-                      <p className="language_name">Node.js</p>
-                    </li>
-                    <li className="mx-3 lang_icon_mar text-capitalize px-1 py-1">
-                      <div className="d-flex justify-content-center">
-                        <img src="/Vue.png" alt="" className="language_icons" />
-                      </div>
-                      <p className="language_name">Vue.js</p>
-                    </li>
-                    <li className="mx-3 text-capitalize px-2 py-1">
-                      <div className="d-flex justify-content-center">
-                        <img src="/aws.png" alt="" className="language_icons" />
-                      </div>
-                      <p className="language_name">AWS</p>
-                    </li>
-                  </ul>
-
-                  <Link
-                    href="/products-details"
-                    className="CustomeBtn  rounded-pill mt-4"
-                  >
-                    View Details
-                    <BiChevronRight className="CustomeBtnIcon" />
-                  </Link>
-                </div>
-              </Col> */}
+                     
                      <Col lg={6} md={6} className="div_mn ">
                         <div className="device_div_height">
                            <div className="p-4 position-relative boxRadius">
                               <img
-                                 src="../products/evote.png"
-                                 alt=""
+                                 src="../products/evote.webp"
+                                 alt="img"
                                  className="device_img"
                               />
                            </div>
@@ -177,8 +116,8 @@ const OurProduct = () => {
                      <div className="device_div_height">
                         <div className="p-4 position-relative boxRadius">
                            <img
-                              src="../products/hotelERP.png"
-                              alt=""
+                              src="../products/hotelERP.webp"
+                              alt="img"
                               className="device_img"
                            />
                         </div>

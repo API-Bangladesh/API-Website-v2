@@ -7,7 +7,7 @@ const InnerPage = () => {
    return (
       <>
          <PageBanner
-            pageBg="/innerPaageImg/services.jpg"
+            pageBg="/innerPaageImg/services.webp"
             title="Data Management"
             description="Unlock the full potential of your data with our software company's advanced expertise in Data Management. We specialize in orchestrating seamless data workflows, ensuring secure storage, efficient processing, and insightful analysis for informed decision-making."
          />

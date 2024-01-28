@@ -7,7 +7,7 @@ const InnerPage = () => {
    return (
       <>
          <PageBanner
-            pageBg="/innerPaageImg/services.jpg"
+            pageBg="/innerPaageImg/services.webp"
             title="IoT (Internet of Things)"
             description="Leveraging our profound IoT expertise, we engineer cutting-edge solutions harnessing the power of connected devices and data-driven insights. Transform your business with our innovative approach to the Internet of Things."
          />

@@ -24,7 +24,7 @@
    height: 255px;
    border-radius: 10px;
    overflow: hidden;
-   background-image: url(/NumbersFigures/experiencebg.png);
+   background-image: url(/experiencebg.webp);
    background-repeat: no-repeat;
    background-size: cover;
    /* padding: 50px; */
@@ -40,19 +40,6 @@
    /* background-color: #e3e6ea; */
 }
 
-/* #numberFigures::after {
-   position: absolute;
-   content: "";
-   top: 10%;
-   right: 0;
-   height: 700px;
-   width: 700px;
-   background: url("/NumbersFigures/NumbersFigures.png") no-repeat right center;
-   background-repeat: no-repeat;
-   background-size: contain;
-   opacity: 0.3;
-   z-index: 0;
-} */
 @media (max-width: 1300px) {
    #numberFigures::after {
       width: 500px;

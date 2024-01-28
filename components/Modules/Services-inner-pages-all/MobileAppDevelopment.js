@@ -16,7 +16,7 @@ const InnerPage = () => {
                   <div className="textImgBox position-relative">
                      <img
                         className="curve"
-                        src={"/innerPaageImg/3.jpg"}
+                        src={"/innerPaageImg/3.webp"}
                         alt="img"
                      />
 

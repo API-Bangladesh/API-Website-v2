@@ -158,14 +158,6 @@ const Schedule = () => {
                      <ul className="times">
                         <li
                            className={`setTime ${
-                              selectedItem === "9:00 AM" ? "selected" : ""
-                           }`}
-                           onClick={handleItemClick}
-                        >
-                           9:00 AM
-                        </li>
-                        <li
-                           className={`setTime ${
                               selectedItem === "9:30 AM" ? "selected" : ""
                            }`}
                            onClick={handleItemClick}
@@ -206,11 +198,11 @@ const Schedule = () => {
                         </li>
                         <li
                            className={`setTime ${
-                              selectedItem === "12:00 PM" ? "selected" : ""
+                              selectedItem === "12:00 AM" ? "selected" : ""
                            }`}
                            onClick={handleItemClick}
                         >
-                           12:00 PM
+                           12:00 AM
                         </li>
                         <li
                            className={`setTime ${
@@ -300,6 +292,14 @@ const Schedule = () => {
                         >
                            5:30 PM
                         </li>
+                        <li
+                           className={`setTime ${
+                              selectedItem === "6:00 PM" ? "selected" : ""
+                           }`}
+                           onClick={handleItemClick}
+                        >
+                           6:00 PM
+                        </li>
                      </ul>
                   </div>
                   {isTimeSelect && (
@@ -354,13 +354,13 @@ const Schedule = () => {
                                  aria-label="Default select example"
                               >
                                  <option>Choose an option</option>
-                                 <option value="25k - 50k">25k - 50k</option>
                                  <option value="50k - 100k">50k - 100k</option>
                                  <option value="100k - 200k">
                                     100k - 200k
                                  </option>
+                                 <option value="200k - 500k">200k - 500k</option>
                                  <option value="200k +">
-                                    More than 200k +
+                                    More than 500k +
                                  </option>
                               </Form.Select>
 

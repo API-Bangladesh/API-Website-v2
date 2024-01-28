@@ -153,14 +153,14 @@ const Technology = () => {
                            >
                               <div className="tabRight_imgBox">
                                  <img
-                                    src="/ourTechnology/Front-End.jpg"
+                                    src="/ourTechnology/Front-End.webp"
                                     alt="img"
                                     className="fadeInRight"
                                  />
                               </div>
                               <div className="tabLeft_imgBox">
                                  <img
-                                    src="/ourTechnology/Front-End-2.jpg"
+                                    src="/ourTechnology/Front-End-2.webp"
                                     alt="img"
                                     className="fadeInLeft"
                                  />
@@ -207,14 +207,14 @@ const Technology = () => {
                            >
                               <div className="tabRight_imgBox">
                                  <img
-                                    src="/ourTechnology/Back-End.jpg"
+                                    src="/ourTechnology/Back-End.webp"
                                     alt="img"
                                     className="fadeInRight"
                                  />
                               </div>
                               <div className="tabLeft_imgBox">
                                  <img
-                                    src="/ourTechnology/Back-End-2.jpg"
+                                    src="/ourTechnology/Back-End-2.webp"
                                     alt="img"
                                     className="fadeInLeft"
                                  />
@@ -253,14 +253,14 @@ const Technology = () => {
                            >
                               <div className="tabRight_imgBox">
                                  <img
-                                    src="/ourTechnology/Mobile-Development.jpg"
+                                    src="/ourTechnology/Mobile-Development.webp"
                                     alt="img"
                                     className="fadeInRight"
                                  />
                               </div>
                               <div className="tabLeft_imgBox">
                                  <img
-                                    src="/ourTechnology/Mobile-Development-2.jpg"
+                                    src="/ourTechnology/Mobile-Development-2.webp"
                                     alt="img"
                                     className="fadeInLeft"
                                  />
@@ -301,14 +301,14 @@ const Technology = () => {
                            >
                               <div className="tabRight_imgBox">
                                  <img
-                                    src="/ourTechnology/QA-&-Testing.jpg"
+                                    src="/ourTechnology/QA-&-Testing.webp"
                                     alt="img"
                                     className="fadeInRight"
                                  />
                               </div>
                               <div className="tabLeft_imgBox">
                                  <img
-                                    src="/ourTechnology/QA-&-Testing-2.jpg"
+                                    src="/ourTechnology/QA-&-Testing-2.webp"
                                     alt="img"
                                     className="fadeInLeft"
                                  />
@@ -357,14 +357,14 @@ const Technology = () => {
                            >
                               <div className="tabRight_imgBox">
                                  <img
-                                    src="/ourTechnology/Cloud.jpg"
+                                    src="/ourTechnology/Cloud.webp"
                                     alt="img"
                                     className="fadeInRight"
                                  />
                               </div>
                               <div className="tabLeft_imgBox">
                                  <img
-                                    src="/ourTechnology/Cloud-2.jpg"
+                                    src="/ourTechnology/Cloud-2.webp"
                                     alt="img"
                                     className="fadeInLeft"
                                  />
@@ -407,14 +407,14 @@ const Technology = () => {
                            >
                               <div className="tabRight_imgBox">
                                  <img
-                                    src="/ourTechnology/Project-Management.jpg"
+                                    src="/ourTechnology/Project-Management.webp"
                                     alt="img"
                                     className="fadeInRight"
                                  />
                               </div>
                               <div className="tabLeft_imgBox">
                                  <img
-                                    src="/ourTechnology/Project-Management-2.jpg"
+                                    src="/ourTechnology/Project-Management-2.webp"
                                     alt="img"
                                     className="fadeInLeft"
                                  />
@@ -460,14 +460,14 @@ const Technology = () => {
                            >
                               <div className="tabRight_imgBox">
                                  <img
-                                    src="/ourTechnology/Database.jpg"
+                                    src="/ourTechnology/Database.webp"
                                     alt="img"
                                     className="fadeInRight"
                                  />
                               </div>
                               <div className="tabLeft_imgBox">
                                  <img
-                                    src="/ourTechnology/Database-2.jpg"
+                                    src="/ourTechnology/Database-2.webp"
                                     alt="img"
                                     className="fadeInLeft"
                                  />
@@ -508,7 +508,7 @@ const Technology = () => {
                      <Accordion.Item eventKey="0">
                         <Accordion.Header>Front-End</Accordion.Header>
                         <Accordion.Body>
-                           <img src="/ourTechnology/Front-End.jpg" alt="img" />
+                           <img src="/ourTechnology/Front-End.webp" alt="img" />
 
                            <div className="tabTechBox d-flex justify-content-center align-items-center flex-wrap">
                               <div className="text-white text-center tabRightBoxContaint mx-4 my-3">
@@ -545,7 +545,7 @@ const Technology = () => {
                      <Accordion.Item eventKey="1">
                         <Accordion.Header>Back-End</Accordion.Header>
                         <Accordion.Body>
-                           <img src="/ourTechnology/Back-End.jpg" alt="img" />
+                           <img src="/ourTechnology/Back-End.webp" alt="img" />
                            <div className="tabTechBox d-flex justify-content-center align-items-center flex-wrap">
                               <div className="text-white text-center tabRightBoxContaint mx-4 my-3">
                                  <IoLogoPython className="fs-1 d-inline-block text-warning" />
@@ -574,7 +574,7 @@ const Technology = () => {
                         <Accordion.Header>Mobile Development</Accordion.Header>
                         <Accordion.Body>
                            <img
-                              src="/ourTechnology/Mobile-Development.jpg"
+                              src="/ourTechnology/Mobile-Development.webp"
                               alt="img"
                            />
                            <div className="tabTechBox d-flex justify-content-center align-items-center flex-wrap">
@@ -605,7 +605,7 @@ const Technology = () => {
                         <Accordion.Header>QA & Testing</Accordion.Header>
                         <Accordion.Body>
                            <img
-                              src="/ourTechnology/QA-&-Testing.jpg"
+                              src="/ourTechnology/QA-&-Testing.webp"
                               alt="img"
                            />
                            <div className="tabTechBox d-flex justify-content-center align-items-center flex-wrap">
@@ -643,7 +643,7 @@ const Technology = () => {
                      <Accordion.Item eventKey="4">
                         <Accordion.Header>Cloud</Accordion.Header>
                         <Accordion.Body>
-                           <img src="/ourTechnology/Cloud.jpg" alt="img" />
+                           <img src="/ourTechnology/Cloud.webp" alt="img" />
                            <div className="tabTechBox d-flex justify-content-center align-items-center flex-wrap">
                               <div className="text-white text-center tabRightBoxContaint mx-4 my-3">
                                  <BiLogoAws className="fs-1 d-inline-block text-warning" />
@@ -672,7 +672,7 @@ const Technology = () => {
                         <Accordion.Header>Project Management</Accordion.Header>
                         <Accordion.Body>
                            <img
-                              src="/ourTechnology/Project-Management.jpg"
+                              src="/ourTechnology/Project-Management.webp"
                               alt="img"
                            />
                            <div className="tabTechBox d-flex justify-content-center align-items-center flex-wrap">
@@ -706,7 +706,7 @@ const Technology = () => {
                      <Accordion.Item eventKey="6">
                         <Accordion.Header>Database</Accordion.Header>
                         <Accordion.Body>
-                           <img src="/ourTechnology/Database.jpg" alt="img" />
+                           <img src="/ourTechnology/Database.webp" alt="img" />
                            <div className="tabTechBox d-flex justify-content-center align-items-center flex-wrap">
                               <div className="text-white text-center tabRightBoxContaint mx-4 my-3">
                                  <SiMysql className="fs-1 d-inline-block text-warning" />

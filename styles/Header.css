@@ -145,7 +145,7 @@
    color: var(--main-color);
 }
 .subMenu {
-   background-image: url("/pageBg.jpg");
+   background-image: url("/pageBg.webp");
    background-position: left bottom !important;
    background-repeat: no-repeat !important;
    background-size: cover !important;
@@ -186,12 +186,12 @@
 }
 
 
-.phnSubMenu a {
+/* .phnSubMenu a {
    display: inline-block;
    color: #333 !important;
    margin-top: 5px;
    margin-bottom: 5px;
-}
+} */
 
 
 

@@ -75,6 +75,64 @@ const ProjectEstimate = () => {
                             />
                             <span className="checkbox-tile">
                               <img
+                                src="/projectEstimateicon/r&d.svg"
+                                alt="icon"
+                              />
+                              <span className="checkbox-label text-capitalize pt-2">
+                                  R&D
+                              </span>
+                            </span>
+                          </label>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </Col>
+                  <Col
+                    lg={3}
+                    md={4}
+                    sm={6}
+                    className="text-center mb-4 phn_width mar_btm_phn"
+                  >
+                    <div className="">
+                      <fieldset className="checkbox-group">
+                        <div className="checkbox">
+                          <label className="checkbox-wrapper">
+                            <input
+                              type="checkbox"
+                              name="Ui/Ux"
+                              className="checkbox-input"
+                            />
+                            <span className="checkbox-tile">
+                              <img
+                                src="/projectEstimateicon/architecture.svg"
+                                alt="icon"
+                              />
+                              <span className="checkbox-label text-capitalize pt-2">
+                                  Systems Architecture
+                              </span>
+                            </span>
+                          </label>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </Col>
+                  <Col
+                    lg={3}
+                    md={4}
+                    sm={6}
+                    className="text-center mb-4 phn_width mar_btm_phn"
+                  >
+                    <div className="">
+                      <fieldset className="checkbox-group">
+                        <div className="checkbox">
+                          <label className="checkbox-wrapper">
+                            <input
+                              type="checkbox"
+                              name="Ui/Ux"
+                              className="checkbox-input"
+                            />
+                            <span className="checkbox-tile">
+                              <img
                                 src="/projectEstimateicon/ui-ux.svg"
                                 alt="icon"
                               />
@@ -383,7 +441,34 @@ const ProjectEstimate = () => {
                               <span className="checkbox-label text-capitalize pt-2 fw-semibold">
                                 Hiring
                                 <br />
-                                <span className="text-danger"> Now</span>
+                                <span className="text-danger">Now</span>
+                              </span>
+                            </span>
+                          </label>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </Col>
+                  <Col
+                    lg={3}
+                    md={4}
+                    sm={6}
+                    className="text-center mb-4 phn_width mar_btm_phn"
+                  >
+                    <div className="">
+                      <fieldset className="checkbox-group">
+                        <div className="checkbox">
+                          <label className="checkbox-wrapper">
+                            <input
+                              type="radio"
+                              name="Development"
+                              className="checkbox-input"
+                            />
+                            <span className="checkbox-tile">
+                              <span className="checkbox-label text-capitalize pt-2 fw-semibold">
+                              Hiring Within
+                                <br />
+                                <span className="text-danger">1 Months</span>
                               </span>
                             </span>
                           </label>
@@ -411,7 +496,7 @@ const ProjectEstimate = () => {
                               <span className="checkbox-label text-capitalize pt-2 fw-semibold">
                               Hiring within
                                 <br />
-                                <span className="text-danger"> 3 months</span>
+                                <span className="text-danger">3 months</span>
                               </span>
                             </span>
                           </label>
@@ -439,7 +524,7 @@ const ProjectEstimate = () => {
                               <span className="checkbox-label text-capitalize pt-2 fw-semibold">
                                 Hiring
                                 <br />
-                                <span className="text-danger"> later</span>
+                                <span className="text-danger">later</span>
                               </span>
                             </span>
                           </label>
@@ -454,7 +539,7 @@ const ProjectEstimate = () => {
 
                   <div className="res_gutter">
                     <Row>
-                      <Col lg={6}>
+                      {/* <Col lg={6}>
                         <p className="position-relative mb-4 mt-3 ps-5">
                           <span className="estimateNumber rounded-1 me-2">
                             4
@@ -466,7 +551,6 @@ const ProjectEstimate = () => {
                         </p>
                         <div>
                           <Form.Group className="mb-3 ">
-                            {/* <Form.Label>Disabled select menu</Form.Label> */}
                             <Form.Select
                               name="building-project"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
@@ -485,11 +569,11 @@ const ProjectEstimate = () => {
                             </Form.Select>
                           </Form.Group>
                         </div>
-                      </Col>
+                      </Col> */}
                       <Col lg={6}>
                         <p className="position-relative mb-4 mt-3 ps-5">
                           <span className="estimateNumber rounded-1 me-2">
-                            5
+                            4
                           </span>
                           <span className="fw-bolder fs-5">
                             Is this a new or existing project?
@@ -510,13 +594,10 @@ const ProjectEstimate = () => {
                           </Form.Group>
                         </div>
                       </Col>
-                    </Row>
-                    {/* question number 8,9 */}
-                    <Row>
                       <Col lg={6}>
                         <p className="position-relative mb-4 mt-3 ps-5">
                           <span className="estimateNumber rounded-1 me-2">
-                            6
+                            5
                           </span>
                           <span className="fw-bolder fs-5">
                           You Are
@@ -536,10 +617,13 @@ const ProjectEstimate = () => {
                           </Form.Group>
                         </div>
                       </Col>
+                    </Row>
+                    {/* question number 8,9 */}
+                    <Row>
                       <Col lg={6}>
                         <p className="position-relative mb-4 mt-3 ps-5">
                           <span className="estimateNumber rounded-1 me-2">
-                            7
+                            6
                           </span>
                           <span className="fw-bolder fs-5">
                           Preferred Time For Contact
@@ -560,11 +644,37 @@ const ProjectEstimate = () => {
                           </Form.Group>
                         </div>
                       </Col>
+                      <Col lg={6}>
+                        <p className="position-relative mb-4 mt-3 ps-5">
+                          <span className="estimateNumber rounded-1 me-2">
+                            7
+                          </span>
+                          <span className="fw-bolder fs-5">
+                            Attach any files you feel would be useful
+                            <span className="text-danger"> *</span>
+                          </span>
+                        </p>
+
+                        <div className="file_upload ms-0">
+                          <label htmlFor="apply">
+                            <input
+                              type="file"
+                              id="apply"
+                              accept="image/*,.pdf"
+                              name="image"
+                            />
+                            <div className="d-flex align-items-center justify-content-center">
+                              <ImAttachment className="me-2"/>
+                              Please attach the PDF file
+                            </div>
+                          </label>
+                        </div>
+                      </Col>
                     </Row>
 
                     {/* question number 10 */}
                     <Row>
-                      <Col lg={6}>
+                      {/* <Col lg={6}>
                         <p className="position-relative mb-4 mt-3 ps-5">
                           <span className="estimateNumber rounded-1 me-2">
                             8
@@ -588,37 +698,12 @@ const ProjectEstimate = () => {
                             </Form.Select>
                           </Form.Group>
                         </div>
-                      </Col>
-                      <Col lg={6}>
-                        <p className="position-relative mb-4 mt-3 ps-5">
-                          <span className="estimateNumber rounded-1 me-2">
-                            9
-                          </span>
-                          <span className="fw-bolder fs-5">
-                            Attach any files you feel would be useful
-                            <span className="text-danger"> *</span>
-                          </span>
-                        </p>
-
-                        <div className="file_upload ms-0">
-                          <label htmlFor="apply">
-                            <input
-                              type="file"
-                              id="apply"
-                              accept="image/*,.pdf"
-                              name="image"
-                            />
-                            <div className="d-flex align-items-center justify-content-center">
-                              <ImAttachment />
-                              Attach PDF or DOC files
-                            </div>
-                          </label>
-                        </div>
-                      </Col>
+                      </Col> */}
+                      
                       <Col lg={12}>
                         <p className="position-relative mb-4 mt-3 ps-5">
                           <span className="estimateNumber rounded-1 me-2">
-                            10
+                            8
                           </span>
                           <span className="fw-bolder fs-5">
                             Fill the details

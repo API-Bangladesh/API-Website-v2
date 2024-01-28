@@ -105,7 +105,7 @@ const FilterGallery = () => {
                         <FiArrowDownRight size={"25px"}/>
                       </div>
                       {/* <div className="d-flex align-items-center">
-                        <img src="/managementBg1.png" alt="" className="card_img_design"/> 
+                        <img src="/managementBg1.webp" alt="" className="card_img_design"/> 
                       </div> */}
                     </div>
                   </Link>

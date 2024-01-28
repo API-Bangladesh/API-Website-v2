@@ -111,7 +111,7 @@ const OurExpertise = () => {
                            <Tab.Content>
                               <Tab.Pane eventKey="1">
                                  <img
-                                    src="/OurExpertise/ApplicationDevelopment.jpg"
+                                    src="/OurExpertise/ApplicationDevelopment.webp"
                                     alt="img"
                                  />
                                  <p className="py-3 text-justify">
@@ -128,7 +128,7 @@ const OurExpertise = () => {
                               </Tab.Pane>
                               <Tab.Pane eventKey="2">
                                  <img
-                                    src="/OurExpertise/DigitalTransformation.jpg"
+                                    src="/OurExpertise/DigitalTransformation.webp"
                                     alt="img"
                                  />
                                  <p className="py-3 text-justify">
@@ -144,7 +144,7 @@ const OurExpertise = () => {
                               </Tab.Pane>
                               <Tab.Pane eventKey="3">
                                  <img
-                                    src="/OurExpertise/BusinessAnalysis.jpg"
+                                    src="/OurExpertise/BusinessAnalysis.webp"
                                     alt="img"
                                  />
                                  <p className="py-3 text-justify">
@@ -165,7 +165,7 @@ const OurExpertise = () => {
                               </Tab.Pane>
                               <Tab.Pane eventKey="4">
                                  <img
-                                    src="/OurExpertise/DigitalProductDesign.jpg"
+                                    src="/OurExpertise/DigitalProductDesign.webp"
                                     alt="img"
                                  />
                                  <p className="py-3 text-justify">
@@ -186,7 +186,7 @@ const OurExpertise = () => {
                               </Tab.Pane>
                               <Tab.Pane eventKey="5">
                                  <img
-                                    src="/OurExpertise/DataManagement.jpg"
+                                    src="/OurExpertise/DataManagement.webp"
                                     alt="img"
                                  />
                                  <p className="py-3 text-justify">
@@ -209,7 +209,7 @@ const OurExpertise = () => {
                                  </p>
                               </Tab.Pane>
                               <Tab.Pane eventKey="6">
-                                 <img src="/OurExpertise/IoT.jpg" alt="img" />
+                                 <img src="/OurExpertise/IoT.webp" alt="img" />
                                  <p className="py-3 text-justify">
                                     With our deep understanding of IoT, we
                                     create innovative solutions that utilize the
@@ -219,7 +219,7 @@ const OurExpertise = () => {
                               </Tab.Pane>
                               <Tab.Pane eventKey="7">
                                  <img
-                                    src="/OurExpertise/DevOps.jpg"
+                                    src="/OurExpertise/DevOps.webp"
                                     alt="img"
                                  />
                                  <p className="py-3 text-justify">
@@ -239,7 +239,7 @@ const OurExpertise = () => {
                               </Tab.Pane>
                               <Tab.Pane eventKey="8">
                                  <img
-                                    src="/OurExpertise/ITSupportMaintenance.jpg"
+                                    src="/OurExpertise/ITSupportMaintenance.webp"
                                     alt="img"
                                  />
                                  <p className="py-3 text-justify">
@@ -269,7 +269,7 @@ const OurExpertise = () => {
                         <Accordion.Body>
                            <img
                               className="img-fluid"
-                              src="/OurExpertise/ApplicationDevelopment.jpg"
+                              src="/OurExpertise/ApplicationDevelopment.webp"
                               alt="img"
                            />
                            <p className="py-3 text-justify">
@@ -284,7 +284,7 @@ const OurExpertise = () => {
                         <Accordion.Body>
                            <img
                               className="img-fluid"
-                              src="/OurExpertise/DigitalTransformation.jpg"
+                              src="/OurExpertise/DigitalTransformation.webp"
                               alt="img"
                            />
                            <p className="py-3 text-justify">
@@ -304,7 +304,7 @@ const OurExpertise = () => {
                         <Accordion.Body>
                            <img
                               className="img-fluid"
-                              src="/OurExpertise/BusinessAnalysis.jpg"
+                              src="/OurExpertise/BusinessAnalysis.webp"
                               alt="img"
                            />
                            <p className="py-3 text-justify">
@@ -329,7 +329,7 @@ const OurExpertise = () => {
                         <Accordion.Body>
                            <img
                               className="img-fluid"
-                              src="/OurExpertise/DigitalProductDesign.jpg"
+                              src="/OurExpertise/DigitalProductDesign.webp"
                               alt="img"
                            />
                            <p className="py-3 text-justify">
@@ -353,7 +353,7 @@ const OurExpertise = () => {
                         <Accordion.Body>
                            <img
                               className="img-fluid"
-                              src="/OurExpertise/DataManagement.jpg"
+                              src="/OurExpertise/DataManagement.webp"
                               alt="img"
                            />
                            <p className="py-3 text-justify">
@@ -378,7 +378,7 @@ const OurExpertise = () => {
                         <Accordion.Body>
                            <img
                               className="img-fluid"
-                              src="/OurExpertise/IoT.jpg"
+                              src="/OurExpertise/IoT.webp"
                               alt="img"
                            />
                            <p className="py-3 text-justify">
@@ -393,7 +393,7 @@ const OurExpertise = () => {
                         <Accordion.Body>
                            <img
                               className="img-fluid"
-                              src="/OurExpertise/DevOps.jpg"
+                              src="/OurExpertise/DevOps.webp"
                               alt="img"
                            />
                            <p className="py-3 text-justify">
@@ -417,7 +417,7 @@ const OurExpertise = () => {
                         <Accordion.Body>
                            <img
                               className="img-fluid"
-                              src="/OurExpertise/ITSupportMaintenance.jpg"
+                              src="/OurExpertise/ITSupportMaintenance.webp"
                               alt="img"
                            />
                            <p className="py-3 text-justify">

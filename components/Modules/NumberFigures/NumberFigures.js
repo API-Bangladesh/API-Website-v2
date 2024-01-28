@@ -15,7 +15,7 @@ const NumberFigures = () => {
             <div className="col-md-6 col-lg-6 col-xl-6 col-xxl-7 d-flex justify-content-center">
               <div className="wItem position-relative">
                   <img
-                    src="/welcome.png"
+                    src="/welcome.webp"
                     alt="img"
                     className="welcpmeImg img-fluid"
                   />

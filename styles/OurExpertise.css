@@ -540,7 +540,7 @@ rect {
 #industriesTwo::after{
    position: absolute;
   content: "";
-  background-image: url(/Industry2.png);
+  background-image: url(/Industry2.webp);
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;

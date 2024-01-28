@@ -98,7 +98,7 @@ const Contacts = () => {
                           name="corporateEmail"
                           className="form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1"
                           id="email"
-                          placeholder="Corporate email"
+                          placeholder="Email"
                           required
                         />
                       </div>

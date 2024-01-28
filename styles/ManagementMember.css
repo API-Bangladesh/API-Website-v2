@@ -110,7 +110,7 @@
 
 .managementBox::after {
    content: "";
-   background: url("/managementBg1.png");
+   background: url("/managementBg1.webp");
    width: 200px;
    height: 200px;
    background-size: contain;
@@ -125,7 +125,7 @@
 }
 .managementBox::before {
    content: "";
-   background: url("/managementBg2.png");
+   background: url("/managementBg2.webp");
    width: 100%;
    height: 100%;
    background-size: cover;

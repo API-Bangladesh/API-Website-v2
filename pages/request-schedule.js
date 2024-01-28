@@ -7,7 +7,7 @@ const ContactUs = () => {
    return (
       <>
          <PageBanner
-            pageBg="/pageBg.jpg"
+            pageBg="/pageBg.webp"
             title="Request Schedule"
             description="We would love to hear from you! Please feel free to contact us for any inquiries, questions, or feedback. Our dedicated team is here to assist you and provide you with the information you need."
 

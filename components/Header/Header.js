@@ -4,9 +4,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Accordion from "react-bootstrap/Accordion";
 import { BsArrowRight } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import { useRouter } from "next/router";
+
+import { GoHome } from "react-icons/go";
+import { LuUsers2 } from "react-icons/lu";
+import { MdOutlineDesignServices } from "react-icons/md";
+import { BiOutline } from "react-icons/bi";
+import { RiLayout3Line } from "react-icons/ri";
+import { TiLocationOutline } from "react-icons/ti";
+import { LuDot } from "react-icons/lu";
 
 const Header = () => {
    const router = useRouter();
@@ -37,6 +46,20 @@ const Header = () => {
    const handleClickService2 = () => {
       setShowItems2(false);
       router.push("/expertise");
+   };
+
+   const [activeKey, setActiveKey] = useState(null);
+   const handleAccordionToggle = (eventKey) => {
+      setActiveKey(activeKey === eventKey ? null : eventKey);
+    };
+
+
+   // menu toggle for phone
+   const [showDiv, setShowDiv] = useState(false);
+   const toggle = (e) => {
+      e.stopPropagation();
+      setShowDiv((prev) => !prev);
+      setActiveKey(null);
    };
 
    return (
@@ -280,174 +303,260 @@ const Header = () => {
             </div>
 
             <div className="phoneMenu d-none">
-               <div className="container">
-                  <Navbar
-                     expand="lg"
-                     className="bg-body-tertiary"
-                     onToggle={(prev) => setNavShow(prev)}
-                     expanded={navShow}
-                  >
-                     <Container>
-                        <Navbar.Brand as={Link} href="/">
-                           <img
-                              className="logo"
-                              src="/logo.png"
-                              alt="logoImg"
-                           />
-                        </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
-                           <Nav className="ms-auto d-flex align-items-center">
-                              <Nav.Link
-                                 as={Link}
-                                 href="/"
-                                 onClick={() => setNavShow(!navShow)}
-                              >
-                                 Home
-                              </Nav.Link>
-                              <Nav.Link
-                                 as={Link}
-                                 href="/about-us"
-                                 onClick={() => setNavShow(!navShow)}
-                              >
-                                 About Us
-                              </Nav.Link>
-                              <NavDropdown
-                                 title="Services"
-                                 id="phnDrop"
-                                 className="d-flex flex-column align-items-center"
-                              >
-                                 <ul className="bg-light px-3 py-2">
-                                    <li className="phnSubMenu">
-                                       <Link href="/services" onClick={() => setNavShow(!navShow)}>
-                                          Services
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/custom-software-development" onClick={() => setNavShow(!navShow)}>
-                                          Custom Software Development
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/web-app-development" onClick={() => setNavShow(!navShow)}>
-                                          Web App Development
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/mobile-app-development" onClick={() => setNavShow(!navShow)}>
-                                          Mobile App Development
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/ui-ux-design" onClick={() => setNavShow(!navShow)}>
-                                          UI/UX Design
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/software-qa-and-testing" onClick={() => setNavShow(!navShow)}>
-                                          Software QA and Testing
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/machine-learning-and-ai" onClick={() => setNavShow(!navShow)}>
-                                          Machine Learning and AI
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/cloud-solutions" onClick={() => setNavShow(!navShow)}>
-                                          Cloud Solutions
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/creative-design" onClick={() => setNavShow(!navShow)}>
-                                          Creative Design
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/digital-marketing" onClick={() => setNavShow(!navShow)}>
-                                          Digital Marketing
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/it-consultancy-service" onClick={() => setNavShow(!navShow)}>
-                                          IT Consultancy Service
-                                       </Link>
-                                    </li>
-                                 </ul>
-                              </NavDropdown>
-                              <NavDropdown
-                                 title="Expertise"
-                                 id="phnDrop"
-                                 className="d-flex flex-column align-items-center"
-                              >
-                                 <ul className="bg-light px-3 py-2">
-                                    <li className="phnSubMenu">
-                                       <Link href="/expertise" onClick={() => setNavShow(!navShow)}>
-                                          Expertise
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/application-development" onClick={() => setNavShow(!navShow)}>
-                                       Application Development
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/digital-transformation" onClick={() => setNavShow(!navShow)}>
-                                       Digital Transformation
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/business-analysis" onClick={() => setNavShow(!navShow)}>
-                                       Business Analysis
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/digital-product-design" onClick={() => setNavShow(!navShow)}>
-                                       Digital Product Design
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/data-management" onClick={() => setNavShow(!navShow)}>
-                                       Data Management
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/iot" onClick={() => setNavShow(!navShow)}>
-                                       IoT (Internet of Things)
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/devops" onClick={() => setNavShow(!navShow)}>
-                                       DevOps
-                                       </Link>
-                                    </li>
-                                    <li className="phnSubMenu">
-                                       <Link href="/it-support-and-maintenance" onClick={() => setNavShow(!navShow)}>
-                                       IT Support & Maintenance
-                                       </Link>
-                                    </li>
-                                 </ul>
-                              </NavDropdown>
-                              <Nav.Link
-                                 as={Link}
-                                 href="/products"
-                                 onClick={() => setNavShow(!navShow)}
-                              >
-                                 Products
-                              </Nav.Link>
-                              <Nav.Link
-                                 as={Link}
-                                 href="/contact-us"
-                                 onClick={() => setNavShow(!navShow)}
-                              >
-                                 Contact Us
-                              </Nav.Link>
+               {/* <div className="container"> */}
+               <div className="position-relative">
+                  <Link className="phnLogo" href="/">
+                     <img
+                        className="logo ms-3 mt-2"
+                        src="/logo.png"
+                        alt="logoImg"
+                     />
+                  </Link>
 
-                           </Nav>
-                        </Navbar.Collapse>
-                     </Container>
-                  </Navbar>
+                  {/* <div className="toggleMenu"> */}
+                  
+                  <div className="demoDD">
+                     <div
+                        id="toggleBox"
+                        className={
+                           // "menu toggleLine mt-3 me-4" + (showDiv ? " open" : "")
+                           "menu toggleLine" + (showDiv ? " open" : "")
+                        }
+                        onClick={(e) => toggle(e)}
+                     >
+                        <span className="item"></span>
+                        <span className="item"></span>
+                        <span className="item"></span>
+                     </div>
+                  </div>
+
+                  <div className={"myDiv" + (showDiv ? " show" : "")}>
+                   
+                     <Nav className="menuBox d-flex flex-column">
+                        <Link
+                           className="navLink d-flex align-items-center"
+                           href="/"
+                           onClick={(e) => toggle(e)}
+                        >
+                           <GoHome className="me-3"/>
+                           Home
+                        </Link>
+                        <Link
+                           className="navLink d-flex align-items-center"
+                           href="/about-us"
+                           onClick={(e) => toggle(e)}
+                        >
+                           <LuUsers2 className="me-3"/>
+                           About Us
+                        </Link>
+                        <Accordion activeKey={activeKey} onSelect={handleAccordionToggle}>
+                           <Accordion.Item
+                              eventKey="0"
+                              className="navLink mt-3"
+                           >
+                              <Accordion.Header className="d-flex align-items-center">
+                                 <MdOutlineDesignServices  className="me-3"/>
+                                 Services
+                              </Accordion.Header>
+                              <Accordion.Body className="d-flex flex-column">
+                                 <Link
+                                    className="navLink mt-0 d-flex align-items-center"
+                                    href="/services"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                   Our Services
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/custom-software-development"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Custom Software Development
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/web-app-development"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Web App Development
+                                 </Link>
+
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/mobile-app-development"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Mobile App Development
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/ui-ux-design"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    UI/UX Design
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/software-qa-and-testing"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Software QA and Testing
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/machine-learning-and-ai"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Machine Learning and AI
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/cloud-solutions"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Cloud Solutions
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/creative-design"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Creative Design
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/digital-marketing"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Digital Marketing
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/it-consultancy-service"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    IT Consultancy Service
+                                 </Link>
+                              </Accordion.Body>
+                           </Accordion.Item>
+
+                           <Accordion.Item
+                              eventKey="1"
+                              className="navLink mt-3"
+                           >
+                              <Accordion.Header className="d-flex align-items-center">
+                                 <BiOutline className="me-3"/>
+                                 Expertise
+                              </Accordion.Header>
+                              <Accordion.Body className="d-flex flex-column">
+                                 <Link
+                                    className="navLink mt-0 d-flex align-items-center"
+                                    href="/expertise"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Our Expertise
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/application-development"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Application Development
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/digital-transformation"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Digital Transformation
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/business-analysis"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Business Analysis
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/digital-product-design"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Digital Product Design
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/data-management"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    Data Management
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/iot"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    IoT (Internet of Things)
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/devops"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    DevOps
+                                 </Link>
+                                 <Link
+                                    className="navLink d-flex align-items-center"
+                                    href="/it-support-and-maintenance"
+                                    onClick={(e) => toggle(e)}
+                                 >
+                                    <LuDot className="fs-1"/>
+                                    IT Support & Maintenance
+                                 </Link>
+                              </Accordion.Body>
+                           </Accordion.Item>
+                        </Accordion>
+                        <Link
+                           className="navLink d-flex align-items-center"
+                           href="/products"
+                           onClick={(e) => toggle(e)}
+                        >
+                           <RiLayout3Line className="me-3"/>
+                           Products
+                        </Link>
+                        <Link
+                           className="navLink d-flex align-items-center"
+                           href="/contact-us"
+                           onClick={(e) => toggle(e)}
+                        >
+                           <TiLocationOutline className="me-3"/>
+                           Contact Us
+                        </Link>
+                     </Nav>
+                  </div>
+                  {/* </div> */}
                </div>
+
+               {/* </div> */}
             </div>
          </header>
       </>
