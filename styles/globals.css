@@ -133,9 +133,6 @@ h6 {
 }
 
 /* preloader */
-body {
-   overflow: hidden;
-}
 body.loaded {
    overflow: auto;
 }
@@ -144,8 +141,8 @@ body.loaded {
    height: 100%;
    position: fixed;
    top: 0;
-   left:0;
-   display:flex;
+   left: 0;
+   display: flex;
    justify-content: center;
    align-items: center;
    z-index: 999999999999;
@@ -154,43 +151,49 @@ body.loaded {
 }
 
 /* Loader CSS  */
-.loader, .loader:before, .loader:after {
+.loader,
+.loader:before,
+.loader:after {
    border-radius: 100%;
    width: 2.5em;
    height: 2.5em;
    animation-fill-mode: both;
    animation: bblFadInOut 1.8s infinite ease-in-out;
- }
- .loader {
+}
+.loader {
    color: #005481;
    font-size: 7px;
    position: relative;
    text-indent: -9999em;
    transform: translatey(-15px);
    animation-delay: -0.16s;
- }
- .loader:before,
- .loader:after {
-   content: '';
+}
+.loader:before,
+.loader:after {
+   content: "";
    position: absolute;
    top: 0;
- }
- .loader:before {
+}
+.loader:before {
    left: -3.5em;
    animation-delay: -0.32s;
- }
- .loader:after {
+}
+.loader:after {
    left: 3.5em;
- }
- 
- @keyframes bblFadInOut {
-   0%, 80%, 100% { box-shadow: 0 2.5em 0 -1.3em }
-   40% { box-shadow: 0 2.5em 0 0 }
- }
+}
+
+@keyframes bblFadInOut {
+   0%,
+   80%,
+   100% {
+      box-shadow: 0 2.5em 0 -1.3em;
+   }
+   40% {
+      box-shadow: 0 2.5em 0 0;
+   }
+}
 /* Loader CSS  */
 /* preloader */
-
-
 
 .section_padding_top {
    padding-top: 60px;
@@ -350,7 +353,7 @@ body.loaded {
 
 /* pageBanner css Start here */
 #pageBanner {
-   background-image: url(/pageBg.jpg);
+   /* background-image: url(/pageBg.webp); */
    width: 100%;
    height: 100vh;
    background-repeat: no-repeat;
@@ -474,7 +477,7 @@ body.loaded {
       rgba(255, 255, 255, 0) 100%
    );
 }
-.leftContent{
+.leftContent {
    max-width: 800px;
 }
 .proDesignation h3,
@@ -629,7 +632,7 @@ body.loaded {
    font-size: 28px;
    color: #fff;
 }
-@media (max-width: 767px){
+@media (max-width: 767px) {
    .serIconBox {
       position: initial;
       margin: auto;
@@ -638,7 +641,7 @@ body.loaded {
    .digitalTransformation .servicesBox {
       padding-left: 0px !important;
    }
-   .digitalTransformation.mt-5{
+   .digitalTransformation.mt-5 {
       margin-top: 0px !important;
    }
 }
@@ -748,17 +751,270 @@ body.loaded {
    flex-direction: row !important;
 }
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
    #prevBtn {
-   left: -0px;
-}
+      left: -0px;
+   }
 
-#nextBtn {
-   left: initial;
-   right: -0px !important;
-}
+   #nextBtn {
+      left: initial;
+      right: -0px !important;
+   }
 }
 /* Swiper CSS End here  */
+
+
+
+
+/* New ADD ========================================================================================================
+================================================================================================================== */
+#toggleBox {
+   position: relative;
+   /* background-color: #fff; */
+   width: 100%;
+   height: 100%;
+}
+
+
+.demoDD{
+   width: 55px;
+   height: 45px;
+   border-radius: 4px;
+   padding: 10px;
+   position: absolute;
+   right: 15px;
+   top: 10px;
+   z-index: 99999;
+   background-color: #ffffff8f;
+}
+
+.myDiv {
+   position: absolute;
+   top: -5px;
+   left: 0;
+   width: 100%;
+   min-height: 100vh;
+   height: 100%;
+   padding: 50px 40px;
+   /* overflow: hidden; */
+   z-index: -1;
+   visibility: hidden;
+   opacity: 0;
+   transition: all 0.3s ease-in-out;
+}
+.myDiv.show {
+   z-index: 2000 !important;
+   opacity: 1;
+   /* transition: all 0.5s ease-in-out; */
+   visibility: visible !important;
+}
+.myDiv::after {
+   content: "";
+   display: block;
+   position: absolute;
+   top: calc(-50% - 100px);
+   left: calc(100% + 400px);
+   transform: translate(-50%, -50%);
+   width: 1200px;
+   height: 1200px;
+   border-radius: 100%;
+   background: var(--main-color);
+   transition: all 0.3s ease-in-out;
+   z-index: -1;
+}
+
+.myDiv.show::after {
+   top: 50%;
+   left: 50%;
+}
+
+
+.myDiv > .menuBox {
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.5s ease-in-out;
+}
+.myDiv.show > .menuBox {
+   opacity: 1;
+   visibility: visible;
+}
+.myDiv > .menuBox .navLink {
+   margin-top: 15px;
+   color: #fff !important;
+   font-family: 'kanit';
+   font-size: 20px;
+   padding-left: 30px;
+   opacity: 0;
+   transition: all 0.5s ease-in-out;
+}
+
+.myDiv.show > .menuBox .navLink{
+   padding-left: 0px;
+   opacity: 1;
+   /* transition: all 0.6s ease-in-out; */
+}
+
+.myDiv > .menuBox .navLink:nth-child(1){
+   transition-delay: 0.1s;
+}
+.myDiv > .menuBox .navLink:nth-child(2){
+   transition-delay: 0.2s;
+}
+.myDiv > .menuBox .navLink:nth-child(3){
+   transition-delay: 0.3s;
+}
+.myDiv > .menuBox .navLink:nth-child(4){
+   transition-delay: 0.4s;
+}
+.myDiv > .menuBox .navLink:nth-child(5){
+   transition-delay: 0.5s;
+}
+.myDiv > .menuBox .navLink:nth-child(6){
+   transition-delay: 0.6s;
+}
+
+#header .navLink.accordion-header{
+   margin-top:0px;
+}
+
+#header .accordion-button{
+   padding:0px;
+   margin:0px;
+   color: #fff !important;
+   font-family: 'kanit';
+   font-size: 20px;
+   background-color: transparent !important;
+}
+
+#header .accordion-item {
+   background-color: transparent !important;
+   border: 0 !important;
+ }
+#header .accordion-button::after {
+   filter: brightness(0) invert(1);
+ }
+
+ #header .accordion-button:focus {
+   box-shadow: none !important;
+ }
+
+ #header .accordion-collapse.collapse.show{
+   background-color: transparent !important;
+ }
+ #header .accordion-collapse{
+   margin-top: 10px;
+ }
+ #header .accordion-button:not(.collapsed) {
+   box-shadow: none !important;
+ }
+ #header .accordion-body {
+   background-color: #19658d;
+   border-radius: 6px;
+ }
+ #header .accordion-body .navLink {
+   font-size: 17px;
+ }
+
+.phnLogo{
+   position: absolute !important;
+   top: 0 !important;
+   left: 0 !important;
+   z-index: 1000;
+}
+
+
+
+.menu {
+   display: block;
+   position: relative;
+   width: 2em;
+   height: 1.3em;
+   /* margin: 1em; */
+   font-size: 25px;
+   cursor: pointer;
+}
+
+.menu .item {
+   display: block;
+   position: absolute;
+   width: 100%;
+   height: 2px;
+   border-radius: 2.5px;
+   background-color: var(--main-color);
+   /* background-image: linear-gradient(to left top, #be1f25, #b2185e, #873a85, #4b4d90, #005481); */
+   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.menu .item:nth-child(1) {
+   top: 0;
+}
+.menu .item:nth-child(2) {
+   top: 50%;
+   transform: translateY(-50%);
+   /* top: 12px;
+   width: 70%;
+   left: 30%; */
+}
+.menu .item:nth-child(3) {
+   bottom: 0;
+}
+
+.toggleLine .item {
+   left: 0;
+}
+.toggleLine .item:nth-child(1) {
+   transition: all 0.35s cubic-bezier(0.03, 1.08, 0.51, 1.22) 0.0833333333s;
+}
+.toggleLine .item:nth-child(2) {
+   transition: all 0.35s cubic-bezier(0.03, 1.08, 0.51, 1.22) 0.1666666667s;
+}
+.toggleLine .item:nth-child(3) {
+   transition: all 0.35s cubic-bezier(0.03, 1.08, 0.51, 1.22) 0.25s;
+}
+.toggleLine:after,
+.toggleLine:before {
+   content: "";
+   opacity: 0;
+   position: absolute;
+   width: 90%;
+   height: 2px;
+   left: 10%;
+   background-color: #fff;
+   border-radius: 2.5px;
+   transition: all 0.25s cubic-bezier(0.03, 1.08, 0.51, 1.22);
+}
+.toggleLine:after {
+   top: -56%;
+   transform: rotate(45deg);
+}
+.toggleLine:before {
+   transform: rotate(-45deg);
+   bottom: -56%;
+}
+.toggleLine.open .item {
+   left: 100%;
+   opacity: 0;
+}
+.toggleLine.open .item:nth-child(1) {
+   transition: all 0.35s cubic-bezier(0.03, 1.08, 0.51, 1.22) 0.0833333333s;
+}
+.toggleLine.open .item:nth-child(2) {
+   transition: all 0.35s cubic-bezier(0.03, 1.08, 0.51, 1.22) 0.1666666667s;
+}
+.toggleLine.open .item:nth-child(3) {
+   transition: all 0.35s cubic-bezier(0.03, 1.08, 0.51, 1.22) 0.25s;
+}
+.toggleLine.open::after {
+   opacity: 1;
+   top: 44%;
+   transition: all 0.35s cubic-bezier(0.03, 1.08, 0.51, 1.22) 0.3333333333s;
+}
+.toggleLine.open::before {
+   opacity: 1;
+   bottom: 50%;
+   transition: all 0.25s cubic-bezier(0.03, 1.08, 0.51, 1.22) 0.3333333333s;
+}
+
+
 
 
 

@@ -7,7 +7,7 @@ const InnerPage = () => {
    return (
       <>
          <PageBanner
-            pageBg="/innerPaageImg/services.jpg"
+            pageBg="/innerPaageImg/services.webp"
             title="Business Analysis"
             description="Navigating the complexities of business landscapes, our software company excels in business analytics and strategic decision-making. Using data insights, we empower organizations to optimize processes, increase efficiency, and achieve sustainable growth through our unmatched expertise."
          />

@@ -9,7 +9,7 @@ const Expertise = () => {
   return (
     <>
        <PageBanner
-        pageBg="/pageBg.jpg"
+        pageBg="/pageBg.webp"
         title=" Our Expertise"
         description="With our strong expertise, dedication to innovation and customer-centric approach, we strive to be a reliable and trusted partner for businesses looking for high-quality software solutions that drive growth and success. As a software company, our expertise encompasses a wide range of skills and capabilities, enabling us to deliver high-quality software solutions to meet diverse needs."
       />

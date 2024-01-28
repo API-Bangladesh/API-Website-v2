@@ -13,7 +13,7 @@ const Mission = () => {
                   <div className="col-lg-6 pt-5 clock_div">
                      <div
                         className="missionBg"
-                        style={{ background: 'url("/mission.png")' }}
+                        style={{ background: 'url("/mission.webp")' }}
                      ></div>
                   </div>
                  

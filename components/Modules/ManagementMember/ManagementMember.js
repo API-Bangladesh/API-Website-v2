@@ -52,7 +52,7 @@ const ManagementMember = () => {
                         <div className="memberImgBox">
                            <img
                               className="memberImg"
-                              src="/management/chairman.png"
+                              src="/management/chairman.webp"
                               alt="img"
                            />
                         </div>
@@ -68,7 +68,7 @@ const ManagementMember = () => {
                         <div className="memberImgBox">
                            <img
                               className="memberImg"
-                              src="/management/CEO.png"
+                              src="/management/CEO.webp"
                               alt="img"
                            />
                         </div>
@@ -84,7 +84,7 @@ const ManagementMember = () => {
                         <div className="memberImgBox">
                            <img
                               className="memberImg"
-                              src="/management/CTO.png"
+                              src="/management/CTO.webp"
                               alt="img"
                            />
                         </div>
@@ -100,7 +100,7 @@ const ManagementMember = () => {
                         <div className="memberImgBox">
                            <img
                               className="memberImg"
-                              src="/management/CMO.png"
+                              src="/management/CMO.webp"
                               alt="img"
                            />
                         </div>
@@ -116,7 +116,7 @@ const ManagementMember = () => {
                         <div className="memberImgBox">
                            <img
                               className="memberImg"
-                              src="/management/ZiauddinAhmed.png"
+                              src="/management/ZiauddinAhmed.webp"
                               alt="img"
                            />
                         </div>
@@ -132,7 +132,7 @@ const ManagementMember = () => {
                         <div className="memberImgBox">
                            <img
                               className="memberImg"
-                              src="/management/MahabubHassan.png"
+                              src="/management/MahabubHassan.webp"
                               alt="img"
                            />
                         </div>
@@ -148,7 +148,7 @@ const ManagementMember = () => {
                         <div className="memberImgBox">
                            <img
                               className="memberImg"
-                              src="/management/IftekharMahmud.png"
+                              src="/management/IftekharMahmud.webp"
                               alt="img"
                            />
                         </div>
@@ -164,7 +164,7 @@ const ManagementMember = () => {
                         <div className="memberImgBox">
                            <img
                               className="memberImg"
-                              src="/management/TaniaAhmed.png"
+                              src="/management/TaniaAhmed.webp"
                               alt="img"
                            />
                         </div>

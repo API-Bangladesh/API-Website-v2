@@ -7,7 +7,7 @@ const InnerPage = () => {
    return (
       <>
          <PageBanner
-            pageBg="/innerPaageImg/services.jpg"
+            pageBg="/innerPaageImg/services.webp"
             title="IT Support & Maintenance"
             description="Experience uninterrupted business operations with our software company's unmatched expertise in IT support and maintenance. We go beyond problem-solving, offering comprehensive services that ensure optimal performance, security, and continuous evolution of your IT infrastructure."
          />
