@@ -1,52 +1,139 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import Link from "next/link";
-import { BsCloudDownloadFill } from "react-icons/bs";
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import Spinner from "react-bootstrap/Spinner";
+// import emailjs from "@emailjs/browser";
+// import Link from "next/link";
+// import { BsCloudDownloadFill } from "react-icons/bs";
+import classEase from "classease";
 import SectionTitle from "../Section_title/Section_title";
-import Checkbox from "@mui/material/Checkbox";
-import { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } from "../../../utils/constants";
+// import Checkbox from "@mui/material/Checkbox";
+// import { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } from "../../../utils/constants";
 // import CustomReCAPTCHA from '../../../utils/ReCAPTCHA';
 import {
   showErrorNotification,
   showSuccessNotification,
 } from "../../../utils/notificationHelper";
+import submitForm from "../../../lib/submit-form";
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+// const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Contacts = () => {
   const [isVerified, setIsVerified] = useState(false);
-  const form = useRef();
+  // const form = useRef();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const [formData, setFormData] = useState({
+    companyName: "",
+    name: "",
+    corporateEmail: "",
+    phone: "",
+    comments: "",
+    protectDataByNDA: false,
+  });
 
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
-      (result) => {
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState(null);
+
+  const validateForm = () => {
+    const errors = {};
+
+    if (!formData.name.trim()) {
+      errors.name = "Name cannot be empty";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.corporateEmail)) {
+      errors.corporateEmail = "Please enter a valid email address";
+    }
+
+    const phoneRegex = /^01\d{9}$/;
+    if (!formData.phone.trim()) {
+      errors.phone = "Phone cannot be empty";
+    } else if (!phoneRegex.test(formData.phone)) {
+      errors.phone =
+        "Please enter a valid phone number (starting with 01 and length 11)";
+    }
+
+    if (!formData.comments.trim()) {
+      errors.comments = "Comments cannot be empty";
+    }
+
+    setErrors(errors);
+    return Object.keys(errors).length === 0; // Return true if no errors
+  };
+
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    const newValue = type === "checkbox" ? checked : value;
+    setFormData((prevData) => ({ ...prevData, [name]: newValue }));
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (validateForm()) {
+      setIsLoading(true);
+      console.log(formData);
+      try {
+        // Simulate network delay (you can remove this in production)
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        const data = await submitForm(formData);
+        console.log(data);
+
+        setSubmissionStatus("success");
         showSuccessNotification("Success!", "Form Submitted Successfully!");
-        e.target.reset();
-      },
-      (error) => {
-        console.log(error.text);
+
+        // Handle success or display success messages to the user
+      } catch (error) {
+        console.error(error);
+        setSubmissionStatus("error");
         showErrorNotification(
           "Failed!",
           "Something Went Wrong! Please Try Again."
         );
+        // Handle server-side errors or display error messages to the user
+      } finally {
+        setIsLoading(false);
       }
-    );
+    } else {
+      console.log("Form validation failed");
+      // Optionally display validation error messages to the user
+    }
   };
 
-  const onButtonClick = () => {
-    fetch("").then((response) => {
-      response.blob().then((blob) => {
-        const fileURL = window.URL.createObjectURL(blob);
-        let alink = document.createElement("a");
-        alink.href = fileURL;
-        alink.download = "";
-        window.open("../api-profile.pdf");
-        alink.click();
-      });
-    });
-  };
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+
+  //   emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
+  //     (result) => {
+  //       showSuccessNotification("Success!", "Form Submitted Successfully!");
+  //       e.target.reset();
+  //     },
+  //     (error) => {
+  //       console.log(error.text);
+  //       showErrorNotification(
+  //         "Failed!",
+  //         "Something Went Wrong! Please Try Again."
+  //       );
+  //     }
+  //   );
+  // };
+
+  // const onButtonClick = () => {
+  //   fetch("").then((response) => {
+  //     response.blob().then((blob) => {
+  //       const fileURL = window.URL.createObjectURL(blob);
+  //       let alink = document.createElement("a");
+  //       alink.href = fileURL;
+  //       alink.download = "";
+  //       window.open("../api-profile.pdf");
+  //       alink.click();
+  //     });
+  //   });
+  // };
+
   return (
     <>
       <section id="contact" className="section_padding_top">
@@ -66,17 +153,39 @@ const Contacts = () => {
                     </h3>
                   </div>
                 </div>
-                <form ref={form} onSubmit={sendEmail}>
+                <form
+                  onSubmit={handleSubmit}
+                  method="POST"
+                  className="position-relative"
+                >
+                  {isLoading && (
+                    <div className="api-form-loader">
+                      <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
+                    </div>
+                  )}
+
                   <div className="row">
                     <div className="col-lg-12">
                       <div className="mb-4">
                         <input
                           type="text"
                           name="companyName"
-                          className="form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1"
+                          className={classEase(
+                            "form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1",
+                            errors.companyName ? "is-invalid" : ""
+                          )}
                           id="company"
                           placeholder="Company"
+                          value={formData.companyName}
+                          onChange={handleChange}
                         />
+                        {errors.companyName && (
+                          <span className="invalid-feedback d-block">
+                            {errors.companyName}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div className="col-md-12 col-lg-6 col-md-6">
@@ -84,23 +193,44 @@ const Contacts = () => {
                         <input
                           type="text"
                           name="name"
-                          className="form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1"
+                          className={classEase(
+                            "form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1",
+                            errors.name ? "is-invalid" : ""
+                          )}
                           id="name"
                           placeholder="Name"
-                          required
+                          // required
+                          value={formData.name}
+                          onChange={handleChange}
                         />
+                        {errors.name && (
+                          <span className="invalid-feedback d-block">
+                            {errors.name}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div className="col-md-12 col-lg-6 col-md-6">
                       <div className="mb-4">
                         <input
-                          type="email"
+                          // type="email"
+                          type="text"
                           name="corporateEmail"
-                          className="form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1"
+                          className={classEase(
+                            "form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1",
+                            errors.corporateEmail ? "is-invalid" : ""
+                          )}
                           id="email"
                           placeholder="Email"
-                          required
+                          // required
+                          value={formData.corporateEmail}
+                          onChange={handleChange}
                         />
+                        {errors.corporateEmail && (
+                          <span className="invalid-feedback d-block">
+                            {errors.corporateEmail}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div className="col-lg-12">
@@ -108,21 +238,42 @@ const Contacts = () => {
                         <input
                           type="number"
                           name="phone"
-                          className="form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1"
+                          className={classEase(
+                            "form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1",
+                            errors.phone ? "is-invalid" : ""
+                          )}
                           id="phone"
                           placeholder="Phone"
-                          required
+                          // required
+                          value={formData.phone}
+                          onChange={handleChange}
                         />
+                        {errors.phone && (
+                          <span className="invalid-feedback d-block">
+                            {errors.phone}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div className="col-lg-12">
                       <div className="mb-3">
                         <textarea
-                          className="form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1"
+                          className={classEase(
+                            "form-control border-0 border-bottom rounded-0 font-14 border-shadow ps-1",
+                            errors.comments ? "is-invalid" : ""
+                          )}
                           id="comments"
                           rows="3"
                           placeholder="Comments"
+                          name="comments"
+                          value={formData.comments}
+                          onChange={handleChange}
                         ></textarea>
+                        {errors.comments && (
+                          <span className="invalid-feedback">
+                            {errors.comments}
+                          </span>
+                        )}
                       </div>
                     </div>
 
@@ -136,13 +287,21 @@ const Contacts = () => {
 
                         {/* Go button start  */}
                         <div className="form-check checkbox_btn_start">
-                          <Checkbox id="CheckedText" {...label}/>
-                          <label
+                          {/* <Checkbox id="CheckedText" {...label}/> */}
+                          <Form.Check // prettier-ignore
+                            type="checkbox"
+                            id="CheckedText"
+                            label="I want to protect my data by signing an NDA"
+                            name="protectDataByNDA"
+                            checked={formData.protectDataByNDA}
+                            onChange={handleChange}
+                          />
+                          {/* <label
                             className="form-check-label"
                             htmlFor="CheckedText"
                           >
                             I want to protect my data by signing an NDA
-                          </label>
+                          </label> */}
                         </div>
                       </div>
                     </div>
@@ -202,4 +361,5 @@ const Contacts = () => {
     </>
   );
 };
+
 export default Contacts;

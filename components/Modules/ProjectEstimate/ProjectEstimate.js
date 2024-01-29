@@ -14,6 +14,46 @@ import {
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
+const initialFormData = {
+  challenges: {
+    rAndD: false,
+    systemArchitecture: false,
+    uiUx: false,
+    development: false,
+    qa: false,
+    integrations: false,
+    maintenance: false,
+    consultancy: false,
+    // ... other challenges
+  },
+  alreadyHave: {
+    idea: false,
+    specification: false,
+    uiUx: false,
+    code: false,
+    // ... other already have options
+  },
+  timeframe: {
+    hiringNow: false,
+    hiringWithinOneMonth: false,
+    hiringWithinThreeMonths: false,
+    hiringLater: false,
+    // ... other timeframe options
+  },
+  projectType: "", // 'New' or 'Existing'
+  yourRole: "", // 'Individual' or 'Company'
+  servicesNeeded: "", // the selected service option
+  preferredContactTime: "", // 'Morning', 'Noon', 'Afternoon'
+  attachments: [], // Array to hold multiple files
+  projectDetails: "",
+  userDetails: {
+    name: "",
+    email: "",
+    phone: "",
+  },
+  newsletterSubscription: false,
+};
+
 const ProjectEstimate = () => {
   const [isVerified, setIsVerified] = useState(false);
   const form = useRef();
@@ -50,13 +90,12 @@ const ProjectEstimate = () => {
             <Col lg={9}>
               <Form ref={form} onSubmit={sendEmail}>
                 <Row>
-                <p className="position-relative ms-2 mb-4 mt-3 ps-5">
-                    <span className="estimateNumber rounded-1 me-2">
-                      1
+                  <p className="position-relative ms-2 mb-4 mt-3 ps-5">
+                    <span className="estimateNumber rounded-1 me-2">1</span>
+                    <span className="fw-bolder fs-5">
+                      What are your main challenges that we can help you with?
                     </span>
-                    <span className="fw-bolder fs-5">What are your main challenges that we can help you with?</span>
                   </p>
-
 
                   <Col
                     lg={3}
@@ -79,7 +118,7 @@ const ProjectEstimate = () => {
                                 alt="icon"
                               />
                               <span className="checkbox-label text-capitalize pt-2">
-                                  R&D
+                                R&D
                               </span>
                             </span>
                           </label>
@@ -108,7 +147,7 @@ const ProjectEstimate = () => {
                                 alt="icon"
                               />
                               <span className="checkbox-label text-capitalize pt-2">
-                                  Systems Architecture
+                                Systems Architecture
                               </span>
                             </span>
                           </label>
@@ -174,7 +213,6 @@ const ProjectEstimate = () => {
                       </fieldset>
                     </div>
                   </Col>
-                  
                   <Col
                     lg={3}
                     md={4}
@@ -293,12 +331,10 @@ const ProjectEstimate = () => {
                   </Col>
 
                   <p className="position-relative ms-2 mb-4 mt-3 ps-5">
-                    <span className="estimateNumber rounded-1 me-2">
-                      2
-                    </span>
+                    <span className="estimateNumber rounded-1 me-2">2</span>
                     <span className="fw-bolder fs-5 ">I already have:</span>
                   </p>
-                  
+
                   <Col
                     lg={3}
                     md={4}
@@ -417,9 +453,7 @@ const ProjectEstimate = () => {
                   </Col>
 
                   <p className="position-relative ms-2 mb-4 mt-3 ps-5">
-                    <span className="estimateNumber rounded-1 me-2">
-                      3
-                    </span>
+                    <span className="estimateNumber rounded-1 me-2">3</span>
                     <span className="fw-bolder fs-5">Timeframe</span>
                   </p>
                   <Col
@@ -466,7 +500,7 @@ const ProjectEstimate = () => {
                             />
                             <span className="checkbox-tile">
                               <span className="checkbox-label text-capitalize pt-2 fw-semibold">
-                              Hiring Within
+                                Hiring Within
                                 <br />
                                 <span className="text-danger">1 Months</span>
                               </span>
@@ -476,7 +510,6 @@ const ProjectEstimate = () => {
                       </fieldset>
                     </div>
                   </Col>
-                 
                   <Col
                     lg={3}
                     md={4}
@@ -494,7 +527,7 @@ const ProjectEstimate = () => {
                             />
                             <span className="checkbox-tile">
                               <span className="checkbox-label text-capitalize pt-2 fw-semibold">
-                              Hiring within
+                                Hiring within
                                 <br />
                                 <span className="text-danger">3 months</span>
                               </span>
@@ -503,7 +536,6 @@ const ProjectEstimate = () => {
                         </div>
                       </fieldset>
                     </div>
-
                   </Col>
                   <Col
                     lg={3}
@@ -531,9 +563,7 @@ const ProjectEstimate = () => {
                         </div>
                       </fieldset>
                     </div>
-
                   </Col>
-
 
                   {/* question number 5 */}
 
@@ -600,8 +630,8 @@ const ProjectEstimate = () => {
                             5
                           </span>
                           <span className="fw-bolder fs-5">
-                          You Are
-                          <span className="text-danger"> *</span>
+                            You Are
+                            <span className="text-danger"> *</span>
                           </span>
                         </p>
                         <div>
@@ -626,8 +656,8 @@ const ProjectEstimate = () => {
                             6
                           </span>
                           <span className="fw-bolder fs-5">
-                          Preferred Time For Contact
-                          <span className="text-danger"> *</span>
+                            Preferred Time For Contact
+                            <span className="text-danger"> *</span>
                           </span>
                         </p>
                         <div>
@@ -664,7 +694,7 @@ const ProjectEstimate = () => {
                               name="image"
                             />
                             <div className="d-flex align-items-center justify-content-center">
-                              <ImAttachment className="me-2"/>
+                              <ImAttachment className="me-2" />
                               Please attach the PDF file
                             </div>
                           </label>
@@ -699,7 +729,7 @@ const ProjectEstimate = () => {
                           </Form.Group>
                         </div>
                       </Col> */}
-                      
+
                       <Col lg={12}>
                         <p className="position-relative mb-4 mt-3 ps-5">
                           <span className="estimateNumber rounded-1 me-2">
@@ -708,7 +738,7 @@ const ProjectEstimate = () => {
                           <span className="fw-bolder fs-5">
                             Fill the details
                             <span className="text-danger"> *</span>
-                            </span>
+                          </span>
                         </p>
                         {/* <Form> */}
                         <Row>
@@ -756,13 +786,19 @@ const ProjectEstimate = () => {
 
                         <div className="checkBox d-flex align-items-center mb-2">
                           <Checkbox id="CheckedText" {...label} />
-                          <label htmlFor="CheckedText" className="checkBox_text">
+                          <label
+                            htmlFor="CheckedText"
+                            className="checkBox_text"
+                          >
                             I want to receive a monthly tech newaletter
                           </label>
                         </div>
                         {/* <CustomReCAPTCHA onVerify={setIsVerified}/> */}
 
-                        <button type="submit" className="requestBtn mt-3 mb-5 border-0">
+                        <button
+                          type="submit"
+                          className="requestBtn mt-3 mb-5 border-0"
+                        >
                           Send request
                         </button>
                         {/* </Form> */}
