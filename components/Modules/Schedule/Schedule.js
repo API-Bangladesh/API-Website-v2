@@ -8,18 +8,19 @@ import { CgArrowLongLeft } from "react-icons/cg";
 import classEase from "classease";
 import emailjs from "@emailjs/browser";
 import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from "../../../utils/constants";
+import { convertTimeTo24HourFormat } from "../../../lib/format";
 import {
   showErrorNotification,
   showSuccessNotification,
 } from "../../../utils/notificationHelper";
-import submitForm from "../../../lib/submit-form";
+import { submitRequestSchedule } from "../../../lib/submit-form";
 import SectionTitle from "../Section_title/Section_title";
-// import CustomReCAPTCHA from "../../../utils/ReCAPTCHA";
+import CustomReCAPTCHA from "../../../utils/ReCAPTCHA";
 
 const Schedule = () => {
   const [formData, setFormData] = useState({
     service: "", // string
-    date: "", // string or Date object
+    date: new Date(), // string or Date object
     time: "", // string or Time object
     budget: "", // string
     description: "", // string
@@ -29,16 +30,8 @@ const Schedule = () => {
     },
   });
 
-  const [isTimeSelect, setIsTimeSelect] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
-  // for date picker
-  const [value, onChange] = useState(new Date());
   const [isVerified, setIsVerified] = useState(false);
-
-  console.log(selectedOption);
-  console.log(value);
-  console.log(selectedItem);
+  const [isTimeSelect, setIsTimeSelect] = useState(false);
 
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +54,7 @@ const Schedule = () => {
     }
 
     if (!formData.service.trim()) {
-      errors.service = "Service cannot be empty";
+      errors.service = "Select a service";
     }
 
     if (!formData?.date) {
@@ -80,43 +73,52 @@ const Schedule = () => {
     return Object.keys(errors).length === 0; // Return true if no errors
   };
 
-  const handleItemClick = (e) => {
+  const handleDateChange = (selectedDate) => {
+    setFormData((prev) => ({
+      ...prev,
+      date: selectedDate,
+    }));
+  };
+
+  const handleTimeChange = (e) => {
     const textValue = e.target.innerText;
-    setSelectedItem(textValue);
+    const selectedTime = convertTimeTo24HourFormat(textValue);
     setIsTimeSelect(true);
     setFormData((prev) => ({
       ...prev,
-      time: e.target.innerText,
+      time: selectedTime,
     }));
-    console.log(selectedItem);
-  };
-
-  const handleDivClick = (e) => {
-    setSelectedItem("");
-    setIsTimeSelect(false);
   };
 
   const handleRadioChange = (event) => {
-    setSelectedOption(event.target.id);
-    setFormData((prev) => ({
-      ...prev,
-      service: event.target.id,
-    }));
+    const selectedService = event.target.value;
+    setFormData((prev) => ({ ...prev, service: selectedService }));
+    setErrors((prevErrors) => ({ ...prevErrors, service: undefined }));
   };
 
-  const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    const newValue = type === "checkbox" ? checked : value;
-    setFormData((prevData) => ({ ...prevData, [name]: newValue }));
-    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+  const handleBackClick = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      time: "",
+    }));
+    setIsTimeSelect(false);
   };
+
+  // const handleChange = (event) => {
+  //   const { name, value, type, checked } = event.target;
+  //   const newValue = type === "checkbox" ? checked : value;
+  //   setFormData((prevData) => ({ ...prevData, [name]: newValue }));
+  //   setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     setFormData((prev) => ({
       ...prev,
-      date: value,
+      date: "2024-01-29",
     }));
+
     console.log(formData);
 
     if (validateForm()) {
@@ -126,7 +128,12 @@ const Schedule = () => {
         // Simulate network delay (you can remove this in production)
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        const data = await submitForm(formData);
+        // setFormData((prev) => ({
+        //   ...prev,
+        //   date: "2024-01-29",
+        // }));
+
+        const data = await submitRequestSchedule(formData);
         console.log(data);
 
         setSubmissionStatus("success");
@@ -182,6 +189,9 @@ const Schedule = () => {
         <div className="container">
           <div className="projectBox">
             <h4 className="mb-3">Select Services</h4>
+            {errors.service && (
+              <span className="invalid-feedback d-block">{errors.service}</span>
+            )}
           </div>
 
           <div className="row">
@@ -190,11 +200,15 @@ const Schedule = () => {
                 className="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="1"
-                checked={selectedOption === "1"}
+                id="applicationDevelopment"
+                value="Application Development"
+                checked={formData?.service === "Application Development"}
                 onChange={handleRadioChange}
               />
-              <label className="form-check-label" htmlFor="1">
+              <label
+                className="form-check-label"
+                htmlFor="applicationDevelopment"
+              >
                 Application Development
               </label>
             </div>
@@ -204,11 +218,15 @@ const Schedule = () => {
                 className="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="2"
-                checked={selectedOption === "2"}
+                id="DigitalTransformation"
+                value="Digital Transformation"
+                checked={formData?.service === "Digital Transformation"}
                 onChange={handleRadioChange}
               />
-              <label className="form-check-label" htmlFor="2">
+              <label
+                className="form-check-label"
+                htmlFor="DigitalTransformation"
+              >
                 Digital Transformation
               </label>
             </div>
@@ -218,11 +236,15 @@ const Schedule = () => {
                 className="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="3"
-                checked={selectedOption === "3"}
+                id="CloudSolutions"
+                value="Cloud Solutions"
+                checked={formData?.service === "Cloud Solutions"}
                 onChange={handleRadioChange}
               />
-              <label className="form-check-label" htmlFor="3">
+              <label
+                className="form-check-label" //
+                htmlFor="CloudSolutions"
+              >
                 Cloud Solutions
               </label>
             </div>
@@ -232,11 +254,12 @@ const Schedule = () => {
                 className="form-check-input"
                 type="radio"
                 name="flexRadioDefault"
-                id="4"
-                checked={selectedOption === "4"}
+                id="ITConsulting"
+                value="IT Consulting"
+                checked={formData?.service === "IT Consulting"}
                 onChange={handleRadioChange}
               />
-              <label className="form-check-label" htmlFor="4">
+              <label className="form-check-label" htmlFor="ITConsulting">
                 IT Consulting
               </label>
             </div>
@@ -253,7 +276,7 @@ const Schedule = () => {
             <div className="col-md-6 scheduleItem">
               <div className="dateBox d-flex flex-column align-items-center pb-4">
                 <h4 className="mt-0 mb-3 pt-4 text-white">Pick a Date</h4>
-                <Calendar onChange={onChange} value={value} />
+                <Calendar onChange={handleDateChange} value={formData?.date} />
               </div>
             </div>
 
@@ -265,150 +288,151 @@ const Schedule = () => {
               <ul className="times">
                 <li
                   className={`setTime ${
-                    selectedItem === "9:30 AM" ? "selected" : ""
+                    formData?.time === "09:30:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   9:30 AM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "10:00 AM" ? "selected" : ""
+                    formData?.time === "10:00:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   10:00 AM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "10:30 AM" ? "selected" : ""
+                    formData?.time === "10:30:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   10:30 AM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "11:00 AM" ? "selected" : ""
+                    formData?.time === "11:00:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   11:00 AM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "11:30 AM" ? "selected" : ""
+                    formData?.time === "11:30:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   11:30 AM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "12:00 AM" ? "selected" : ""
+                    formData?.time === "12:00:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
-                  12:00 AM
+                  12:00 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "12:30 PM" ? "selected" : ""
+                    formData?.time === "12:30:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   12:30 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "1:00 PM" ? "selected" : ""
+                    formData?.time === "13:00:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   1:00 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "1:30 PM" ? "selected" : ""
+                    formData?.time === "13:30:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   1:30 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "2:00 PM" ? "selected" : ""
+                    formData?.time === "14:00:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   2:00 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "2:30 PM" ? "selected" : ""
+                    formData?.time === "14:30:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   2:30 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "3:00 PM" ? "selected" : ""
+                    formData?.time === "15:00:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   3:00 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "3:30 PM" ? "selected" : ""
+                    formData?.time === "15:30:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   3:30 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "4:00 PM" ? "selected" : ""
+                    formData?.time === "16:00:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   4:00 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "4:30 PM" ? "selected" : ""
+                    formData?.time === "16:30:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   4:30 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "5:00 PM" ? "selected" : ""
+                    formData?.time === "17:00:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   5:00 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "5:30 PM" ? "selected" : ""
+                    formData?.time === "17:30:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   5:30 PM
                 </li>
                 <li
                   className={`setTime ${
-                    selectedItem === "6:00 PM" ? "selected" : ""
+                    formData?.time === "18:00:00" ? "selected" : ""
                   }`}
-                  onClick={handleItemClick}
+                  onClick={(e) => handleTimeChange(e)}
                 >
                   6:00 PM
                 </li>
               </ul>
             </div>
+
             {isTimeSelect && (
               <div className="col-md-6 scheduleItem hideShow ps-4">
                 <div className="itemContent">
@@ -416,19 +440,7 @@ const Schedule = () => {
                     LAST STEP
                   </p>
 
-                  <Form
-                    onSubmit={handleSubmit}
-                    method="POST"
-                    className="position-relative"
-                  >
-                    {isLoading && (
-                      <div className="api-form-loader">
-                        <Spinner animation="border" role="status">
-                          <span className="visually-hidden">Loading...</span>
-                        </Spinner>
-                      </div>
-                    )}
-
+                  <Form onSubmit={handleSubmit} method="POST">
                     <Row>
                       <Col sm={12} lg={6}>
                         <Form.Group
@@ -539,35 +551,29 @@ const Schedule = () => {
                       )}
                     </Form.Group>
 
-                    <Form.Control
-                      className="d-none"
-                      name="service"
-                      value={selectedOption}
-                      type="text"
-                    />
-                    <Form.Control
-                      className="d-none"
-                      name="date"
-                      value={value}
-                      type="text"
-                    />
-                    <Form.Control
-                      className="d-none"
-                      name="time"
-                      value={selectedItem}
-                      type="text"
-                    />
-                    {/* <CustomReCAPTCHA onVerify={setIsVerified}/> */}
+                    <CustomReCAPTCHA onVerify={setIsVerified} />
 
                     <div class="d-flex justify-content-between align-items-center pb-3">
                       <p
                         className="scheduleBackBtn mb-1"
-                        onClick={handleDivClick}
+                        onClick={(e) => handleBackClick(e)}
                       >
                         <CgArrowLongLeft className="d-inline-block me-2 fs-5" />
                         Select a different date
                       </p>
-                      <button type="submit" className="requestBtn border-0">
+                      <button
+                        type="submit"
+                        className="requestBtn border-0 d-flex justify-content-center align-items-center"
+                      >
+                        {isLoading && (
+                          <div className="api-form-loader">
+                            <Spinner animation="border" size="sm" role="status">
+                              <span className="visually-hidden">
+                                Loading...
+                              </span>
+                            </Spinner>
+                          </div>
+                        )}
                         Confirm
                       </button>
                     </div>

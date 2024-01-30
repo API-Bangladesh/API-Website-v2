@@ -1,26 +1,20 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
-// import emailjs from "@emailjs/browser";
-// import Link from "next/link";
 // import { BsCloudDownloadFill } from "react-icons/bs";
 import classEase from "classease";
 import SectionTitle from "../Section_title/Section_title";
 // import Checkbox from "@mui/material/Checkbox";
-// import { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } from "../../../utils/constants";
-// import CustomReCAPTCHA from '../../../utils/ReCAPTCHA';
+import CustomReCAPTCHA from "../../../utils/ReCAPTCHA";
 import {
   showErrorNotification,
   showSuccessNotification,
 } from "../../../utils/notificationHelper";
-import submitForm from "../../../lib/submit-form";
+import { submitContactUs } from "../../../lib/submit-form";
 
 // const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Contacts = () => {
-  const [isVerified, setIsVerified] = useState(false);
-  // const form = useRef();
-
   const [formData, setFormData] = useState({
     companyName: "",
     name: "",
@@ -29,7 +23,7 @@ const Contacts = () => {
     comments: "",
     protectDataByNDA: false,
   });
-
+  const [isVerified, setIsVerified] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState(null);
@@ -72,20 +66,18 @@ const Contacts = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (validateForm()) {
+    if (validateForm() && isVerified) {
       setIsLoading(true);
-      console.log(formData);
-      try {
-        // Simulate network delay (you can remove this in production)
-        await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        const data = await submitForm(formData);
+      try {
+        // // Simulate network delay (you can remove this in production)
+        // await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        const data = await submitContactUs(formData);
         console.log(data);
 
         setSubmissionStatus("success");
         showSuccessNotification("Success!", "Form Submitted Successfully!");
-
-        // Handle success or display success messages to the user
       } catch (error) {
         console.error(error);
         setSubmissionStatus("error");
@@ -93,33 +85,13 @@ const Contacts = () => {
           "Failed!",
           "Something Went Wrong! Please Try Again."
         );
-        // Handle server-side errors or display error messages to the user
       } finally {
         setIsLoading(false);
       }
     } else {
       console.log("Form validation failed");
-      // Optionally display validation error messages to the user
     }
   };
-
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-
-  //   emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
-  //     (result) => {
-  //       showSuccessNotification("Success!", "Form Submitted Successfully!");
-  //       e.target.reset();
-  //     },
-  //     (error) => {
-  //       console.log(error.text);
-  //       showErrorNotification(
-  //         "Failed!",
-  //         "Something Went Wrong! Please Try Again."
-  //       );
-  //     }
-  //   );
-  // };
 
   // const onButtonClick = () => {
   //   fetch("").then((response) => {
@@ -153,19 +125,7 @@ const Contacts = () => {
                     </h3>
                   </div>
                 </div>
-                <form
-                  onSubmit={handleSubmit}
-                  method="POST"
-                  className="position-relative"
-                >
-                  {isLoading && (
-                    <div className="api-form-loader">
-                      <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                      </Spinner>
-                    </div>
-                  )}
-
+                <form onSubmit={handleSubmit} method="POST">
                   <div className="row">
                     <div className="col-lg-12">
                       <div className="mb-4">
@@ -179,7 +139,8 @@ const Contacts = () => {
                           id="company"
                           placeholder="Company"
                           value={formData.companyName}
-                          onChange={handleChange}
+                          onChange={(e) => handleChange(e)}
+                          readOnly={isLoading}
                         />
                         {errors.companyName && (
                           <span className="invalid-feedback d-block">
@@ -201,7 +162,8 @@ const Contacts = () => {
                           placeholder="Name"
                           // required
                           value={formData.name}
-                          onChange={handleChange}
+                          onChange={(e) => handleChange(e)}
+                          readOnly={isLoading}
                         />
                         {errors.name && (
                           <span className="invalid-feedback d-block">
@@ -224,7 +186,8 @@ const Contacts = () => {
                           placeholder="Email"
                           // required
                           value={formData.corporateEmail}
-                          onChange={handleChange}
+                          onChange={(e) => handleChange(e)}
+                          readOnly={isLoading}
                         />
                         {errors.corporateEmail && (
                           <span className="invalid-feedback d-block">
@@ -246,7 +209,8 @@ const Contacts = () => {
                           placeholder="Phone"
                           // required
                           value={formData.phone}
-                          onChange={handleChange}
+                          onChange={(e) => handleChange(e)}
+                          readOnly={isLoading}
                         />
                         {errors.phone && (
                           <span className="invalid-feedback d-block">
@@ -267,7 +231,8 @@ const Contacts = () => {
                           placeholder="Comments"
                           name="comments"
                           value={formData.comments}
-                          onChange={handleChange}
+                          onChange={(e) => handleChange(e)}
+                          readOnly={isLoading}
                         ></textarea>
                         {errors.comments && (
                           <span className="invalid-feedback">
@@ -277,11 +242,28 @@ const Contacts = () => {
                       </div>
                     </div>
 
-                    {/* <CustomReCAPTCHA onVerify={setIsVerified}/> */}
+                    <CustomReCAPTCHA onVerify={setIsVerified} />
 
                     <div className="col-lg-12">
                       <div className="submit pt-4 d-flex align-items-center justify-content-between btn_align_res">
-                        <button type="submit" className="requestBtn">
+                        <button
+                          type="submit"
+                          className="requestBtn d-flex justify-content-center align-items-center"
+                          disabled={isLoading}
+                        >
+                          {isLoading && (
+                            <div className="api-form-loader">
+                              <Spinner
+                                animation="border"
+                                size="sm"
+                                role="status"
+                              >
+                                <span className="visually-hidden">
+                                  Loading...
+                                </span>
+                              </Spinner>
+                            </div>
+                          )}
                           Send request
                         </button>
 
@@ -294,7 +276,8 @@ const Contacts = () => {
                             label="I want to protect my data by signing an NDA"
                             name="protectDataByNDA"
                             checked={formData.protectDataByNDA}
-                            onChange={handleChange}
+                            onChange={(e) => handleChange(e)}
+                            disabled={isLoading}
                           />
                           {/* <label
                             className="form-check-label"

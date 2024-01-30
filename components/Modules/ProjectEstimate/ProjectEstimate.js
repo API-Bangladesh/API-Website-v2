@@ -44,7 +44,7 @@ const initialFormData = {
   yourRole: "", // 'Individual' or 'Company'
   servicesNeeded: "", // the selected service option
   preferredContactTime: "", // 'Morning', 'Noon', 'Afternoon'
-  attachments: [], // Array to hold multiple files
+  attachment: "", // Array to hold multiple files
   projectDetails: "",
   userDetails: {
     name: "",
@@ -56,30 +56,171 @@ const initialFormData = {
 
 const ProjectEstimate = () => {
   const [isVerified, setIsVerified] = useState(false);
-  const form = useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const [formData, setFormData] = useState(initialFormData);
 
-    //  if(!isVerified){
-    //     // console.log("ReCaptcha Failed!");
-    //      showErrorNotification("Failed!", "ReCaptcha Validation Failed! Please Try Again.");
-    //     return;
-    //  }
-
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID2, form.current, PUBLIC_KEY).then(
-      (result) => {
-        showSuccessNotification("Success!", "Form Submitted Successfully!");
-        e.target.reset();
+  const handleCheckboxChange = (category, name) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [category]: {
+        ...prevData[category],
+        [name]: !prevData[category][name],
       },
-      (error) => {
-        console.log(error.text);
+    }));
+  };
+
+  const handleRadioChange = (category, key) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [category]: {
+        ...Object.keys(prevData[category]).reduce((acc, categoryKey) => {
+          acc[categoryKey] = key === categoryKey;
+          return acc;
+        }, {}),
+      },
+    }));
+  };
+
+  const handleSelectChange = (e, key) => {
+    const selected = e.target.value;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [key]: selected,
+    }));
+  };
+
+  const handleUserDetailsChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      userDetails: {
+        ...prevFormData.userDetails,
+        [name]: value,
+      },
+    }));
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value, type, checked, files } = event.target;
+
+    // Check if the input is a checkbox
+    const inputValue =
+      type === "file" ? files[0] : type === "checkbox" ? checked : value;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: inputValue,
+    }));
+  };
+
+  // const validateForm = () => {
+  //   const errors = {};
+
+  //   if (!formData.userDetails.name.trim()) {
+  //     errors.name = "Name cannot be empty";
+  //   }
+
+  //   const phoneRegex = /^01\d{9}$/;
+
+  //   if (!formData.userDetails.phone.trim()) {
+  //     errors.phone = "Phone cannot be empty";
+  //   } else if (!phoneRegex.test(formData.userDetails.phone)) {
+  //     errors.phone =
+  //       "Please enter a valid phone number (starting with 01 and length 11)";
+  //   }
+
+  //   if (!formData.service.trim()) {
+  //     errors.service = "Service cannot be empty";
+  //   }
+
+  //   if (!formData?.date) {
+  //     errors.date = "Date cannot be empty";
+  //   }
+
+  //   if (!formData.budget.trim()) {
+  //     errors.budget = "Budget cannot be empty";
+  //   }
+
+  //   if (!formData.description.trim()) {
+  //     errors.description = "Description cannot be empty";
+  //   }
+
+  //   setErrors(errors);
+  //   return Object.keys(errors).length === 0; // Return true if no errors
+  // };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    console.log(formData);
+    return;
+
+    setFormData((prev) => ({
+      ...prev,
+      date: "2024-01-29",
+    }));
+    console.log(formData);
+
+    if (validateForm()) {
+      setIsLoading(true);
+
+      try {
+        // Simulate network delay (you can remove this in production)
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        // setFormData((prev) => ({
+        //   ...prev,
+        //   date: "2024-01-29",
+        // }));
+
+        const data = await submitRequestSchedule(formData);
+        console.log(data);
+
+        setSubmissionStatus("success");
+        showSuccessNotification("Success!", "Form Submitted Successfully!");
+
+        // Handle success or display success messages to the user
+      } catch (error) {
+        console.error(error);
+        setSubmissionStatus("error");
         showErrorNotification(
           "Failed!",
           "Something Went Wrong! Please Try Again."
         );
+        // Handle server-side errors or display error messages to the user
+      } finally {
+        setIsLoading(false);
       }
-    );
+    } else {
+      console.log("Form validation failed");
+      // Optionally display validation error messages to the user
+    }
   };
+
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+
+  //   //  if(!isVerified){
+  //   //     // console.log("ReCaptcha Failed!");
+  //   //      showErrorNotification("Failed!", "ReCaptcha Validation Failed! Please Try Again.");
+  //   //     return;
+  //   //  }
+
+  //   emailjs.sendForm(SERVICE_ID, TEMPLATE_ID2, form.current, PUBLIC_KEY).then(
+  //     (result) => {
+  //       showSuccessNotification("Success!", "Form Submitted Successfully!");
+  //       e.target.reset();
+  //     },
+  //     (error) => {
+  //       console.log(error.text);
+  //       showErrorNotification(
+  //         "Failed!",
+  //         "Something Went Wrong! Please Try Again."
+  //       );
+  //     }
+  //   );
+  // };
 
   return (
     <>
@@ -88,7 +229,7 @@ const ProjectEstimate = () => {
         <Container>
           <div className="d-flex justify-content-center">
             <Col lg={9}>
-              <Form ref={form} onSubmit={sendEmail}>
+              <Form onSubmit={handleSubmit} method="POST">
                 <Row>
                   <p className="position-relative ms-2 mb-4 mt-3 ps-5">
                     <span className="estimateNumber rounded-1 me-2">1</span>
@@ -109,8 +250,12 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Ui/Ux"
+                              name="rAndD"
                               className="checkbox-input"
+                              checked={formData.challenges.rAndD}
+                              onChange={() =>
+                                handleCheckboxChange("challenges", "rAndD")
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -138,8 +283,15 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Ui/Ux"
+                              name="systemArchitecture"
                               className="checkbox-input"
+                              checked={formData.challenges.systemArchitecture}
+                              onChange={() =>
+                                handleCheckboxChange(
+                                  "challenges",
+                                  "systemArchitecture"
+                                )
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -167,8 +319,12 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Ui/Ux"
+                              name="uiUx"
                               className="checkbox-input"
+                              checked={formData.challenges.uiUx}
+                              onChange={() =>
+                                handleCheckboxChange("challenges", "uiUx")
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -196,8 +352,15 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Development"
+                              name="development"
                               className="checkbox-input"
+                              checked={formData.challenges.development}
+                              onChange={() =>
+                                handleCheckboxChange(
+                                  "challenges",
+                                  "development"
+                                )
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -225,8 +388,12 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="QA"
+                              name="qa"
                               className="checkbox-input"
+                              checked={formData.challenges.qa}
+                              onChange={() =>
+                                handleCheckboxChange("challenges", "qa")
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -254,8 +421,15 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Integrations"
+                              name="integrations"
                               className="checkbox-input"
+                              checked={formData.challenges.integrations}
+                              onChange={() =>
+                                handleCheckboxChange(
+                                  "challenges",
+                                  "integrations"
+                                )
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -283,8 +457,15 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Maintenance"
+                              name="maintenance"
                               className="checkbox-input"
+                              checked={formData.challenges.maintenance}
+                              onChange={() =>
+                                handleCheckboxChange(
+                                  "challenges",
+                                  "maintenance"
+                                )
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -312,8 +493,15 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Consultancy"
+                              name="consultancy"
                               className="checkbox-input"
+                              checked={formData.challenges.consultancy}
+                              onChange={() =>
+                                handleCheckboxChange(
+                                  "challenges",
+                                  "consultancy"
+                                )
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -347,8 +535,12 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Development2"
+                              name="idea"
                               className="checkbox-input"
+                              checked={formData.alreadyHave.idea}
+                              onChange={() =>
+                                handleCheckboxChange("alreadyHave", "idea")
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -376,8 +568,15 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Specification1"
+                              name="specification"
                               className="checkbox-input"
+                              checked={formData.alreadyHave.specification}
+                              onChange={() =>
+                                handleCheckboxChange(
+                                  "alreadyHave",
+                                  "specification"
+                                )
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -405,8 +604,12 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Ui/Ux"
+                              name="uiUx"
                               className="checkbox-input"
+                              checked={formData.alreadyHave.uiUx}
+                              onChange={() =>
+                                handleCheckboxChange("alreadyHave", "uiUx")
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -434,8 +637,12 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="checkbox"
-                              name="Specification2"
+                              name="code"
                               className="checkbox-input"
+                              checked={formData.alreadyHave.code}
+                              onChange={() =>
+                                handleCheckboxChange("alreadyHave", "code")
+                              }
                             />
                             <span className="checkbox-tile">
                               <img
@@ -468,8 +675,11 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="radio"
-                              name="Development"
+                              name="timeframe"
                               className="checkbox-input"
+                              onChange={() =>
+                                handleRadioChange("timeframe", "hiringNow")
+                              }
                             />
                             <span className="checkbox-tile">
                               <span className="checkbox-label text-capitalize pt-2 fw-semibold">
@@ -495,8 +705,14 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="radio"
-                              name="Development"
+                              name="timeframe"
                               className="checkbox-input"
+                              onChange={() =>
+                                handleRadioChange(
+                                  "timeframe",
+                                  "hiringWithinOneMonth"
+                                )
+                              }
                             />
                             <span className="checkbox-tile">
                               <span className="checkbox-label text-capitalize pt-2 fw-semibold">
@@ -522,8 +738,14 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="radio"
-                              name="Development"
+                              name="timeframe"
                               className="checkbox-input"
+                              onChange={() =>
+                                handleRadioChange(
+                                  "timeframe",
+                                  "hiringWithinThreeMonths"
+                                )
+                              }
                             />
                             <span className="checkbox-tile">
                               <span className="checkbox-label text-capitalize pt-2 fw-semibold">
@@ -549,8 +771,11 @@ const ProjectEstimate = () => {
                           <label className="checkbox-wrapper">
                             <input
                               type="radio"
-                              name="Development"
+                              name="timeframe"
                               className="checkbox-input"
+                              onChange={() =>
+                                handleRadioChange("timeframe", "hiringLater")
+                              }
                             />
                             <span className="checkbox-tile">
                               <span className="checkbox-label text-capitalize pt-2 fw-semibold">
@@ -616,10 +841,13 @@ const ProjectEstimate = () => {
                             <Form.Select
                               name="existing-project"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
+                              onChange={(e) =>
+                                handleSelectChange(e, "projectType")
+                              }
                             >
-                              <option>Choose an option</option>
-                              <option>New Project</option>
-                              <option>Existing Project</option>
+                              <option value="">Choose an option</option>
+                              <option value="New">New Project</option>
+                              <option value="Existing">Existing Project</option>
                             </Form.Select>
                           </Form.Group>
                         </div>
@@ -639,10 +867,13 @@ const ProjectEstimate = () => {
                             <Form.Select
                               name="You-are"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
+                              onChange={(e) =>
+                                handleSelectChange(e, "yourRole")
+                              }
                             >
-                              <option>Choose an option</option>
-                              <option>Individual</option>
-                              <option>Company</option>
+                              <option value="">Choose an option</option>
+                              <option value="Individual">Individual</option>
+                              <option value="Company">Company</option>
                             </Form.Select>
                           </Form.Group>
                         </div>
@@ -665,11 +896,14 @@ const ProjectEstimate = () => {
                             <Form.Select
                               name="contact-time"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
+                              onChange={(e) =>
+                                handleSelectChange(e, "preferredContactTime")
+                              }
                             >
-                              <option>Choose an option</option>
-                              <option>Morning</option>
-                              <option>Noon</option>
-                              <option>Afternoon</option>
+                              <option value="">Choose an option</option>
+                              <option value="Morning">Morning</option>
+                              <option value="Noon">Noon</option>
+                              <option value="Afternoon">Afternoon</option>
                             </Form.Select>
                           </Form.Group>
                         </div>
@@ -689,9 +923,10 @@ const ProjectEstimate = () => {
                           <label htmlFor="apply">
                             <input
                               type="file"
-                              id="apply"
+                              id="attachment"
                               accept="image/*,.pdf"
-                              name="image"
+                              name="attachment"
+                              onChange={(e) => handleInputChange(e)}
                             />
                             <div className="d-flex align-items-center justify-content-center">
                               <ImAttachment className="me-2" />
@@ -749,6 +984,7 @@ const ProjectEstimate = () => {
                                 name="name"
                                 type="text"
                                 placeholder="Your name *"
+                                onChange={(e) => handleUserDetailsChange(e)}
                               />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="email">
@@ -757,6 +993,7 @@ const ProjectEstimate = () => {
                                 name="email"
                                 type="email"
                                 placeholder="Your email address *"
+                                onChange={(e) => handleUserDetailsChange(e)}
                               />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="number">
@@ -765,6 +1002,7 @@ const ProjectEstimate = () => {
                                 name="phone"
                                 type="number"
                                 placeholder="Your phone number *"
+                                onChange={(e) => handleUserDetailsChange(e)}
                               />
                             </Form.Group>
                           </Col>
@@ -776,16 +1014,23 @@ const ProjectEstimate = () => {
                               <Form.Control
                                 className="py-4 px-3"
                                 as="textarea"
-                                name="text-area"
+                                name="projectDetails"
                                 placeholder="Project Details *"
                                 rows={6}
+                                onChange={(e) => handleInputChange(e)}
                               />
                             </Form.Group>
                           </Col>
                         </Row>
 
                         <div className="checkBox d-flex align-items-center mb-2">
-                          <Checkbox id="CheckedText" {...label} />
+                          <Checkbox
+                            id="CheckedText"
+                            {...label}
+                            name="newsletterSubscription"
+                            checked={formData.newsletterSubscription}
+                            onChange={(e) => handleInputChange(e)}
+                          />
                           <label
                             htmlFor="CheckedText"
                             className="checkBox_text"

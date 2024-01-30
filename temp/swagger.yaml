@@ -77,13 +77,17 @@ paths:
         Endpoint to submit the estimate project form.
 
         - The form data should be sent in the request body in JSON format.
+        - File attachment can be included using a file input field.
+        - Ensure that the file input field is set to accept specific file types (e.g., image/*, .pdf).
+        - Include relevant details in the request body for file uploads (e.g., file name, file size limits).
         - Upon successful submission, a success response will be returned.
         - In case of an error, an appropriate error response will be provided.
 
       requestBody:
         required: true
         content:
-          application/json:
+          # application/json:
+          multipart/form-data:
             schema:
               $ref: "#/components/schemas/EstimateProjectInput"
 
@@ -217,11 +221,14 @@ components:
           type: string
         preferredContactTime:
           type: string
-        attachments:
-          type: array
-          items:
-            type: string
-            format: binary
+        # attachments:
+        #   type: array
+        #   items:
+        #     type: string
+        #     format: binary
+        attachment:
+          type: string
+          format: binary
         projectDetails:
           type: string
         userDetails:
