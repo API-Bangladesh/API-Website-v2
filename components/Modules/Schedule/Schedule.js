@@ -8,7 +8,7 @@ import { CgArrowLongLeft } from "react-icons/cg";
 import classEase from "classease";
 import emailjs from "@emailjs/browser";
 import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from "../../../utils/constants";
-import { convertTimeTo24HourFormat } from "../../../lib/format";
+import { convertTimeTo24HourFormat, formatDate } from "../../../lib/format";
 import {
   showErrorNotification,
   showSuccessNotification,
@@ -20,7 +20,7 @@ import CustomReCAPTCHA from "../../../utils/ReCAPTCHA";
 const Schedule = () => {
   const [formData, setFormData] = useState({
     service: "", // string
-    date: new Date(), // string or Date object
+    date: formatDate(new Date()), // string or Date object
     time: "", // string or Time object
     budget: "", // string
     description: "", // string
@@ -74,9 +74,10 @@ const Schedule = () => {
   };
 
   const handleDateChange = (selectedDate) => {
+    const formattedDate = formatDate(selectedDate);
     setFormData((prev) => ({
       ...prev,
-      date: selectedDate,
+      date: formattedDate,
     }));
   };
 
@@ -114,12 +115,8 @@ const Schedule = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    setFormData((prev) => ({
-      ...prev,
-      date: "2024-01-29",
-    }));
-
     console.log(formData);
+    return;
 
     if (validateForm()) {
       setIsLoading(true);
