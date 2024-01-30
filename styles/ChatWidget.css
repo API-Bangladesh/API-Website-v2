@@ -1,17 +1,27 @@
-.toggle_btn {
-  position: fixed;
-  content: "";
-  left: 2%;
-  bottom: 5%;
-  z-index: 99999;
-}
-.toggle_btn .icon_one {
-  background-color: red;
-  padding: 10px;
-}
-.bg {
+
+.icons {
+  display: block;
   height: 50px;
   width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: var(--main-color);
+  transition: all 0.2s linear;
+}
+.icons:hover {
+  background-color: rgba(var(--r), var(--g), var(--b), 0.8);
+}
+
+.ChatBtn {
+  height: 50px;
+  width: 50px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgb(30, 26, 89);
   background: linear-gradient(
     0deg,
@@ -21,56 +31,41 @@
   );
 }
 
-.icons {
-  background-color: #fff !important;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  transition: all linear 0.3s;
+.ChatBox {
+  position: fixed;
+  left: 3%;
+  bottom: 5%;
+  z-index: 99999;
 }
-.first_icon {
-  margin-left: 50%;
-  transform: translate(-50%);
-  padding: 13px;
-  border-radius: 50%;
-  background-color: var(--main-color);
-  color: #fff;
-  transition: all linear 0.3s;
+.chatOptions{
+  z-index: 999;
+  position: fixed;
+  bottom: calc(5% + 50px);
+  left: 3%;
 }
-.icons:hover .first_icon {
-  background: rgb(30, 26, 89);
-  background: linear-gradient(
-    0deg,
-    rgba(30, 26, 89, 1) 0%,
-    rgba(45, 45, 159, 1) 0%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  border-radius: 50%;
-  color: white;
+.chatOptions .icons:nth-child(1){
+  animation: myAnimi 0.4s cubic-bezier(.62,.62,.52,1.43);
 }
-.social_icons{
-  transition: all linear 0.3s;
+
+.chatOptions .icons:nth-child(2){
+  animation: myAnimi 0.3s cubic-bezier(.62,.62,.52,1.43);
 }
-.social_icons:hover {
-  /* background: rgb(30, 26, 89); */
-  background: linear-gradient(
-    0deg,
-    rgba(30, 26, 89, 1) 0%,
-    rgba(45, 45, 159, 1) 0%,
-    rgba(0, 212, 255, 1) 100%
-  );
+
+.chatOptions .icons:nth-child(3){
+  animation: myAnimi 0.2s cubic-bezier(.62,.62,.52,1.43);
 }
-.main_icon {
-  margin-left: -4px;
-  margin-top: -11px;
+
+
+@keyframes myAnimi{
+  0%{
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
-.off_screen_call {
-  z-index: 999999999;
-}
-/* .button.rcw-launcher {
-  position: absolute;
-  top: -137px;
-  left: -1301px;
-  height: 50px;
-  width: 50px;
-} */
+
+
+

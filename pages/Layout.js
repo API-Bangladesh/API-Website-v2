@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
+import ChatWidget from "../components/Modules/ChatWidget/ChatWidget";
 
 
  function Layout({children}) {
@@ -9,6 +10,7 @@ import Footer from '../components/Footer/Footer'
     <Header/>
     {children}
     <Footer/>
+    <ChatWidget />
     </> 
   )
 }

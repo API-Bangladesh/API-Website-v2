@@ -34,7 +34,6 @@ import "../styles/Pricing.css";
 
 import "../styles/Cooperation.css";
 import "../styles/ChatWidget.css";
-import "../styles/SideDiv.css";
 import "../styles/ProjectEstimate.css";
 import "../styles/FilterGallery.css";
 import "../styles/ManagementMember.css";

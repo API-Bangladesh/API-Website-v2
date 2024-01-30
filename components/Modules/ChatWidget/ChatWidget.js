@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import Link from 'next/link'
 import { TiMessages } from "react-icons/ti";
 import { LuMessagesSquare } from "react-icons/lu";
-import { Button } from "react-bootstrap";
-import SideDiv from "./RequestForm";
-import CallUs from "./CallUs";
+import { IoCallOutline } from "react-icons/io5";
+import { LiaSmsSolid } from "react-icons/lia";
 
 const ChatWidget = () => {
   const [isShown, setIsShown] = useState(false);
@@ -12,46 +12,40 @@ const ChatWidget = () => {
     setIsShown((current) => !current);
   };
 
+
   return (
     <>
       <section>
-        <div className="toggle_btn">
           {isShown && (
-            <div>
-              <div className="icons shadow mb-3">
-                <SideDiv />
-              </div>
-              <div className="icons shadow mb-3">
-                <CallUs />
-              </div>
-              <div className="icons shadow mb-3">
-                <Button className="border-0 p-0 m-0 bg-transparent">
-                  <TiMessages size={"50px"} className="first_icon" />
-                </Button>
-              </div> 
-            </div>
-          )}
+              <div className="chatOptions">
+                <Link href="/contact-us" className="icons shadow mb-3" onClick={handleClick}>
+                  <LiaSmsSolid size={'22px'} className="text-white" />
+                </Link>
+                <Link href="tel:+8801686449007" className="icons shadow mb-3" onClick={handleClick}>
+                  <IoCallOutline size={'22px'} className="text-white" />
+                </Link>
+                <Link href="/" className="icons shadow mb-3" onClick={handleClick}>
+                  <LiaSmsSolid size={'22px'} className="text-white" />
+                </Link>
 
-          {isShown && <Box />}
-          <div className="">
+              </div>
+            )}
+
+        <div className="ChatBox">
             <button
               onClick={handleClick}
-              className="bg p-3 rounded-pill shadow border-0"
+              className="ChatBtn rounded-pill shadow border-0"
             >
               <LuMessagesSquare
-                size={"25px"}
-                color="white"
-                className="main_icon"
+                size={"50px"}
+                color={"white"}
               />
             </button>
-          </div>
         </div>
       </section>
     </>
   );
 };
-function Box() {
-  return <div>{/* <h2>Box</h2> */}</div>;
-}
+
 
 export default ChatWidget;

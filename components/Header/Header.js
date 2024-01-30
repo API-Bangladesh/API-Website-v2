@@ -51,8 +51,7 @@ const Header = () => {
    const [activeKey, setActiveKey] = useState(null);
    const handleAccordionToggle = (eventKey) => {
       setActiveKey(activeKey === eventKey ? null : eventKey);
-    };
-
+   };
 
    // menu toggle for phone
    const [showDiv, setShowDiv] = useState(false);
@@ -79,12 +78,12 @@ const Header = () => {
 
                         <Navbar.Collapse id="basic-navbar-nav">
                            <Nav className="ms-auto d-flex align-items-center">
-                              <Nav.Link as={Link} href="/">
+                              <Link className="menuLink" href="/">
                                  Home
-                              </Nav.Link>
-                              <Nav.Link as={Link} href="/about-us">
+                              </Link>
+                              <Link className="menuLink" href="/about-us">
                                  About Us
-                              </Nav.Link>
+                              </Link>
 
                               <NavDropdown
                                  title="Services"
@@ -96,68 +95,63 @@ const Header = () => {
                               >
                                  <div className="subMenuBox d-flex">
                                     <div className="subMenu px-5 py-5 w-50">
-                                       <div className="navBox">
-                                          <p>
-                                             <Nav.Link href="/custom-software-development">
+                                       <ul className="navBox">
+                                          <li>
+                                             <Link href="/custom-software-development">
                                                 <IoIosArrowForward />
                                                 Custom Software Development
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/web-app-development">
-                                                <IoIosArrowForward />
-                                                Web App Development
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/mobile-app-development">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/mobile-app-development">
                                                 <IoIosArrowForward />
                                                 Mobile App Development
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/ui-ux-design">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/ui-ux-design">
                                                 <IoIosArrowForward />
                                                 UI/UX Design
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/software-qa-and-testing">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/software-qa-and-testing">
                                                 <IoIosArrowForward />
                                                 Software QA and Testing
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/machine-learning-and-ai">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/machine-learning-and-ai">
                                                 <IoIosArrowForward />
                                                 Machine Learning and AI
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/cloud-solutions">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/cloud-solutions">
                                                 <IoIosArrowForward />
                                                 Cloud Solutions
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/creative-design">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/creative-design">
                                                 <IoIosArrowForward />
                                                 Creative Design
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/digital-marketing">
+                                             </Link>
+                                          </li>
+
+                                          <li>
+                                             <Link href="/digital-marketing">
                                                 <IoIosArrowForward />
                                                 Digital Marketing
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/it-consultancy-service">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/it-consultancy-service">
                                                 <IoIosArrowForward />
                                                 IT Consultancy Service
-                                             </Nav.Link>
-                                          </p>
-                                       </div>
+                                             </Link>
+                                          </li>
+                                       </ul>
                                     </div>
                                     <div className="menuContent w-50 d-flex align-items-center">
                                        <div className="textBox px-5 py-5">
@@ -200,56 +194,56 @@ const Header = () => {
                               >
                                  <div className="subMenuBox d-flex">
                                     <div className="subMenu px-5 py-5 w-50">
-                                       <div className="navBox">
-                                          <p>
-                                             <Nav.Link href="/application-development">
+                                       <ul className="navBox">
+                                          <li>
+                                             <Link href="/application-development">
                                                 <IoIosArrowForward />
                                                 Application Development
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/digital-transformation">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/digital-transformation">
                                                 <IoIosArrowForward />
                                                 Digital Transformation
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/business-analysis">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/business-analysis">
                                                 <IoIosArrowForward />
                                                 Business Analysis
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/digital-product-design">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/digital-product-design">
                                                 <IoIosArrowForward />
                                                 Digital Product Design
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/data-management">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/data-management">
                                                 <IoIosArrowForward />
                                                 Data Management
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/iot">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/iot">
                                                 <IoIosArrowForward />
                                                 IoT (Internet of Things)
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/devops">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/devops">
                                                 <IoIosArrowForward />
                                                 DevOps
-                                             </Nav.Link>
-                                          </p>
-                                          <p>
-                                             <Nav.Link href="/it-support-and-maintenance">
+                                             </Link>
+                                          </li>
+                                          <li>
+                                             <Link href="/it-support-and-maintenance">
                                                 <IoIosArrowForward />
                                                 IT Support & Maintenance
-                                             </Nav.Link>
-                                          </p>
-                                       </div>
+                                             </Link>
+                                          </li>
+                                       </ul>
                                     </div>
                                     <div className="menuContent w-50 d-flex align-items-center">
                                        <div className="textBox px-5 py-5">
@@ -286,15 +280,12 @@ const Header = () => {
                                  </div>
                               </NavDropdown>
 
-                              <Nav.Link as={Link} href="/products">
+                              <Link className="menuLink" href="/products">
                                  Products
-                              </Nav.Link>
-                              {/* <Nav.Link as={Link} href="/blog">
-                              Blog
-                           </Nav.Link> */}
-                              <Nav.Link as={Link} href="/contact-us">
+                              </Link>
+                              <Link className="menuLink" href="/contact-us">
                                  Contact Us
-                              </Nav.Link>
+                              </Link>
                            </Nav>
                         </Navbar.Collapse>
                      </Container>
@@ -314,7 +305,7 @@ const Header = () => {
                   </Link>
 
                   {/* <div className="toggleMenu"> */}
-                  
+
                   <div className="demoDD">
                      <div
                         id="toggleBox"
@@ -331,14 +322,13 @@ const Header = () => {
                   </div>
 
                   <div className={"myDiv" + (showDiv ? " show" : "")}>
-                   
                      <Nav className="menuBox d-flex flex-column">
                         <Link
                            className="navLink d-flex align-items-center"
                            href="/"
                            onClick={(e) => toggle(e)}
                         >
-                           <GoHome className="me-3"/>
+                           <GoHome className="me-3" />
                            Home
                         </Link>
                         <Link
@@ -346,16 +336,19 @@ const Header = () => {
                            href="/about-us"
                            onClick={(e) => toggle(e)}
                         >
-                           <LuUsers2 className="me-3"/>
+                           <LuUsers2 className="me-3" />
                            About Us
                         </Link>
-                        <Accordion activeKey={activeKey} onSelect={handleAccordionToggle}>
+                        <Accordion
+                           activeKey={activeKey}
+                           onSelect={handleAccordionToggle}
+                        >
                            <Accordion.Item
                               eventKey="0"
                               className="navLink mt-3"
                            >
                               <Accordion.Header className="d-flex align-items-center">
-                                 <MdOutlineDesignServices  className="me-3"/>
+                                 <MdOutlineDesignServices className="me-3" />
                                  Services
                               </Accordion.Header>
                               <Accordion.Body className="d-flex flex-column">
@@ -364,15 +357,15 @@ const Header = () => {
                                     href="/services"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
-                                   Our Services
+                                    <LuDot className="fs-1" />
+                                    Our Services
                                  </Link>
                                  <Link
                                     className="navLink d-flex align-items-center"
                                     href="/custom-software-development"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Custom Software Development
                                  </Link>
                                  <Link
@@ -380,7 +373,7 @@ const Header = () => {
                                     href="/web-app-development"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Web App Development
                                  </Link>
 
@@ -389,7 +382,7 @@ const Header = () => {
                                     href="/mobile-app-development"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Mobile App Development
                                  </Link>
                                  <Link
@@ -397,7 +390,7 @@ const Header = () => {
                                     href="/ui-ux-design"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     UI/UX Design
                                  </Link>
                                  <Link
@@ -405,7 +398,7 @@ const Header = () => {
                                     href="/software-qa-and-testing"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Software QA and Testing
                                  </Link>
                                  <Link
@@ -413,7 +406,7 @@ const Header = () => {
                                     href="/machine-learning-and-ai"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Machine Learning and AI
                                  </Link>
                                  <Link
@@ -421,7 +414,7 @@ const Header = () => {
                                     href="/cloud-solutions"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Cloud Solutions
                                  </Link>
                                  <Link
@@ -429,7 +422,7 @@ const Header = () => {
                                     href="/creative-design"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Creative Design
                                  </Link>
                                  <Link
@@ -437,7 +430,7 @@ const Header = () => {
                                     href="/digital-marketing"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Digital Marketing
                                  </Link>
                                  <Link
@@ -445,7 +438,7 @@ const Header = () => {
                                     href="/it-consultancy-service"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     IT Consultancy Service
                                  </Link>
                               </Accordion.Body>
@@ -456,7 +449,7 @@ const Header = () => {
                               className="navLink mt-3"
                            >
                               <Accordion.Header className="d-flex align-items-center">
-                                 <BiOutline className="me-3"/>
+                                 <BiOutline className="me-3" />
                                  Expertise
                               </Accordion.Header>
                               <Accordion.Body className="d-flex flex-column">
@@ -465,7 +458,7 @@ const Header = () => {
                                     href="/expertise"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Our Expertise
                                  </Link>
                                  <Link
@@ -473,7 +466,7 @@ const Header = () => {
                                     href="/application-development"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Application Development
                                  </Link>
                                  <Link
@@ -481,7 +474,7 @@ const Header = () => {
                                     href="/digital-transformation"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Digital Transformation
                                  </Link>
                                  <Link
@@ -489,7 +482,7 @@ const Header = () => {
                                     href="/business-analysis"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Business Analysis
                                  </Link>
                                  <Link
@@ -497,7 +490,7 @@ const Header = () => {
                                     href="/digital-product-design"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Digital Product Design
                                  </Link>
                                  <Link
@@ -505,7 +498,7 @@ const Header = () => {
                                     href="/data-management"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     Data Management
                                  </Link>
                                  <Link
@@ -513,7 +506,7 @@ const Header = () => {
                                     href="/iot"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     IoT (Internet of Things)
                                  </Link>
                                  <Link
@@ -521,7 +514,7 @@ const Header = () => {
                                     href="/devops"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     DevOps
                                  </Link>
                                  <Link
@@ -529,7 +522,7 @@ const Header = () => {
                                     href="/it-support-and-maintenance"
                                     onClick={(e) => toggle(e)}
                                  >
-                                    <LuDot className="fs-1"/>
+                                    <LuDot className="fs-1" />
                                     IT Support & Maintenance
                                  </Link>
                               </Accordion.Body>
@@ -540,7 +533,7 @@ const Header = () => {
                            href="/products"
                            onClick={(e) => toggle(e)}
                         >
-                           <RiLayout3Line className="me-3"/>
+                           <RiLayout3Line className="me-3" />
                            Products
                         </Link>
                         <Link
@@ -548,7 +541,7 @@ const Header = () => {
                            href="/contact-us"
                            onClick={(e) => toggle(e)}
                         >
-                           <TiLocationOutline className="me-3"/>
+                           <TiLocationOutline className="me-3" />
                            Contact Us
                         </Link>
                      </Nav>
