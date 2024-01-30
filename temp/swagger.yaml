@@ -1,0 +1,268 @@
+openapi: 3.0.0
+info:
+  title: API Solutions Mail Hub
+  version: 1.0.0
+paths:
+  /api/contact-us:
+    post:
+      summary: Submit Contact Us Form
+      description: |
+        Endpoint to submit the contact us form.
+
+        - The form data should be sent in the request body in JSON format.
+        - Upon successful submission, a success response will be returned.
+        - In case of an error, an appropriate error response will be provided.
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                companyName:
+                  type: string
+                  description: The name of the company (optional).
+                name:
+                  type: string
+                  description: The name of the person submitting the form.
+                corporateEmail:
+                  type: string
+                  format: email
+                  description: The email address of the person or the company.
+                phone:
+                  type: string
+                  pattern: ^01\d{9}$
+                  description: The phone number of the person or the company (starting with '01' and length 11).
+                comments:
+                  type: string
+                  description: Additional comments or messages.
+                protectDataByNDA:
+                  type: boolean
+                  description: Whether the person wants to protect their data by signing an NDA.
+
+      responses:
+        "200":
+          description: Successful submission.
+          content:
+            application/json:
+              example:
+                status: "success"
+                message: "Form submitted successfully."
+        "400":
+          description: Bad request. Invalid or missing data.
+          content:
+            application/json:
+              example:
+                status: "error"
+                message: "Invalid data. Please check the submitted form."
+                errors:
+                  - field: "name"
+                    message: "Name cannot be empty."
+                  - field: "phone"
+                    message: "Please enter a valid phone number (starting with 01 and length 11)."
+                  # Add more fields and messages as needed
+        "500":
+          description: Internal Server Error. Something went wrong on the server.
+          content:
+            application/json:
+              example:
+                status: "error"
+                message: "Internal Server Error. Please try again later."
+
+  /api/estimate-project:
+    post:
+      summary: Submit Estimate Project Form
+      description: |
+        Endpoint to submit the estimate project form.
+
+        - The form data should be sent in the request body in JSON format.
+        - File attachment can be included using a file input field.
+        - Ensure that the file input field is set to accept specific file types (e.g., image/*, .pdf).
+        - Include relevant details in the request body for file uploads (e.g., file name, file size limits).
+        - Upon successful submission, a success response will be returned.
+        - In case of an error, an appropriate error response will be provided.
+
+      requestBody:
+        required: true
+        content:
+          # application/json:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/EstimateProjectInput"
+
+      responses:
+        "200":
+          description: Successful submission.
+          content:
+            application/json:
+              example:
+                status: "success"
+                message: "Estimate project form submitted successfully."
+        "400":
+          description: Bad request. Invalid or missing data.
+          content:
+            application/json:
+              example:
+                status: "error"
+                message: "Invalid data. Please check the submitted form."
+                errors:
+                  - field: "name"
+                    message: "Name cannot be empty."
+                  - field: "phone"
+                    message: "Please enter a valid phone number (starting with 01 and length 11)."
+                  # Add more fields and messages as needed
+        "500":
+          description: Internal Server Error. Something went wrong on the server.
+          content:
+            application/json:
+              example:
+                status: "error"
+                message: "Internal Server Error. Please try again later."
+
+  /api/request-schedule:
+    post:
+      summary: Submit Request Schedule Form
+      description: |
+        Endpoint to submit the request schedule form.
+
+        - The form data should be sent in the request body in JSON format.
+        - Upon successful submission, a success response will be returned.
+        - In case of an error, an appropriate error response will be provided.
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RequestScheduleInput"
+
+      responses:
+        "200":
+          description: Successful submission.
+          content:
+            application/json:
+              example:
+                status: "success"
+                message: "Request schedule form submitted successfully."
+        "400":
+          description: Bad request. Invalid or missing data.
+          content:
+            application/json:
+              example:
+                status: "error"
+                message: "Invalid data. Please check the submitted form."
+                errors:
+                  - field: "name"
+                    message: "Name cannot be empty."
+                  - field: "phone"
+                    message: "Please enter a valid phone number (starting with 01 and length 11)."
+        "500":
+          description: Internal Server Error. Something went wrong on the server.
+          content:
+            application/json:
+              example:
+                status: "error"
+                message: "Internal Server Error. Please try again later."
+components:
+  schemas:
+    EstimateProjectInput:
+      type: object
+      properties:
+        challenges:
+          type: object
+          properties:
+            rAndD:
+              type: boolean
+            systemArchitecture:
+              type: boolean
+            uiUx:
+              type: boolean
+            development:
+              type: boolean
+            qa:
+              type: boolean
+            integrations:
+              type: boolean
+            maintenance:
+              type: boolean
+            consultancy:
+              type: boolean
+            # ... other challenges
+        alreadyHave:
+          type: object
+          properties:
+            idea:
+              type: boolean
+            specification:
+              type: boolean
+            uiUx:
+              type: boolean
+            code:
+              type: boolean
+            # ... other already have options
+        timeframe:
+          type: object
+          properties:
+            hiringNow:
+              type: boolean
+            hiringWithinOneMonth:
+              type: boolean
+            hiringWithinThreeMonths:
+              type: boolean
+            hiringLater:
+              type: boolean
+            # ... other timeframe options
+        projectType:
+          type: string
+        yourRole:
+          type: string
+        servicesNeeded:
+          type: string
+        preferredContactTime:
+          type: string
+        # attachments:
+        #   type: array
+        #   items:
+        #     type: string
+        #     format: binary
+        attachment:
+          type: string
+          format: binary
+        projectDetails:
+          type: string
+        userDetails:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+              format: email
+            phone:
+              type: string
+              pattern: ^01\d{9}$
+        newsletterSubscription:
+          type: boolean
+    RequestScheduleInput:
+      type: object
+      properties:
+        service:
+          type: string
+        date:
+          type: string
+          format: date
+        time:
+          type: string
+          format: time
+        budget:
+          type: string
+        description:
+          type: string
+        userDetails:
+          type: object
+          properties:
+            name:
+              type: string
+            phone:
+              type: string
