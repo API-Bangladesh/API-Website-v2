@@ -13,7 +13,6 @@ import Industry from "../../components/Modules/Industry/Industry";
 import Clients from "../../components/Modules/Clients/Clients";
 import WorkTogether from "../../components/Modules/WorkTogether/WorkTogether";
 import ClientReview from "../../components/Modules/ClientReview/ClientReview";
-import ChatWidget from "../../components/Modules/ChatWidget/ChatWidget";
 
 
 
@@ -35,7 +34,6 @@ const Home = () => {
          <WorkTogether />
          {/* <SideNav /> */}
          {/* <Contacts /> */}
-         <ChatWidget />
       </>
    );
 };
