@@ -1,18 +1,14 @@
-import React, { useRef, useState } from "react";
-import Checkbox from "@mui/material/Checkbox";
+import React, { useState } from "react";
+import Spinner from "react-bootstrap/Spinner";
 import { Col, Container, Form, Row } from "react-bootstrap";
+import classEase from "classease";
 import SectionTitle from "../Section_title/Section_title";
 import { ImAttachment } from "react-icons/im";
+import CustomReCAPTCHA from "../../../utils/ReCAPTCHA";
+import { submitProjectEstimate } from "../../../lib/submit-form";
+import Notification from "../Notification";
 
-import emailjs from "@emailjs/browser";
-import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID2 } from "../../../utils/constants";
-// import CustomReCAPTCHA from '../../../utils/ReCAPTCHA';
-import {
-  showErrorNotification,
-  showSuccessNotification,
-} from "../../../utils/notificationHelper";
-
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+// const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const initialFormData = {
   challenges: {
@@ -55,8 +51,12 @@ const initialFormData = {
 };
 
 const ProjectEstimate = () => {
-  const [isVerified, setIsVerified] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
+  const [isVerified, setIsVerified] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [notification, setNotification] = useState(null);
+  const [shouldReset, setShouldReset] = useState(false);
 
   const handleCheckboxChange = (category, name) => {
     setFormData((prevData) => ({
@@ -103,6 +103,7 @@ const ProjectEstimate = () => {
 
   const handleInputChange = (event) => {
     const { name, value, type, checked, files } = event.target;
+    files ? console.log(files) : "";
 
     // Check if the input is a checkbox
     const inputValue =
@@ -114,122 +115,131 @@ const ProjectEstimate = () => {
     }));
   };
 
-  // const validateForm = () => {
-  //   const errors = {};
+  const validateForm = () => {
+    const errors = {};
 
-  //   if (!formData.userDetails.name.trim()) {
-  //     errors.name = "Name cannot be empty";
-  //   }
+    if (!formData.userDetails.name.trim()) {
+      errors.name = "Name cannot be empty";
+    }
 
-  //   const phoneRegex = /^01\d{9}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.userDetails.email.trim()) {
+      errors.email = "Email cannot be empty";
+    } else if (!emailRegex.test(formData.userDetails.email)) {
+      errors.email = "Please enter a valid email address";
+    }
 
-  //   if (!formData.userDetails.phone.trim()) {
-  //     errors.phone = "Phone cannot be empty";
-  //   } else if (!phoneRegex.test(formData.userDetails.phone)) {
-  //     errors.phone =
-  //       "Please enter a valid phone number (starting with 01 and length 11)";
-  //   }
+    const phoneRegex = /^01\d{9}$/;
+    if (!formData.userDetails.phone.trim()) {
+      errors.phone = "Phone cannot be empty";
+    } else if (!phoneRegex.test(formData.userDetails.phone)) {
+      errors.phone =
+        "Please enter a valid phone number (starting with 01 and length 11)";
+    }
 
-  //   if (!formData.service.trim()) {
-  //     errors.service = "Service cannot be empty";
-  //   }
+    if (!isVerified) {
+      errors.verification = "Please verify the reCAPTCHA";
+    }
 
-  //   if (!formData?.date) {
-  //     errors.date = "Date cannot be empty";
-  //   }
+    setErrors(errors);
+    return Object.keys(errors).length === 0; // Return true if no errors
+  };
 
-  //   if (!formData.budget.trim()) {
-  //     errors.budget = "Budget cannot be empty";
-  //   }
+  const handleVerificationAttempted = () => {
+    setErrors((prevErrors) => ({ ...prevErrors, verification: undefined }));
+  };
 
-  //   if (!formData.description.trim()) {
-  //     errors.description = "Description cannot be empty";
-  //   }
-
-  //   setErrors(errors);
-  //   return Object.keys(errors).length === 0; // Return true if no errors
-  // };
+  const resetForm = () => {
+    setFormData(initialFormData);
+    setIsVerified(false);
+    setErrors({});
+    setIsLoading(false);
+    setShouldReset(true);
+    // setNotification(null);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(formData);
-    return;
-
-    setFormData((prev) => ({
-      ...prev,
-      date: "2024-01-29",
-    }));
-    console.log(formData);
-
     if (validateForm()) {
       setIsLoading(true);
+      setShouldReset(false);
 
       try {
-        // Simulate network delay (you can remove this in production)
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        const formDataToSend = new FormData();
 
-        // setFormData((prev) => ({
-        //   ...prev,
-        //   date: "2024-01-29",
-        // }));
+        // Append form data
+        Object.entries(formData).forEach(([key, value]) => {
+          if (key !== "attachment") {
+            formDataToSend.append(key, JSON.stringify(value));
+          }
+        });
 
-        const data = await submitRequestSchedule(formData);
-        console.log(data);
+        // Append image file
+        formDataToSend.append("attachment", formData.attachment);
+        console.log("Form data", formDataToSend);
 
-        setSubmissionStatus("success");
-        showSuccessNotification("Success!", "Form Submitted Successfully!");
+        const data = await submitProjectEstimate(formDataToSend);
 
-        // Handle success or display success messages to the user
+        // console.log(data);
+
+        // return;
+        if (data?.status === "success") {
+          setNotification({
+            show: true,
+            type: "success",
+            message: data?.message || "Form Submitted Successfully!",
+          });
+        } else if (data?.status === "error") {
+          setNotification({
+            show: true,
+            type: "error",
+            message: data?.message || "Something went wrong!",
+          });
+        }
       } catch (error) {
         console.error(error);
-        setSubmissionStatus("error");
-        showErrorNotification(
-          "Failed!",
-          "Something Went Wrong! Please Try Again."
-        );
-        // Handle server-side errors or display error messages to the user
+        setNotification({
+          show: true,
+          type: "error",
+          message: "An error occurred. Please try again later.",
+        });
       } finally {
+        resetForm();
         setIsLoading(false);
+        setTimeout(() => {
+          setNotification(null);
+        }, 5500);
       }
     } else {
       console.log("Form validation failed");
-      // Optionally display validation error messages to the user
     }
   };
-
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-
-  //   //  if(!isVerified){
-  //   //     // console.log("ReCaptcha Failed!");
-  //   //      showErrorNotification("Failed!", "ReCaptcha Validation Failed! Please Try Again.");
-  //   //     return;
-  //   //  }
-
-  //   emailjs.sendForm(SERVICE_ID, TEMPLATE_ID2, form.current, PUBLIC_KEY).then(
-  //     (result) => {
-  //       showSuccessNotification("Success!", "Form Submitted Successfully!");
-  //       e.target.reset();
-  //     },
-  //     (error) => {
-  //       console.log(error.text);
-  //       showErrorNotification(
-  //         "Failed!",
-  //         "Something Went Wrong! Please Try Again."
-  //       );
-  //     }
-  //   );
-  // };
 
   return (
     <>
       <section id="projectEstimate" className="section_padding requirement">
+        {notification?.show ? (
+          <div className="container">
+            <Notification
+              type={notification?.type}
+              message={notification?.message}
+            />
+          </div>
+        ) : (
+          ""
+        )}
+
         <SectionTitle titleUpDown="Contact Form" />
+
         <Container>
           <div className="d-flex justify-content-center">
             <Col lg={9}>
-              <Form onSubmit={handleSubmit} method="POST">
+              <Form
+                onSubmit={handleSubmit}
+                method="POST"
+                enctype="multipart/form-data"
+              >
                 <Row>
                   <p className="position-relative ms-2 mb-4 mt-3 ps-5">
                     <span className="estimateNumber rounded-1 me-2">1</span>
@@ -920,7 +930,7 @@ const ProjectEstimate = () => {
                         </p>
 
                         <div className="file_upload ms-0">
-                          <label htmlFor="apply">
+                          <label htmlFor="attachment">
                             <input
                               type="file"
                               id="attachment"
@@ -934,6 +944,10 @@ const ProjectEstimate = () => {
                             </div>
                           </label>
                         </div>
+
+                        {formData?.attachment && (
+                          <p>{formData?.attachment.name}</p>
+                        )}
                       </Col>
                     </Row>
 
@@ -1024,26 +1038,48 @@ const ProjectEstimate = () => {
                         </Row>
 
                         <div className="checkBox d-flex align-items-center mb-2">
-                          <Checkbox
+                          <Form.Check
+                            type="checkbox"
                             id="CheckedText"
-                            {...label}
+                            label="I want to receive a monthly tech newaletter"
                             name="newsletterSubscription"
                             checked={formData.newsletterSubscription}
                             onChange={(e) => handleInputChange(e)}
+                            disabled={isLoading}
                           />
-                          <label
+
+                          {/* <label
                             htmlFor="CheckedText"
                             className="checkBox_text"
                           >
                             I want to receive a monthly tech newaletter
-                          </label>
+                          </label> */}
                         </div>
-                        {/* <CustomReCAPTCHA onVerify={setIsVerified}/> */}
+
+                        <CustomReCAPTCHA
+                          onAttempted={handleVerificationAttempted}
+                          onVerify={setIsVerified}
+                          shouldReset={shouldReset}
+                        />
 
                         <button
                           type="submit"
-                          className="requestBtn mt-3 mb-5 border-0"
+                          className="requestBtn mt-3 mb-5 border-0 d-flex justify-content-center align-items-center"
+                          disabled={isLoading || notification?.show}
                         >
+                          {isLoading && (
+                            <div className="api-form-loader">
+                              <Spinner
+                                animation="border"
+                                size="sm"
+                                role="status"
+                              >
+                                <span className="visually-hidden">
+                                  Loading...
+                                </span>
+                              </Spinner>
+                            </div>
+                          )}
                           Send request
                         </button>
                         {/* </Form> */}
