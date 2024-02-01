@@ -1,4 +1,5 @@
 
+/* Chat Box CSS start */
 .icons {
   display: block;
   height: 50px;
@@ -37,6 +38,12 @@
   bottom: 5%;
   z-index: 99999;
 }
+@media (max-width: 767px){
+  .ChatBox {
+    left: 7% !important;
+  }
+}
+
 .chatOptions{
   z-index: 999;
   position: fixed;
@@ -44,19 +51,18 @@
   left: 3%;
 }
 .chatOptions .icons:nth-child(1){
-  animation: myAnimi 0.4s cubic-bezier(.62,.62,.52,1.43);
+  animation: chatBoxBounce 0.4s cubic-bezier(.62,.62,.52,1.43);
 }
 
 .chatOptions .icons:nth-child(2){
-  animation: myAnimi 0.3s cubic-bezier(.62,.62,.52,1.43);
+  animation: chatBoxBounce 0.3s cubic-bezier(.62,.62,.52,1.43);
 }
 
 .chatOptions .icons:nth-child(3){
-  animation: myAnimi 0.2s cubic-bezier(.62,.62,.52,1.43);
+  animation: chatBoxBounce 0.2s cubic-bezier(.62,.62,.52,1.43);
 }
 
-
-@keyframes myAnimi{
+@keyframes chatBoxBounce{
   0%{
     opacity: 0;
     transform: translateY(100%);
@@ -66,6 +72,106 @@
     transform: translateY(0%);
   }
 }
+/* Chat Box CSS start */
+
+
+/* Fade Out Background CSS start */
+.fadeOutBackground {
+	position: relative;
+}
+
+.fadeOutBackground::after{
+	content: '';
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+   border: 1px solid #06a4d7;
+	opacity: 0;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1000 !important;
+	animation-name: videoAnimation1;
+  	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+}
+.fadeOutBackground::before{
+	content: '';
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	background-color: RGBA(6,164,215, 0.7);
+	opacity: 1;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1000 !important;
+	animation-name: videoAnimation2;
+  	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes videoAnimation2 {
+	0%   {
+		width: 40px;
+		height: 40px;
+		opacity: 0;
+	}
+	50%   {
+		opacity: 0.5;
+	}
+	100% {
+		width: 90px;
+		height: 90px;
+		opacity: 0;
+	}
+  }
+/* Fade Out Background CSS end */
+
+
+/* Icon loop CSS start */
+  .item {
+   display: none;
+   margin-bottom: 5px;
+   animation-duration: 1s;
+ }
+ .item.fadeIn{
+  display: block !important;
+}
+
+ .fadeIn {
+   animation-name: fadeIn;
+ }
+ 
+ .fadeOut {
+   animation-name: fadeOut;
+ }
+ 
+ @keyframes fadeIn {
+   from {
+     opacity: 0;
+   }
+   to {
+     opacity: 1;
+   }
+ }
+ 
+ @keyframes fadeOut {
+   from {
+     opacity: 1;
+   }
+   to {
+     opacity: 0;
+   }
+ }
+/* Icon loop CSS end */
+
+
+
 
 
 
