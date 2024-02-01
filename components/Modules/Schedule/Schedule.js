@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -32,6 +32,8 @@ const Schedule = () => {
   const [notification, setNotification] = useState(null);
   const [shouldReset, setShouldReset] = useState(false);
   const [isTimeSelect, setIsTimeSelect] = useState(false);
+
+  const refSection = useRef(null);
 
   const validateForm = () => {
     const errors = {};
@@ -139,6 +141,7 @@ const Schedule = () => {
     setErrors({});
     setIsLoading(false);
     setShouldReset(true);
+    setIsTimeSelect(false);
     // setNotification(null);
   };
 
@@ -177,6 +180,24 @@ const Schedule = () => {
       } finally {
         resetForm();
         setIsLoading(false);
+
+        // // Scroll to the refSection
+        // if (refSection.current) {
+        //   refSection.current.scrollIntoView({ behavior: "smooth" });
+        // }
+
+        // Scroll to the refSection with an additional offset of 50 pixels
+        if (refSection.current) {
+          // Get the top position of the refSection
+          const topPosition = refSection.current.getBoundingClientRect().top;
+
+          // Scroll to the top position with an additional offset of 50 pixels
+          window.scrollTo({
+            top: window.scrollY + topPosition - 100,
+            behavior: "smooth", // You can use "auto" or "smooth" for smooth scrolling
+          });
+        }
+
         setTimeout(() => {
           setNotification(null);
         }, 5500);
@@ -188,6 +209,8 @@ const Schedule = () => {
 
   return (
     <>
+      <div ref={refSection}></div>
+
       <section id="schedule" className="section_padding_top">
         {notification?.show ? (
           <div className="container">

@@ -45,31 +45,30 @@ import "../styles/YouWillGet.css";
 import "../styles/Schedule.css";
 import "../styles/AboutUsSVGAnimation.css";
 
-
 import Preloader from "../components/Modules/Preloader/Preloader";
 
 export default function App({ Component, pageProps }) {
-   const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-   useEffect(() => {
-      const delay = setTimeout(() => {
-         document.body.classList.add("loaded");
-         setIsLoaded(true);
-      }, 5000);
-      return () => clearTimeout(delay);
-   }, []);
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      document.body.classList.add("loaded");
+      setIsLoaded(true);
+    }, 3000);
+    return () => clearTimeout(delay);
+  }, []);
 
-   return (
-      <>
-         {!isLoaded ? (
-            <Preloader />
-         ) : (
-            <SSRProvider>
-               <Layout>
-                  <Component {...pageProps} />
-               </Layout>
-            </SSRProvider>
-         )}
-      </>
-   );
+  return (
+    <>
+      {!isLoaded ? (
+        <Preloader />
+      ) : (
+        <SSRProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SSRProvider>
+      )}
+    </>
+  );
 }

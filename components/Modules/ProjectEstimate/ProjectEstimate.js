@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import classEase from "classease";
@@ -40,7 +40,7 @@ const initialFormData = {
   yourRole: "", // 'Individual' or 'Company'
   servicesNeeded: "", // the selected service option
   preferredContactTime: "", // 'Morning', 'Noon', 'Afternoon'
-  attachment: "", // Array to hold multiple files
+  attachment: null,
   projectDetails: "",
   userDetails: {
     name: "",
@@ -57,6 +57,8 @@ const ProjectEstimate = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [notification, setNotification] = useState(null);
   const [shouldReset, setShouldReset] = useState(false);
+
+  const refSection = useRef(null);
 
   const handleCheckboxChange = (category, name) => {
     setFormData((prevData) => ({
@@ -87,6 +89,8 @@ const ProjectEstimate = () => {
       ...prevFormData,
       [key]: selected,
     }));
+
+    setErrors((prevErrors) => ({ ...prevErrors, [key]: undefined }));
   };
 
   const handleUserDetailsChange = (event) => {
@@ -99,6 +103,8 @@ const ProjectEstimate = () => {
         [name]: value,
       },
     }));
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
   };
 
   const handleInputChange = (event) => {
@@ -113,6 +119,17 @@ const ProjectEstimate = () => {
       ...prevFormData,
       [name]: inputValue,
     }));
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+  };
+
+  const handleClearAttachment = (e) => {
+    e.preventDefault();
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      attachment: null,
+    }));
+    setErrors((prevErrors) => ({ ...prevErrors, attachment: undefined }));
   };
 
   const validateForm = () => {
@@ -135,6 +152,37 @@ const ProjectEstimate = () => {
     } else if (!phoneRegex.test(formData.userDetails.phone)) {
       errors.phone =
         "Please enter a valid phone number (starting with 01 and length 11)";
+    }
+
+    if (!formData.projectDetails.trim()) {
+      errors.projectDetails = "Write details about your project";
+    }
+
+    if (!formData.projectType.trim()) {
+      errors.projectType = "Select your project type";
+    }
+
+    if (!formData.yourRole.trim()) {
+      errors.yourRole = "Select your role";
+    }
+
+    if (!formData.preferredContactTime.trim()) {
+      errors.preferredContactTime = "Select preferred contact time";
+    }
+
+    // file validation
+    const allowedTypes = ["application/pdf"];
+    const maxSize = 1024 * 1024; // 1MB
+
+    if (
+      formData.attachment &&
+      !allowedTypes.includes(formData.attachment?.type)
+    ) {
+      errors.attachment = "File type must be PDF.";
+    }
+
+    if (formData.attachment && formData.attachment?.size > maxSize) {
+      errors.attachment = "File size must be less than 1MB.";
     }
 
     if (!isVerified) {
@@ -207,6 +255,24 @@ const ProjectEstimate = () => {
       } finally {
         resetForm();
         setIsLoading(false);
+
+        // // Scroll to the refSection
+        // if (refSection.current) {
+        //   refSection.current.scrollIntoView({ behavior: "smooth" });
+        // }
+
+        // Scroll to the refSection with an additional offset of 50 pixels
+        if (refSection.current) {
+          // Get the top position of the refSection
+          const topPosition = refSection.current.getBoundingClientRect().top;
+
+          // Scroll to the top position with an additional offset of 50 pixels
+          window.scrollTo({
+            top: window.scrollY + topPosition - 100,
+            behavior: "smooth", // You can use "auto" or "smooth" for smooth scrolling
+          });
+        }
+
         setTimeout(() => {
           setNotification(null);
         }, 5500);
@@ -218,6 +284,8 @@ const ProjectEstimate = () => {
 
   return (
     <>
+      <div ref={refSection}></div>
+
       <section id="projectEstimate" className="section_padding requirement">
         {notification?.show ? (
           <div className="container">
@@ -687,6 +755,7 @@ const ProjectEstimate = () => {
                               type="radio"
                               name="timeframe"
                               className="checkbox-input"
+                              checked={formData?.timeframe?.hiringNow}
                               onChange={() =>
                                 handleRadioChange("timeframe", "hiringNow")
                               }
@@ -717,6 +786,9 @@ const ProjectEstimate = () => {
                               type="radio"
                               name="timeframe"
                               className="checkbox-input"
+                              checked={
+                                formData?.timeframe?.hiringWithinOneMonth
+                              }
                               onChange={() =>
                                 handleRadioChange(
                                   "timeframe",
@@ -750,6 +822,9 @@ const ProjectEstimate = () => {
                               type="radio"
                               name="timeframe"
                               className="checkbox-input"
+                              checked={
+                                formData?.timeframe?.hiringWithinThreeMonths
+                              }
                               onChange={() =>
                                 handleRadioChange(
                                   "timeframe",
@@ -783,6 +858,7 @@ const ProjectEstimate = () => {
                               type="radio"
                               name="timeframe"
                               className="checkbox-input"
+                              checked={formData?.timeframe?.hiringLater}
                               onChange={() =>
                                 handleRadioChange("timeframe", "hiringLater")
                               }
@@ -849,8 +925,9 @@ const ProjectEstimate = () => {
                           <Form.Group className="mb-3">
                             {/* <Form.Label>Disabled select menu</Form.Label> */}
                             <Form.Select
-                              name="existing-project"
+                              name="projectType"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
+                              value={formData?.projectType}
                               onChange={(e) =>
                                 handleSelectChange(e, "projectType")
                               }
@@ -859,6 +936,11 @@ const ProjectEstimate = () => {
                               <option value="New">New Project</option>
                               <option value="Existing">Existing Project</option>
                             </Form.Select>
+                            {errors.projectType && (
+                              <span className="invalid-feedback d-block">
+                                {errors.projectType}
+                              </span>
+                            )}
                           </Form.Group>
                         </div>
                       </Col>
@@ -875,8 +957,9 @@ const ProjectEstimate = () => {
                         <div>
                           <Form.Group className="mb-3">
                             <Form.Select
-                              name="You-are"
+                              name="yourRole"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
+                              value={formData?.yourRole}
                               onChange={(e) =>
                                 handleSelectChange(e, "yourRole")
                               }
@@ -885,6 +968,11 @@ const ProjectEstimate = () => {
                               <option value="Individual">Individual</option>
                               <option value="Company">Company</option>
                             </Form.Select>
+                            {errors.yourRole && (
+                              <span className="invalid-feedback d-block">
+                                {errors.yourRole}
+                              </span>
+                            )}
                           </Form.Group>
                         </div>
                       </Col>
@@ -904,8 +992,9 @@ const ProjectEstimate = () => {
                         <div>
                           <Form.Group className="mb-3">
                             <Form.Select
-                              name="contact-time"
+                              name="preferredContactTime"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
+                              value={formData?.preferredContactTime}
                               onChange={(e) =>
                                 handleSelectChange(e, "preferredContactTime")
                               }
@@ -915,6 +1004,11 @@ const ProjectEstimate = () => {
                               <option value="Noon">Noon</option>
                               <option value="Afternoon">Afternoon</option>
                             </Form.Select>
+                            {errors.preferredContactTime && (
+                              <span className="invalid-feedback d-block">
+                                {errors.preferredContactTime}
+                              </span>
+                            )}
                           </Form.Group>
                         </div>
                       </Col>
@@ -925,7 +1019,7 @@ const ProjectEstimate = () => {
                           </span>
                           <span className="fw-bolder fs-5">
                             Attach any files you feel would be useful
-                            <span className="text-danger"> *</span>
+                            {/* <span className="text-danger"> *</span> */}
                           </span>
                         </p>
 
@@ -934,7 +1028,8 @@ const ProjectEstimate = () => {
                             <input
                               type="file"
                               id="attachment"
-                              accept="image/*,.pdf"
+                              // accept="image/*,.pdf"
+                              accept="application/pdf"
                               name="attachment"
                               onChange={(e) => handleInputChange(e)}
                             />
@@ -946,7 +1041,18 @@ const ProjectEstimate = () => {
                         </div>
 
                         {formData?.attachment && (
-                          <p>{formData?.attachment.name}</p>
+                          <p className="attachment-pdf">
+                            {formData?.attachment.name}
+                            <span onClick={(e) => handleClearAttachment(e)}>
+                              &#x2715;
+                            </span>
+                          </p>
+                        )}
+
+                        {errors.attachment && (
+                          <span className="invalid-feedback d-block">
+                            {errors.attachment}
+                          </span>
                         )}
                       </Col>
                     </Row>
@@ -998,17 +1104,29 @@ const ProjectEstimate = () => {
                                 name="name"
                                 type="text"
                                 placeholder="Your name *"
+                                value={formData?.userDetails?.name}
                                 onChange={(e) => handleUserDetailsChange(e)}
                               />
+                              {errors.name && (
+                                <span className="invalid-feedback d-block">
+                                  {errors.name}
+                                </span>
+                              )}
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="email">
                               <Form.Control
                                 className="proForm px-3"
                                 name="email"
-                                type="email"
+                                type="text"
                                 placeholder="Your email address *"
+                                value={formData?.userDetails?.email}
                                 onChange={(e) => handleUserDetailsChange(e)}
                               />
+                              {errors.email && (
+                                <span className="invalid-feedback d-block">
+                                  {errors.email}
+                                </span>
+                              )}
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="number">
                               <Form.Control
@@ -1016,8 +1134,14 @@ const ProjectEstimate = () => {
                                 name="phone"
                                 type="number"
                                 placeholder="Your phone number *"
+                                value={formData?.userDetails?.phone}
                                 onChange={(e) => handleUserDetailsChange(e)}
                               />
+                              {errors.phone && (
+                                <span className="invalid-feedback d-block">
+                                  {errors.phone}
+                                </span>
+                              )}
                             </Form.Group>
                           </Col>
                           <Col lg={6} md={6}>
@@ -1031,8 +1155,14 @@ const ProjectEstimate = () => {
                                 name="projectDetails"
                                 placeholder="Project Details *"
                                 rows={6}
+                                value={formData?.projectDetails}
                                 onChange={(e) => handleInputChange(e)}
                               />
+                              {errors.projectDetails && (
+                                <span className="invalid-feedback d-block">
+                                  {errors.projectDetails}
+                                </span>
+                              )}
                             </Form.Group>
                           </Col>
                         </Row>
@@ -1061,6 +1191,12 @@ const ProjectEstimate = () => {
                           onVerify={setIsVerified}
                           shouldReset={shouldReset}
                         />
+
+                        {errors.verification && (
+                          <span className="invalid-feedback d-block">
+                            {errors.verification}
+                          </span>
+                        )}
 
                         <button
                           type="submit"
