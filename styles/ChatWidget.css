@@ -36,19 +36,19 @@
   position: fixed;
   left: 3%;
   bottom: 5%;
-  z-index: 99999;
+  z-index: 1000;
 }
-@media (max-width: 767px){
-  .ChatBox {
-    left: 7% !important;
-  }
-}
-
 .chatOptions{
   z-index: 999;
   position: fixed;
   bottom: calc(5% + 50px);
   left: 3%;
+}
+
+@media (max-width: 767px){
+  .ChatBox, .chatOptions {
+    left: 7% !important;
+  }
 }
 .chatOptions .icons:nth-child(1){
   animation: chatBoxBounce 0.4s cubic-bezier(.62,.62,.52,1.43);
@@ -146,11 +146,11 @@
  .fadeIn {
    animation-name: fadeIn;
  }
- 
+
  .fadeOut {
    animation-name: fadeOut;
  }
- 
+
  @keyframes fadeIn {
    from {
      opacity: 0;
@@ -159,7 +159,7 @@
      opacity: 1;
    }
  }
- 
+
  @keyframes fadeOut {
    from {
      opacity: 1;

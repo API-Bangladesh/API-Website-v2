@@ -18,8 +18,8 @@ const ChatWidget = () => {
    useEffect(() => {
      const interval = setInterval(() => {
        setCurrentItemIndex((index) => (index + 1) % 3);
-     }, 3000); 
- 
+     }, 3000);
+
      return () => clearInterval(interval);
    }, []);
    // Loop through 3 items
@@ -35,7 +35,7 @@ const ChatWidget = () => {
                 <Link href="tel:+8801686449007" className="icons mb-3" onClick={handleClick}>
                   <IoCallOutline size={'22px'} className="text-white" />
                 </Link>
-                <a href="https://wa.me/8801551761805?text=Hello" target="_blank" className="icons mb-3" onClick={handleClick}>
+                <a href="https://wa.me/8801783970294?text=Hello" target="_blank" className="icons mb-3" onClick={handleClick}>
                   <MdWhatsapp size={'22px'} className="text-white" />
                 </a>
               </div>

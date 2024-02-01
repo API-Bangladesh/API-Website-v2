@@ -16,6 +16,7 @@ import { BiOutline } from "react-icons/bi";
 import { RiLayout3Line } from "react-icons/ri";
 import { TiLocationOutline } from "react-icons/ti";
 import { LuDot } from "react-icons/lu";
+import classEase from "classease";
 
 const Header = () => {
    const router = useRouter();
@@ -56,7 +57,6 @@ const Header = () => {
    // menu toggle for phone
    const [showDiv, setShowDiv] = useState(false);
    const toggle = (e) => {
-      e.stopPropagation();
       setShowDiv((prev) => !prev);
       setActiveKey(null);
    };
@@ -306,14 +306,13 @@ const Header = () => {
 
                   {/* <div className="toggleMenu"> */}
 
-                  <div className="demoDD">
+                  <div className={classEase("hamburger", showDiv ? "open" : "")} onClick={(e) => toggle(e)}>
                      <div
                         id="toggleBox"
                         className={
                            // "menu toggleLine mt-3 me-4" + (showDiv ? " open" : "")
                            "menu toggleLine" + (showDiv ? " open" : "")
                         }
-                        onClick={(e) => toggle(e)}
                      >
                         <span className="item"></span>
                         <span className="item"></span>

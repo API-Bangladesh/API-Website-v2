@@ -134,7 +134,7 @@ h6 {
 
 /* preloader */
 body.loaded {
-  overflow: auto;
+  overflow-x: hidden;
 }
 .preloader {
   width: 100%;
@@ -571,10 +571,14 @@ body.loaded {
   .curve {
     width: 100%;
     height: 100%;
-    -webkit-shape-outside: initial !important;
-    shape-outside: initial;
+    width: 270px;
+    height: 270px;
+    display: block;
+    -webkit-shape-outside: unset !important;
+    shape-outside: unset !important;
     text-align: center !important;
     margin-left: 0rem !important;
+    float: initial !important;
   }
   .textImgBox p {
     text-align: left !important;
@@ -770,7 +774,7 @@ body.loaded {
   height: 100%;
 }
 
-.demoDD {
+.hamburger {
   width: 55px;
   height: 45px;
   border-radius: 4px;
@@ -780,6 +784,10 @@ body.loaded {
   top: 10px;
   z-index: 99999;
   background-color: #ffffff8f;
+}
+
+.hamburger.open {
+  background-color: transparent;
 }
 
 .myDiv {
@@ -935,6 +943,7 @@ body.loaded {
   /* background-image: linear-gradient(to left top, #be1f25, #b2185e, #873a85, #4b4d90, #005481); */
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin-bottom: 0;
 }
 .menu .item:nth-child(1) {
   top: 0;
