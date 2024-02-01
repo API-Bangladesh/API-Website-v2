@@ -100,6 +100,27 @@ const Schedule = () => {
     setErrors((prevErrors) => ({ ...prevErrors, service: undefined }));
   };
 
+  const handleUserDetailsChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      userDetails: {
+        ...prevFormData.userDetails,
+        [name]: value,
+      },
+    }));
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+  };
+
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    const newValue = type === "checkbox" ? checked : value;
+    setFormData((prevData) => ({ ...prevData, [name]: newValue }));
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+  };
+
   const handleBackClick = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -453,15 +474,7 @@ const Schedule = () => {
                             type="text"
                             placeholder="Name *"
                             value={formData.userDetails.name}
-                            onChange={(e) =>
-                              setFormData((prev) => ({
-                                ...prev,
-                                userDetails: {
-                                  ...prev.userDetails,
-                                  name: e.target.value,
-                                },
-                              }))
-                            }
+                            onChange={(e) => handleUserDetailsChange(e)}
                           />
                           {errors.name && (
                             <span className="invalid-feedback d-block">
@@ -482,15 +495,7 @@ const Schedule = () => {
                             type="number"
                             placeholder="Number *"
                             value={formData.userDetails.phone}
-                            onChange={(e) =>
-                              setFormData((prev) => ({
-                                ...prev,
-                                userDetails: {
-                                  ...prev.userDetails,
-                                  phone: e.target.value,
-                                },
-                              }))
-                            }
+                            onChange={(e) => handleUserDetailsChange(e)}
                           />
                           {errors.phone && (
                             <span className="invalid-feedback d-block">
@@ -506,14 +511,9 @@ const Schedule = () => {
                     </Form.Label>
                     <Form.Select
                       className="px-3 userinput mb-2"
-                      name="schedule-budget"
+                      name="budget"
                       aria-label="Default select example"
-                      onChange={(e) =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          budget: e.target.value,
-                        }))
-                      }
+                      onChange={(e) => handleChange(e)}
                       value={formData?.budget}
                     >
                       <option value="0">Choose an option</option>
@@ -536,17 +536,12 @@ const Schedule = () => {
                         Short description
                       </Form.Label>
                       <Form.Control
-                        name="schedule-message"
+                        name="description"
                         as="textarea"
                         placeholder="Type here"
                         rows={4}
                         value={formData.description}
-                        onChange={(e) =>
-                          setFormData((prev) => ({
-                            ...prev,
-                            description: e.target.value,
-                          }))
-                        }
+                        onChange={(e) => handleChange(e)}
                       />
                       {errors.description && (
                         <span className="invalid-feedback d-block">
