@@ -2,7 +2,7 @@
 #contact {
   background-color: #fafafa;
 }
-#contact button{
+#contact button {
   border: 0;
 }
 #contact .contactForm {
@@ -69,7 +69,7 @@
   font-size: 36px !important;
   font-weight: 600 !important;
   line-height: 50px;
-} 
+}
 .focus {
   color: #006e94;
 }
@@ -95,7 +95,7 @@ input#email {
 input#phone {
   font-size: 18px;
 }
-textarea#comments{
+textarea#comments {
   font-size: 18px;
 }
 
@@ -118,10 +118,11 @@ textarea#comments{
   .checkbox_btn_start.form-check {
     padding-left: 0 !important;
     margin-bottom: 20px;
+    margin-top: 15px;
   }
 }
 @media (max-width: 991px) {
-  #contact .contactForm{
+  #contact .contactForm {
     padding-top: 10px;
   }
   .form-check.checkbox_btn_start {
@@ -140,7 +141,6 @@ textarea#comments{
     padding-bottom: 0px;
     padding-left: 20px !important;
     padding-right: 20px;
-
   }
   .btn_align_res {
     flex-direction: column-reverse;
@@ -159,7 +159,7 @@ textarea#comments{
   }
   .open_timing {
     text-align: center;
-    padding-top: 0px!important;
+    padding-top: 0px !important;
     padding-left: 0px;
   }
   .schedule_title {
@@ -170,7 +170,6 @@ textarea#comments{
     text-align: center;
     padding-left: 0px !important;
   }
-
 
   .btn_align_res {
     flex-direction: column-reverse;
@@ -196,7 +195,6 @@ textarea#comments{
   .CustomeBtn.rounded-pill {
     padding: 10px 19px;
   }
-
 }
 
 @media (min-width: 991px) {
@@ -204,4 +202,3 @@ textarea#comments{
     padding-top: 0;
   }
 }
-

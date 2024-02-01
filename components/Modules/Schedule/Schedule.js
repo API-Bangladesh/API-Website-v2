@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -6,36 +6,34 @@ import Row from "react-bootstrap/Row";
 import Calendar from "react-calendar";
 import { CgArrowLongLeft } from "react-icons/cg";
 import classEase from "classease";
-import emailjs from "@emailjs/browser";
-import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from "../../../utils/constants";
-import { convertTimeTo24HourFormat } from "../../../lib/format";
-import {
-  showErrorNotification,
-  showSuccessNotification,
-} from "../../../utils/notificationHelper";
+import { convertTimeTo24HourFormat, formatDate } from "../../../lib/format";
 import { submitRequestSchedule } from "../../../lib/submit-form";
 import SectionTitle from "../Section_title/Section_title";
 import CustomReCAPTCHA from "../../../utils/ReCAPTCHA";
+import Notification from "../Notification";
+
+const initialFormData = {
+  service: "", // string
+  date: formatDate(new Date()), // string or Date object
+  time: "", // string or Time object
+  budget: "", // string
+  description: "", // string
+  userDetails: {
+    name: "", // string
+    phone: "", // string
+  },
+};
 
 const Schedule = () => {
-  const [formData, setFormData] = useState({
-    service: "", // string
-    date: new Date(), // string or Date object
-    time: "", // string or Time object
-    budget: "", // string
-    description: "", // string
-    userDetails: {
-      name: "", // string
-      phone: "", // string
-    },
-  });
-
+  const [formData, setFormData] = useState(initialFormData);
   const [isVerified, setIsVerified] = useState(false);
-  const [isTimeSelect, setIsTimeSelect] = useState(false);
-
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [notification, setNotification] = useState(null);
+  const [shouldReset, setShouldReset] = useState(false);
+  const [isTimeSelect, setIsTimeSelect] = useState(false);
+
+  const refSection = useRef(null);
 
   const validateForm = () => {
     const errors = {};
@@ -45,9 +43,8 @@ const Schedule = () => {
     }
 
     const phoneRegex = /^01\d{9}$/;
-
     if (!formData.userDetails.phone.trim()) {
-      errors.phone = "Phone cannot be empty";
+      errors.phone = "Phone number cannot be empty";
     } else if (!phoneRegex.test(formData.userDetails.phone)) {
       errors.phone =
         "Please enter a valid phone number (starting with 01 and length 11)";
@@ -58,15 +55,23 @@ const Schedule = () => {
     }
 
     if (!formData?.date) {
-      errors.date = "Date cannot be empty";
+      errors.date = "Select a date";
+    }
+
+    if (!formData?.time) {
+      errors.time = "Select a time";
     }
 
     if (!formData.budget.trim()) {
-      errors.budget = "Budget cannot be empty";
+      errors.budget = "Select your budget";
     }
 
     if (!formData.description.trim()) {
       errors.description = "Description cannot be empty";
+    }
+
+    if (!isVerified) {
+      errors.verification = "Please verify the reCAPTCHA";
     }
 
     setErrors(errors);
@@ -74,9 +79,10 @@ const Schedule = () => {
   };
 
   const handleDateChange = (selectedDate) => {
+    const formattedDate = formatDate(selectedDate);
     setFormData((prev) => ({
       ...prev,
-      date: selectedDate,
+      date: formattedDate,
     }));
   };
 
@@ -96,6 +102,27 @@ const Schedule = () => {
     setErrors((prevErrors) => ({ ...prevErrors, service: undefined }));
   };
 
+  const handleUserDetailsChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      userDetails: {
+        ...prevFormData.userDetails,
+        [name]: value,
+      },
+    }));
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+  };
+
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    const newValue = type === "checkbox" ? checked : value;
+    setFormData((prevData) => ({ ...prevData, [name]: newValue }));
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+  };
+
   const handleBackClick = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -104,86 +131,98 @@ const Schedule = () => {
     setIsTimeSelect(false);
   };
 
-  // const handleChange = (event) => {
-  //   const { name, value, type, checked } = event.target;
-  //   const newValue = type === "checkbox" ? checked : value;
-  //   setFormData((prevData) => ({ ...prevData, [name]: newValue }));
-  //   setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
-  // };
+  const handleVerificationAttempted = () => {
+    setErrors((prevErrors) => ({ ...prevErrors, verification: undefined }));
+  };
+
+  const resetForm = () => {
+    setFormData(initialFormData);
+    setIsVerified(false);
+    setErrors({});
+    setIsLoading(false);
+    setShouldReset(true);
+    setIsTimeSelect(false);
+    // setNotification(null);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    setFormData((prev) => ({
-      ...prev,
-      date: "2024-01-29",
-    }));
-
-    console.log(formData);
-
     if (validateForm()) {
       setIsLoading(true);
+      setShouldReset(false);
 
       try {
-        // Simulate network delay (you can remove this in production)
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
-        // setFormData((prev) => ({
-        //   ...prev,
-        //   date: "2024-01-29",
-        // }));
-
         const data = await submitRequestSchedule(formData);
+
         console.log(data);
 
-        setSubmissionStatus("success");
-        showSuccessNotification("Success!", "Form Submitted Successfully!");
-
-        // Handle success or display success messages to the user
+        if (data?.status === "success") {
+          setNotification({
+            show: true,
+            type: "success",
+            message: data?.message || "Form Submitted Successfully!",
+          });
+        } else if (data?.status === "error") {
+          setNotification({
+            show: true,
+            type: "error",
+            message: data?.message || "Something went wrong!",
+          });
+        }
       } catch (error) {
         console.error(error);
-        setSubmissionStatus("error");
-        showErrorNotification(
-          "Failed!",
-          "Something Went Wrong! Please Try Again."
-        );
-        // Handle server-side errors or display error messages to the user
+        setNotification({
+          show: true,
+          type: "error",
+          message: "An error occurred. Please try again later.",
+        });
       } finally {
+        resetForm();
         setIsLoading(false);
+
+        // // Scroll to the refSection
+        // if (refSection.current) {
+        //   refSection.current.scrollIntoView({ behavior: "smooth" });
+        // }
+
+        // Scroll to the refSection with an additional offset of 50 pixels
+        if (refSection.current) {
+          // Get the top position of the refSection
+          const topPosition = refSection.current.getBoundingClientRect().top;
+
+          // Scroll to the top position with an additional offset of 50 pixels
+          window.scrollTo({
+            top: window.scrollY + topPosition - 100,
+            behavior: "smooth", // You can use "auto" or "smooth" for smooth scrolling
+          });
+        }
+
+        setTimeout(() => {
+          setNotification(null);
+        }, 5500);
       }
     } else {
       console.log("Form validation failed");
-      // Optionally display validation error messages to the user
     }
   };
 
-  // const form = useRef();
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-  //   // if(!isVerified){
-  //   //    // console.log("ReCaptcha Failed!");
-  //   //    showErrorNotification("Failed!", "ReCaptcha Validation Failed! Please Try Again.");
-  //   //    return;
-  //   // }
-
-  //   emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
-  //     (result) => {
-  //       showSuccessNotification("Success!", "Form Submitted Successfully!");
-  //       e.target.reset();
-  //     },
-  //     (error) => {
-  //       console.log(error.text);
-  //       showErrorNotification(
-  //         "Failed!",
-  //         "Something Went Wrong! Please Try Again."
-  //       );
-  //     }
-  //   );
-  // };
-
   return (
     <>
+      <div ref={refSection}></div>
+
       <section id="schedule" className="section_padding_top">
+        {notification?.show ? (
+          <div className="container">
+            <Notification
+              type={notification?.type}
+              message={notification?.message}
+            />
+          </div>
+        ) : (
+          ""
+        )}
+
         <SectionTitle titleUpDown="Let's talk!" />
 
         <div className="container">
@@ -203,7 +242,7 @@ const Schedule = () => {
                 id="applicationDevelopment"
                 value="Application Development"
                 checked={formData?.service === "Application Development"}
-                onChange={handleRadioChange}
+                onChange={(e) => handleRadioChange(e)}
               />
               <label
                 className="form-check-label"
@@ -221,7 +260,7 @@ const Schedule = () => {
                 id="DigitalTransformation"
                 value="Digital Transformation"
                 checked={formData?.service === "Digital Transformation"}
-                onChange={handleRadioChange}
+                onChange={(e) => handleRadioChange(e)}
               />
               <label
                 className="form-check-label"
@@ -239,7 +278,7 @@ const Schedule = () => {
                 id="CloudSolutions"
                 value="Cloud Solutions"
                 checked={formData?.service === "Cloud Solutions"}
-                onChange={handleRadioChange}
+                onChange={(e) => handleRadioChange(e)}
               />
               <label
                 className="form-check-label" //
@@ -257,7 +296,7 @@ const Schedule = () => {
                 id="ITConsulting"
                 value="IT Consulting"
                 checked={formData?.service === "IT Consulting"}
-                onChange={handleRadioChange}
+                onChange={(e) => handleRadioChange(e)}
               />
               <label className="form-check-label" htmlFor="ITConsulting">
                 IT Consulting
@@ -268,15 +307,19 @@ const Schedule = () => {
 
         <div className="container">
           <div
-            className={`row customRow ${
+            className={classEase(
+              "row customRow",
               isTimeSelect === true ? "scheduleBox" : ""
-            }`}
+            )}
           >
             {/* calendar satrts here */}
             <div className="col-md-6 scheduleItem">
               <div className="dateBox d-flex flex-column align-items-center pb-4">
                 <h4 className="mt-0 mb-3 pt-4 text-white">Pick a Date</h4>
-                <Calendar onChange={handleDateChange} value={formData?.date} />
+                <Calendar
+                  onChange={(e) => handleDateChange(e)}
+                  value={formData?.date}
+                />
               </div>
             </div>
 
@@ -454,15 +497,7 @@ const Schedule = () => {
                             type="text"
                             placeholder="Name *"
                             value={formData.userDetails.name}
-                            onChange={(e) =>
-                              setFormData((prev) => ({
-                                ...prev,
-                                userDetails: {
-                                  ...prev.userDetails,
-                                  name: e.target.value,
-                                },
-                              }))
-                            }
+                            onChange={(e) => handleUserDetailsChange(e)}
                           />
                           {errors.name && (
                             <span className="invalid-feedback d-block">
@@ -483,15 +518,7 @@ const Schedule = () => {
                             type="number"
                             placeholder="Number *"
                             value={formData.userDetails.phone}
-                            onChange={(e) =>
-                              setFormData((prev) => ({
-                                ...prev,
-                                userDetails: {
-                                  ...prev.userDetails,
-                                  phone: e.target.value,
-                                },
-                              }))
-                            }
+                            onChange={(e) => handleUserDetailsChange(e)}
                           />
                           {errors.phone && (
                             <span className="invalid-feedback d-block">
@@ -507,14 +534,9 @@ const Schedule = () => {
                     </Form.Label>
                     <Form.Select
                       className="px-3 userinput mb-2"
-                      name="schedule-budget"
+                      name="budget"
                       aria-label="Default select example"
-                      onChange={(e) =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          budget: e.target.value,
-                        }))
-                      }
+                      onChange={(e) => handleChange(e)}
                       value={formData?.budget}
                     >
                       <option value="0">Choose an option</option>
@@ -523,6 +545,11 @@ const Schedule = () => {
                       <option value="3">200k - 500k</option>
                       <option value="4">More than 500k +</option>
                     </Form.Select>
+                    {errors.budget && (
+                      <span className="invalid-feedback d-block">
+                        {errors.budget}
+                      </span>
+                    )}
 
                     <Form.Group
                       className="mb-3"
@@ -532,17 +559,12 @@ const Schedule = () => {
                         Short description
                       </Form.Label>
                       <Form.Control
-                        name="schedule-message"
+                        name="description"
                         as="textarea"
                         placeholder="Type here"
                         rows={4}
                         value={formData.description}
-                        onChange={(e) =>
-                          setFormData((prev) => ({
-                            ...prev,
-                            description: e.target.value,
-                          }))
-                        }
+                        onChange={(e) => handleChange(e)}
                       />
                       {errors.description && (
                         <span className="invalid-feedback d-block">
@@ -551,7 +573,17 @@ const Schedule = () => {
                       )}
                     </Form.Group>
 
-                    <CustomReCAPTCHA onVerify={setIsVerified} />
+                    <CustomReCAPTCHA
+                      onAttempted={handleVerificationAttempted}
+                      onVerify={setIsVerified}
+                      shouldReset={shouldReset}
+                    />
+
+                    {errors.verification && (
+                      <span className="invalid-feedback d-block">
+                        {errors.verification}
+                      </span>
+                    )}
 
                     <div class="d-flex justify-content-between align-items-center pb-3">
                       <p

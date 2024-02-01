@@ -1,18 +1,14 @@
-import React, { useRef, useState } from "react";
-import Checkbox from "@mui/material/Checkbox";
+import React, { useState, useRef } from "react";
+import Spinner from "react-bootstrap/Spinner";
 import { Col, Container, Form, Row } from "react-bootstrap";
+import classEase from "classease";
 import SectionTitle from "../Section_title/Section_title";
 import { ImAttachment } from "react-icons/im";
+import CustomReCAPTCHA from "../../../utils/ReCAPTCHA";
+import { submitProjectEstimate } from "../../../lib/submit-form";
+import Notification from "../Notification";
 
-import emailjs from "@emailjs/browser";
-import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID2 } from "../../../utils/constants";
-// import CustomReCAPTCHA from '../../../utils/ReCAPTCHA';
-import {
-  showErrorNotification,
-  showSuccessNotification,
-} from "../../../utils/notificationHelper";
-
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+// const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const initialFormData = {
   challenges: {
@@ -44,7 +40,7 @@ const initialFormData = {
   yourRole: "", // 'Individual' or 'Company'
   servicesNeeded: "", // the selected service option
   preferredContactTime: "", // 'Morning', 'Noon', 'Afternoon'
-  attachment: "", // Array to hold multiple files
+  attachment: null,
   projectDetails: "",
   userDetails: {
     name: "",
@@ -55,8 +51,14 @@ const initialFormData = {
 };
 
 const ProjectEstimate = () => {
-  const [isVerified, setIsVerified] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
+  const [isVerified, setIsVerified] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [notification, setNotification] = useState(null);
+  const [shouldReset, setShouldReset] = useState(false);
+
+  const refSection = useRef(null);
 
   const handleCheckboxChange = (category, name) => {
     setFormData((prevData) => ({
@@ -87,6 +89,8 @@ const ProjectEstimate = () => {
       ...prevFormData,
       [key]: selected,
     }));
+
+    setErrors((prevErrors) => ({ ...prevErrors, [key]: undefined }));
   };
 
   const handleUserDetailsChange = (event) => {
@@ -99,10 +103,13 @@ const ProjectEstimate = () => {
         [name]: value,
       },
     }));
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
   };
 
   const handleInputChange = (event) => {
     const { name, value, type, checked, files } = event.target;
+    files ? console.log(files) : "";
 
     // Check if the input is a checkbox
     const inputValue =
@@ -112,124 +119,195 @@ const ProjectEstimate = () => {
       ...prevFormData,
       [name]: inputValue,
     }));
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
   };
 
-  // const validateForm = () => {
-  //   const errors = {};
+  const handleClearAttachment = (e) => {
+    e.preventDefault();
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      attachment: null,
+    }));
+    setErrors((prevErrors) => ({ ...prevErrors, attachment: undefined }));
+  };
 
-  //   if (!formData.userDetails.name.trim()) {
-  //     errors.name = "Name cannot be empty";
-  //   }
+  const validateForm = () => {
+    const errors = {};
 
-  //   const phoneRegex = /^01\d{9}$/;
+    if (!formData.userDetails.name.trim()) {
+      errors.name = "Name cannot be empty";
+    }
 
-  //   if (!formData.userDetails.phone.trim()) {
-  //     errors.phone = "Phone cannot be empty";
-  //   } else if (!phoneRegex.test(formData.userDetails.phone)) {
-  //     errors.phone =
-  //       "Please enter a valid phone number (starting with 01 and length 11)";
-  //   }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.userDetails.email.trim()) {
+      errors.email = "Email cannot be empty";
+    } else if (!emailRegex.test(formData.userDetails.email)) {
+      errors.email = "Please enter a valid email address";
+    }
 
-  //   if (!formData.service.trim()) {
-  //     errors.service = "Service cannot be empty";
-  //   }
+    const phoneRegex = /^01\d{9}$/;
+    if (!formData.userDetails.phone.trim()) {
+      errors.phone = "Phone cannot be empty";
+    } else if (!phoneRegex.test(formData.userDetails.phone)) {
+      errors.phone =
+        "Please enter a valid phone number (starting with 01 and length 11)";
+    }
 
-  //   if (!formData?.date) {
-  //     errors.date = "Date cannot be empty";
-  //   }
+    if (!formData.projectDetails.trim()) {
+      errors.projectDetails = "Write details about your project";
+    }
 
-  //   if (!formData.budget.trim()) {
-  //     errors.budget = "Budget cannot be empty";
-  //   }
+    if (!formData.projectType.trim()) {
+      errors.projectType = "Select your project type";
+    }
 
-  //   if (!formData.description.trim()) {
-  //     errors.description = "Description cannot be empty";
-  //   }
+    if (!formData.yourRole.trim()) {
+      errors.yourRole = "Select your role";
+    }
 
-  //   setErrors(errors);
-  //   return Object.keys(errors).length === 0; // Return true if no errors
-  // };
+    if (!formData.preferredContactTime.trim()) {
+      errors.preferredContactTime = "Select preferred contact time";
+    }
+
+    // file validation
+    const allowedTypes = ["application/pdf"];
+    const maxSize = 1024 * 1024; // 1MB
+
+    if (
+      formData.attachment &&
+      !allowedTypes.includes(formData.attachment?.type)
+    ) {
+      errors.attachment = "File type must be PDF.";
+    }
+
+    if (formData.attachment && formData.attachment?.size > maxSize) {
+      errors.attachment = "File size must be less than 1MB.";
+    }
+
+    if (!isVerified) {
+      errors.verification = "Please verify the reCAPTCHA";
+    }
+
+    setErrors(errors);
+    return Object.keys(errors).length === 0; // Return true if no errors
+  };
+
+  const handleVerificationAttempted = () => {
+    setErrors((prevErrors) => ({ ...prevErrors, verification: undefined }));
+  };
+
+  const resetForm = () => {
+    setFormData(initialFormData);
+    setIsVerified(false);
+    setErrors({});
+    setIsLoading(false);
+    setShouldReset(true);
+    // setNotification(null);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(formData);
-    return;
-
-    setFormData((prev) => ({
-      ...prev,
-      date: "2024-01-29",
-    }));
-    console.log(formData);
-
     if (validateForm()) {
       setIsLoading(true);
+      setShouldReset(false);
 
       try {
-        // Simulate network delay (you can remove this in production)
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        const formDataToSend = new FormData();
 
-        // setFormData((prev) => ({
-        //   ...prev,
-        //   date: "2024-01-29",
-        // }));
+        // Append form data
+        Object.entries(formData).forEach(([key, value]) => {
+          if (key !== "attachment") {
+            formDataToSend.append(key, JSON.stringify(value));
+          }
+        });
 
-        const data = await submitRequestSchedule(formData);
-        console.log(data);
+        // Append image file
+        formDataToSend.append("attachment", formData.attachment);
+        console.log("Form data", formDataToSend);
 
-        setSubmissionStatus("success");
-        showSuccessNotification("Success!", "Form Submitted Successfully!");
+        const data = await submitProjectEstimate(formDataToSend);
 
-        // Handle success or display success messages to the user
+        // console.log(data);
+
+        // return;
+        if (data?.status === "success") {
+          setNotification({
+            show: true,
+            type: "success",
+            message: data?.message || "Form Submitted Successfully!",
+          });
+        } else if (data?.status === "error") {
+          setNotification({
+            show: true,
+            type: "error",
+            message: data?.message || "Something went wrong!",
+          });
+        }
       } catch (error) {
         console.error(error);
-        setSubmissionStatus("error");
-        showErrorNotification(
-          "Failed!",
-          "Something Went Wrong! Please Try Again."
-        );
-        // Handle server-side errors or display error messages to the user
+        setNotification({
+          show: true,
+          type: "error",
+          message: "An error occurred. Please try again later.",
+        });
       } finally {
+        resetForm();
         setIsLoading(false);
+
+        // // Scroll to the refSection
+        // if (refSection.current) {
+        //   refSection.current.scrollIntoView({ behavior: "smooth" });
+        // }
+
+        // Scroll to the refSection with an additional offset of 50 pixels
+        if (refSection.current) {
+          // Get the top position of the refSection
+          const topPosition = refSection.current.getBoundingClientRect().top;
+
+          // Scroll to the top position with an additional offset of 50 pixels
+          window.scrollTo({
+            top: window.scrollY + topPosition - 100,
+            behavior: "smooth", // You can use "auto" or "smooth" for smooth scrolling
+          });
+        }
+
+        setTimeout(() => {
+          setNotification(null);
+        }, 5500);
       }
     } else {
       console.log("Form validation failed");
-      // Optionally display validation error messages to the user
     }
   };
 
-  // const sendEmail = (e) => {
-  //   e.preventDefault();
-
-  //   //  if(!isVerified){
-  //   //     // console.log("ReCaptcha Failed!");
-  //   //      showErrorNotification("Failed!", "ReCaptcha Validation Failed! Please Try Again.");
-  //   //     return;
-  //   //  }
-
-  //   emailjs.sendForm(SERVICE_ID, TEMPLATE_ID2, form.current, PUBLIC_KEY).then(
-  //     (result) => {
-  //       showSuccessNotification("Success!", "Form Submitted Successfully!");
-  //       e.target.reset();
-  //     },
-  //     (error) => {
-  //       console.log(error.text);
-  //       showErrorNotification(
-  //         "Failed!",
-  //         "Something Went Wrong! Please Try Again."
-  //       );
-  //     }
-  //   );
-  // };
-
   return (
     <>
+      <div ref={refSection}></div>
+
       <section id="projectEstimate" className="section_padding requirement">
+        {notification?.show ? (
+          <div className="container">
+            <Notification
+              type={notification?.type}
+              message={notification?.message}
+            />
+          </div>
+        ) : (
+          ""
+        )}
+
         <SectionTitle titleUpDown="Contact Form" />
+
         <Container>
           <div className="d-flex justify-content-center">
             <Col lg={9}>
-              <Form onSubmit={handleSubmit} method="POST">
+              <Form
+                onSubmit={handleSubmit}
+                method="POST"
+                enctype="multipart/form-data"
+              >
                 <Row>
                   <p className="position-relative ms-2 mb-4 mt-3 ps-5">
                     <span className="estimateNumber rounded-1 me-2">1</span>
@@ -677,6 +755,7 @@ const ProjectEstimate = () => {
                               type="radio"
                               name="timeframe"
                               className="checkbox-input"
+                              checked={formData?.timeframe?.hiringNow}
                               onChange={() =>
                                 handleRadioChange("timeframe", "hiringNow")
                               }
@@ -707,6 +786,9 @@ const ProjectEstimate = () => {
                               type="radio"
                               name="timeframe"
                               className="checkbox-input"
+                              checked={
+                                formData?.timeframe?.hiringWithinOneMonth
+                              }
                               onChange={() =>
                                 handleRadioChange(
                                   "timeframe",
@@ -740,6 +822,9 @@ const ProjectEstimate = () => {
                               type="radio"
                               name="timeframe"
                               className="checkbox-input"
+                              checked={
+                                formData?.timeframe?.hiringWithinThreeMonths
+                              }
                               onChange={() =>
                                 handleRadioChange(
                                   "timeframe",
@@ -773,6 +858,7 @@ const ProjectEstimate = () => {
                               type="radio"
                               name="timeframe"
                               className="checkbox-input"
+                              checked={formData?.timeframe?.hiringLater}
                               onChange={() =>
                                 handleRadioChange("timeframe", "hiringLater")
                               }
@@ -839,8 +925,9 @@ const ProjectEstimate = () => {
                           <Form.Group className="mb-3">
                             {/* <Form.Label>Disabled select menu</Form.Label> */}
                             <Form.Select
-                              name="existing-project"
+                              name="projectType"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
+                              value={formData?.projectType}
                               onChange={(e) =>
                                 handleSelectChange(e, "projectType")
                               }
@@ -849,6 +936,11 @@ const ProjectEstimate = () => {
                               <option value="New">New Project</option>
                               <option value="Existing">Existing Project</option>
                             </Form.Select>
+                            {errors.projectType && (
+                              <span className="invalid-feedback d-block">
+                                {errors.projectType}
+                              </span>
+                            )}
                           </Form.Group>
                         </div>
                       </Col>
@@ -865,8 +957,9 @@ const ProjectEstimate = () => {
                         <div>
                           <Form.Group className="mb-3">
                             <Form.Select
-                              name="You-are"
+                              name="yourRole"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
+                              value={formData?.yourRole}
                               onChange={(e) =>
                                 handleSelectChange(e, "yourRole")
                               }
@@ -875,6 +968,11 @@ const ProjectEstimate = () => {
                               <option value="Individual">Individual</option>
                               <option value="Company">Company</option>
                             </Form.Select>
+                            {errors.yourRole && (
+                              <span className="invalid-feedback d-block">
+                                {errors.yourRole}
+                              </span>
+                            )}
                           </Form.Group>
                         </div>
                       </Col>
@@ -894,8 +992,9 @@ const ProjectEstimate = () => {
                         <div>
                           <Form.Group className="mb-3">
                             <Form.Select
-                              name="contact-time"
+                              name="preferredContactTime"
                               className="inner_select_form innner_form_focus rounded-1 px-3"
+                              value={formData?.preferredContactTime}
                               onChange={(e) =>
                                 handleSelectChange(e, "preferredContactTime")
                               }
@@ -905,6 +1004,11 @@ const ProjectEstimate = () => {
                               <option value="Noon">Noon</option>
                               <option value="Afternoon">Afternoon</option>
                             </Form.Select>
+                            {errors.preferredContactTime && (
+                              <span className="invalid-feedback d-block">
+                                {errors.preferredContactTime}
+                              </span>
+                            )}
                           </Form.Group>
                         </div>
                       </Col>
@@ -915,16 +1019,17 @@ const ProjectEstimate = () => {
                           </span>
                           <span className="fw-bolder fs-5">
                             Attach any files you feel would be useful
-                            <span className="text-danger"> *</span>
+                            {/* <span className="text-danger"> *</span> */}
                           </span>
                         </p>
 
                         <div className="file_upload ms-0">
-                          <label htmlFor="apply">
+                          <label htmlFor="attachment">
                             <input
                               type="file"
                               id="attachment"
-                              accept="image/*,.pdf"
+                              // accept="image/*,.pdf"
+                              accept="application/pdf"
                               name="attachment"
                               onChange={(e) => handleInputChange(e)}
                             />
@@ -934,6 +1039,21 @@ const ProjectEstimate = () => {
                             </div>
                           </label>
                         </div>
+
+                        {formData?.attachment && (
+                          <p className="attachment-pdf">
+                            {formData?.attachment.name}
+                            <span onClick={(e) => handleClearAttachment(e)}>
+                              &#x2715;
+                            </span>
+                          </p>
+                        )}
+
+                        {errors.attachment && (
+                          <span className="invalid-feedback d-block">
+                            {errors.attachment}
+                          </span>
+                        )}
                       </Col>
                     </Row>
 
@@ -984,17 +1104,29 @@ const ProjectEstimate = () => {
                                 name="name"
                                 type="text"
                                 placeholder="Your name *"
+                                value={formData?.userDetails?.name}
                                 onChange={(e) => handleUserDetailsChange(e)}
                               />
+                              {errors.name && (
+                                <span className="invalid-feedback d-block">
+                                  {errors.name}
+                                </span>
+                              )}
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="email">
                               <Form.Control
                                 className="proForm px-3"
                                 name="email"
-                                type="email"
+                                type="text"
                                 placeholder="Your email address *"
+                                value={formData?.userDetails?.email}
                                 onChange={(e) => handleUserDetailsChange(e)}
                               />
+                              {errors.email && (
+                                <span className="invalid-feedback d-block">
+                                  {errors.email}
+                                </span>
+                              )}
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="number">
                               <Form.Control
@@ -1002,8 +1134,14 @@ const ProjectEstimate = () => {
                                 name="phone"
                                 type="number"
                                 placeholder="Your phone number *"
+                                value={formData?.userDetails?.phone}
                                 onChange={(e) => handleUserDetailsChange(e)}
                               />
+                              {errors.phone && (
+                                <span className="invalid-feedback d-block">
+                                  {errors.phone}
+                                </span>
+                              )}
                             </Form.Group>
                           </Col>
                           <Col lg={6} md={6}>
@@ -1017,33 +1155,67 @@ const ProjectEstimate = () => {
                                 name="projectDetails"
                                 placeholder="Project Details *"
                                 rows={6}
+                                value={formData?.projectDetails}
                                 onChange={(e) => handleInputChange(e)}
                               />
+                              {errors.projectDetails && (
+                                <span className="invalid-feedback d-block">
+                                  {errors.projectDetails}
+                                </span>
+                              )}
                             </Form.Group>
                           </Col>
                         </Row>
 
                         <div className="checkBox d-flex align-items-center mb-2">
-                          <Checkbox
+                          <Form.Check
+                            type="checkbox"
                             id="CheckedText"
-                            {...label}
+                            label="I want to receive a monthly tech newaletter"
                             name="newsletterSubscription"
                             checked={formData.newsletterSubscription}
                             onChange={(e) => handleInputChange(e)}
+                            disabled={isLoading}
                           />
-                          <label
+
+                          {/* <label
                             htmlFor="CheckedText"
                             className="checkBox_text"
                           >
                             I want to receive a monthly tech newaletter
-                          </label>
+                          </label> */}
                         </div>
-                        {/* <CustomReCAPTCHA onVerify={setIsVerified}/> */}
+
+                        <CustomReCAPTCHA
+                          onAttempted={handleVerificationAttempted}
+                          onVerify={setIsVerified}
+                          shouldReset={shouldReset}
+                        />
+
+                        {errors.verification && (
+                          <span className="invalid-feedback d-block">
+                            {errors.verification}
+                          </span>
+                        )}
 
                         <button
                           type="submit"
-                          className="requestBtn mt-3 mb-5 border-0"
+                          className="requestBtn mt-3 mb-5 border-0 d-flex justify-content-center align-items-center"
+                          disabled={isLoading || notification?.show}
                         >
+                          {isLoading && (
+                            <div className="api-form-loader">
+                              <Spinner
+                                animation="border"
+                                size="sm"
+                                role="status"
+                              >
+                                <span className="visually-hidden">
+                                  Loading...
+                                </span>
+                              </Spinner>
+                            </div>
+                          )}
                           Send request
                         </button>
                         {/* </Form> */}

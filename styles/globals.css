@@ -1029,6 +1029,7 @@ body.loaded {
   border-radius: 8px;
   background-color: rgba(var(--r), var(--g), var(--b), 0.1);
   padding: 10px 30px;
+  animation: notification 0.5s ease-in-out 5s;
 }
 .notification_icon {
   padding: 10px;
@@ -1054,6 +1055,16 @@ body.loaded {
   color: #ff7f50 !important;
 }
 
+@keyframes notification {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Notification */
+
 .form-check-input:disabled {
   opacity: 1 !important;
 }
@@ -1061,4 +1072,27 @@ body.loaded {
 .form-check-input:disabled ~ .form-check-label,
 .form-check-input[disabled] ~ .form-check-label {
   opacity: 1 !important;
+}
+
+.invalid-feedback {
+  font-size: 0.75em !important;
+}
+
+.attachment-pdf {
+  background-color: #c2cad6;
+  margin-top: 12px;
+  border-radius: 4px;
+  white-space: normal;
+  height: 44px;
+  line-height: 44px;
+  overflow: hidden;
+  padding: 0 30px 0 16px;
+  position: relative;
+}
+.attachment-pdf span {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
 }

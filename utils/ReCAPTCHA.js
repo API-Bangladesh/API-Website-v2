@@ -1,8 +1,19 @@
+import { useEffect, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { constants } from "../lib/config";
 
-const CustomReCAPTCHA = ({ onVerify }) => {
-  const onReCAPTCHAChange = async (captchaCode) => {
+const CustomReCAPTCHA = ({ onVerify, shouldReset, onAttempted }) => {
+  const recaptchaRef = useRef(null);
+
+  useEffect(() => {
+    if (shouldReset && recaptchaRef.current) {
+      recaptchaRef.current.reset();
+    }
+  }, [shouldReset]);
+
+  const handleReCAPTCHAChange = async (captchaCode) => {
+    onAttempted();
+
     if (!captchaCode) {
       onVerify(false);
       return;
@@ -50,9 +61,10 @@ const CustomReCAPTCHA = ({ onVerify }) => {
 
   return (
     <ReCAPTCHA
+      ref={recaptchaRef}
       size="normal"
       sitekey={constants.RECAPTCHA_SITE_KEY}
-      onChange={onReCAPTCHAChange}
+      onChange={handleReCAPTCHAChange}
     />
   );
 };

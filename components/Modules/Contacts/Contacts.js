@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Form from "react-bootstrap/Form";
 import Spinner from "react-bootstrap/Spinner";
 // import { BsCloudDownloadFill } from "react-icons/bs";
@@ -6,37 +6,45 @@ import classEase from "classease";
 import SectionTitle from "../Section_title/Section_title";
 // import Checkbox from "@mui/material/Checkbox";
 import CustomReCAPTCHA from "../../../utils/ReCAPTCHA";
-import {
-  showErrorNotification,
-  showSuccessNotification,
-} from "../../../utils/notificationHelper";
 import { submitContactUs } from "../../../lib/submit-form";
+import Notification from "../Notification";
 
 // const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
+const initialFormData = {
+  companyName: "",
+  name: "",
+  corporateEmail: "",
+  phone: "",
+  comments: "",
+  protectDataByNDA: false,
+};
+
 const Contacts = () => {
-  const [formData, setFormData] = useState({
-    companyName: "",
-    name: "",
-    corporateEmail: "",
-    phone: "",
-    comments: "",
-    protectDataByNDA: false,
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [isVerified, setIsVerified] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [notification, setNotification] = useState(null);
+  const [shouldReset, setShouldReset] = useState(false);
+
+  const refSection = useRef(null);
 
   const validateForm = () => {
     const errors = {};
+
+    if (!formData.companyName.trim()) {
+      errors.companyName = "Company name cannot be empty";
+    }
 
     if (!formData.name.trim()) {
       errors.name = "Name cannot be empty";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.corporateEmail)) {
+    if (!formData.corporateEmail.trim()) {
+      errors.corporateEmail = "Email cannot be empty";
+    } else if (!emailRegex.test(formData.corporateEmail)) {
       errors.corporateEmail = "Please enter a valid email address";
     }
 
@@ -52,6 +60,10 @@ const Contacts = () => {
       errors.comments = "Comments cannot be empty";
     }
 
+    if (!isVerified) {
+      errors.verification = "Please verify the reCAPTCHA";
+    }
+
     setErrors(errors);
     return Object.keys(errors).length === 0; // Return true if no errors
   };
@@ -63,30 +75,75 @@ const Contacts = () => {
     setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
   };
 
+  const handleVerificationAttempted = () => {
+    setErrors((prevErrors) => ({ ...prevErrors, verification: undefined }));
+  };
+
+  const resetForm = () => {
+    setFormData(initialFormData);
+    setIsVerified(false);
+    setErrors({});
+    setIsLoading(false);
+    setShouldReset(true);
+    // setNotification(null);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (validateForm() && isVerified) {
+    if (validateForm()) {
       setIsLoading(true);
+      setShouldReset(false);
 
       try {
-        // // Simulate network delay (you can remove this in production)
-        // await new Promise((resolve) => setTimeout(resolve, 2000));
-
         const data = await submitContactUs(formData);
+
         console.log(data);
 
-        setSubmissionStatus("success");
-        showSuccessNotification("Success!", "Form Submitted Successfully!");
+        if (data?.status === "success") {
+          setNotification({
+            show: true,
+            type: "success",
+            message: data?.message || "Form Submitted Successfully!",
+          });
+        } else if (data?.status === "error") {
+          setNotification({
+            show: true,
+            type: "error",
+            message: data?.message || "Something went wrong!",
+          });
+        }
       } catch (error) {
         console.error(error);
-        setSubmissionStatus("error");
-        showErrorNotification(
-          "Failed!",
-          "Something Went Wrong! Please Try Again."
-        );
+        setNotification({
+          show: true,
+          type: "error",
+          message: "An error occurred. Please try again later.",
+        });
       } finally {
+        resetForm();
         setIsLoading(false);
+
+        // // Scroll to the refSection
+        // if (refSection.current) {
+        //   refSection.current.scrollIntoView({ behavior: "smooth" });
+        // }
+
+        // Scroll to the refSection with an additional offset of 50 pixels
+        if (refSection.current) {
+          // Get the top position of the refSection
+          const topPosition = refSection.current.getBoundingClientRect().top;
+
+          // Scroll to the top position with an additional offset of 50 pixels
+          window.scrollTo({
+            top: window.scrollY + topPosition - 100,
+            behavior: "smooth", // You can use "auto" or "smooth" for smooth scrolling
+          });
+        }
+
+        setTimeout(() => {
+          setNotification(null);
+        }, 5500);
       }
     } else {
       console.log("Form validation failed");
@@ -108,8 +165,22 @@ const Contacts = () => {
 
   return (
     <>
+      <div ref={refSection}></div>
+
       <section id="contact" className="section_padding_top">
-        <SectionTitle titleUpDown="Say Hello !" />
+        {notification?.show ? (
+          <div className="container">
+            <Notification
+              type={notification?.type}
+              message={notification?.message}
+            />
+          </div>
+        ) : (
+          ""
+        )}
+
+        <SectionTitle titleUpDown="Say Hello!" />
+
         <div className="container demo overflow-hidden">
           <div className="row">
             <div className="col-lg-7 col-md-7">
@@ -125,6 +196,7 @@ const Contacts = () => {
                     </h3>
                   </div>
                 </div>
+
                 <form onSubmit={handleSubmit} method="POST">
                   <div className="row">
                     <div className="col-lg-12">
@@ -242,14 +314,24 @@ const Contacts = () => {
                       </div>
                     </div>
 
-                    <CustomReCAPTCHA onVerify={setIsVerified} />
+                    <CustomReCAPTCHA
+                      onAttempted={handleVerificationAttempted}
+                      onVerify={setIsVerified}
+                      shouldReset={shouldReset}
+                    />
+
+                    {errors.verification && (
+                      <span className="invalid-feedback d-block">
+                        {errors.verification}
+                      </span>
+                    )}
 
                     <div className="col-lg-12">
                       <div className="submit pt-4 d-flex align-items-center justify-content-between btn_align_res">
                         <button
                           type="submit"
                           className="requestBtn d-flex justify-content-center align-items-center"
-                          disabled={isLoading}
+                          disabled={isLoading || notification?.show}
                         >
                           {isLoading && (
                             <div className="api-form-loader">
@@ -270,7 +352,7 @@ const Contacts = () => {
                         {/* Go button start  */}
                         <div className="form-check checkbox_btn_start">
                           {/* <Checkbox id="CheckedText" {...label}/> */}
-                          <Form.Check // prettier-ignore
+                          <Form.Check
                             type="checkbox"
                             id="CheckedText"
                             label="I want to protect my data by signing an NDA"
