@@ -54,6 +54,7 @@ const ProjectEstimate = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [isVerified, setIsVerified] = useState(false);
   const [errors, setErrors] = useState({});
+  const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [notification, setNotification] = useState(null);
   const [shouldReset, setShouldReset] = useState(false);
@@ -68,6 +69,7 @@ const ProjectEstimate = () => {
         [name]: !prevData[category][name],
       },
     }));
+    setHasError(false);
   };
 
   const handleRadioChange = (category, key) => {
@@ -80,6 +82,7 @@ const ProjectEstimate = () => {
         }, {}),
       },
     }));
+    setHasError(false);
   };
 
   const handleSelectChange = (e, key) => {
@@ -91,6 +94,7 @@ const ProjectEstimate = () => {
     }));
 
     setErrors((prevErrors) => ({ ...prevErrors, [key]: undefined }));
+    setHasError(false);
   };
 
   const handleUserDetailsChange = (event) => {
@@ -105,6 +109,7 @@ const ProjectEstimate = () => {
     }));
 
     setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+    setHasError(false);
   };
 
   const handleInputChange = (event) => {
@@ -121,6 +126,7 @@ const ProjectEstimate = () => {
     }));
 
     setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+    setHasError(false);
   };
 
   const handleClearAttachment = (e) => {
@@ -130,6 +136,7 @@ const ProjectEstimate = () => {
       attachment: null,
     }));
     setErrors((prevErrors) => ({ ...prevErrors, attachment: undefined }));
+    setHasError(false);
   };
 
   const validateForm = () => {
@@ -195,12 +202,14 @@ const ProjectEstimate = () => {
 
   const handleVerificationAttempted = () => {
     setErrors((prevErrors) => ({ ...prevErrors, verification: undefined }));
+    setHasError(false);
   };
 
   const resetForm = () => {
     setFormData(initialFormData);
     setIsVerified(false);
     setErrors({});
+    setHasError(false);
     setIsLoading(false);
     setShouldReset(true);
     // setNotification(null);
@@ -278,6 +287,7 @@ const ProjectEstimate = () => {
         }, 5500);
       }
     } else {
+      setHasError(true);
       console.log("Form validation failed");
     }
   };
@@ -1171,7 +1181,7 @@ const ProjectEstimate = () => {
                           <Form.Check
                             type="checkbox"
                             id="CheckedText"
-                            label="I want to receive a monthly tech newaletter"
+                            label="I want to receive a monthly tech newsletter"
                             name="newsletterSubscription"
                             checked={formData.newsletterSubscription}
                             onChange={(e) => handleInputChange(e)}
@@ -1200,7 +1210,7 @@ const ProjectEstimate = () => {
 
                         <button
                           type="submit"
-                          className="requestBtn mt-3 mb-5 border-0 d-flex justify-content-center align-items-center"
+                          className="requestBtn mt-3 border-0 d-flex justify-content-center align-items-center"
                           disabled={isLoading || notification?.show}
                         >
                           {isLoading && (
@@ -1219,6 +1229,11 @@ const ProjectEstimate = () => {
                           Send request
                         </button>
                         {/* </Form> */}
+                        {hasError && (
+                          <span className="invalid-feedback d-block mt-2">
+                            Please fill in all required fields correctly.
+                          </span>
+                        )}
                       </Col>
                     </Row>
                   </div>

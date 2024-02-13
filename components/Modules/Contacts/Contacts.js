@@ -24,6 +24,7 @@ const Contacts = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [isVerified, setIsVerified] = useState(false);
   const [errors, setErrors] = useState({});
+  const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [notification, setNotification] = useState(null);
   const [shouldReset, setShouldReset] = useState(false);
@@ -73,16 +74,19 @@ const Contacts = () => {
     const newValue = type === "checkbox" ? checked : value;
     setFormData((prevData) => ({ ...prevData, [name]: newValue }));
     setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+    setHasError(false);
   };
 
   const handleVerificationAttempted = () => {
     setErrors((prevErrors) => ({ ...prevErrors, verification: undefined }));
+    setHasError(false);
   };
 
   const resetForm = () => {
     setFormData(initialFormData);
     setIsVerified(false);
     setErrors({});
+    setHasError(false);
     setIsLoading(false);
     setShouldReset(true);
     // setNotification(null);
@@ -146,6 +150,7 @@ const Contacts = () => {
         }, 5500);
       }
     } else {
+      setHasError(true);
       console.log("Form validation failed");
     }
   };
@@ -369,6 +374,11 @@ const Contacts = () => {
                           </label> */}
                         </div>
                       </div>
+                      {hasError && (
+                        <span className="invalid-feedback d-block mt-2">
+                          Please fill in all required fields correctly.
+                        </span>
+                      )}
                     </div>
                   </div>
                 </form>

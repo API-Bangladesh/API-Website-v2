@@ -1105,3 +1105,13 @@ body.loaded {
   transform: translateY(-50%);
   cursor: pointer;
 }
+
+.err-right {
+  text-align: right;
+}
+
+@media screen and (max-width: 767px) {
+  .err-right {
+    text-align: left;
+  }
+}
