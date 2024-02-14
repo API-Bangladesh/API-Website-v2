@@ -39,13 +39,24 @@ const Header = () => {
       setShowItems2(false);
    };
 
-   const handleClickService = () => {
+   const handleClickService = (e) => {
+      console.log(e)
+      e.stopPropagation();
+      e.preventDefault();
+      console.log(e.target)
+      const id = e.target.id;
+      console.log(id);
       setShowItems(false);
-      router.push("/services");
+      id === "custome_dropdown" ? router.push("/services") : null;
    };
-   const handleClickService2 = () => {
+   const handleClickService2 = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      console.log(e.target)
+      const id = e.target.id;
+      console.log(id);
       setShowItems2(false);
-      router.push("/expertise");
+      id === "custome_dropdown" ? router.push("/expertise") : null;
    };
 
    const [activeKey, setActiveKey] = useState(null);
@@ -90,7 +101,7 @@ const Header = () => {
                                  id="custome_dropdown"
                                  onMouseEnter={handleMouseEnter}
                                  onMouseLeave={handleMouseLeave}
-                                 onClick={handleClickService}
+                                 onClick={edhgfdf => handleClickService(edhgfdf)}
                                  show={showItems}
                               >
                                  <div className="subMenuBox d-flex">

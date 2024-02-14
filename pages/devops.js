@@ -9,7 +9,7 @@ const InnerPage = () => {
          <PageBanner
             pageBg="/innerPaageImg/services.webp"
             title="DevOps"
-            description="Benefit from our DevOps proficiency as we streamline development processes, foster collaboration, and expedite software delivery. Armed with industry-leading tools and methodologies, we implement CI/CD pipelines, ensuring swift and reliable releases. Our adept team automates testing, deployment, and monitoring, minimizing errors and enhancing efficiency. Embrace our DevOps expertise to instill greater agility, scalability, and flexibility into your business's software development and deployment workflows."
+            description="Get More Speed and Reliability with Our DevOps Skills. Our mad team has expertise in all industry-leading tools and methods! We also automate testing, deployment, and monitoring. This minimizes errors and boosts efficiency big time. We make sure your teams are working together like a well-oiled machine!"
          />
 
          <Devops />

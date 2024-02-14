@@ -24,10 +24,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Strategic Vision</h3>
                            <p>
-                              We help you define a clear and ambitious vision
-                              for your digital future. Our team collaborates
-                              with your stakeholders to set measurable goals and
-                              establish the roadmap for achieving them.
+                           We help you define a clear and ambitious vision for your digital future. Our team collaborates with your stakeholders to set measurable goals and establish the roadmap for achieving them.
                            </p>
                         </div>
                      </Col>
@@ -38,10 +35,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Customer-Centric Solutions</h3>
                            <p>
-                              Understanding your customers is paramount. We
-                              leverage data analytics and user research to
-                              develop customer-centric digital solutions that
-                              enhance engagement, satisfaction, and loyalty.
+                           We utilize data analytics and user research to create digital solutions centered around your clients, aiming to boost engagement, satisfaction, and loyalty.
                            </p>
                         </div>
                      </Col>
@@ -52,10 +46,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Process Optimization</h3>
                            <p>
-                              Streamlining workflows and automating repetitive
-                              tasks can significantly boost efficiency. We
-                              identify areas for process optimization, enabling
-                              you to do more with fewer resources.
+                           Streamlining workflows and automating repetitive tasks can significantly boost efficiency. We identify areas for process optimization, enabling you to do more with fewer resources.
                            </p>
                         </div>
                      </Col>
@@ -66,10 +57,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Data-Driven Insights</h3>
                            <p>
-                              Harnessing the power of data unlocks a wealth of
-                              insights. Our data experts implement robust
-                              analytics and reporting systems, empowering you to
-                              make data-driven decisions with confidence.
+                           Our data gurus set up rock-solid analytics and reporting so you can keep all that valuable information. This gives you the power to make data-backed decisions with confidence.
                            </p>
                         </div>
                      </Col>
@@ -78,12 +66,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <BiChip />
                            </div>
-                           <h3>Agile Development</h3>
+                           <h3>Cybersecurity and Compliance</h3>
                            <p>
-                              To stay competitive, businesses must adapt
-                              quickly. Our agile development approach ensures
-                              rapid deployment and continuous improvement of
-                              digital solutions, keeping you ahead of the curve.
+                           Staying on top of the latest security threats ain't easy. But it's our thing! So leave the heavy cybersecurity robbing to us while you focus on your core business. 
                            </p>
                         </div>
                      </Col>
@@ -92,12 +77,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <BiCloudLightning />
                            </div>
-                           <h3>Cybersecurity and Compliance</h3>
+                           <h3>Agile Development</h3>
                            <p>
-                              With digital advancements come new security
-                              challenges. We prioritize data protection and
-                              compliance, safeguarding your assets, and ensuring
-                              regulatory adherence.
+                           To stay competitive, businesses must adapt quickly. Our agile development approach ensures rapid deployment and continuous improvement of digital solutions, keeping you ahead of the curve. 
                            </p>
                         </div>
                      </Col>

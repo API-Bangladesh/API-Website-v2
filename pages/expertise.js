@@ -11,7 +11,7 @@ const Expertise = () => {
        <PageBanner
         pageBg="/pageBg.webp"
         title=" Our Expertise"
-        description="With our strong expertise, dedication to innovation and customer-centric approach, we strive to be a reliable and trusted partner for businesses looking for high-quality software solutions that drive growth and success. As a software company, our expertise encompasses a wide range of skills and capabilities, enabling us to deliver high-quality software solutions to meet diverse needs."
+        description="Our broad expertise encompasses extensive skills and capabilities that empower us to deliver elevated software solutions that meet diverse needs both on and off the internet. We aim to be a trusted partner for businesses seeking high-quality software solutions that enable growth and success."
       />
       <OurExpertise/>
       <IndustriesTwo/>

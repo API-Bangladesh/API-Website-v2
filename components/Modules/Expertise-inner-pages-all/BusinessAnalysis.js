@@ -24,10 +24,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Data-Driven Insights</h3>
                            <p>
-                              Uncover actionable insights through our advanced
-                              data analytics, providing a comprehensive
-                              understanding of your business dynamics for
-                              informed decision-making.
+                           We dig into the numbers and pull out useful intel to help you make smart calls. Get the full picture of what's going on in your biz thanks to our advanced analytics.
                            </p>
                         </div>
                      </Col>
@@ -38,10 +35,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Strategic Planning</h3>
                            <p>
-                              We specialize in developing strategic plans
-                              aligned with your business goals, ensuring a
-                              roadmap that maximizes efficiency and fosters
-                              sustainable growth.
+                           Together we map out strategic plans tailored to your goals. We ensure you've got the optimal roadmap to maximize efficiency and support sustainable growth.
                            </p>
                         </div>
                      </Col>
@@ -52,10 +46,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Process Optimization</h3>
                            <p>
-                              Streamline and optimize business processes with
-                              our thorough analysis, identifying bottlenecks and
-                              implementing solutions for enhanced productivity
-                              and cost-effectiveness.
+                           Our analysts meticulously hunt down potential risks so we can tackle them proactively. We've got your back when it comes to safeguarding your operations and investments.
                            </p>
                         </div>
                      </Col>
@@ -64,12 +55,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <BiBulb />
                            </div>
-                           <h3>Risk Assessment and Mitigation</h3>
+                           <h3>Risk Assessment</h3>
                            <p>
-                              Our business analysts meticulously assess
-                              potential risks, developing proactive mitigation
-                              strategies to safeguard your operations and
-                              investments.
+                           We foster collaboration with our inclusive approach, making sure everyone's aligned, from leaders to tech teams to key stakeholders.
                            </p>
                         </div>
                      </Col>
@@ -80,10 +68,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Stakeholder Collaboration</h3>
                            <p>
-                              Foster collaboration among stakeholders through
-                              our inclusive approach, ensuring alignment between
-                              business objectives, technology, and the needs of
-                              key players.
+                           Foster collaboration among stakeholders through our inclusive approach, ensuring alignment between business objectives, technology, and the needs of key players.
                            </p>
                         </div>
                      </Col>
@@ -94,10 +79,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Continuous Improvement</h3>
                            <p>
-                              Embrace a culture of continuous improvement with
-                              our tailored recommendations, driving ongoing
-                              enhancements that keep your business at the
-                              forefront of industry standards.
+                           We offer unique ideas to help you constantly enhance your business and stay ahead of the curve. Our aim? Keep you at the top of your industry!
                            </p>
                         </div>
                      </Col>

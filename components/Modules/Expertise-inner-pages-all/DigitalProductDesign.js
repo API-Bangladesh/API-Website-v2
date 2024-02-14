@@ -24,10 +24,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Strategic Vision</h3>
                            <p>
-                              Our approach begins with a strategic vision,
-                              aligning your business goals with innovative
-                              digital designs that resonate with your target
-                              audience.
+                           Our approach begins with a strategic vision, aligning your business goals with innovative digital designs that resonate with your target audience.
                            </p>
                         </div>
                      </Col>
@@ -36,12 +33,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <FaCodeCommit />
                            </div>
-                           <h3>In-Depth User-Centric Research</h3>
+                           <h3>Getting to Know Your Users</h3>
                            <p>
-                              We conduct meticulous research into user
-                              behaviors, preferences, and market trends to
-                              inform our design process, ensuring products meet
-                              and exceed user expectations.
+                           We'll dive deep into understanding who your users are and what matters most to them through comprehensive research. This ensures we design products that truly resonate.
                            </p>
                         </div>
                      </Col>
@@ -50,12 +44,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <SiCodereview />
                            </div>
-                           <h3>Conceptualization and Prototyping</h3>
+                           <h3>Brainstorming and Testing Concepts</h3>
                            <p>
-                              Through brainstorming sessions and prototyping, we
-                              breathe life into core product features,
-                              validating concepts to guarantee seamless
-                              alignment of design with functionality.
+                           Our team will brainstorm and prototype core features, collaborating together to shape experiences that align seamlessly with functionality. Testing concepts early allows us to validate that designs are on the right track.
                            </p>
                         </div>
                      </Col>
@@ -64,12 +55,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <BiBulb />
                            </div>
-                           <h3>Aesthetic Precision</h3>
+                           <h3>Crafting Appealing and Aligned Visuals</h3>
                            <p>
-                              Meticulously crafting visually appealing designs,
-                              our team ensures every element aligns with your
-                              brand identity, delivering a user experience that
-                              delights and engages.
+                           With an eye for aesthetics, we'll meticulously craft visually appealing designs where each element aligns with and brings out the best in your brand. The result is an experience users simply delight in.
                            </p>
                         </div>
                      </Col>
@@ -78,12 +66,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <BiChip />
                            </div>
-                           <h3>Interactive Prototypes for User Validation</h3>
+                           <h3>Bringing Ideas to Life Interactively</h3>
                            <p>
-                              We build interactive prototypes, allowing for a
-                              comprehensive visualization of the digital
-                              product's flow and functionality, ensuring
-                              user-centric design validation.
+                           We'll build clickable prototypes that capture the product's flow and functionality. This allows you to visually walk through designs, ensuring they map to users' needs.
                            </p>
                         </div>
                      </Col>
@@ -92,13 +77,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <BiCloudLightning />
                            </div>
-                           <h3>Iterative User Testing and Ongoing Support</h3>
+                           <h3>Refining the Details</h3>
                            <p>
-                              Conducting iterative user testing sessions, we
-                              refine designs based on valuable feedback. Upon
-                              approval, we deliver finalized assets and provide
-                              continuous support for a seamless implementation
-                              process, fostering sustained success.
+                           Through iterative user testing and feedback, we'll continue refining designs until they're just right. Once complete, we'll deliver polished assets and work closely to ensure a smooth implementation that sets you up for ongoing success.
                            </p>
                         </div>
                      </Col>
