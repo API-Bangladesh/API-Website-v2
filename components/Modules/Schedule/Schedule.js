@@ -28,6 +28,7 @@ const Schedule = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [isVerified, setIsVerified] = useState(false);
   const [errors, setErrors] = useState({});
+  const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [notification, setNotification] = useState(null);
   const [shouldReset, setShouldReset] = useState(false);
@@ -54,12 +55,19 @@ const Schedule = () => {
       errors.service = "Select a service";
     }
 
+    const currentDate = new Date();
+    const selectedDateTime = new Date(`${formData?.date}T${formData?.time}`);
+
     if (!formData?.date) {
       errors.date = "Select a date";
+    } else if (selectedDateTime <= currentDate) {
+      errors.date = "Please select a date and time that is in the future";
     }
 
     if (!formData?.time) {
       errors.time = "Select a time";
+    } else if (selectedDateTime <= currentDate) {
+      errors.time = "Please select a date and time that is in the future";
     }
 
     if (!formData.budget.trim()) {
@@ -84,6 +92,12 @@ const Schedule = () => {
       ...prev,
       date: formattedDate,
     }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      date: undefined,
+      time: undefined,
+    }));
+    setHasError(false);
   };
 
   const handleTimeChange = (e) => {
@@ -94,12 +108,19 @@ const Schedule = () => {
       ...prev,
       time: selectedTime,
     }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      date: undefined,
+      time: undefined,
+    }));
+    setHasError(false);
   };
 
   const handleRadioChange = (event) => {
     const selectedService = event.target.value;
     setFormData((prev) => ({ ...prev, service: selectedService }));
     setErrors((prevErrors) => ({ ...prevErrors, service: undefined }));
+    setHasError(false);
   };
 
   const handleUserDetailsChange = (event) => {
@@ -114,6 +135,7 @@ const Schedule = () => {
     }));
 
     setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+    setHasError(false);
   };
 
   const handleChange = (event) => {
@@ -121,6 +143,7 @@ const Schedule = () => {
     const newValue = type === "checkbox" ? checked : value;
     setFormData((prevData) => ({ ...prevData, [name]: newValue }));
     setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+    setHasError(false);
   };
 
   const handleBackClick = (e) => {
@@ -133,12 +156,14 @@ const Schedule = () => {
 
   const handleVerificationAttempted = () => {
     setErrors((prevErrors) => ({ ...prevErrors, verification: undefined }));
+    setHasError(false);
   };
 
   const resetForm = () => {
     setFormData(initialFormData);
     setIsVerified(false);
     setErrors({});
+    setHasError(false);
     setIsLoading(false);
     setShouldReset(true);
     setIsTimeSelect(false);
@@ -203,6 +228,7 @@ const Schedule = () => {
         }, 5500);
       }
     } else {
+      setHasError(true);
       console.log("Form validation failed");
     }
   };
@@ -227,9 +253,14 @@ const Schedule = () => {
 
         <div className="container">
           <div className="projectBox">
-            <h4 className="mb-3">Select Services</h4>
+            <h4 className="mb-3">
+              Select Services
+              <span className="text-danger"> *</span>
+            </h4>
             {errors.service && (
-              <span className="invalid-feedback d-block">{errors.service}</span>
+              <span className="invalid-feedback d-block mb-2">
+                {errors.service}
+              </span>
             )}
           </div>
 
@@ -321,6 +352,9 @@ const Schedule = () => {
                   value={formData?.date}
                 />
               </div>
+              {errors.date && (
+                <span className="invalid-feedback d-block">{errors.date}</span>
+              )}
             </div>
 
             <div className="col-md-6 scheduleItem">
@@ -474,6 +508,9 @@ const Schedule = () => {
                   6:00 PM
                 </li>
               </ul>
+              {errors.time && (
+                <span className="invalid-feedback d-block">{errors.time}</span>
+              )}
             </div>
 
             {isTimeSelect && (
@@ -490,12 +527,15 @@ const Schedule = () => {
                           className="mb-2"
                           controlId="exampleForm.ControlInput1"
                         >
-                          <Form.Label className="capitalize">Name</Form.Label>
+                          <Form.Label className="capitalize">
+                            Name
+                            <span className="text-danger"> *</span>
+                          </Form.Label>
                           <Form.Control
                             className="px-3 userinput"
                             name="name"
                             type="text"
-                            placeholder="Name *"
+                            placeholder="Name"
                             value={formData.userDetails.name}
                             onChange={(e) => handleUserDetailsChange(e)}
                           />
@@ -511,12 +551,15 @@ const Schedule = () => {
                           className="mb-2"
                           controlId="exampleForm.ControlInput1"
                         >
-                          <Form.Label className="capitalize">Number</Form.Label>
+                          <Form.Label className="capitalize">
+                            Number
+                            <span className="text-danger"> *</span>
+                          </Form.Label>
                           <Form.Control
                             className="px-3 userinput"
                             name="phone"
                             type="number"
-                            placeholder="Number *"
+                            placeholder="Number"
                             value={formData.userDetails.phone}
                             onChange={(e) => handleUserDetailsChange(e)}
                           />
@@ -531,6 +574,7 @@ const Schedule = () => {
 
                     <Form.Label className="capitalize">
                       Your Estimated Budget
+                      <span className="text-danger"> *</span>
                     </Form.Label>
                     <Form.Select
                       className="px-3 userinput mb-2"
@@ -557,6 +601,7 @@ const Schedule = () => {
                     >
                       <Form.Label className="capitalize">
                         Short description
+                        <span className="text-danger"> *</span>
                       </Form.Label>
                       <Form.Control
                         name="description"
@@ -609,6 +654,12 @@ const Schedule = () => {
                         Confirm
                       </button>
                     </div>
+
+                    {hasError && (
+                      <span className="invalid-feedback d-block mt-2 err-right">
+                        Please fill in all required fields correctly.
+                      </span>
+                    )}
                   </Form>
                 </div>
               </div>
