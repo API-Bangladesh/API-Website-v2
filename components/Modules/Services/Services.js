@@ -124,15 +124,7 @@ const Services = () => {
                       <div className="serviceContein d-flex">
                         <div className="serviceText pe-5 mt-5">
                           <p className="lh-lg">
-                            Our team is comprised of passionate and skilled
-                            professionals who are committed to delivering
-                            excellence. With years of experience in the
-                            industry, they have successfully executed numerous
-                            custom software projects for diverse clients. We
-                            handpick our developers to ensure they have the
-                            right expertise and align with our company's values
-                            of innovation, collaboration, and client
-                            satisfaction.
+                          Our team is made up of passionate, highly skilled professionals dedicated to distinction. We carefully select our developers based on their technical expertise and commitment to innovation, collaboration, and client satisfaction. We assemble talented teams focused on surpassing expectations.
                           </p>
                           {/* <Link href="/" className="learn-more mt-4">
                             <span className="circle" aria-hidden="true">

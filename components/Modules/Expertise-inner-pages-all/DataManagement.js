@@ -24,10 +24,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Data Integration Mastery</h3>
                            <p>
-                              Seamlessly integrate diverse data sources for a
-                              unified view. Our expertise ensures smooth data
-                              flow, enabling holistic insights critical for
-                              strategic decision-making.
+                           We know how to seamlessly bring all your different data sources together so you can get the full picture. Our integration expertise delivers smooth data flow for those critical holistic insights.
                            </p>
                         </div>
                      </Col>
@@ -38,10 +35,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Efficient Data Storage Solutions</h3>
                            <p>
-                              Implementing robust storage solutions, we secure
-                              your data while optimizing accessibility. Our
-                              systems guarantee data integrity and availability,
-                              crucial for operational excellence.
+                           We implement robust systems to keep your data safe but still readily accessible when you need it. You can trust us to maintain data integrity and availability. You know it's crucial for operations!
                            </p>
                         </div>
                      </Col>
@@ -52,10 +46,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Streamlined Data Processing</h3>
                            <p>
-                              Navigate complex data processing with ease. Our
-                              advanced tools and algorithms ensure efficient
-                              processing, transforming raw data into actionable
-                              insights for your business.
+                           Navigate complex data processing with ease. Our advanced tools and algorithms ensure efficient processing, transforming raw data into actionable insights for your business.
                            </p>
                         </div>
                      </Col>
@@ -81,10 +72,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Data Quality Assurance</h3>
                            <p>
-                              Ensure the accuracy and reliability of your data.
-                              Our meticulous quality assurance processes
-                              identify and rectify inconsistencies, maintaining
-                              data integrity for informed decision-making.
+                           Garbage data leads to rubbish decisions, so we take care to ensure accuracy and reliability. Our QA process flags inconsistencies so we can fix them fast. You can be confident the data guiding your choices is solid.
                            </p>
                         </div>
                      </Col>

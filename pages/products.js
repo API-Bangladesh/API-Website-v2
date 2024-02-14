@@ -9,7 +9,9 @@ const OurProducts = () => {
       <PageBanner
         pageBg="/pageBg.webp"
         title=" Our Products"
-        description="API Solutions is dedicated to providing innovative software solutions to meet the diverse needs of our customers, ensuring a commitment to best customer support, regular updates and continuous improvement. Our team is dedicated to helping you maximize the value of our products and achieve your business goals. Our products are designed with state-of-the-art technology and a user-friendly interface to ensure maximum efficiency and user satisfaction."
+        description="API Solutions is dedicated to providing innovative software solutions to meet the diverse needs of our customers. Our goal is to create products that truly help you accomplish your business objectives. 
+        We design our software with the latest technology, always keeping real-world use in mind. This ensures our products are reflexive and efficient, allowing your team to work at their best
+        ."
       />
       <OurProduct/>
       <Clients/>

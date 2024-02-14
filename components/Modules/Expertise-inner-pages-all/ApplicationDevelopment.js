@@ -22,12 +22,9 @@ const InnerPage = () => {
                         <div className="serIconBox">
                               <IoCodeSlash />
                            </div>
-                           <h3>Tailored Solutions</h3>
+                           <h3>Tailored Apps</h3>
                            <p>
-                              Crafting bespoke applications, we align
-                              development with your unique needs, ensuring
-                              seamless functionality and a personalized user
-                              experience.
+                           We create custom apps tailored to your specific needs, ensuring seamless functionality and a personalized user experience.
                            </p>
                         </div>
                      </Col>
@@ -38,10 +35,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Cross-Platform Proficiency</h3>
                            <p>
-                              From iOS to Android, our developers possess
-                              cross-platform mastery, delivering applications
-                              that seamlessly operate across diverse devices and
-                              ecosystems.
+                           From iOS to Android, our developers have mastered cross-platform skills to deliver apps that work flawlessly across devices.
                            </p>
                         </div>
                      </Col>
@@ -52,10 +46,7 @@ const InnerPage = () => {
                            </div>
                            <h3>User-Centric Design</h3>
                            <p>
-                              Prioritizing user experience, our applications
-                              boast intuitive interfaces, enhancing usability
-                              and ensuring optimal engagement for your target
-                              audience.
+                           We prioritize intuitive interfaces that enhance usability and engagement for your audience.
                            </p>
                         </div>
                      </Col>
@@ -65,12 +56,9 @@ const InnerPage = () => {
                               <BiBulb />
                            </div>
                         
-                           <h3>Scalability and Performance</h3>
+                           <h3>Scalability and Speed</h3>
                            <p>
-                              Our development process emphasizes scalability,
-                              guaranteeing your application can grow with your
-                              business while maintaining optimal performance in
-                              any operational context.
+                           Our process emphasizes building apps that can scale with your business while maintaining optimal speed.
                            </p>
                            </div>
                      </Col>
@@ -79,12 +67,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <BiChip />
                            </div>
-                           <h3>Security and Compliance</h3>
+                           <h3>Secure and Compliant</h3>
                            <p>
-                              Integrating robust security measures, we
-                              prioritize the protection of user data and ensure
-                              compliance with industry regulations, fostering
-                              trust in your digital solutions.
+                           We integrate robust security and ensure compliance with industry regulations, fostering trust.
                            </p>
                         </div>
                      </Col>
@@ -93,12 +78,9 @@ const InnerPage = () => {
                            <div className="serIconBox">
                               <BiCloudLightning />
                            </div>
-                           <h3>Agile Development Methodology</h3>
+                           <h3>Agile Development</h3>
                            <p>
-                              Embracing an agile approach, our development team
-                              adapts swiftly to changes, ensuring a responsive
-                              and dynamic development process that aligns with
-                              evolving business needs.
+                           Our agile approach means we adapt quickly to changing needs for a responsive, dynamic development process.
                            </p>
                         </div>
                      </Col>

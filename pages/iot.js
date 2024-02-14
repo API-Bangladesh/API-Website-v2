@@ -9,7 +9,7 @@ const InnerPage = () => {
          <PageBanner
             pageBg="/innerPaageImg/services.webp"
             title="IoT (Internet of Things)"
-            description="Leveraging our profound IoT expertise, we engineer cutting-edge solutions harnessing the power of connected devices and data-driven insights. Transform your business with our innovative approach to the Internet of Things."
+            description="IoT's potential is endless, but it can be tricky to utilize. We thrive on the challenge of turning complex connected ecosystems into an asset for your business. Our creative ways to apply next-gen technology like IoT will help you to drive real results. Consider us your IoT tour guides!"
          />
 
          <IOT />

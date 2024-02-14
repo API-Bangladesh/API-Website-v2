@@ -10,7 +10,7 @@ const InnerPage = () => {
             <Container>
                <div className="roleBox">
                   <h1 className="roleTitle text-capitalize">
-                     Cloud Solutions
+                     AWS Cloud Solutions
                   </h1>
 
                   <div className="textImgBox position-relative">
@@ -21,42 +21,24 @@ const InnerPage = () => {
                      />
 
                      <p>
-                        We're dedicated to delivering AWS cloud solutions,
-                        empowering businesses in the digital age. Our expertise
-                        in cloud migration, cloud-to-on-premises transition, and
-                        system design makes us your reliable partner. Here's a
-                        glimpse of our offered expertise
+                     We're committed to delivering AWS cloud solutions that empower your business to thrive in the digital age. Our proficiency in cloud migration, cloud-to-on-premises transition, and system design distinguishes us as your reliable partner in cloud technology. Here's a short glimpse of our offered expertise.
                      </p>
 
+                     <h4>Cloud Migration</h4>
                      <p>
-                        <b>Cloud Migration: </b>
-                        Achieve enhanced scalability, efficiency, and cost
-                        savings with our mastery in cloud migration. Our
-                        seasoned experts facilitate a seamless transition from
-                        on-premises infrastructure to AWS. We ensure minimal
-                        impact on daily operations, utilizing advanced
-                        techniques for secure data transfer and system
-                        optimization.
+                     Achieve enhanced scalability, efficiency, and cost savings with our mastery of cloud migration. Our team of seasoned experts specializes in the smooth transition of your on-premises infrastructure to AWS, ensuring minimal impact on your daily operations. We leverage advanced techniques and industry best practices to proficiently manage data transfer, fortify security, and optimize your system.
                      </p>
 
+                     <h4>Cloud-to-On-Premises Migration</h4>
                      <p>
-                        <b>Cloud-to-On-Premises Migration: </b>
-                        opt for a hybrid approach tailored to your needs. We
-                        specialize in cloud-to-on-premises migration, allowing
-                        you to maintain on-site infrastructure while leveraging
-                        cloud services. Our experts design a strategy for
-                        seamless integration, ensuring a cohesive and efficient
-                        operation.
+                     For some organizations, a hybrid approach is ideal. We understand that not all workloads can be fully migrated to the cloud, which is why we specialize in cloud-to-on-premises migration. This approach allows you to maintain essential on-site infrastructure while taking advantage of cloud services. This approach ensures a unified and efficient operation, allowing you to utilize the advantages of both on-premises and cloud environments.
                      </p>
 
+                     <h4>System Design</h4>
                      <p>
-                        <b>System Design: </b>A robust cloud solution starts
-                        with a well-designed system architecture. Our system
-                        architects create customized designs aligning with your
-                        business goals. Ensuring a seamless blend with your
-                        requirements, we lay the foundation for a future-ready
-                        and efficient cloud ecosystem.
+                     A robust cloud solution starts with a well-designed system architecture. Our system architects create customized designs aligning with your business goals. Ensuring a seamless blend with your requirements, we lay the foundation for a future-ready and efficient cloud ecosystem.
                      </p>
+
                   </div>
 
                   <div className="roleProfile">
@@ -143,7 +125,7 @@ const InnerPage = () => {
 
                   <div className="someServices mt-5 mb-5">
                      <h1 className="servicesTitle text-center pt-5 mb-5">
-                        Unparalleled Cloud Solutions
+                        The Significance of Cloud Solutions
                      </h1>
                      <Row className="g-5">
                         <Col lg={6} md={6}>
@@ -155,10 +137,7 @@ const InnerPage = () => {
                               />
                               <h3>Scalability</h3>
                               <p>
-                                 Effortlessly adapt to business growth with
-                                 systems that scale dynamically, ensuring
-                                 seamless performance amid fluctuating
-                                 workloads.
+                              Effortlessly adapt to business growth with systems that scale dynamically, ensuring seamless performance amid fluctuating workloads.
                               </p>
                            </div>
                         </Col>
@@ -173,10 +152,7 @@ const InnerPage = () => {
                               />
                               <h3>Security</h3>
                               <p>
-                                 Rigorous measures safeguard your data and
-                                 applications, meeting industry standards to
-                                 shield against potential threats and ensure
-                                 compliance.
+                                 Relentless measures safeguard your data and applications, meeting industry standards to shield against potential threats and ensure compliance.
                               </p>
                            </div>
                         </Col>
@@ -191,14 +167,12 @@ const InnerPage = () => {
                               />
                               <h3>Performance Optimization</h3>
                               <p>
-                                 Maximize efficiency and cost-effectiveness by
-                                 fine-tuning your system for peak performance,
-                                 ensuring optimal cost-to-output ratios.
+                                 Maximize efficiency and cost-effectiveness by fine-tuning your system for peak performance, ensuring optimal cost-to-output ratios.
                               </p>
                            </div>
                         </Col>
                         <Col lg={6} md={6}>
-                           <div className="servicesBox position-relative ">
+                           <div className="servicesBox position-relative">
                               <img
                                  className="servicesImg"
                                  src={
@@ -208,10 +182,7 @@ const InnerPage = () => {
                               />
                               <h3>Disaster Recovery and Cost Efficiency</h3>
                               <p>
-                                 Robust disaster recovery solutions guarantee
-                                 business continuity while our cost management
-                                 expertise ensures budget-friendly resource
-                                 utilization.
+                                 Concentrated disaster recovery solutions guarantee business continuity while our cost management expertise ensures budget-friendly resource utilization.
                               </p>
                            </div>
                         </Col>

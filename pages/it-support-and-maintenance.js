@@ -9,7 +9,7 @@ const InnerPage = () => {
          <PageBanner
             pageBg="/innerPaageImg/services.webp"
             title="IT Support & Maintenance"
-            description="Experience uninterrupted business operations with our software company's unmatched expertise in IT support and maintenance. We go beyond problem-solving, offering comprehensive services that ensure optimal performance, security, and continuous evolution of your IT infrastructure."
+            description="Reliable IT enables reliable business! Take the stress out of IT management as our comprehensive support provides the expertise and responsiveness you need to thrive in the digital age. Here for you when you need us - that's our commitment."
          />
 
          <ITSupportMaintenance />

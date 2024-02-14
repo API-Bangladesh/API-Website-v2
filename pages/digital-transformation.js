@@ -9,7 +9,7 @@ const InnerPage = () => {
          <PageBanner
             pageBg="/innerPaageImg/services.webp"
             title="Digital Transformation"
-            description="In today's rapidly evolving business landscape, staying ahead requires more than just incremental changes – it demands a complete shift in mindset and operations. At API Solutions, we empower businesses to embrace the future through our transformative Digital Transformation services."
+            description="Change is never easy, but it's necessary to stay relevant. With our digital world expertise, companies can jump confidently into the digital age, ready to succeed now and in the years to come. The future belongs to the bold!"
          />
 
          <DigitalTransformation />

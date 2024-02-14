@@ -21,50 +21,35 @@ const InnerPage = () => {
                      />
 
                      <p>
-                        Embark on an innovation journey with our Android app
-                        services. More than just app creation, we craft digital
-                        experiences that exceed expectations. Our expertise
-                        includes.
+                        Embark on a Journey of Innovation and Excellence with
+                        Our Android App Services. We believe nothing can craft
+                        digital experiences better than a mobile app. We think
+                        out of the box to make our services go beyond the
+                        ordinary.
                      </p>
 
-                     <p>
-                        <b>Cross-Platform Excellence: </b>
-                        Expertise in creating Android apps for diverse devices,
-                        ensuring cost savings and a broad audience reach.
-                     </p>
+                     <h4>What We Offer?</h4>
 
                      <p>
-                        <b>Android-Centric Solutions: </b>
-                        Tailored Android apps for your business needs,
-                        leveraging the platform's full potential for outstanding
-                        solutions.
-                     </p>
-
-                     <p>
-                        <b>Face Recognition Technology: </b>
-                        In-depth knowledge ensures secure, advanced apps with
-                        features like biometric security and identity
-                        verification.
-                     </p>
-
-                     <p>
-                        <b>Google Cloud Integration: </b>
-                        Seamless integration for enhanced app power, providing
-                        strong data storage, live collaboration, and scalable
-                        growth.
-                     </p>
-
-                     <p>
-                        <b>App Script Automation: </b>
-                        Boost efficiency and productivity with Android apps
-                        featuring robust automation features for streamlined
-                        business operations.
-                     </p>
-                     <p>
-                        <b>GeoFire Implementation: </b>
-                        Covering location-based actions, live tracking, and
-                        efficient route planning, ensuring comprehensive
-                        solutions for your app.
+                        Our expertise lies in crafting optimized mobile
+                        solutions around your target users and goals. We
+                        collaborate closely to understand pain points and design
+                        experiences that leverage the full capabilities of the
+                        Android platform. Our developers are highly skilled at
+                        integrating advanced functionality like facial
+                        recognition, geofencing, automation scripting, and
+                        Google Cloud Platform services into apps to boost
+                        capabilities. We ensure flawless cross-platform
+                        compatibility so your app performs smoothly across
+                        devices. Whether you need a secure enterprise solution
+                        with biometric authentication, an intelligent logistics
+                        platform with tracking, or an innovative e-commerce app
+                        with engaging features, We are here to build you a
+                        high-quality, user-friendly app that solves real-life
+                        problems. Partner with us for your Android app
+                        development, and watch your tech dreams come true. Get
+                        in touch today and discover the potential of our
+                        advanced Android app solutions.
                      </p>
                   </div>
 
@@ -163,10 +148,7 @@ const InnerPage = () => {
                               />
                               <h3>Increase brand awareness</h3>
                               <p>
-                                 A well-designed app directly engages customers
-                                 with your brand whenever they use their phones.
-                                 It builds familiarity and loyalty with your
-                                 brand.
+                              A well-designed app directly engages customers with your brand whenever they use their phones. It builds familiarity and loyalty with your brand.
                               </p>
                            </div>
                         </Col>
@@ -181,10 +163,7 @@ const InnerPage = () => {
                               />
                               <h3>Generate revenue streams</h3>
                               <p>
-                                 Apps allow monetization through paid downloads,
-                                 in-app purchases, subscriptions, and
-                                 advertising. An app can become a direct profit
-                                 center.
+                              Apps allow monetization through paid downloads, in-app purchases, subscriptions, and advertising. An app can become a direct profit center.
                               </p>
                            </div>
                         </Col>
@@ -199,10 +178,8 @@ const InnerPage = () => {
                               />
                               <h3>Improve customer service</h3>
                               <p>
-                                 An app provides a fast and convenient way for
-                                 customers to get support, contact you, find
-                                 information, or access services related to your
-                                 business.
+                              An app provides a fast and convenient way for customers to get support, contact you, find information, or access services related to your business.
+
                               </p>
                            </div>
                         </Col>
@@ -217,10 +194,7 @@ const InnerPage = () => {
                               />
                               <h3>Collect customer data</h3>
                               <p>
-                                 Mobile apps can gather valuable insights about
-                                 your customers, including demographics,
-                                 location, behaviors, and preferences. This data
-                                 helps drive strategy.
+                              Mobile apps can gather valuable insights about your customers, including demographics, location, behaviors, and preferences. This data helps drive strategy.
                               </p>
                            </div>
                         </Col>

@@ -9,7 +9,7 @@ const InnerPage = () => {
          <PageBanner
             pageBg="/innerPaageImg/services.webp"
             title="Data Management"
-            description="Unlock the full potential of your data with our software company's advanced expertise in Data Management. We specialize in orchestrating seamless data workflows, ensuring secure storage, efficient processing, and insightful analysis for informed decision-making."
+            description="We know companies today are practically drowning in data. But how much are you really using it to drive smart decisions? That's where we come in. With us, you get secure, organized data storage, efficient processing, and most importantly powerful insights you can act on. We show even messy data can turn into clear competitive advantages sometimes!"
          />
 
          <DataManagement />

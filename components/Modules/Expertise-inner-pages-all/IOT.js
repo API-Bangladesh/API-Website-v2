@@ -39,10 +39,7 @@ const InnerPage = () => {
                            </div>
                            <h3>IoT Platform Development</h3>
                            <p>
-                              Our skilled team is well-versed in building robust
-                              and scalable IoT platforms that facilitate data
-                              collection, analysis, and management, empowering
-                              businesses with real-time intelligence.
+                           Our team is IoT platform pros! We build robust, scalable IoT platforms that collect, analyze, and manage data, and empower you with real-time intel.
                            </p>
                         </div>
                      </Col>
@@ -53,9 +50,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Device Integration</h3>
                            <p>
-                              We integrate diverse IoT devices and sensors,
-                              enabling seamless communication and data exchange
-                              while ensuring compatibility and security.
+                           We easily integrate diverse sensors and devices so they can talk and share data smoothly. Compatibility and security included!
                            </p>
                         </div>
                      </Col>
@@ -66,10 +61,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Data Analytics and Visualization</h3>
                            <p>
-                              With a focus on extracting valuable insights, we
-                              employ advanced data analytics and visualization
-                              techniques to help businesses make informed
-                              decisions and optimize operations.
+                           We tap into advanced analytics and visualization techniques to extract useful info from IoT data. This helps guide better decisions and optimization.
                            </p>
                         </div>
                      </Col>
@@ -80,10 +72,7 @@ const InnerPage = () => {
                            </div>
                            <h3>Security and Privacy</h3>
                            <p>
-                              Our IoT solutions prioritize the highest standards
-                              of security and privacy, implementing measures to
-                              safeguard data and devices against potential
-                              threats.
+                           Security and privacy are baked into all our solutions. We safeguard your devices and data against potential threats.
                            </p>
                         </div>
                      </Col>
@@ -94,10 +83,7 @@ const InnerPage = () => {
                            </div>
                            <h3>IoT and Cloud Integration</h3>
                            <p>
-                              We seamlessly integrate IoT solutions with cloud
-                              platforms, enabling data storage, processing, and
-                              accessibility with enhanced reliability and
-                              scalability.
+                           By integrating IoT solutions with reliable, scalable cloud platforms, we enable easy storage, processing, and access to data.
                            </p>
                         </div>
                      </Col>

@@ -9,7 +9,7 @@ const InnerPage = () => {
          <PageBanner
             pageBg="/innerPaageImg/services.webp"
             title="Business Analysis"
-            description="Navigating the complexities of business landscapes, our software company excels in business analytics and strategic decision-making. Using data insights, we empower organizations to optimize processes, increase efficiency, and achieve sustainable growth through our unmatched expertise."
+            description="Businesses these days are navigating all kinds of tricky situations and landscapes. API Solutions is all about helping businesses make smart, data-driven decisions. Our expertise means we can optimize processes, boost efficiency, and help organizations achieve sustainable growth."
          />
 
          <BusinessAnalysis />

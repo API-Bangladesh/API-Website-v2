@@ -21,44 +21,44 @@ const InnerPage = () => {
                      />
 
                      <p>
-                        In the realm of Artificial Intelligence (AI) and Machine
-                        Learning (ML), our dedicated team thrives in the dynamic
-                        landscape. Fueled by innovation and supported by a
-                        stellar lineup of data scientists, engineers, and
-                        developers, we offer a spectrum of AI solutions tailored
-                        to our clients' unique needs.
+                        We have a dedicated team in the dynamic and
+                        ever-evolving field of Artificial Intelligence (AI) and
+                        Machine Learning (ML) services. Our commitment to
+                        innovation, coupled with our exceptional team of data
+                        scientists, engineers, and developers, allows us to
+                        offer a wide array of AI solutions framed to the unique
+                        needs of our clients.
                      </p>
 
-                     <p>
-                        <b>Custom Machine Learning Solutions: </b>
-                        We excel in crafting personalized ML models that tackle
-                        intricate challenges across diverse industries.
-                        Versatile in nature, these models adeptly handle tasks
-                        like image recognition, language understanding,
-                        predictions, and recommendations.
-                     </p>
+                     <h4>Our Expertise in A Nutshell</h4>
 
                      <p>
-                        <b>Deep Learning Expertise:</b>
-                        Leveraging neural networks and CNNs, our deep learning
-                        proficiency enables us to navigate complex tasks, from
-                        identifying objects to understanding speech and creating
-                        autonomous systems.
+                        We're experts in creating personalized ML models that
+                        solve challenging problems in various industries. These
+                        models are versatile and can handle tasks like
+                        recognizing images, understanding language, making
+                        predictions, and offering recommendations. Our deep
+                        learning skills, using neural networks and CNNs will
+                        handle complex tasks such as identifying objects,
+                        understanding speech, and creating autonomous systems.
+                        We have a tested team, creating AI models for sentiment
+                        analysis, chatbots, text summarization, language
+                        translation, and an array of language-related
+                        applications. Everything we create is focused on real.
+                        Our systems make decisions, predict outputs, automate
+                        processes, and uncover insights so you can work smarter.
+                        Anyway, we don’t forget to ensure they are secure,
+                        ethical, and safe!
                      </p>
 
+                     <h4>Partner with Us for Success </h4>
                      <p>
-                        <b>Natural Language Processing (NLP):</b>
-                        NLP is a forte. Our prowess lies in developing AI models
-                        for sentiment analysis, chatbots, text summarization,
-                        language translation, and various language-centric
-                        applications. At the intersection of innovation and
-                        expertise, our AI and ML services stand poised to
-                        transform industries, providing tailored solutions that
-                        push the boundaries of what's possible. Whether it's
-                        crafting personalized ML models, delving into deep
-                        learning intricacies, or mastering NLP applications, our
-                        commitment to excellence drives unparalleled results for
-                        our clients.
+                        By partnering with API Solutions, you can access a world
+                        of AI and ML solutions tailored to your needs. We're
+                        here to enhance your business, optimize your operations,
+                        and drive innovation in your industry. Contact us today
+                        to take the first step towards a more innovative,
+                        data-driven future.
                      </p>
                   </div>
 
@@ -135,7 +135,9 @@ const InnerPage = () => {
                               />
 
                               <div className="proDesignation text-start">
-                                 <h3 className="mb-1">Software Engineer (AI,ML)</h3>
+                                 <h3 className="mb-1">
+                                    Software Engineer (AI,ML)
+                                 </h3>
                                  {/* <p className="mb-0">UX / UI Designer</p> */}
                               </div>
                            </div>

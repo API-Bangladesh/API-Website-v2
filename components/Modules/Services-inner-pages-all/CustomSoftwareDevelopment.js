@@ -21,53 +21,32 @@ const InnerPage = () => {
                      />
 
                      <p>
-                        We're dedicated to crafting exceptional custom software
-                        that's a perfect fit for your unique requirements. Our
-                        specializations are as follows.
+                        We provide fully customized solutions that meet each
+                        client's specific business needs. With over a decade of
+                        experience, our team of experts specializes in building
+                        robust, scalable applications using modern architectures
+                        and agile methodologies.
                      </p>
 
+                     <h4>What We Offer?</h4>
                      <p>
-                        <b>PHP Development: </b>
-                        Our expert PHP developers are well-versed in harnessing
-                        the power of this versatile scripting language. Whether
-                        it's building potent web applications or crafting
-                        dynamic web applications, we use PHP to create solutions
-                        that cater to your specific business requirements.
-                     </p>
-
-                     <p>
-                        <b>Laravel Development: </b>Laravel is our go-to
-                        framework for building powerful, secure, scalable web
-                        applications. Our team leverages the full potential of
-                        Laravel to ensure your software is feature-rich but also
-                        maintainable and future-proof.
-                     </p>
-
-                     <p>
-                        <b>Vue.js Development: </b>When it comes to creating
-                        dynamic and high-performance web applications, Vue.js is
-                        our tool of choice. Our Vue.js developers are experts in
-                        building user-friendly interfaces that engage your
-                        audience and enhance the user experience.
-                     </p>
-
-                     <p>
-                        <b>Microservices Architecture: </b>Our software
-                        development approach is rooted in microservices
+                        Our goal is to create software that evolves with your
+                        business needs now and in the future. That's why we
+                        design solutions from scratch based on your unique
+                        requirements and our autonomous teams work closely
+                        together to transform your ideas into reality. Our
+                        software development approach is rooted in microservices
                         architecture. We ensure that your solutions are agile,
                         maintainable, and adaptable to your evolving business
-                        needs.
+                        needs. Plus, we understand that today's software needs
+                        to work flawlessly with various endpoints, including API
+                        integrations, webhooks, and third-party services. Our
+                        team configures custom software solutions to connect
+                        efficiently and communicate with multiple endpoints,
+                        ensuring a smooth and integrated user experience.
                      </p>
 
-                     <p>
-                        <b>Multiple Endpoints Integration: </b>We understand
-                        that today's software needs to work seamlessly with
-                        various endpoints, including API integrations, webhooks,
-                        and third-party services. Our team configures custom
-                        software solutions to connect efficiently and
-                        communicate with multiple endpoints, ensuring a smooth
-                        and integrated user experience.
-                     </p>
+                     
                   </div>
 
                   <div className="roleProfile">
@@ -75,7 +54,12 @@ const InnerPage = () => {
                         <Col lg={8} md={8}>
                            <div className="leftContent position-relative h-100">
                               <h3 className="fw-light lh-sm">
-                              Choose API Solution for technical excellence with seasoned developers crafting tailored software. Our customized precision ensures software beyond expectations, enhancing efficiency for enduring value. Built to grow, our solutions adapt to your changing needs
+                                 Choose API Solution for technical excellence
+                                 with seasoned developers crafting tailored
+                                 software. Our customized precision ensures
+                                 software beyond expectations, enhancing
+                                 efficiency for enduring value. Built to grow,
+                                 our solutions adapt to your changing needs
                               </h3>
                               <div className="techBox mt-5">
                                  <div className="tech">
@@ -154,14 +138,14 @@ const InnerPage = () => {
                      <Row className="g-5">
                         <Col lg={6} md={12} sm={12}>
                            <div className="servicesBox position-relative">
-                           <img
+                              <img
                                  className="servicesImg"
                                  src={"/innerPaageImg/icon/DesignResearch.svg"}
                                  alt="img"
                               />
-                              <h3>Code Crafting Blueprint</h3>
+                              <h3>Project Overview</h3>
                               <p>
-                              Initiating with a comprehensive exploration of your project's goals and constraints, we collaboratively craft a detailed plan. Mapping timelines, milestones, and deliverables, we pave a clear path forward for seamless progress together.
+                              We commence with an in-depth exploration of your project's objectives and constraints. We weave a thorough project plan that maps out timelines, milestones, and deliverables, creating a clear track forward.
                               </p>
                            </div>
                         </Col>
@@ -174,9 +158,9 @@ const InnerPage = () => {
                                  }
                                  alt="img"
                               />
-                              <h3>Segmenting Duties </h3>
+                              <h3>Segmenting Duties</h3>
                               <p>
-                              Transform your vision with phased project segmentation, enabling iterative refinement. Constant interaction keeps you informed about the project's development. Ensuring continuous value delivery, we bring your vision to reality step by step.
+                              We break the project into iterative stages to bring your vision to life. We ensure you stay updated on development status so we can deliver value incrementally. Our process ensures seamless refinement from idea to finished product.
                               </p>
                            </div>
                         </Col>
@@ -191,7 +175,7 @@ const InnerPage = () => {
                               />
                               <h3>Quality Fortification </h3>
                               <p>
-                              We subject your software to an array of comprehensive tests. Since we want no stone to be unturned, we perform functional assessments to perform trials and stringent security scans. We promptly address the limitations and ensure the best end of the product. 
+                              We thoroughly test your software using comprehensive assessments including functionality testing and rigorous security scanning. We promptly address the limitations and ensure the best end of the product. 
                               </p>
                            </div>
                         </Col>
@@ -206,7 +190,7 @@ const InnerPage = () => {
                               />
                               <h3>We Provide Maintenance</h3>
                               <p>
-                              It doesn't stop here. We're here for your product launch too. Our meticulous launch process includes planning, cloud migration, quality testing, data migration, user training, and ongoing support. Ensuring a seamless transition, we're committed to your success.
+                              It isn't the end here. We are here to launch your product as well. Our software launch process involves careful planning, cloud migration if needed, testing for quality, data migration, user training, and ongoing support. It ensures a smooth transition to your new software solution, backed by our commitment to your success.
                               </p>
                            </div>
                         </Col>

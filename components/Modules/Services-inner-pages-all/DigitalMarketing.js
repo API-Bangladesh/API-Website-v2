@@ -21,48 +21,31 @@ const InnerPage = () => {
                      />
 
                      <p>
-                        We're not just service providers; we're your partners in
-                        digital growth. Ready to tackle any challenge, explore
-                        new avenues, embrace tech trends, or craft a customized
-                        strategy for your business success. Meet our digital
-                        marketing gurus, the backstage crew for your online
-                        success. Our services cover.
+                        Our team of digital marketing gurus knows how to make
+                        your brand rock on the internet. We're like the
+                        backstage crew that makes your online show a hit.
                      </p>
 
-                     <p>
-                        <b>SEO Optimization: </b>
-                        Fine-tune your website elements for higher search engine
-                        visibility, focusing on organic search presence for
-                        enhanced discoverability on Google.
-                     </p>
+                     <h4>Our Digital Marketing Mission & Vision</h4>
 
                      <p>
-                        <b>Social Media Management: </b>
-                        Take charge of your social media game on Facebook,
-                        Instagram, Twitter, and LinkedIn. We create engaging
-                        content, chat with your audience, and run ads to spread
-                        your message.
-                     </p>
-
-                     <p>
-                        <b>PPC Advertising: </b>
-                        Set up and manage Google Ads and social media ad
-                        campaigns, ensuring you reach the right audience, paying
-                        only for clicks.
-                     </p>
-
-                     <p>
-                        <b>Content Marketing: </b>
-                        Craft valuable blog posts, videos, and infographics to
-                        connect and educate your audience, building long-term
-                        relationships. Our skilled writers create high-quality,
-                        SEO-friendly content committed to your success.
-                     </p>
-
-                     <p>
-                        <b>Analytics and Reporting: </b>
-                        Track your digital marketing progress with regular
-                        reports, crunching numbers to make informed moves.
+                        Our vision is to be more than just a provider of
+                        standard digital marketing services. We aim to be a true
+                        partner in your business's digital growth and success.
+                        Our holistic approach focuses on executing essential
+                        services like SEO, PPC, social media marketing, and
+                        analytics with skill and dedication. But we also keep an
+                        eye on the bigger picture of how to continually
+                        innovate, explore new opportunities, and boost your
+                        digital presence. Above all, our mission is to help our
+                        clients achieve their most important business goals
+                        through digitally-driven growth and engagement. We will
+                        ensure you’re one step ahead in identifying and
+                        capitalizing on new digital opportunities. So, don't
+                        hesitate to contact us for your digital needs. Take your
+                        digital marketing to the next level, optimize your
+                        online presence, or explore new opportunities by taking
+                        our services.
                      </p>
                   </div>
 
@@ -140,7 +123,9 @@ const InnerPage = () => {
                               />
 
                               <div className="proDesignation text-start">
-                                 <h3 className="mb-1">Digital Marketing Manager</h3>
+                                 <h3 className="mb-1">
+                                    Digital Marketing Manager
+                                 </h3>
                                  {/* <p className="mb-0">UX / UI Designer</p> */}
                               </div>
                            </div>
@@ -150,7 +135,7 @@ const InnerPage = () => {
 
                   <div className="someServices mt-5 mb-5">
                      <h1 className="servicesTitle text-center pt-5 mb-5">
-                        The Services You will get
+                     What Do We offer?
                      </h1>
                      <Row className="g-5">
                         <Col lg={6} md={6}>
@@ -160,13 +145,9 @@ const InnerPage = () => {
                                  src={"/innerPaageImg/icon/DesignResearch.svg"}
                                  alt="img"
                               />
-                              <h3>Strategic Campaigns</h3>
+                              <h3>Comprehensive SEO Solutions</h3>
                               <p>
-                                 Craft targeted and data-driven digital
-                                 marketing campaigns to amplify brand
-                                 visibility, engage the target audience, and
-                                 drive conversions, ensuring a strategic
-                                 approach aligned with business objectives.
+                              Elevate online presence with our SEO expertise, optimizing content, and website structure. Enhance search rankings, increase organic traffic, and stay ahead in the competitive digital landscape.
                               </p>
                            </div>
                         </Col>
@@ -179,13 +160,9 @@ const InnerPage = () => {
                                  }
                                  alt="img"
                               />
-                              <h3>Comprehensive SEO Solutions</h3>
+                              <h3>Premium Content Marketing Services</h3>
                               <p>
-                                 Elevate online presence with our SEO expertise,
-                                 optimizing content, and website structure.
-                                 Enhance search rankings, increase organic
-                                 traffic, and stay ahead in the competitive
-                                 digital landscape.
+                              Our skilled content developers and editors write SEO-optimized articles and can draft and fine-tune them to merge with brand image and intent. Be it for a marketing company, or niche-based blogging, we provide top-notch content writing services.
                               </p>
                            </div>
                         </Col>
@@ -200,11 +177,7 @@ const InnerPage = () => {
                               />
                               <h3>Engaging Social Media Management</h3>
                               <p>
-                                 Foster meaningful connections through expertly
-                                 managed social media platforms. Our services
-                                 include content creation, community engagement,
-                                 and strategic campaigns, enhancing brand
-                                 presence across diverse channels.
+                              Foster meaningful connections through expertly managed social media platforms. Our services include content creation, community engagement, and strategic campaigns, enhancing brand presence across diverse channels.
                               </p>
                            </div>
                         </Col>
@@ -219,12 +192,7 @@ const InnerPage = () => {
                               />
                               <h3>Data-Driven Analytics</h3>
                               <p>
-                                 Leverage advanced analytics tools to glean
-                                 valuable insights into campaign performance,
-                                 audience behavior, and ROI. Make informed
-                                 decisions, refine strategies, and achieve
-                                 measurable success with our data-driven
-                                 approach.
+                              We use advanced analytics tools to have valuable insights into campaign performance, audience behavior, and ROI. Make informed decisions, refine strategies, and achieve measurable success with our data-driven approach.
                               </p>
                            </div>
                         </Col>

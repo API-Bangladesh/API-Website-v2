@@ -9,9 +9,7 @@ const InnerPage = () => {
          <section id="innerPage" className="section_padding">
             <Container>
                <div className="roleBox">
-                  <h1 className="roleTitle text-capitalize">
-                     UI/UX Design
-                  </h1>
+                  <h1 className="roleTitle text-capitalize">UI/UX Design</h1>
 
                   <div className="textImgBox position-relative">
                      <img
@@ -21,74 +19,43 @@ const InnerPage = () => {
                      />
 
                      <p>
-                        Unlock the potential of your digital presence with our
-                        UI/UX Design Services, where design is an expression of
-                        art and creativity. We set ourselves apart by making
-                        your apps and websites not only function seamlessly but
-                        also look stunning. Our philosophy centers on kindness,
-                        understanding, and putting people first, ensuring an
-                        enjoyable digital journey for every user.
+                        Our UI/UX Design Services are like the artists of the
+                        digital world. Design is an expression of art and
+                        creativity. What sets us apart is we make your apps and
+                        websites not only work well but look stunning!
                      </p>
 
                      <h4 className="d-block my-2">
-                        Discover what sets us apart in UI design
+                        Our UI/UX Design Philosophy
                      </h4>
 
                      <p>
-                        <b>Accessibility and Inclusivity: </b>
-                        Ensuring a fluent experience for everyone, we create
-                        interfaces accessible to all, making technology
-                        inclusive.
+                        We're all about making technology friendly and personal.
+                        We believe that every click or tap comes from a real
+                        person with their own wants and needs. Our design
+                        philosophy is all about being kind, understanding, and
+                        putting people first. We design with the folks who use
+                        your stuff in mind, so their digital journey is super
+                        enjoyable!
                      </p>
 
-                     <p>
-                        <b>User Feedback Integration: </b>
-                        Embracing feedback, we encourage users to share
-                        experiences, refining and improving the design
-                        continually.
-                     </p>
+                     <h4>What We Offer?</h4>
 
                      <p>
-                        <b>Rapid Prototyping: </b>
-                        Prioritizing quick iterations, we use rapid prototyping
-                        for fast idea testing, ensuring swift progress and
-                        adaptability.
-                     </p>
-
-                     <p>
-                        <b>Cross-Platform Consistency: </b>
-                        Maintain brand and design consistency across platforms,
-                        from websites to apps, ensuring a seamless user
-                        experience.
-                     </p>
-
-                     <p>
-                        <b>Data-Driven Design: </b>
-                        Utilize data for informed decisions, aligning design
-                        choices with user preferences through analytics and
-                        behavior analysis.
-                     </p>
-                     <p>
-                        <b>Responsive Design Best Practices: </b>
-                        Follow the latest trends, ensuring your product not only
-                        adapts to different screens but offers an excellent user
-                        experience.
-                     </p>
-                     <p>
-                        <b>Content Strategy: </b>
-                        Beyond visuals, we organize and present content in a
-                        user-friendly way, ensuring effective communication.
-                     </p>
-                     <p>
-                        <b>Wireframing and Information Architecture: </b>
-                        Plan information flow with wireframes, creating a
-                        blueprint before detailed design, like constructing a
-                        building.
-                     </p>
-                     <p>
-                        <b>Ongoing Support: </b>
-                        It doesn't end with design; we provide continuous
-                        support and guidance as your digital product evolves.
+                        We offer UX/UI consulting to provide expert guidance and
+                        audits to solve design challenges. Our design strategy
+                        and workshops help clients unlock their digital
+                        potential. Our UX/UI design services transform user
+                        experiences through wireframing and prototyping. We
+                        bring concepts to life, bridging gaps from wireframes to
+                        interactive prototypes. We develop component libraries
+                        and documentation to maintain brand integrity across
+                        touchpoints. Our research and usability testing provides
+                        comprehensive user insights to identify pain points.
+                        Clients gain confidence in product direction through our
+                        data-driven findings. With an emphasis on understanding
+                        users, we help craft engaging, frictionless digital
+                        experiences merged with actual user behaviors and needs.
                      </p>
                   </div>
 
@@ -185,10 +152,7 @@ const InnerPage = () => {
                            <div className="servicesBox position-relative">
                               <h3>Intuitive User Journeys</h3>
                               <p>
-                                 Craft seamless experiences with user-centric
-                                 design, ensuring intuitive navigation and
-                                 interactions that align with your audience's
-                                 expectations.
+                              Create smooth experiences through user-centric design, ensuring easy navigation and interactions that align with your audience's expectations.
                               </p>
                               <img
                                  className="servicesImg"
@@ -201,10 +165,7 @@ const InnerPage = () => {
                            <div className="servicesBox position-relative ">
                               <h3>Responsive and Consistent Design</h3>
                               <p>
-                                 Our designs adapt flawlessly across devices,
-                                 offering a consistent and visually appealing
-                                 interface, enhancing brand coherence and user
-                                 engagement.
+                              Our designs work smoothly on any device. It will give you a consistent and good-looking interface that boosts your brand and keeps users engaged.
                               </p>
                               <img
                                  className="servicesImg"
@@ -219,10 +180,7 @@ const InnerPage = () => {
                            <div className="servicesBox position-relative ">
                               <h3>Visual Appeal and Professionalism</h3>
                               <p>
-                                 Elevate your brand aesthetics with visually
-                                 polished designs. Our team pays meticulous
-                                 attention to detail, ensuring a professional
-                                 and visually striking digital presence.
+                              Enhance your brand's look with visually refined designs. Our team pays close attention to detail, ensuring a polished and visually appealing digital presence.
                               </p>
                               <img
                                  className="servicesImg"
@@ -237,11 +195,7 @@ const InnerPage = () => {
                            <div className="servicesBox position-relative ">
                               <h3>Efficiency through Tools and Expertise</h3>
                               <p>
-                                 Leverage our designers' expertise in tools like
-                                 Sketch, Adobe XD, and Figma. We create cool
-                                 graphics, optimize images, and use CSS to make
-                                 your product not only look awesome but work
-                                 flawlessly.
+                              Harness the expertise of our designers proficient in tools like Sketch, Adobe XD, and Figma. We craft appealing graphics, optimize images, and employ CSS to not only make your product visually appealing but also ensure flawless functionality.
                               </p>
                               <img
                                  className="servicesImg"

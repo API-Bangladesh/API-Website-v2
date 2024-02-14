@@ -21,51 +21,36 @@ const InnerPage = () => {
                      />
 
                      <p>
-                        In the dynamic realm of software development, success
-                        hinges on the mastery of quality assurance (QA) and
-                        testing. At API Solutions, we pride ourselves on
-                        delivering unparalleled QA and testing services that
-                        transcend industry standards, ensuring your software not
-                        only meets but exceeds user expectations.
+                        Our QA and testing services aim to surpass industry
+                        standards by going above and beyond for your software.
                      </p>
 
-                     <p>
-                        <b>Rigorous Functionality Testing: </b>
-                        Our dedicated QA experts meticulously conduct
-                        functionality tests, leaving no stone unturned to
-                        guarantee flawless software operation. Whether it's user
-                        interfaces, features, or integrations, we ensure every
-                        aspect of your software performs seamlessly, meeting the
-                        highest standards of user experience.
-                     </p>
+                     <h4>What We Offer?</h4>
 
                      <p>
-                        <b>Robust Security Protocols: </b>
-                        Security is non-negotiable in today's digital landscape.
-                        Our comprehensive security testing protocols identify
-                        and eliminate vulnerabilities, fortifying your software
-                        against potential threats. From data integrity to user
-                        trust, our testing procedures instill confidence in both
-                        end-users and stakeholders.
+                        Our manual testing services ensure your software works
+                        as it should. We start with a test plan outlining the
+                        scope and approach. We thoroughly evaluate
+                        non-functional aspects like speed and usability and do
+                        all Black box testing assessments as well. We accelerate
+                        testing cycles and provide consistent, comprehensive
+                        coverage - including complex scenarios. We integrate
+                        automation seamlessly into CI/CD pipelines, fostering a
+                        culture of continuous improvement. All we care for is
+                        that your software works, performs well, and satisfies
+                        users. You get smooth, reliable software that excels
+                        across the board.
                      </p>
-
+                     <h4>Types of Software We Test</h4>
                      <p>
-                        <b>Performance Optimization Strategies: </b>
-                        Beyond functionality, we prioritize the optimization of
-                        your software's performance. Our testing strategies
-                        delve into speed, responsiveness, and scalability,
-                        addressing potential bottlenecks to ensure your software
-                        operates at its peak under diverse conditions.
-                     </p>
-
-                     <p>
-                        <b>End-to-End Testing Excellence: </b>F From unit tests
-                        to comprehensive system evaluations, our end-to-end
-                        testing approach validates every facet of your software.
-                        By identifying and rectifying issues at every
-                        developmental stage, we ensure a reliable end product
-                        that aligns with your vision and exceeds industry
-                        benchmarks.
+                        We test web applications across browsers and platforms
+                        for flawless functionality. Mobile app testing covers
+                        Android, iOS, and a variety of devices. For desktops, we
+                        verify the software on Windows, Mac, and Linux. Testing
+                        also spans IoT, e-commerce, enterprise software like ERP
+                        and CRM, and health applications such as EHR systems. We
+                        validate education/e-learning platforms and content
+                        management systems like WordPress and Drupal.
                      </p>
                   </div>
 
@@ -74,14 +59,11 @@ const InnerPage = () => {
                         <Col lg={8} md={8}>
                            <div className="leftContent position-relative h-100">
                               <h3 className="fw-light lh-sm">
-                                 Experience excellence with API Solutions.
-                                 Partner with us to navigate the complexities of
-                                 software QA and testing, elevating your
-                                 software to unprecedented levels of quality and
-                                 reliability. In the dynamic world of software
-                                 development, QA and testing are the
-                                 cornerstones of success, revolutionizing the
-                                 entire development lifecycle.
+                                 With experts at your side, say goodbye to
+                                 worries and hello to success! Partner with API
+                                 Solutions for excellent QA and testing that
+                                 establishes top-notch software quality and
+                                 reliability.
                               </h3>
                               <div className="techBox mt-5">
                                  <div className="tech">
@@ -166,14 +148,13 @@ const InnerPage = () => {
                                  src={"/innerPaageImg/icon/DesignResearch.svg"}
                                  alt="img"
                               />
-                              <h3>Unleashing Quality</h3>
+                              <h3>Contact Us If You Want</h3>
                               <p>
-                                 The heart of Software QA and Testing lies in
-                                 its ability to ensure top-notch quality. By
-                                 subjecting the software to rigorous evaluation,
-                                 we guarantee that the end product surpasses
-                                 your expectations, delivering unparalleled
-                                 value to your esteemed users.
+                                 Your Software to Rock the Floor The key to
+                                 awesome software QA and testing is making sure
+                                 your software is top-notch. By really putting
+                                 your software through its paces, we guarantee
+                                 it will blow your users away.
                               </p>
                            </div>
                         </Col>
@@ -186,14 +167,12 @@ const InnerPage = () => {
                                  }
                                  alt="img"
                               />
-                           <h3>Unearthing and Resolving Issues</h3>
+                              <h3>Find and Fix Issues</h3>
                               <p>
-                                 In the pursuit of excellence, our robust
-                                 testing procedures unearth any lurking bugs,
-                                 errors, or discrepancies within the software.
-                                 This vigilant approach allows us to address
-                                 these challenges proactively, even before the
-                                 software sets foot in the hands of users.
+                                 Our rock-solid testing finds any bugs or
+                                 problems hiding in your software. This allows
+                                 us to tackle them before your users ever see
+                                 them.
                               </p>
                            </div>
                         </Col>
@@ -206,14 +185,13 @@ const InnerPage = () => {
                                  }
                                  alt="img"
                               />
-                           <h3>Elevating User Experience </h3>
+                              <h3>Great User Experience</h3>
                               <p>
-                                 User satisfaction stands paramount, and
-                                 meticulous testing fuels our passion for
-                                 creating an intuitive and user-friendly
-                                 interface. Our efforts culminate in an
-                                 experience that captivates users, fostering
-                                 engagement and loyalty.
+                                 Your users' happiness is our #1 priority.
+                                 Careful testing fuels our passion for creating
+                                 software that's intuitive and easy to use. Our
+                                 efforts result in an experience your users will
+                                 love.
                               </p>
                            </div>
                         </Col>
@@ -226,14 +204,13 @@ const InnerPage = () => {
                                  }
                                  alt="img"
                               />
-                           <h3>Fortifying Reliability </h3>
+                              <h3>Reliability</h3>
                               <p>
-                                 Dependability is the bedrock of great software,
-                                 and rigorous testing serves as its shield. By
-                                 minimizing the risk of crashes, downtime, or
-                                 data loss, we fortify the reliability and
-                                 stability of your software, allowing it to
-                                 shine in the face of challenges.
+                                 Reliable software is built on a solid
+                                 foundation of rigorous testing. By minimizing
+                                 crashes, downtime, or data loss, we reinforce
+                                 your software's dependability and stability so
+                                 it thrives under pressure.
                               </p>
                            </div>
                         </Col>

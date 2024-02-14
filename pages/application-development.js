@@ -9,7 +9,7 @@ const InnerPage = () => {
          <PageBanner
             pageBg="/innerPaageImg/services.webp"
             title="Application Development"
-            description="Transform your digital presence with API Solutions LTD. As a leading software company, we specialize in creating innovative applications to meet diverse business needs. Count on us to turn your vision into reality, powering your success in the digital realm. Elevate your business with our cutting-edge solutions."
+            description="We transform ideas into successful apps that engage users and grow businesses. With expertise in iOS, Android, and cross-platform development, we bring innovative portable solutions to life. Trust our skilled developers to turn your vision into a high-performing, intuitive mobile app that solves real business challenges."
          />
 
          <ApplicationDevelopment />
