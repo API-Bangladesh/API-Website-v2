@@ -11,12 +11,10 @@ const InnerPage = () => {
                <div className="roleBox">
                   <h1 className="roleTitle text-capitalize">UI/UX Design</h1>
 
-                  <div className="textImgBox position-relative">
-                     <img
-                        className="curve"
-                        src={"/innerPaageImg/4.webp"}
-                        alt="img"
-                     />
+                  <div className="textImgBox">
+                     <div className="curve">
+                        <img src={"/innerPaageImg/4.webp"} alt="img" />
+                     </div>
 
                      <p>
                         Our UI/UX Design Services are like the artists of the

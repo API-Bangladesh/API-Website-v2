@@ -14,11 +14,9 @@ const InnerPage = () => {
                   </h1>
 
                   <div className="textImgBox position-relative">
-                     <img
-                        className="curve"
-                        src={"/innerPaageImg/1.webp"}
-                        alt="img"
-                     />
+                     <div className="curve">
+                        <img src={"/innerPaageImg/1.webp"} alt="img" />
+                     </div>
 
                      <p>
                         We provide fully customized solutions that meet each
@@ -45,8 +43,6 @@ const InnerPage = () => {
                         efficiently and communicate with multiple endpoints,
                         ensuring a smooth and integrated user experience.
                      </p>
-
-                     
                   </div>
 
                   <div className="roleProfile">
@@ -145,7 +141,11 @@ const InnerPage = () => {
                               />
                               <h3>Project Overview</h3>
                               <p>
-                              We commence with an in-depth exploration of your project's objectives and constraints. We weave a thorough project plan that maps out timelines, milestones, and deliverables, creating a clear track forward.
+                                 We commence with an in-depth exploration of
+                                 your project's objectives and constraints. We
+                                 weave a thorough project plan that maps out
+                                 timelines, milestones, and deliverables,
+                                 creating a clear track forward.
                               </p>
                            </div>
                         </Col>
@@ -160,7 +160,12 @@ const InnerPage = () => {
                               />
                               <h3>Segmenting Duties</h3>
                               <p>
-                              We break the project into iterative stages to bring your vision to life. We ensure you stay updated on development status so we can deliver value incrementally. Our process ensures seamless refinement from idea to finished product.
+                                 We break the project into iterative stages to
+                                 bring your vision to life. We ensure you stay
+                                 updated on development status so we can deliver
+                                 value incrementally. Our process ensures
+                                 seamless refinement from idea to finished
+                                 product.
                               </p>
                            </div>
                         </Col>
@@ -175,7 +180,11 @@ const InnerPage = () => {
                               />
                               <h3>Quality Fortification </h3>
                               <p>
-                              We thoroughly test your software using comprehensive assessments including functionality testing and rigorous security scanning. We promptly address the limitations and ensure the best end of the product. 
+                                 We thoroughly test your software using
+                                 comprehensive assessments including
+                                 functionality testing and rigorous security
+                                 scanning. We promptly address the limitations
+                                 and ensure the best end of the product.
                               </p>
                            </div>
                         </Col>
@@ -190,7 +199,14 @@ const InnerPage = () => {
                               />
                               <h3>We Provide Maintenance</h3>
                               <p>
-                              It isn't the end here. We are here to launch your product as well. Our software launch process involves careful planning, cloud migration if needed, testing for quality, data migration, user training, and ongoing support. It ensures a smooth transition to your new software solution, backed by our commitment to your success.
+                                 It isn't the end here. We are here to launch
+                                 your product as well. Our software launch
+                                 process involves careful planning, cloud
+                                 migration if needed, testing for quality, data
+                                 migration, user training, and ongoing support.
+                                 It ensures a smooth transition to your new
+                                 software solution, backed by our commitment to
+                                 your success.
                               </p>
                            </div>
                         </Col>
