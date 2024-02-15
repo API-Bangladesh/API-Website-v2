@@ -13,12 +13,10 @@ const InnerPage = () => {
                      Web App Development
                   </h1>
 
-                  <div className="textImgBox position-relative">
-                     <img
-                        className="curve"
-                        src={"/innerPaageImg/2.webp"}
-                        alt="img"
-                     />
+                  <div className="textImgBox">
+                  <div className="curve">
+                        <img src={"/innerPaageImg/2.webp"} alt="img" />
+                     </div>
 
                      <p>
                         Our eyes are on developing exceptional web applications

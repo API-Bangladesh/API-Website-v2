@@ -13,12 +13,10 @@ const InnerPage = () => {
                      Software QA and Testing
                   </h1>
 
-                  <div className="textImgBox position-relative">
-                     <img
-                        className="curve"
-                        src={"/innerPaageImg/5.webp"}
-                        alt="img"
-                     />
+                  <div className="textImgBox">
+                     <div className="curve">
+                        <img src={"/innerPaageImg/5.webp"} alt="img" />
+                     </div>
 
                      <p>
                         Our QA and testing services aim to surpass industry

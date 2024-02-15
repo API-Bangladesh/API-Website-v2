@@ -394,19 +394,15 @@ body.loaded {
 .curve {
   width: 470px;
   height: 470px;
-  object-fit: cover;
   float: right;
   margin-left: 2rem;
   padding: 10px;
-  border-radius: 100%;
   -webkit-shape-outside: circle();
   shape-outside: circle();
+  position: relative;
 }
 
-.textImgBox p {
-  text-align: justify;
-}
-.textImgBox::after {
+.textImgBox .curve::after {
   content: "";
   display: inline-block;
   width: 250px;
@@ -419,7 +415,7 @@ body.loaded {
   z-index: -1;
 }
 
-.textImgBox::before {
+.textImgBox .curve::before {
   content: "";
   display: inline-block;
   width: 100px;
@@ -431,13 +427,26 @@ body.loaded {
   right: -50px;
   z-index: -1;
 }
+
+.curve img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.textImgBox{
+  min-height: 470px;
+  margin-bottom: 50px;
+}
+
+.textImgBox p {
+  text-align: justify;
+}
+
 .roleTitle {
   font-size: 36px !important;
   font-weight: 600;
-}
-
-.roleProfile {
-  margin-top: 130px;
 }
 
 .techBox {
@@ -485,7 +494,7 @@ body.loaded {
 }
 .proImg {
   width: auto;
-  height: 450px;
+  height: 380px;
 }
 .proDesignation::after {
   content: "";
@@ -493,8 +502,8 @@ body.loaded {
   width: 60px;
   height: 60px;
   position: absolute;
-  left: 0;
-  bottom: 120px;
+  left: 100px;
+  bottom: 100px;
   background-image: url(/ourServiceShap.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -527,16 +536,23 @@ body.loaded {
   .curve {
     width: 370px;
     height: 370px;
+    float: right;
+    margin-left: 2rem;
+    padding: 10px;
+    -webkit-shape-outside: circle();
+    shape-outside: circle();
+    position: relative;
   }
-  .textImgBox::after {
-    width: 200px;
-    height: 200px;
-    right: -60px;
+  .textImgBox .curve::after {
+    width: 150px;
+    height: 150px;
+    right: -30px;
   }
-  .textImgBox::before {
+  .textImgBox .curve::before {
     width: 70px;
     height: 70px;
-    top: 280px;
+    top: 300px;
+    right: -50px;
   }
 }
 @media (max-width: 1199px) {
@@ -569,16 +585,24 @@ body.loaded {
 
 @media (max-width: 767px) {
   .curve {
-    width: 100%;
-    height: 100%;
-    width: 270px;
-    height: 270px;
+    max-width: 370px;
+    max-height: 370px;
+    margin: auto;
     display: block;
     -webkit-shape-outside: unset !important;
     shape-outside: unset !important;
-    text-align: center !important;
-    margin-left: 0rem !important;
     float: initial !important;
+  }
+  .textImgBox .curve::after {
+    width: 120px;
+    height: 120px;
+    right: -10px;
+  }
+  .textImgBox .curve::before {
+    width: 50px;
+    height: 50px;
+    top: 280px;
+    right: -20px;
   }
   .textImgBox p {
     text-align: left !important;

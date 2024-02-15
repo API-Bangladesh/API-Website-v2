@@ -13,12 +13,10 @@ const InnerPage = () => {
                      Digital Marketing
                   </h1>
 
-                  <div className="textImgBox position-relative">
-                     <img
-                        className="curve"
-                        src={"/innerPaageImg/9.webp"}
-                        alt="img"
-                     />
+                  <div className="textImgBox">
+                     <div className="curve">
+                        <img src={"/innerPaageImg/9.webp"} alt="img" />
+                     </div>
 
                      <p>
                         Our team of digital marketing gurus knows how to make
@@ -135,7 +133,7 @@ const InnerPage = () => {
 
                   <div className="someServices mt-5 mb-5">
                      <h1 className="servicesTitle text-center pt-5 mb-5">
-                     What Do We offer?
+                        What Do We offer?
                      </h1>
                      <Row className="g-5">
                         <Col lg={6} md={6}>
@@ -147,7 +145,11 @@ const InnerPage = () => {
                               />
                               <h3>Comprehensive SEO Solutions</h3>
                               <p>
-                              Elevate online presence with our SEO expertise, optimizing content, and website structure. Enhance search rankings, increase organic traffic, and stay ahead in the competitive digital landscape.
+                                 Elevate online presence with our SEO expertise,
+                                 optimizing content, and website structure.
+                                 Enhance search rankings, increase organic
+                                 traffic, and stay ahead in the competitive
+                                 digital landscape.
                               </p>
                            </div>
                         </Col>
@@ -162,7 +164,12 @@ const InnerPage = () => {
                               />
                               <h3>Premium Content Marketing Services</h3>
                               <p>
-                              Our skilled content developers and editors write SEO-optimized articles and can draft and fine-tune them to merge with brand image and intent. Be it for a marketing company, or niche-based blogging, we provide top-notch content writing services.
+                                 Our skilled content developers and editors
+                                 write SEO-optimized articles and can draft and
+                                 fine-tune them to merge with brand image and
+                                 intent. Be it for a marketing company, or
+                                 niche-based blogging, we provide top-notch
+                                 content writing services.
                               </p>
                            </div>
                         </Col>
@@ -177,7 +184,11 @@ const InnerPage = () => {
                               />
                               <h3>Engaging Social Media Management</h3>
                               <p>
-                              Foster meaningful connections through expertly managed social media platforms. Our services include content creation, community engagement, and strategic campaigns, enhancing brand presence across diverse channels.
+                                 Foster meaningful connections through expertly
+                                 managed social media platforms. Our services
+                                 include content creation, community engagement,
+                                 and strategic campaigns, enhancing brand
+                                 presence across diverse channels.
                               </p>
                            </div>
                         </Col>
@@ -192,7 +203,12 @@ const InnerPage = () => {
                               />
                               <h3>Data-Driven Analytics</h3>
                               <p>
-                              We use advanced analytics tools to have valuable insights into campaign performance, audience behavior, and ROI. Make informed decisions, refine strategies, and achieve measurable success with our data-driven approach.
+                                 We use advanced analytics tools to have
+                                 valuable insights into campaign performance,
+                                 audience behavior, and ROI. Make informed
+                                 decisions, refine strategies, and achieve
+                                 measurable success with our data-driven
+                                 approach.
                               </p>
                            </div>
                         </Col>

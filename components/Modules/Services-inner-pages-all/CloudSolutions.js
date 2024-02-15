@@ -13,12 +13,10 @@ const InnerPage = () => {
                      AWS Cloud Solutions
                   </h1>
 
-                  <div className="textImgBox position-relative">
-                     <img
-                        className="curve"
-                        src={"/innerPaageImg/7.webp"}
-                        alt="img"
-                     />
+                  <div className="textImgBox">
+                     <div className="curve">
+                        <img src={"/innerPaageImg/7.webp"} alt="img" />
+                     </div>
 
                      <p>
                      We're committed to delivering AWS cloud solutions that empower your business to thrive in the digital age. Our proficiency in cloud migration, cloud-to-on-premises transition, and system design distinguishes us as your reliable partner in cloud technology. Here's a short glimpse of our offered expertise.
