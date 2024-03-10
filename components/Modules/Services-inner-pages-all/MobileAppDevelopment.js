@@ -44,10 +44,7 @@ const InnerPage = () => {
                         platform with tracking, or an innovative e-commerce app
                         with engaging features, We are here to build you a
                         high-quality, user-friendly app that solves real-life
-                        problems. Partner with us for your Android app
-                        development, and watch your tech dreams come true. Get
-                        in touch today and discover the potential of our
-                        advanced Android app solutions.
+                        problems.
                      </p>
                   </div>
 
@@ -56,11 +53,11 @@ const InnerPage = () => {
                         <Col lg={8} md={8}>
                            <div className="leftContent position-relative h-100">
                               <h3 className="fw-light lh-sm">
-                                 Watch your tech dreams come true with our
-                                 advanced Android app solutions. Partner with us
-                                 for development excellence. Get in touch today
-                                 to unlock the potential of tailored Android
-                                 apps for your business.
+                                 Partner with us for your Android app
+                                 development, and watch your tech dreams come
+                                 true. Get in touch today and discover the
+                                 potential of our advanced Android app
+                                 solutions.
                               </h3>
                               <div className="techBox mt-5">
                                  <div className="tech">
@@ -146,7 +143,10 @@ const InnerPage = () => {
                               />
                               <h3>Increase brand awareness</h3>
                               <p>
-                              A well-designed app directly engages customers with your brand whenever they use their phones. It builds familiarity and loyalty with your brand.
+                                 A well-designed app directly engages customers
+                                 with your brand whenever they use their phones.
+                                 It builds familiarity and loyalty with your
+                                 brand.
                               </p>
                            </div>
                         </Col>
@@ -161,7 +161,10 @@ const InnerPage = () => {
                               />
                               <h3>Generate revenue streams</h3>
                               <p>
-                              Apps allow monetization through paid downloads, in-app purchases, subscriptions, and advertising. An app can become a direct profit center.
+                                 Apps allow monetization through paid downloads,
+                                 in-app purchases, subscriptions, and
+                                 advertising. An app can become a direct profit
+                                 center.
                               </p>
                            </div>
                         </Col>
@@ -176,8 +179,10 @@ const InnerPage = () => {
                               />
                               <h3>Improve customer service</h3>
                               <p>
-                              An app provides a fast and convenient way for customers to get support, contact you, find information, or access services related to your business.
-
+                                 An app provides a fast and convenient way for
+                                 customers to get support, contact you, find
+                                 information, or access services related to your
+                                 business.
                               </p>
                            </div>
                         </Col>
@@ -192,7 +197,10 @@ const InnerPage = () => {
                               />
                               <h3>Collect customer data</h3>
                               <p>
-                              Mobile apps can gather valuable insights about your customers, including demographics, location, behaviors, and preferences. This data helps drive strategy.
+                                 Mobile apps can gather valuable insights about
+                                 your customers, including demographics,
+                                 location, behaviors, and preferences. This data
+                                 helps drive strategy.
                               </p>
                            </div>
                         </Col>
