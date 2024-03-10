@@ -48,16 +48,6 @@ const InnerPage = () => {
                         Anyway, we don’t forget to ensure they are secure,
                         ethical, and safe!
                      </p>
-
-                     <h4>Partner with Us for Success </h4>
-                     <p>
-                        By partnering with API Solutions, you can access a world
-                        of AI and ML solutions tailored to your needs. We're
-                        here to enhance your business, optimize your operations,
-                        and drive innovation in your industry. Contact us today
-                        to take the first step towards a more innovative,
-                        data-driven future.
-                     </p>
                   </div>
 
                   <div className="roleProfile">
@@ -65,10 +55,12 @@ const InnerPage = () => {
                         <Col lg={8} md={8}>
                            <div className="leftContent position-relative h-100">
                               <h3 className="fw-light lh-sm">
-                                 Unlock tailored AI and ML solutions with API
-                                 Solutions. Elevate your business, optimize
-                                 operations, and drive industry innovation.
-                                 Contact us today to embark on a more
+                                 By partnering with API Solutions, you can
+                                 access a world of AI and ML solutions tailored
+                                 to your needs. We're here to enhance your
+                                 business, optimize your operations, and drive
+                                 innovation in your industry. Contact us today
+                                 to take the first step towards a more
                                  innovative, data-driven future.
                               </h3>
                               <div className="techBox mt-5">

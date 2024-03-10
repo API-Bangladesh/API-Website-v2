@@ -39,11 +39,7 @@ const InnerPage = () => {
                         clients achieve their most important business goals
                         through digitally-driven growth and engagement. We will
                         ensure you’re one step ahead in identifying and
-                        capitalizing on new digital opportunities. So, don't
-                        hesitate to contact us for your digital needs. Take your
-                        digital marketing to the next level, optimize your
-                        online presence, or explore new opportunities by taking
-                        our services.
+                        capitalizing on new digital opportunities.
                      </p>
                   </div>
 
@@ -52,12 +48,11 @@ const InnerPage = () => {
                         <Col lg={8} md={8}>
                            <div className="leftContent position-relative h-100">
                               <h3 className="fw-light lh-sm">
-                                 Empowering your business goals, we keep you
-                                 ahead in the digital world. Elevate your
-                                 digital marketing, optimize online presence,
-                                 and explore new opportunities with our
-                                 services. Contact us for all your digital
-                                 needs.
+                                 Don't hesitate to contact us for your digital
+                                 needs. Take your digital marketing to the next
+                                 level, optimize your online presence, or
+                                 explore new opportunities by taking our
+                                 services.
                               </h3>
                               <div className="techBox mt-5">
                                  <div className="tech">
