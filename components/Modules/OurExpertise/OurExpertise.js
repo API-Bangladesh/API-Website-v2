@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import SectionTitle from "../Section_title/Section_title";
 import Accordion from "react-bootstrap/Accordion";
+import Image from "next/image";
 
 const OurExpertise = () => {
    const [currentActiveKey, setCurrentActiveKey] = useState("1");
@@ -110,9 +111,11 @@ const OurExpertise = () => {
                         <Col sm={6} lg={7} xl={7}>
                            <Tab.Content>
                               <Tab.Pane eventKey="1">
-                                 <img
+                                 <Image
                                     src="/OurExpertise/ApplicationDevelopment.webp"
                                     alt="img"
+                                    width={500}
+                                    height={500}
                                  />
                                  <p className="py-3 text-justify">
                                     Rapid advancements in technology,
@@ -127,9 +130,11 @@ const OurExpertise = () => {
                                  </p>
                               </Tab.Pane>
                               <Tab.Pane eventKey="2">
-                                 <img
+                                 <Image
                                     src="/OurExpertise/DigitalTransformation.webp"
                                     alt="img"
+                                    width={500}
+                                    height={500}
                                  />
                                  <p className="py-3 text-justify">
                                     In today's rapidly evolving business
@@ -143,9 +148,11 @@ const OurExpertise = () => {
                                  </p>
                               </Tab.Pane>
                               <Tab.Pane eventKey="3">
-                                 <img
+                                 <Image
                                     src="/OurExpertise/BusinessAnalysis.webp"
                                     alt="img"
+                                    width={500}
+                                    height={500}
                                  />
                                  <p className="py-3 text-justify">
                                     We believe Business Analysis goes beyond
@@ -164,9 +171,11 @@ const OurExpertise = () => {
                                  </p>
                               </Tab.Pane>
                               <Tab.Pane eventKey="4">
-                                 <img
+                                 <Image
                                     src="/OurExpertise/DigitalProductDesign.webp"
                                     alt="img"
+                                    width={500}
+                                    height={500}
                                  />
                                  <p className="py-3 text-justify">
                                     We truly understand the game-changing impact
@@ -185,9 +194,11 @@ const OurExpertise = () => {
                                  </p>
                               </Tab.Pane>
                               <Tab.Pane eventKey="5">
-                                 <img
+                                 <Image
                                     src="/OurExpertise/DataManagement.webp"
                                     alt="img"
+                                    width={500}
+                                    height={500}
                                  />
                                  <p className="py-3 text-justify">
                                     We pioneer efficient data management
@@ -209,7 +220,12 @@ const OurExpertise = () => {
                                  </p>
                               </Tab.Pane>
                               <Tab.Pane eventKey="6">
-                                 <img src="/OurExpertise/IoT.webp" alt="img" />
+                                 <Image
+                                    src="/OurExpertise/IoT.webp"
+                                    alt="img"
+                                    width={500}
+                                    height={500}
+                                 />
                                  <p className="py-3 text-justify">
                                     With our deep understanding of IoT, we
                                     create innovative solutions that utilize the
@@ -218,9 +234,11 @@ const OurExpertise = () => {
                                  </p>
                               </Tab.Pane>
                               <Tab.Pane eventKey="7">
-                                 <img
+                                 <Image
                                     src="/OurExpertise/DevOps.webp"
                                     alt="img"
+                                    width={500}
+                                    height={500}
                                  />
                                  <p className="py-3 text-justify">
                                     Our proficiency in DevOps allows us to
@@ -238,9 +256,11 @@ const OurExpertise = () => {
                                  </p>
                               </Tab.Pane>
                               <Tab.Pane eventKey="8">
-                                 <img
+                                 <Image
                                     src="/OurExpertise/ITSupportMaintenance.webp"
                                     alt="img"
+                                    width={500}
+                                    height={500}
                                  />
                                  <p className="py-3 text-justify">
                                     We understand the critical role that IT
@@ -267,13 +287,22 @@ const OurExpertise = () => {
                            1. Application Development
                         </Accordion.Header>
                         <Accordion.Body>
-                           <img
+                           <Image
                               className="img-fluid"
                               src="/OurExpertise/ApplicationDevelopment.webp"
                               alt="img"
+                              width={500}
+                              height={500}
                            />
                            <p className="py-3 text-justify">
-                           Rapid advancements in technology, particularly the growth of mobile devices and the Internet, have been a driving force behind the growth in application development. From social media platforms and Ecommerce websites to productivity tools and entertainment apps, the digital landscape is teeming with applications that cater to a variety of needs and interests.
+                              Rapid advancements in technology, particularly the
+                              growth of mobile devices and the Internet, have
+                              been a driving force behind the growth in
+                              application development. From social media
+                              platforms and Ecommerce websites to productivity
+                              tools and entertainment apps, the digital
+                              landscape is teeming with applications that cater
+                              to a variety of needs and interests.
                            </p>
                         </Accordion.Body>
                      </Accordion.Item>
@@ -282,10 +311,12 @@ const OurExpertise = () => {
                            2. Digital Transformation
                         </Accordion.Header>
                         <Accordion.Body>
-                           <img
+                           <Image
                               className="img-fluid"
                               src="/OurExpertise/DigitalTransformation.webp"
                               alt="img"
+                              width={500}
+                              height={500}
                            />
                            <p className="py-3 text-justify">
                               In today's rapidly evolving business landscape,
@@ -302,10 +333,12 @@ const OurExpertise = () => {
                            3. Business Analysis
                         </Accordion.Header>
                         <Accordion.Body>
-                           <img
+                           <Image
                               className="img-fluid"
                               src="/OurExpertise/BusinessAnalysis.webp"
                               alt="img"
+                              width={500}
+                              height={500}
                            />
                            <p className="py-3 text-justify">
                               We believe Business Analysis goes beyond just a
@@ -327,10 +360,12 @@ const OurExpertise = () => {
                            4. Digital Product Design
                         </Accordion.Header>
                         <Accordion.Body>
-                           <img
+                           <Image
                               className="img-fluid"
                               src="/OurExpertise/DigitalProductDesign.webp"
                               alt="img"
+                              width={500}
+                              height={500}
                            />
                            <p className="py-3 text-justify">
                               We truly understand the game-changing impact of
@@ -351,10 +386,12 @@ const OurExpertise = () => {
                      <Accordion.Item eventKey="5">
                         <Accordion.Header>5. Data Management</Accordion.Header>
                         <Accordion.Body>
-                           <img
+                           <Image
                               className="img-fluid"
                               src="/OurExpertise/DataManagement.webp"
                               alt="img"
+                              width={500}
+                              height={500}
                            />
                            <p className="py-3 text-justify">
                               We pioneer efficient data management solutions
@@ -376,10 +413,12 @@ const OurExpertise = () => {
                      <Accordion.Item eventKey="6">
                         <Accordion.Header>6. IoT</Accordion.Header>
                         <Accordion.Body>
-                           <img
+                           <Image
                               className="img-fluid"
                               src="/OurExpertise/IoT.webp"
                               alt="img"
+                              width={500}
+                              height={500}
                            />
                            <p className="py-3 text-justify">
                               With our deep understanding of IoT, we create
@@ -391,10 +430,12 @@ const OurExpertise = () => {
                      <Accordion.Item eventKey="7">
                         <Accordion.Header>7. DevOps</Accordion.Header>
                         <Accordion.Body>
-                           <img
+                           <Image
                               className="img-fluid"
                               src="/OurExpertise/DevOps.webp"
                               alt="img"
+                              width={500}
+                              height={500}
                            />
                            <p className="py-3 text-justify">
                               Our proficiency in DevOps allows us to streamline
@@ -415,10 +456,12 @@ const OurExpertise = () => {
                            8. IT Support & Maintenance
                         </Accordion.Header>
                         <Accordion.Body>
-                           <img
+                           <Image
                               className="img-fluid"
                               src="/OurExpertise/ITSupportMaintenance.webp"
                               alt="img"
+                              width={500}
+                              height={500}
                            />
                            <p className="py-3 text-justify">
                               We understand the critical role that IT
@@ -435,75 +478,95 @@ const OurExpertise = () => {
             </div>
 
             <div className="section-overlay shapeOpacity">
-               <img
+               <Image
                   id="CTA-0"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-cyan.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
-               <img
+               <Image
                   id="CTA-1"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-blue.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
-               <img
+               <Image
                   id="CTA-2"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-blue.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
-               <img
+               <Image
                   id="CTA-3"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-cyan.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
-               <img
+               <Image
                   id="CTA-4"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-blue.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
-               <img
+               <Image
                   id="CTA-5"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-cyan.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
-               <img
+               <Image
                   id="CTA-6"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-cyan.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
-               <img
+               <Image
                   id="CTA-7"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-blue.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
-               <img
+               <Image
                   id="CTA-8"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-orange.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
-               <img
+               <Image
                   id="CTA-9"
                   loading="lazy"
                   decoding="async"
                   src="/shape/cta-blue.svg"
                   alt="img"
+                  width={100}
+                  height={100}
                />
             </div>
          </section>

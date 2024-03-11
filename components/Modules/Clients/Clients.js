@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image'
 import SectionTitle from "../Section_title/Section_title";
 import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
@@ -59,54 +60,66 @@ const Clients = () => {
                   <div className="row g-0">
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                      <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/bcb.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                      <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/tennis.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/ifad_group.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/Picture1.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/Picture02.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/Picture11.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
@@ -118,54 +131,66 @@ const Clients = () => {
                   <div className="row">
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/muslim.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/Picture13.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/travelworld.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/Picture4.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/thamesoptic.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     {/* <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/Picture01.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
@@ -178,19 +203,23 @@ const Clients = () => {
                   {/* <div className="row">
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                           src="/Clients_logo/IFAD-ESHOP-Logo.png"
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>
                     </Col>
                     <Col lg={4} md={4} sm={4} className="mb-4 for_responsive">
                       <div className="client_logos d-flex justify-content-end">
-                        <img
+                        <Image
+                          width={100}
+                          height={100}
                         src="/Clients_logo/IFAD-Multi-Products.png"
                           
-                          alt=""
+                          alt="img"
                           className="logo_size img-fluid"
                         />
                       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image'
 import SectionTitle from "../Section_title/Section_title";
 import Counter1 from "./Counter1";
 import Counter2 from "./Counter2";
@@ -14,10 +15,12 @@ const NumberFigures = () => {
           <div className="row align-items-center">
             <div className="col-md-6 col-lg-6 col-xl-6 col-xxl-7 d-flex justify-content-center">
               <div className="wItem position-relative">
-                  <img
+                  <Image
                     src="/welcome.webp"
                     alt="img"
                     className="welcpmeImg img-fluid"
+                    width={300}
+                    height={300}
                   />
 
                 <div className="yearBg">
