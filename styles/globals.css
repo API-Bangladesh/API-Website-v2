@@ -134,7 +134,8 @@ h6 {
 
 /* preloader */
 body.loaded {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  overflow: hidden;
 }
 .preloader {
   width: 100%;

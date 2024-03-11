@@ -5,7 +5,16 @@ const Slider = () => {
     return (
         <>
             <section id="slider">
-                <Carousel fade pause="false" indicators={false} controls={false}>
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="d-block w-100 sliderVideo"
+            >
+                <source src="/videos/api_video.mp4" type="video/mp4"/>
+            </video>
+                {/* <Carousel fade pause="false" indicators={false} controls={false}>
                     <Carousel.Item>
                         <video
                             autoPlay
@@ -17,16 +26,16 @@ const Slider = () => {
                             <source src="/videos/api_video.mp4" type="video/mp4"/>
                         </video>
 
-                        {/* <Carousel.Caption>
+                        <Carousel.Caption>
                         <h3>First slide label</h3>
                         <p>
                             Nulla vitae elit libero, a pharetra augue mollis
                             interdum.
                         </p>
-                    </Carousel.Caption> */}
+                    </Carousel.Caption>
                     </Carousel.Item>
 
-                    {/* <Carousel.Item>
+                    <Carousel.Item>
                         <img
                             className="d-block w-100 sliderImg"
                             src="/slider1.jpg"
@@ -40,8 +49,8 @@ const Slider = () => {
                             elit.
                         </p>
                     </Carousel.Caption>
-                    </Carousel.Item> */}
-                </Carousel>
+                    </Carousel.Item>
+                </Carousel> */}
             </section>
         </>
     );

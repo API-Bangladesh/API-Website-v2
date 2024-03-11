@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }) {
     const delay = setTimeout(() => {
       document.body.classList.add("loaded");
       setIsLoaded(true);
-    }, 3000);
+    }, 1000);
     return () => clearTimeout(delay);
   }, []);
 
