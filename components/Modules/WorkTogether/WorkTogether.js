@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image'
 import SectionTitle from "../Section_title/Section_title";
 import { Container, Row, Col } from "react-bootstrap";
 import Link from "next/link";
@@ -15,7 +16,9 @@ const WorkTogether = () => {
                         className="d-flex justify-content-center align-items-center touch_main_dtn position-relative"
                         style={{ height: "300px" }}
                      >
-                        <img
+                        <Image
+                          width={1000}
+                          height={1000}
                            src="/plan.png"
                            alt="plan"
                            className="img-fluid work_together"
