@@ -22,7 +22,9 @@
 }
 
 #footer .footer_api_logo {
-   max-width: 120px;
+   width: 120px !important;
+   height: auto !important;
+   object-fit: contain !important;
 }
 
 #footer .footer_social_icons {

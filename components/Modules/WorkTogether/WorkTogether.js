@@ -17,11 +17,10 @@ const WorkTogether = () => {
                         style={{ height: "300px" }}
                      >
                         <Image
-                          width={1000}
-                          height={1000}
+                          fill={true} 
                            src="/plan.png"
                            alt="plan"
-                           className="img-fluid work_together"
+                           className="work_together"
                         />
                         <h1 className="text-capitalize work_title">
                            Let’s work

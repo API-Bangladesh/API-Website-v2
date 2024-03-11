@@ -46,6 +46,12 @@
 .get_in_touch:hover::before {
   animation: worktogether 0.3s;
 }
+
+.work_together{
+  width: 100% !important;
+  height: auto !important;
+}
+
 @keyframes worktogether {
   0% {
     border: 1px dashed #333 !important;
