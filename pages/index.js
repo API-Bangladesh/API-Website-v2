@@ -9,7 +9,7 @@ const Index = () => {
          </Head>
          <Home />
 
-         <img id="betaImg" src="/beta.png" width={70} height={70} alt="img" />
+         {/* <img id="betaImg" src="/beta.png" width={70} height={70} alt="img" /> */}
       </>
    );
 };
