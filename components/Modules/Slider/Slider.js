@@ -11,6 +11,7 @@ const Slider = () => {
                 loop
                 playsInline
                 className="d-block w-100 sliderVideo"
+                poster="/videos/fallback.jpg"
             >
                 <source src="/videos/api_video.mp4" type="video/mp4"/>
             </video>
