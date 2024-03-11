@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from 'next/image'
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -8,7 +9,6 @@ import Accordion from "react-bootstrap/Accordion";
 import { BsArrowRight } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import { useRouter } from "next/router";
-
 import { GoHome } from "react-icons/go";
 import { LuUsers2 } from "react-icons/lu";
 import { MdOutlineDesignServices } from "react-icons/md";
@@ -80,7 +80,9 @@ const Header = () => {
                   <Navbar expand="lg" className="bg-body-tertiary">
                      <Container>
                         <Navbar.Brand as={Link} href="/">
-                           <img
+                        <Image
+                              width={120}
+                              height={60}
                               className="logo"
                               src="/logo.png"
                               alt="logoImg"
@@ -308,7 +310,9 @@ const Header = () => {
                {/* <div className="container"> */}
                <div className="position-relative">
                   <Link className="phnLogo" href="/">
-                     <img
+                  <Image
+                        width={120}
+                        height={60}
                         className="logo ms-3 mt-2"
                         src="/logo.png"
                         alt="logoImg"

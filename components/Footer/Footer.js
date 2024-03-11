@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image'
 import React from "react";
 // import TopButton from "./../Modules/SideNav/TopButton";
 import BackToTop from "../Modules/BackToTop/BackToTop";
@@ -16,8 +17,10 @@ export default function Footer() {
                   <div className="col-md-12 col-lg-4 myOrder1">
                      <div className="footerLogo">
                         <Link href="/">
-                           <img
-                              className="footer_api_logo bi-align-middle"
+                        <Image
+                              width={120}
+                              height={60}
+                              className="footer_api_logo"
                               src="/logo.png"
                               alt="logo"
                            />
