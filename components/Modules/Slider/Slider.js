@@ -1,59 +1,45 @@
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
+// import Carousel from "react-bootstrap/Carousel";
+import VideoPlayer from "./VideoPlayer";
 
 const Slider = () => {
-    return (
-        <>
-            <section id="slider">
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="d-block w-100 sliderVideo"
-            >
-                <source src="/videos/api_video.mp4" type="video/mp4"/>
-            </video>
-                {/* <Carousel fade pause="false" indicators={false} controls={false}>
-                    <Carousel.Item>
-                        <video
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            className="d-block w-100 sliderVideo"
-                        >
-                            <source src="/videos/api_video.mp4" type="video/mp4"/>
-                        </video>
+  return (
+    <section id="slider">
+      <VideoPlayer />
 
-                        <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>
-                            Nulla vitae elit libero, a pharetra augue mollis
-                            interdum.
-                        </p>
-                    </Carousel.Caption>
-                    </Carousel.Item>
+      {/* <Carousel fade pause="false" indicators={false} controls={false}>
+        <Carousel.Item>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="d-block w-100 sliderVideo"
+          >
+            <source src="/videos/api_video.mp4" type="video/mp4" />
+          </video>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100 sliderImg"
-                            src="/slider1.jpg"
-                            alt="Second slide"
-                        />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
 
-                        <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit.
-                        </p>
-                    </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel> */}
-            </section>
-        </>
-    );
+        <Carousel.Item>
+          <img
+            className="d-block w-100 sliderImg"
+            src="/slider1.jpg"
+            alt="Second slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel> */}
+    </section>
+  );
 };
 
 export default Slider;
