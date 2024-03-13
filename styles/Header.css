@@ -158,7 +158,7 @@
    background-size: cover !important;
    z-index: 0;
    display: flex;
-   justify-content: end;
+   justify-content: flex-end;
 }
 
 .navBox {
@@ -237,7 +237,7 @@
    .logo {
       max-width: 100px;
    }
-   
+
 }
 
 
