@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Layout from "./Layout";
 import "@/styles/globals.css";
 import "../styles/normalize.css";
@@ -49,14 +50,20 @@ import Preloader from "../components/Modules/Preloader/Preloader";
 
 export default function App({ Component, pageProps }) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
+    if (router.pathname === "/") {
+      setIsLoaded(true);
+      return;
+    }
+
     const delay = setTimeout(() => {
       document.body.classList.add("loaded");
       setIsLoaded(true);
     }, 1000);
     return () => clearTimeout(delay);
-  }, []);
+  }, [router.pathname]);
 
   return (
     <>
