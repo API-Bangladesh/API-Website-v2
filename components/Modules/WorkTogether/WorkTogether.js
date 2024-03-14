@@ -11,7 +11,7 @@ const WorkTogether = () => {
             <SectionTitle titleUpDown="Let's Work Together" />
             <Container>
                <Row>
-                  <Col lg={7} md={7} className="px-0 workTogetherCol">
+                  <Col lg={7} md={7} sm={7} className="px-0 workTogetherCol">
                      <div
                         className="d-flex justify-content-center align-items-center touch_main_dtn position-relative"
                         style={{ height: "300px" }}
@@ -29,7 +29,7 @@ const WorkTogether = () => {
                         </h1>
                      </div>
                   </Col>
-                  <Col lg={5} md={5} className="workTogetherCol">
+                  <Col lg={5} md={5} sm={5} className="workTogetherCol">
                      <div
                         className="d-flex justify-content-center align-items-center position-relative touch_main_div"
                         style={{ height: "300px" }}
