@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "../../components/Modules/Slider/Slider";
+import Slider from "../../components/Modules/Slider/SliderFullVideo";
 import OurExpertise from "../../components/Modules/OurExpertise/OurExpertise";
 import Services from "../../components/Modules/Services/Services";
 import WorkProcess from "../../components/Modules/WorkProcess/WorkProcess";
@@ -14,28 +14,25 @@ import Clients from "../../components/Modules/Clients/Clients";
 import WorkTogether from "../../components/Modules/WorkTogether/WorkTogether";
 import ClientReview from "../../components/Modules/ClientReview/ClientReview";
 
-
-
-
 const Home = () => {
-   return (
-      <>
-         <Slider />
-         <AboutUs />
-         <NumberFigures />
-         <OurExpertise />
-         <CoreValuesTwo />
-         <Services />
-         {/* <Industry /> */}
-         {/* <Technology /> */}
-         <WorkProcess />
-         <Clients />
-         <ClientReview />
-         <WorkTogether />
-         {/* <SideNav /> */}
-         {/* <Contacts /> */}
-      </>
-   );
+  return (
+    <>
+      <Slider />
+      <AboutUs />
+      <NumberFigures />
+      <OurExpertise />
+      <CoreValuesTwo />
+      <Services />
+      {/* <Industry /> */}
+      {/* <Technology /> */}
+      <WorkProcess />
+      <Clients />
+      <ClientReview />
+      <WorkTogether />
+      {/* <SideNav /> */}
+      {/* <Contacts /> */}
+    </>
+  );
 };
 
 export default Home;
