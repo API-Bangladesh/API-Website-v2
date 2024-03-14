@@ -96,9 +96,9 @@
    left: 0;
 }
 
-#clientsReview .Commentimg {
-   max-width: 100px;
-   margin-top: 30px;
+#clientsReview .commentimg {
+   max-width: 100px !important;
+   margin-top: 30px !important;
    margin-bottom: 40px;
 }
 
@@ -165,7 +165,7 @@
       height: 250px;
       width: 250px;
    }
-   #clientsReview .Commentimg {
+   #clientsReview .commentimg {
       max-width: 75px;
    }
    #clientsReview .commentText {
@@ -179,7 +179,7 @@
    }
 }
 @media (max-width: 767px) {
-   #clientsReview .Commentimg {
+   #clientsReview .commentimg {
       max-width: 60px;
    }
    #clientsReview .img_sec_height {
@@ -188,7 +188,7 @@
    #clientsReview .sec_height {
       height: 195px !important;
    }
-   #clientsReview .Commentimg {
+   #clientsReview .commentimg {
       margin-bottom: 20px;
    }
    #clientsReview .commentText {
@@ -204,7 +204,7 @@
       height: 150px !important;
       width: 150px !important;
    }
-   .clients_review .Commentimg {
+   .clients_review .commentimg {
       margin-left: 50%;
       transform: translate(-50%);
    }
@@ -231,14 +231,14 @@
    #clientsReview .client_name {
       font-weight: 600;
    }
+   .review_person {
+      text-align: center;
+      border: none !important;
+   }
 }
 @media (max-width: 575px) {
    #clientsReview .img_sec_height {
       height: 150px !important;
-   }
-   .review_person {
-      text-align: center;
-      border: none !important;
    }
    .client_img {
       height: 130px !important;

@@ -34,7 +34,7 @@ const ClientReview = () => {
                                     height={85}
                                     src="/commentimg.png"
                                     alt="img"
-                                    className="Commentimg"
+                                    className="commentimg"
                                  />
                                  <p className="commentText pe-5 pb-4">
                                     API team have tremendous know how in
@@ -79,7 +79,7 @@ const ClientReview = () => {
                                     height={85}
                                     src="/commentimg.png"
                                     alt="img"
-                                    className="Commentimg"
+                                    className="commentimg"
                                  />
                                  <p className="commentText pe-5 pb-4">
                                     We have been working with API SOLUTIONS for
@@ -124,7 +124,7 @@ const ClientReview = () => {
                                     height={85}
                                     src="/commentimg.png"
                                     alt="img"
-                                    className="Commentimg"
+                                    className="commentimg"
                                  />
                                  <p className="commentText pe-5 pb-4">
                                     API team have tremendous know how in
