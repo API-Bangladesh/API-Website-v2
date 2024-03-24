@@ -308,7 +308,7 @@ const ProjectEstimate = () => {
           ""
         )}
 
-        <SectionTitle titleUpDown="Contact Form" />
+        <SectionTitle titleUpDown="Estimate Project" />
 
         <Container>
           <div className="d-flex justify-content-center">
