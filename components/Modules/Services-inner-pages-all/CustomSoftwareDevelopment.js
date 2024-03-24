@@ -61,42 +61,42 @@ const InnerPage = () => {
                                  <div className="tech">
                                     <img
                                        className="proIconImg"
-                                       src={"/innerPaageImg/icon/Figma.svg"}
+                                       src={"/services-technology-icons/CustomSoftwareDevelopment1.svg"}
                                        alt="img"
                                     />
                                  </div>
                                  <div className="tech">
                                     <img
                                        className="proIconImg"
-                                       src={"/innerPaageImg/icon/Miro.svg"}
+                                       src={"/services-technology-icons/CustomSoftwareDevelopment2.svg"}
                                        alt="img"
                                     />
                                  </div>
                                  <div className="tech">
                                     <img
                                        className="proIconImg"
-                                       src={"/innerPaageImg/icon/Hotjar.svg"}
+                                       src={"/services-technology-icons/CustomSoftwareDevelopment3.svg"}
                                        alt="img"
                                     />
                                  </div>
                                  <div className="tech">
                                     <img
                                        className="proIconImg"
-                                       src={"/innerPaageImg/icon/C.svg"}
+                                       src={"/services-technology-icons/CustomSoftwareDevelopment4.svg"}
                                        alt="img"
                                     />
                                  </div>
                                  <div className="tech">
                                     <img
                                        className="proIconImg"
-                                       src={"/innerPaageImg/icon/Mi.svg"}
+                                       src={"/services-technology-icons/CustomSoftwareDevelopment5.svg"}
                                        alt="img"
                                     />
                                  </div>
                                  <div className="tech">
                                     <img
                                        className="proIconImg"
-                                       src={"/innerPaageImg/icon/tailwind.svg"}
+                                       src={"/services-technology-icons/CustomSoftwareDevelopment6.svg"}
                                        alt="img"
                                     />
                                  </div>
